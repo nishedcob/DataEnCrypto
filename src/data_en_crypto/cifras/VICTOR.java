@@ -79,8 +79,36 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
-    private String juntar(String salida, byte[] LLAVE) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String juntar(String texto, byte[] LLAVE) {
+        String salida = "";
+        int j = 0;
+        char[] texto_arreglo = texto.toCharArray();
+        for (int i = 0; i < texto_arreglo.length; i++) {
+            short c = Short.parseShort(""+texto_arreglo[i]);
+            short a = Short.parseShort(""+LLAVE[j]);
+            int res = c + a;
+            if(res > 9){
+               char n = (char) (res % 10);
+               char p = (char) (res / 10);
+               if(i == 0){
+                   salida = "" + p + "" + n;
+               } else {
+                   char pp = salida.charAt(salida.lastIndexOf(salida));
+                   salida = "" + salida.substring(0, salida.lastIndexOf(salida)) + "";
+                   res = Short.parseShort(""+p) + Short.parseShort(""+pp);
+                   if(res > 9){
+                       if(i == 1){
+                           salida = "" + res + "" + n;
+                       } else {
+                           
+                       }
+                   }
+               }
+            } else {
+                salida += (char) (res);
+            }
+        }
+        return salida;
     }
     
     private String disjuntar(String salida, byte[] LLAVE) {
