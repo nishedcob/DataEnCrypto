@@ -113,21 +113,21 @@ public class DataEnCrypto {
         /**/
         //</editor-fold>
         
-        //<editor-fold defaultstate="collapsed" desc=" Matrices ">
+        //<editor-fold defaultstate="collapsed" desc=" Matrices -- no funciona ">
         //*
         System.out.println("---Matrices---");
         int[][] llave2 = {
-            {1, 3, 3},
-            {3, 1, 1},
+            {4, 3, 3},
+            {3, 2, 1},
             {1, 1, 3}
         };
         Matrices mat = new Matrices(llave2);
-        System.out.println("DET: " + mat.getDET());
+        //System.out.println("DET: " + mat.getDET());
         if(mat.getLLAVE() != null){
             salida = mat.encriptar(texto);
             System.out.println("Encryptado: " + salida);
-            //salida = mat.decifrar(salida);
-            //System.out.println("Decifrado:  " + salida);
+            salida = mat.decifrar(salida);
+            System.out.println("Decifrado:  " + salida);
         }
         //*/
         //</editor-fold>
