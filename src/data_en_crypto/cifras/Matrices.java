@@ -78,6 +78,14 @@ public class Matrices implements Cifras{
         }
     }
 
+    public int[][] getLLAVE() {
+        return LLAVE;
+    }
+
+    public int getDET() {
+        return DET;
+    }
+
     @Override
     public String encriptar(String texto) {
         String salida;
