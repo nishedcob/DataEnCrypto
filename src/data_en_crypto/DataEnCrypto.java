@@ -133,6 +133,14 @@ public class DataEnCrypto {
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" VICTOR ">
+        System.out.println("---VICTOR---");
+        char[][] tabla_llave = {
+            {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'},
+            {'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'},
+            {'P', 'Q', '/', 'U', 'V', 'W', 'X', 'Y', 'Z', '.'}
+        };
+        byte[] clave2 = {'c', 'l', 'a', 'v', 'e'};
+        VICTOR vic = new VICTOR(tabla_llave, clave2);
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
