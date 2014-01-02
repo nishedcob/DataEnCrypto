@@ -12,9 +12,11 @@ package data_en_crypto.cifras;
  */
 public class VICTOR implements Cifras{
     private final char[][] TABLA_LLAVE;
+    private final byte[] LLAVE;
 
-    public VICTOR(char[][] TABLA_LLAVE) {
+    public VICTOR(char[][] TABLA_LLAVE, byte[] LLAVE) {
         this.TABLA_LLAVE = TABLA_LLAVE;
+        this.LLAVE = LLAVE;
     }
 
     @Override
