@@ -141,6 +141,10 @@ public class DataEnCrypto {
         };
         byte[] clave2 = {'c', 'l', 'a', 'v', 'e'};
         VICTOR vic = new VICTOR(tabla_llave, clave2);
+        salida = vic.encriptar(texto);
+        System.out.println("Encryptado: " + salida);
+        salida = vic.decifrar(salida);
+        System.out.println("Decifrado:  " + salida);
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
