@@ -20,7 +20,7 @@ import data_en_crypto.cifras.*;
 public class DataEnCrypto {
     
     //VARIABLES GLOBALES
-    final static byte[] VERSION = {0, 1, 5};
+    final static byte[] VERSION = {0, 5, 6};
     
     //<editor-fold defaultstate="collapsed" desc=" Nucleo del Programa ">
     public static void main(String[] args) {
