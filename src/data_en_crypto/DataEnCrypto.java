@@ -114,7 +114,7 @@ public class DataEnCrypto {
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Matrices -- no funciona ">
-        //*
+        /*
         System.out.println("---Matrices---");
         int[][] llave2 = {
             {4, 3, 3},
@@ -133,6 +133,7 @@ public class DataEnCrypto {
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" VICTOR ">
+        /*
         System.out.println("---VICTOR---");
         char[][] tabla_llave = {
             {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'},
@@ -141,6 +142,7 @@ public class DataEnCrypto {
         };
         byte[] clave2 = {'c', 'l', 'a', 'v', 'e'};
         VICTOR vic = new VICTOR(tabla_llave, clave2);
+        //*/
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
