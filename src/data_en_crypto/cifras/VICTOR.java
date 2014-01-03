@@ -26,40 +26,35 @@ public class VICTOR implements Cifras{
     @Override
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
-        String salida = this.texto_a_numero(texto);
-        salida = this.juntar(salida, LLAVE);
-        salida = this.numero_a_texto(salida);
-        return salida;
+        int[] temp = this.texto_a_numeros(texto);
+        temp = this.disjuntar(temp, LLAVE);
+        return this.numeros_a_texto(temp);
     }
 
     @Override
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
-        String salida = this.texto_a_numero(texto);
-        salida = this.disjuntar(salida, LLAVE);
-        salida = this.numero_a_texto(salida);
-        return salida;
+        int[] temp = this.texto_a_numeros(texto);
+        temp = this.disjuntar(temp, LLAVE);
+        return this.numeros_a_texto(temp);
     }
 
-    private String texto_a_numero(String texto) {
-        String salida = "";
+    private int[] texto_a_numeros(String texto) {
+        int[] salida = new int[texto.length() + 1];
         char[] texto_arreglo = texto.toCharArray();
+        int i = 1;
         for (char c : texto_arreglo) {
             int[] pos = encontrar_en_tabla(c);
-            if(pos[0] != 0){
-                salida += pos[0];
-            }
-            salida += pos[1];
+            salida[i] = (pos[0] * 10) + pos[1];
+            i++;
         }
         return salida;
     }
 
-    private String numero_a_texto(String texto) {
+    private String numeros_a_texto(int[] temp) {
         String salida = "";
-        char[] texto_arreglo = texto.toCharArray();
-        for (int i = 0; i < texto_arreglo.length; i++) {
-            char c = texto_arreglo[i];
-            byte b = Byte.parseByte(""+c);
+        for (int i = 0; i < temp.length; i++) {
+            int b = temp[i];
             int[] pos = new int[2];
             pos[0] = -1;
             pos[1] = b;
@@ -79,10 +74,10 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
-    private String juntar(String texto, byte[] LLAVE) {
+    private int[] juntar(int[] temp, byte[] LLAVE) {
         String salida = "";
         int j = 0;
-        char[] texto_arreglo = texto.toCharArray();
+        char[] texto_arreglo = temp.toCharArray();
         for (int i = 0; i < texto_arreglo.length; i++) {
             short c = Short.parseShort(""+texto_arreglo[i]);
             short a = Short.parseShort(""+LLAVE[j]);
@@ -111,7 +106,7 @@ public class VICTOR implements Cifras{
         return salida;
     }
     
-    private String disjuntar(String salida, byte[] LLAVE) {
+    private int[] disjuntar(int[] temp, byte[] LLAVE) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
