@@ -64,31 +64,31 @@ public class VICTOR implements Cifras{
                 pos[0] = pos[1];
                 pos[1] = b;
             }
-            for(int n : temp){
-                System.out.print(n + " ");
-            }
-            System.out.println();
-            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
+//            for(int n : temp){
+//                System.out.print(n + " ");
+//            }
+//            System.out.println();
+//            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
             if(pos[0] == -1){
                 if(pos[1] < TABLA_LLAVE[0].length){
-                    System.out.println("pos[1] = " + pos[1]);
+//                    System.out.println("pos[1] = " + pos[1]);
                     salida += TABLA_LLAVE[0][pos[1]];
                 } else {
-                    System.out.println("salida = " + salida);
+//                    System.out.println("salida = " + salida);
                     if((pos[1] / TABLA_LLAVE[0].length) >= TABLA_LLAVE[0].length){
                         int t = pos[1] / (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
-                        System.out.println("t = " + t);
+//                        System.out.println("t = " + t);
                         salida += TABLA_LLAVE[0][t];
-                        System.out.println("salida = " + salida);
+//                        System.out.println("salida = " + salida);
                         t = pos[1] % (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
                         pos[1] = t;
                         t /= TABLA_LLAVE[0].length;
-                        System.out.println("t = " + t);
+//                        System.out.println("t = " + t);
                         salida += TABLA_LLAVE[0][t / TABLA_LLAVE[0].length];
                         salida += TABLA_LLAVE[0][t % TABLA_LLAVE[0].length];
                     } else {
-                        System.out.println("pos[1] = " + pos[1]);
-                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
+//                        System.out.println("pos[1] = " + pos[1]);
+//                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
                         salida += TABLA_LLAVE[0][pos[1] / TABLA_LLAVE[0].length];
                         salida += TABLA_LLAVE[0][pos[1] % TABLA_LLAVE[0].length];
                     }
@@ -104,7 +104,11 @@ public class VICTOR implements Cifras{
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
             int c = temp[i];
-            short k = Short.parseShort(""+LLAVE[j]);
+            short k = LLAVE[j];
+            j++;
+            if(j == LLAVE.length){
+                j = 0;
+            }
             temp[i] = c + k;
         }
         return temp;
@@ -114,9 +118,16 @@ public class VICTOR implements Cifras{
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
             int c = temp[i];
-            short k = Short.parseShort(""+LLAVE[j]);
+            short k = LLAVE[j];
+            j++;
+            if(j == LLAVE.length){
+                j = 0;
+            }
+//            System.out.println("c = " + c + " k = " + k + " c - k = " + (k - c));
             temp[i] = c - k;
-            temp[i] %= Character.MAX_VALUE;
+            if(temp[i] < 0){
+                temp[i] *= -1;
+            }
         }
         return temp;
     }

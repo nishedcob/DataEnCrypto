@@ -132,7 +132,7 @@ public class DataEnCrypto {
         //*/
         //</editor-fold>
         
-        //<editor-fold defaultstate="collapsed" desc=" VICTOR ">
+        //<editor-fold defaultstate="collapsed" desc=" VICTOR -- no funciona ">
         System.out.println("---VICTOR---");
         char[][] tabla_llave = {
             {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'},
