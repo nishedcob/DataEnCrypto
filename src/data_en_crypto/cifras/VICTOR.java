@@ -60,8 +60,7 @@ public class VICTOR implements Cifras{
             pos[1] = b;
             if(existe(b, CHAR_NULOS)){
                 i++;
-                c = texto_arreglo[i];
-                b = Byte.parseByte(""+c);
+                b = temp[i];
                 pos[0] = pos[1];
                 pos[1] = b;
             }
@@ -75,39 +74,25 @@ public class VICTOR implements Cifras{
     }
 
     private int[] juntar(int[] temp, byte[] LLAVE) {
-        String salida = "";
         int j = 0;
-        char[] texto_arreglo = temp.toCharArray();
-        for (int i = 0; i < texto_arreglo.length; i++) {
-            short c = Short.parseShort(""+texto_arreglo[i]);
-            short a = Short.parseShort(""+LLAVE[j]);
-            int res = c + a;
-            if(res > 9){
-               char n = (char) (res % 10);
-               char p = (char) (res / 10);
-               if(i == 0){
-                   salida = "" + p + "" + n;
-               } else {
-                   char pp = salida.charAt(salida.lastIndexOf(salida));
-                   salida = "" + salida.substring(0, salida.lastIndexOf(salida)) + "";
-                   res = Short.parseShort(""+p) + Short.parseShort(""+pp);
-                   if(res > 9){
-                       if(i == 1){
-                           salida = "" + res + "" + n;
-                       } else {
-                           
-                       }
-                   }
-               }
-            } else {
-                salida += (char) (res);
-            }
+        for (int i = 0; i < temp.length; i++) {
+            int c = temp[i];
+            short k = Short.parseShort(""+LLAVE[j]);
+            temp[i] = c + k;
+            temp[i] %= Character.MAX_VALUE;
         }
-        return salida;
+        return temp;
     }
     
     private int[] disjuntar(int[] temp, byte[] LLAVE) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int j = 0;
+        for (int i = 0; i < temp.length; i++) {
+            int c = temp[i];
+            short k = Short.parseShort(""+LLAVE[j]);
+            temp[i] = c - k;
+            temp[i] %= Character.MAX_VALUE;
+        }
+        return temp;
     }
 
     private int[] encontrar_en_tabla(char c) {
@@ -143,7 +128,7 @@ public class VICTOR implements Cifras{
         return char_nulos;
     }
 
-    private boolean existe(byte b, int[] arreglo) {
+    private boolean existe(int b, int[] arreglo) {
         for(int i : arreglo){
             if(b == i){
                 return true;
