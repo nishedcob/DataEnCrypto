@@ -66,8 +66,10 @@ public class VICTOR implements Cifras{
 //        System.out.println("num = " + num);
         int[] salida = new int[texto.length() + num];
         i = 0;
-        for(int c = 0; c < salida.length; c++){
-            int j = salida[c];
+//        System.out.println("salida.length = " + salida.length);
+        int c = 0;
+        while(c < salida.length && c != -1 && i < salida.length){
+            int j = temp[c];
 //            System.out.println("i = " + i);
             if(j < 10){
                 salida[i] = j;
@@ -77,6 +79,17 @@ public class VICTOR implements Cifras{
                 salida[i] = j % 10;
             }
             i++;
+//            System.out.print("Temp:");
+//            for(int t : temp){
+//                System.out.print(" " + t);
+//            }
+//            System.out.println();
+//            System.out.print("Salida:");
+//            for(int s : salida){
+//                System.out.print(" " + s);
+//            }
+//            System.out.println();
+            c++;
         }
         return salida;
     }
