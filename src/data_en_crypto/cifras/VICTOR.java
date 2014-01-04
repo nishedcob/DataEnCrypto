@@ -27,6 +27,11 @@ public class VICTOR implements Cifras{
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
         temp = this.juntar(temp, LLAVE);
         return this.numeros_a_texto(temp);
     }
@@ -40,12 +45,37 @@ public class VICTOR implements Cifras{
     }
 
     private int[] texto_a_numeros(String texto) {
-        int[] salida = new int[texto.length() + 1];
+        int[] temp = new int[texto.length() * 2];
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = -1;
+        }
         char[] texto_arreglo = texto.toCharArray();
-        int i = 1;
+        int i = 0;
         for (char c : texto_arreglo) {
             int[] pos = encontrar_en_tabla(c);
-            salida[i] = (pos[0] * 10) + pos[1];
+            temp[i] = (pos[0] * 10) + pos[1];
+            i++;
+        }
+        byte num = 0;
+        for(int j : temp){
+            if(j >= 10){
+                num++;
+            }
+        }
+//        System.out.println("texto.length() = " + texto.length());
+//        System.out.println("num = " + num);
+        int[] salida = new int[texto.length() + num];
+        i = 0;
+        for(int c = 0; c < salida.length; c++){
+            int j = salida[c];
+//            System.out.println("i = " + i);
+            if(j < 10){
+                salida[i] = j;
+            } else {
+                salida[i] = j / 10;
+                i++;
+                salida[i] = j % 10;
+            }
             i++;
         }
         return salida;
