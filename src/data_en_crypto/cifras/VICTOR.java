@@ -212,22 +212,37 @@ public class VICTOR implements Cifras{
         return temp;
     }
     
-    private int[] disjuntar(int[] temp, byte[] LLAVE) {
+    private int[] disjuntar(int[] datos, byte[] LLAVE) {
         int j = 0;
-        for (int i = 0; i < temp.length; i++) {
-            int c = temp[i];
+        int t = 0;
+        int[] temp = new int[datos.length];
+        for(int a = 0; a < temp.length; a++){
+            temp[a] = -1;
+        }
+        for (int i = 0; i < datos.length; i++) {
+            int c = datos[i];
             short k = LLAVE[j];
             j++;
             if(j == LLAVE.length){
                 j = 0;
             }
 //            System.out.println("c = " + c + " k = " + k + " c - k = " + (k - c));
-            temp[i] = c - k;
-            if(temp[i] < 0){
-                temp[i] *= -1;
+            if(c < k){
+                i++;
+                c *= 10;
+                c += datos[i];
             }
+            temp[t] = c - k;
+//            if(temp[i] < 0){
+//                temp[i] *= -1;
+//            }
+            t++;
         }
-        return temp;
+        int[] salida = new int[t];
+        for (int i = 0; i < t; i++) {
+            salida[i] = temp[i];
+        }
+        return salida;
     }
 
     private int[] encontrar_en_tabla(char c) {
