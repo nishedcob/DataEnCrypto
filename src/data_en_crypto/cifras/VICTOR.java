@@ -56,8 +56,23 @@ public class VICTOR implements Cifras{
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
         temp = this.disjuntar(temp, LLAVE);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
         temp = this.limpiar(temp);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
         return this.numeros_a_texto(temp);
     }
 
