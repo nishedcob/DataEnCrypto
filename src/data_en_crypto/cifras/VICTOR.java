@@ -16,9 +16,14 @@ public class VICTOR implements Cifras{
     private final int[] CHAR_ESPECIAL;
     private final int[] CHAR_NULOS;
 
-    public VICTOR(char[][] TABLA_LLAVE, byte[] LLAVE) {
-        this.TABLA_LLAVE = TABLA_LLAVE;
-        this.LLAVE = LLAVE;
+    public VICTOR(char[][] tabla_llave, byte[] llave) {
+        this.TABLA_LLAVE = tabla_llave;
+        this.LLAVE = limpiar(llave);
+        System.out.print("LLAVE:  ");
+        for(byte l : LLAVE){
+            System.out.print(" " + l);
+        }
+        System.out.println();
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
@@ -33,6 +38,17 @@ public class VICTOR implements Cifras{
         }
         System.out.println();
         temp = this.juntar(temp, LLAVE);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        temp = this.limpiar(temp);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
         return this.numeros_a_texto(temp);
     }
 
@@ -41,6 +57,7 @@ public class VICTOR implements Cifras{
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
         temp = this.disjuntar(temp, LLAVE);
+        temp = this.limpiar(temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -97,48 +114,71 @@ public class VICTOR implements Cifras{
     private String numeros_a_texto(int[] temp) {
         String salida = "";
         for (int i = 0; i < temp.length; i++) {
-            int b = temp[i];
-            int[] pos = new int[2];
-            pos[0] = -1;
-            pos[1] = b;
-            if(existe(b, CHAR_NULOS)){
-                i++;
-                b = temp[i];
-                pos[0] = pos[1];
-                pos[1] = b;
-            }
-//            for(int n : temp){
-//                System.out.print(n + " ");
+            int c = temp[i];
+//            System.out.print("Temp:");
+//            for(int t : temp){
+//                System.out.print(" " + t);
 //            }
 //            System.out.println();
-//            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
-            if(pos[0] == -1){
-                if(pos[1] < TABLA_LLAVE[0].length){
-//                    System.out.println("pos[1] = " + pos[1]);
-                    salida += TABLA_LLAVE[0][pos[1]];
-                } else {
-//                    System.out.println("salida = " + salida);
-                    if((pos[1] / TABLA_LLAVE[0].length) >= TABLA_LLAVE[0].length){
-                        int t = pos[1] / (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
-//                        System.out.println("t = " + t);
-                        salida += TABLA_LLAVE[0][t];
-//                        System.out.println("salida = " + salida);
-                        t = pos[1] % (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
-                        pos[1] = t;
-                        t /= TABLA_LLAVE[0].length;
-//                        System.out.println("t = " + t);
-                        salida += TABLA_LLAVE[0][t / TABLA_LLAVE[0].length];
-                        salida += TABLA_LLAVE[0][t % TABLA_LLAVE[0].length];
-                    } else {
-//                        System.out.println("pos[1] = " + pos[1]);
-//                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
-                        salida += TABLA_LLAVE[0][pos[1] / TABLA_LLAVE[0].length];
-                        salida += TABLA_LLAVE[0][pos[1] % TABLA_LLAVE[0].length];
+            if(TABLA_LLAVE[0][c] == '\u0000'){
+                int f = 1;
+                for(int j = (c - 1); j >= 0; j--){
+                    if(TABLA_LLAVE[0][j] == '\u0000'){
+                        f++;
                     }
                 }
+                i++;
+                if(i < temp.length){
+                    c = temp[i];
+                } else {
+                    c = 0;
+                }
+                salida += TABLA_LLAVE[f][c];
             } else {
-                salida += TABLA_LLAVE[pos[0]][pos[1]];
+                salida += TABLA_LLAVE[0][c];
             }
+//            int b = temp[i];
+//            int[] pos = new int[2];
+//            pos[0] = -1;
+//            pos[1] = b;
+//            if(existe(b, CHAR_NULOS)){
+//                i++;
+//                b = temp[i];
+//                pos[0] = pos[1];
+//                pos[1] = b;
+//            }
+////            for(int n : temp){
+////                System.out.print(n + " ");
+////            }
+////            System.out.println();
+////            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
+//            if(pos[0] == -1){
+//                if(pos[1] < TABLA_LLAVE[0].length){
+////                    System.out.println("pos[1] = " + pos[1]);
+//                    salida += TABLA_LLAVE[0][pos[1]];
+//                } else {
+////                    System.out.println("salida = " + salida);
+//                    if((pos[1] / TABLA_LLAVE[0].length) >= TABLA_LLAVE[0].length){
+//                        int t = pos[1] / (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
+////                        System.out.println("t = " + t);
+//                        salida += TABLA_LLAVE[0][t];
+////                        System.out.println("salida = " + salida);
+//                        t = pos[1] % (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
+//                        pos[1] = t;
+//                        t /= TABLA_LLAVE[0].length;
+////                        System.out.println("t = " + t);
+//                        salida += TABLA_LLAVE[0][t / TABLA_LLAVE[0].length];
+//                        salida += TABLA_LLAVE[0][t % TABLA_LLAVE[0].length];
+//                    } else {
+////                        System.out.println("pos[1] = " + pos[1]);
+////                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
+//                        salida += TABLA_LLAVE[0][pos[1] / TABLA_LLAVE[0].length];
+//                        salida += TABLA_LLAVE[0][pos[1] % TABLA_LLAVE[0].length];
+//                    }
+//                }
+//            } else {
+//                salida += TABLA_LLAVE[pos[0]][pos[1]];
+//            }
         }
         return salida;
     }
@@ -216,5 +256,62 @@ public class VICTOR implements Cifras{
         }
         return false;
     }
+
+    private byte[] limpiar(byte[] datos) {
+        byte[] temp = new byte[datos.length * 3];
+        int i = 0;
+        for(byte d : datos){
+            if(d >= 100){
+                temp[i] = (byte) (d / 100);
+                d %= 100;
+                i++;
+                temp[i] = (byte) (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = (byte) d;
+            } else if (d >= 10) {
+                temp[i] = (byte) (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = (byte) d;
+            } else {
+                temp[i] = (byte) d;
+            }
+            i++;
+        }
+        byte[] salida = new byte[i];
+        for (int j = 0; j < salida.length; j++) {
+            salida[j] = temp[j];
+        }
+        return salida;
+    }
     
+    private int[] limpiar(int[] datos) {
+        int[] temp = new int[datos.length * 3];
+        int i = 0;
+        for(int d : datos){
+            if(d >= 100){
+                temp[i] = (d / 100);
+                d %= 100;
+                i++;
+                temp[i] = (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = d;
+            } else if (d >= 10) {
+                temp[i] = (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = d;
+            } else {
+                temp[i] = d;
+            }
+            i++;
+        }
+        int[] salida = new int[i];
+        for (int j = 0; j < salida.length; j++) {
+            salida[j] = temp[j];
+        }
+        return salida;
+    }
 }
