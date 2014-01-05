@@ -7,10 +7,14 @@
 import data_en_crypto.*;
 
 /**
- * Clase principal del proyecto.
+ * Clase principal del proyecto -- Carga el resto del programa.
  * @author nyx
  */
 public class Cargador {
+    /**
+     * Metodo principal del cargador -- este metodo carga el resto del programa
+     * @param args argumentos dado por ejecutacion por consola
+     */
     public static void main(String[] args) {
         //<editor-fold defaultstate="collapsed" desc=" codigo del cargador -- comentado porque su implimentacion no esta listo todavia ">
         /*
@@ -61,6 +65,12 @@ public class Cargador {
         }
     //}
 
+    /**
+     * Prueba para ver si una cierta argumento, val (valor), existe de forma sola en args (argumentos)
+     * @param val valor para probar
+     * @param args conjunto de argumentos de cual estamos probando
+     * @return un valor booleano que muestra si existe o no existe el argumento pedido
+     */
     private static boolean existe(String val, String[] args) {
         for(String arg : args){
             if(val == null ? arg == null : val.equals(arg)){
@@ -70,6 +80,12 @@ public class Cargador {
         return false;
     }
     
+    /**
+     * Prueba para ver si una cierta argumento, val (valor), existe de forma conjunta (con otros argumentos) en args (argumentos)
+     * @param val valor para probar
+     * @param args conjunto de argumentos de cual estamos probando
+     * @return un valor booleano que muestra si existe o no existe el argumento pedido
+     */
     private static boolean existe(char val, String[] args) {
         for(String arg : args){
             if(arg.charAt(0) == '-'){
