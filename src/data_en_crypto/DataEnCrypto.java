@@ -133,6 +133,7 @@ public class DataEnCrypto {
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" VICTOR -- no funciona ">
+        /*
         System.out.println("---VICTOR---");
         char[][] tabla_llave = {
             //0    1    2   2/3  3/4  4/5  5/6  6/7  6/8  7/9   8    9
@@ -146,6 +147,7 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = vic.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
