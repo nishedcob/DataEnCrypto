@@ -57,7 +57,22 @@ public class VICTOR implements Cifras{
         int i = 0;
         for (char c : texto_arreglo) {
             int[] pos = encontrar_en_tabla(c);
-            temp[i] = (pos[0] * 10) + pos[1];
+            if(pos[0] == 0){
+                temp[i] = pos[1];
+            } else {
+                int a = 0, b = 0;
+                for(char n : TABLA_LLAVE[0]){
+                    if(n == '\u0000'){
+                        a++;
+                        if(a == pos[0]){
+                            temp[i] = (b*10) + pos[1];
+                            break;
+                        }
+                    }
+                    b++;
+                }
+            }
+            //temp[i] = (pos[0] * 10) + pos[1];
             i++;
         }
         byte num = 0;
@@ -170,13 +185,13 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
-    private int[] juntar(int[] temp, byte[] LLAVE) {
+    private int[] juntar(int[] temp, byte[] llave) {
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
             int c = temp[i];
-            short k = LLAVE[j];
+            short k = llave[j];
             j++;
-            if(j == LLAVE.length){
+            if(j == llave.length){
                 j = 0;
             }
             temp[i] = c + k;
@@ -184,18 +199,20 @@ public class VICTOR implements Cifras{
         return temp;
     }
     
-    private int[] disjuntar(int[] datos, byte[] LLAVE) {
+    private int[] disjuntar(int[] datos, byte[] llave) {
         int j = 0;
         int t = 0;
         int[] temp = new int[datos.length];
         for(int a = 0; a < temp.length; a++){
             temp[a] = -1;
         }
+        this.imprimir_arreglo("Datos:  ", datos);
+        this.imprimir_arreglo("Llave:  ", llave);
         for (int i = 0; i < datos.length; i++) {
             int c = datos[i];
-            short k = LLAVE[j];
+            short k = llave[j];
             j++;
-            if(j == LLAVE.length){
+            if(j == llave.length){
                 j = 0;
             }
 //            System.out.println("c = " + c + " k = " + k + " c - k = " + (k - c));
