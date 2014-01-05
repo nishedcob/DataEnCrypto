@@ -19,11 +19,7 @@ public class VICTOR implements Cifras{
     public VICTOR(char[][] tabla_llave, byte[] llave) {
         this.TABLA_LLAVE = tabla_llave;
         this.LLAVE = limpiar(llave);
-        System.out.print("LLAVE:  ");
-        for(byte l : LLAVE){
-            System.out.print(" " + l);
-        }
-        System.out.println();
+        this.imprimir_arreglo("LLAVE:  ", LLAVE);
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
@@ -32,23 +28,11 @@ public class VICTOR implements Cifras{
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         temp = this.juntar(temp, LLAVE);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         temp = this.limpiar(temp);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -56,23 +40,11 @@ public class VICTOR implements Cifras{
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         temp = this.disjuntar(temp, LLAVE);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         temp = this.limpiar(temp);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -343,5 +315,21 @@ public class VICTOR implements Cifras{
             salida[j] = temp[j];
         }
         return salida;
+    }
+
+    private void imprimir_arreglo(String titulo, byte[] datos) {
+        System.out.print(titulo);
+        for(byte d : datos){
+            System.out.print(" " + d);
+        }
+        System.out.println();
+    }
+    
+    private void imprimir_arreglo(String titulo, int[] datos) {
+        System.out.print(titulo);
+        for(int d : datos){
+            System.out.print(" " + d);
+        }
+        System.out.println();
     }
 }
