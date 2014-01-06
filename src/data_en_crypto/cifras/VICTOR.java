@@ -16,9 +16,14 @@ public class VICTOR implements Cifras{
     private final int[] CHAR_ESPECIAL;
     private final int[] CHAR_NULOS;
 
-    public VICTOR(char[][] TABLA_LLAVE, byte[] LLAVE) {
-        this.TABLA_LLAVE = TABLA_LLAVE;
-        this.LLAVE = LLAVE;
+    public VICTOR(char[][] tabla_llave, byte[] llave) {
+        this.TABLA_LLAVE = tabla_llave;
+        this.LLAVE = limpiar(llave);
+        System.out.print("LLAVE:  ");
+        for(byte l : LLAVE){
+            System.out.print(" " + l);
+        }
+        System.out.println();
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
@@ -26,93 +31,218 @@ public class VICTOR implements Cifras{
     @Override
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
-        String salida = this.texto_a_numero(texto);
-        salida = this.juntar(salida, LLAVE);
-        salida = this.numero_a_texto(salida);
-        return salida;
+        int[] temp = this.texto_a_numeros(texto);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        temp = this.juntar(temp, LLAVE);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        temp = this.limpiar(temp);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        return this.numeros_a_texto(temp);
     }
 
     @Override
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
-        String salida = this.texto_a_numero(texto);
-        salida = this.disjuntar(salida, LLAVE);
-        salida = this.numero_a_texto(salida);
-        return salida;
+        int[] temp = this.texto_a_numeros(texto);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        temp = this.disjuntar(temp, LLAVE);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        temp = this.limpiar(temp);
+        System.out.print("Numeros:");
+        for(int i : temp){
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        return this.numeros_a_texto(temp);
     }
 
-    private String texto_a_numero(String texto) {
-        String salida = "";
+    private int[] texto_a_numeros(String texto) {
+        int[] temp = new int[texto.length() * 2];
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = -1;
+        }
         char[] texto_arreglo = texto.toCharArray();
+        int i = 0;
         for (char c : texto_arreglo) {
             int[] pos = encontrar_en_tabla(c);
-            if(pos[0] != 0){
-                salida += pos[0];
-            }
-            salida += pos[1];
+            temp[i] = (pos[0] * 10) + pos[1];
+            i++;
         }
-        return salida;
-    }
-
-    private String numero_a_texto(String texto) {
-        String salida = "";
-        char[] texto_arreglo = texto.toCharArray();
-        for (int i = 0; i < texto_arreglo.length; i++) {
-            char c = texto_arreglo[i];
-            byte b = Byte.parseByte(""+c);
-            int[] pos = new int[2];
-            pos[0] = -1;
-            pos[1] = b;
-            if(existe(b, CHAR_NULOS)){
+        byte num = 0;
+        for(int j : temp){
+            if(j >= 10){
+                num++;
+            }
+        }
+//        System.out.println("texto.length() = " + texto.length());
+//        System.out.println("num = " + num);
+        int[] salida = new int[texto.length() + num];
+        i = 0;
+//        System.out.println("salida.length = " + salida.length);
+        int c = 0;
+        while(c < salida.length && c != -1 && i < salida.length){
+            int j = temp[c];
+//            System.out.println("i = " + i);
+            if(j < 10){
+                salida[i] = j;
+            } else {
+                salida[i] = j / 10;
                 i++;
-                c = texto_arreglo[i];
-                b = Byte.parseByte(""+c);
-                pos[0] = pos[1];
-                pos[1] = b;
+                salida[i] = j % 10;
             }
-            if(pos[0] == -1){
-                salida += TABLA_LLAVE[0][pos[1]];
-            } else {
-                salida += TABLA_LLAVE[pos[0]][pos[1]];
-            }
+            i++;
+//            System.out.print("Temp:");
+//            for(int t : temp){
+//                System.out.print(" " + t);
+//            }
+//            System.out.println();
+//            System.out.print("Salida:");
+//            for(int s : salida){
+//                System.out.print(" " + s);
+//            }
+//            System.out.println();
+            c++;
         }
         return salida;
     }
 
-    private String juntar(String texto, byte[] LLAVE) {
+    private String numeros_a_texto(int[] temp) {
         String salida = "";
-        int j = 0;
-        char[] texto_arreglo = texto.toCharArray();
-        for (int i = 0; i < texto_arreglo.length; i++) {
-            short c = Short.parseShort(""+texto_arreglo[i]);
-            short a = Short.parseShort(""+LLAVE[j]);
-            int res = c + a;
-            if(res > 9){
-               char n = (char) (res % 10);
-               char p = (char) (res / 10);
-               if(i == 0){
-                   salida = "" + p + "" + n;
-               } else {
-                   char pp = salida.charAt(salida.lastIndexOf(salida));
-                   salida = "" + salida.substring(0, salida.lastIndexOf(salida)) + "";
-                   res = Short.parseShort(""+p) + Short.parseShort(""+pp);
-                   if(res > 9){
-                       if(i == 1){
-                           salida = "" + res + "" + n;
-                       } else {
-                           
-                       }
-                   }
-               }
+        for (int i = 0; i < temp.length; i++) {
+            int c = temp[i];
+//            System.out.print("Temp:");
+//            for(int t : temp){
+//                System.out.print(" " + t);
+//            }
+//            System.out.println();
+            if(TABLA_LLAVE[0][c] == '\u0000'){
+                int f = 1;
+                for(int j = (c - 1); j >= 0; j--){
+                    if(TABLA_LLAVE[0][j] == '\u0000'){
+                        f++;
+                    }
+                }
+                i++;
+                if(i < temp.length){
+                    c = temp[i];
+                } else {
+                    c = 0;
+                }
+                salida += TABLA_LLAVE[f][c];
             } else {
-                salida += (char) (res);
+                salida += TABLA_LLAVE[0][c];
             }
+//            int b = temp[i];
+//            int[] pos = new int[2];
+//            pos[0] = -1;
+//            pos[1] = b;
+//            if(existe(b, CHAR_NULOS)){
+//                i++;
+//                b = temp[i];
+//                pos[0] = pos[1];
+//                pos[1] = b;
+//            }
+////            for(int n : temp){
+////                System.out.print(n + " ");
+////            }
+////            System.out.println();
+////            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
+//            if(pos[0] == -1){
+//                if(pos[1] < TABLA_LLAVE[0].length){
+////                    System.out.println("pos[1] = " + pos[1]);
+//                    salida += TABLA_LLAVE[0][pos[1]];
+//                } else {
+////                    System.out.println("salida = " + salida);
+//                    if((pos[1] / TABLA_LLAVE[0].length) >= TABLA_LLAVE[0].length){
+//                        int t = pos[1] / (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
+////                        System.out.println("t = " + t);
+//                        salida += TABLA_LLAVE[0][t];
+////                        System.out.println("salida = " + salida);
+//                        t = pos[1] % (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
+//                        pos[1] = t;
+//                        t /= TABLA_LLAVE[0].length;
+////                        System.out.println("t = " + t);
+//                        salida += TABLA_LLAVE[0][t / TABLA_LLAVE[0].length];
+//                        salida += TABLA_LLAVE[0][t % TABLA_LLAVE[0].length];
+//                    } else {
+////                        System.out.println("pos[1] = " + pos[1]);
+////                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
+//                        salida += TABLA_LLAVE[0][pos[1] / TABLA_LLAVE[0].length];
+//                        salida += TABLA_LLAVE[0][pos[1] % TABLA_LLAVE[0].length];
+//                    }
+//                }
+//            } else {
+//                salida += TABLA_LLAVE[pos[0]][pos[1]];
+//            }
         }
         return salida;
+    }
+
+    private int[] juntar(int[] temp, byte[] LLAVE) {
+        int j = 0;
+        for (int i = 0; i < temp.length; i++) {
+            int c = temp[i];
+            short k = LLAVE[j];
+            j++;
+            if(j == LLAVE.length){
+                j = 0;
+            }
+            temp[i] = c + k;
+        }
+        return temp;
     }
     
-    private String disjuntar(String salida, byte[] LLAVE) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private int[] disjuntar(int[] datos, byte[] LLAVE) {
+        int j = 0;
+        int t = 0;
+        int[] temp = new int[datos.length];
+        for(int a = 0; a < temp.length; a++){
+            temp[a] = -1;
+        }
+        for (int i = 0; i < datos.length; i++) {
+            int c = datos[i];
+            short k = LLAVE[j];
+            j++;
+            if(j == LLAVE.length){
+                j = 0;
+            }
+//            System.out.println("c = " + c + " k = " + k + " c - k = " + (k - c));
+            if(c < k){
+                i++;
+                c *= 10;
+                c += datos[i];
+            }
+            temp[t] = c - k;
+//            if(temp[i] < 0){
+//                temp[i] *= -1;
+//            }
+            t++;
+        }
+        int[] salida = new int[t];
+        for (int i = 0; i < t; i++) {
+            salida[i] = temp[i];
+        }
+        return salida;
     }
 
     private int[] encontrar_en_tabla(char c) {
@@ -148,7 +278,7 @@ public class VICTOR implements Cifras{
         return char_nulos;
     }
 
-    private boolean existe(byte b, int[] arreglo) {
+    private boolean existe(int b, int[] arreglo) {
         for(int i : arreglo){
             if(b == i){
                 return true;
@@ -156,5 +286,62 @@ public class VICTOR implements Cifras{
         }
         return false;
     }
+
+    private byte[] limpiar(byte[] datos) {
+        byte[] temp = new byte[datos.length * 3];
+        int i = 0;
+        for(byte d : datos){
+            if(d >= 100){
+                temp[i] = (byte) (d / 100);
+                d %= 100;
+                i++;
+                temp[i] = (byte) (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = (byte) d;
+            } else if (d >= 10) {
+                temp[i] = (byte) (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = (byte) d;
+            } else {
+                temp[i] = (byte) d;
+            }
+            i++;
+        }
+        byte[] salida = new byte[i];
+        for (int j = 0; j < salida.length; j++) {
+            salida[j] = temp[j];
+        }
+        return salida;
+    }
     
+    private int[] limpiar(int[] datos) {
+        int[] temp = new int[datos.length * 3];
+        int i = 0;
+        for(int d : datos){
+            if(d >= 100){
+                temp[i] = (d / 100);
+                d %= 100;
+                i++;
+                temp[i] = (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = d;
+            } else if (d >= 10) {
+                temp[i] = (d / 10);
+                d %= 10;
+                i++;
+                temp[i] = d;
+            } else {
+                temp[i] = d;
+            }
+            i++;
+        }
+        int[] salida = new int[i];
+        for (int j = 0; j < salida.length; j++) {
+            salida[j] = temp[j];
+        }
+        return salida;
+    }
 }
