@@ -20,7 +20,7 @@ import data_en_crypto.cifras.*;
 public class DataEnCrypto {
     
     //VARIABLES GLOBALES
-    final static byte[] VERSION = {0, 1, 5};
+    final static byte[] VERSION = {0, 5, 6};
     
     //<editor-fold defaultstate="collapsed" desc=" Nucleo del Programa ">
     public static void main(String[] args) {
@@ -132,15 +132,20 @@ public class DataEnCrypto {
         //*/
         //</editor-fold>
         
-        //<editor-fold defaultstate="collapsed" desc=" VICTOR ">
+        //<editor-fold defaultstate="collapsed" desc=" VICTOR -- no funciona ">
         System.out.println("---VICTOR---");
         char[][] tabla_llave = {
-            {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'},
-            {'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'},
-            {'P', 'Q', '/', 'U', 'V', 'W', 'X', 'Y', 'Z', '.'}
+            //0    1    2   2/3  3/4  4/5  5/6  6/7  6/8  7/9   8    9
+            {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'}, //0
+            {'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'},           //1 (2#)
+            {'P', 'Q', '/', 'U', 'V', 'W', 'X', 'Y', 'Z', '.'}            //2 (6#)
         };
         byte[] clave2 = {'c', 'l', 'a', 'v', 'e'};
         VICTOR vic = new VICTOR(tabla_llave, clave2);
+        salida = vic.encriptar(texto);
+        System.out.println("Encryptado: " + salida);
+        salida = vic.decifrar(salida);
+        System.out.println("Decifrado:  " + salida);
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
