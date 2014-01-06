@@ -19,7 +19,7 @@ public class VICTOR implements Cifras{
     public VICTOR(char[][] tabla_llave, byte[] llave) {
         this.TABLA_LLAVE = tabla_llave;
         this.LLAVE = limpiar(llave);
-        this.imprimir_arreglo("LLAVE:  ", LLAVE);
+//        this.imprimir_arreglo("LLAVE:  ", LLAVE);
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
@@ -28,11 +28,11 @@ public class VICTOR implements Cifras{
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        this.imprimir_arreglo("Datos:  ", temp);
+//        this.imprimir_arreglo("Datos:  ", temp);
         temp = this.juntar(temp, LLAVE);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         temp = this.limpiar(temp);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -42,7 +42,7 @@ public class VICTOR implements Cifras{
         int[] temp = this.texto_a_numeros(texto);
         temp = this.disjuntar(temp, LLAVE);
         temp = this.limpiar(temp);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -142,8 +142,8 @@ public class VICTOR implements Cifras{
         for(int a = 0; a < temp.length; a++){
             temp[a] = -1;
         }
-        this.imprimir_arreglo("Datos:  ", datos);
-        this.imprimir_arreglo("Llave:  ", llave);
+//        this.imprimir_arreglo("Datos:  ", datos);
+//        this.imprimir_arreglo("Llave:  ", llave);
         for (int i = 0; i < datos.length; i++) {
             int c = datos[i];
             short k = llave[j];

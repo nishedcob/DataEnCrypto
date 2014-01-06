@@ -155,7 +155,7 @@ public class Matrices implements Cifras{
         return salida;
     }
 
-    private int[][] multiplicar(int[][] llave, int[][] datos) {
+    /*private int[][] multiplicar(int[][] llave, int[][] datos) {
         int numF = llave.length; //# filas
         int numC = datos[0].length; //# columnas
         int numO; //# operaciones
@@ -189,6 +189,64 @@ public class Matrices implements Cifras{
         }
         numO = datos.length;
         int[][] salida = new int[numF][numC];
+        for (int f = 0; f < numF; f++) {
+            for (int c = 0; c < numC; c++) {
+                int suma = 0;
+                for (int o = 0; o < numO; o++) {
+                    suma += llave[f][o] * datos[o][c];
+                }
+                salida[f][c] = suma;
+            }
+        }
+        return salida;
+    }*/
+    
+    private int[][] multiplicar(int[][] llave, int[][] datos) {
+        int llFilas = llave.length;
+        int llColum = llave[0].length;
+        int daFilas = datos.length;
+        int daColum = datos[0].length;
+        if (llColum != daFilas) {
+            throw new IllegalArgumentException("Llave Filas: " + llFilas + " =/= Dato Columnas: " + daColum);
+        }
+        int numF = llFilas; //# filas
+        int numC = daColum; //# columnas
+        int numO = llColum; //# operaciones
+        int[][] salida = new int[numF][numC];
+        for (int f = 0; f < numF; f++) {
+            for (int c = 0; c < numC; c++) {
+                salida[f][c] = 0;
+            }
+        }
+        for (int f = 0; f < numF; f++) {
+            for (int c = 0; c < numC; c++) {
+                int suma = 0;
+                for (int o = 0; o < numO; o++) {
+                    suma += llave[f][o] * datos[o][c];
+                }
+                salida[f][c] = suma;
+            }
+        }
+        return salida;
+    }
+
+    private int[][] multiplicar(double[][] llave, int[][] datos) {
+        int llFilas = llave.length;
+        int llColum = llave[0].length;
+        int daFilas = datos.length;
+        int daColum = datos[0].length;
+        if (llColum != daFilas) {
+            throw new IllegalArgumentException("Llave Filas: " + llFilas + " =/= Dato Columnas: " + daColum);
+        }
+        int numF = llFilas; //# filas
+        int numC = daColum; //# columnas
+        int numO = llColum; //# operaciones
+        int[][] salida = new int[numF][numC];
+        for (int f = 0; f < numF; f++) {
+            for (int c = 0; c < numC; c++) {
+                salida[f][c] = 0;
+            }
+        }
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
                 int suma = 0;
