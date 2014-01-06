@@ -103,8 +103,11 @@ public class Matrices implements Cifras{
     public String encriptar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
+        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(LLAVE, mensaje);
+        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
+        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
@@ -113,16 +116,19 @@ public class Matrices implements Cifras{
     public String decifrar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
+        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(inverso(LLAVE), mensaje);
+        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
+        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
 
     private int[][] texto_a_matriz(String texto) {
-        int col = LLAVE.length;
-        int fil = texto.length() / col;
-        fil += ((texto.length() % col) != 0) ? 1 : 0;
+        int fil = LLAVE.length;
+        int col = texto.length() / fil;
+        col += ((texto.length() % fil) != 0) ? 1 : 0;
 //        System.out.println("col = " + col + " fil = " + fil);
         int[][] salida = new int[fil][col];
         int c = 0, f = 0;
@@ -243,6 +249,18 @@ public class Matrices implements Cifras{
 //            System.out.print(" " + Arrays.toString(inverso[f]));
 //        }
         return inverso;
+    }
+
+    private void imprimir_matriz(String ini, int[][] mensaje, String ter) {
+        System.out.print(ini);
+        for(int[] f : mensaje){
+            System.out.print("[");
+            for(int c : f){
+                System.out.print("\t" + c);
+            }
+            System.out.println("\t]");
+        }
+        System.out.print(ter);
     }
     
 }

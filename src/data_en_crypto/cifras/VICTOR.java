@@ -19,11 +19,7 @@ public class VICTOR implements Cifras{
     public VICTOR(char[][] tabla_llave, byte[] llave) {
         this.TABLA_LLAVE = tabla_llave;
         this.LLAVE = limpiar(llave);
-        System.out.print("LLAVE:  ");
-        for(byte l : LLAVE){
-            System.out.print(" " + l);
-        }
-        System.out.println();
+        this.imprimir_arreglo("LLAVE:  ", LLAVE);
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
@@ -32,23 +28,11 @@ public class VICTOR implements Cifras{
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Datos:  ", temp);
         temp = this.juntar(temp, LLAVE);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         temp = this.limpiar(temp);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -56,23 +40,9 @@ public class VICTOR implements Cifras{
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
         temp = this.disjuntar(temp, LLAVE);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
         temp = this.limpiar(temp);
-        System.out.print("Numeros:");
-        for(int i : temp){
-            System.out.print(" " + i);
-        }
-        System.out.println();
+        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
@@ -85,7 +55,21 @@ public class VICTOR implements Cifras{
         int i = 0;
         for (char c : texto_arreglo) {
             int[] pos = encontrar_en_tabla(c);
-            temp[i] = (pos[0] * 10) + pos[1];
+            if(pos[0] == 0){
+                temp[i] = pos[1];
+            } else {
+                int a = 0, b = 0;
+                for(char n : TABLA_LLAVE[0]){
+                    if(n == '\u0000'){
+                        a++;
+                        if(a == pos[0]){
+                            temp[i] = (b*10) + pos[1];
+                            break;
+                        }
+                    }
+                    b++;
+                }
+            }
             i++;
         }
         byte num = 0;
@@ -94,15 +78,11 @@ public class VICTOR implements Cifras{
                 num++;
             }
         }
-//        System.out.println("texto.length() = " + texto.length());
-//        System.out.println("num = " + num);
         int[] salida = new int[texto.length() + num];
         i = 0;
-//        System.out.println("salida.length = " + salida.length);
         int c = 0;
         while(c < salida.length && c != -1 && i < salida.length){
             int j = temp[c];
-//            System.out.println("i = " + i);
             if(j < 10){
                 salida[i] = j;
             } else {
@@ -111,16 +91,6 @@ public class VICTOR implements Cifras{
                 salida[i] = j % 10;
             }
             i++;
-//            System.out.print("Temp:");
-//            for(int t : temp){
-//                System.out.print(" " + t);
-//            }
-//            System.out.println();
-//            System.out.print("Salida:");
-//            for(int s : salida){
-//                System.out.print(" " + s);
-//            }
-//            System.out.println();
             c++;
         }
         return salida;
@@ -130,11 +100,6 @@ public class VICTOR implements Cifras{
         String salida = "";
         for (int i = 0; i < temp.length; i++) {
             int c = temp[i];
-//            System.out.print("Temp:");
-//            for(int t : temp){
-//                System.out.print(" " + t);
-//            }
-//            System.out.println();
             if(TABLA_LLAVE[0][c] == '\u0000'){
                 int f = 1;
                 for(int j = (c - 1); j >= 0; j--){
@@ -152,59 +117,17 @@ public class VICTOR implements Cifras{
             } else {
                 salida += TABLA_LLAVE[0][c];
             }
-//            int b = temp[i];
-//            int[] pos = new int[2];
-//            pos[0] = -1;
-//            pos[1] = b;
-//            if(existe(b, CHAR_NULOS)){
-//                i++;
-//                b = temp[i];
-//                pos[0] = pos[1];
-//                pos[1] = b;
-//            }
-////            for(int n : temp){
-////                System.out.print(n + " ");
-////            }
-////            System.out.println();
-////            System.out.println("pos[0] = " + pos[0] + " pos[1] = " + pos[1]);
-//            if(pos[0] == -1){
-//                if(pos[1] < TABLA_LLAVE[0].length){
-////                    System.out.println("pos[1] = " + pos[1]);
-//                    salida += TABLA_LLAVE[0][pos[1]];
-//                } else {
-////                    System.out.println("salida = " + salida);
-//                    if((pos[1] / TABLA_LLAVE[0].length) >= TABLA_LLAVE[0].length){
-//                        int t = pos[1] / (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
-////                        System.out.println("t = " + t);
-//                        salida += TABLA_LLAVE[0][t];
-////                        System.out.println("salida = " + salida);
-//                        t = pos[1] % (TABLA_LLAVE[0].length * TABLA_LLAVE[0].length);
-//                        pos[1] = t;
-//                        t /= TABLA_LLAVE[0].length;
-////                        System.out.println("t = " + t);
-//                        salida += TABLA_LLAVE[0][t / TABLA_LLAVE[0].length];
-//                        salida += TABLA_LLAVE[0][t % TABLA_LLAVE[0].length];
-//                    } else {
-////                        System.out.println("pos[1] = " + pos[1]);
-////                        System.out.println("pos[1] / TABLA_LLAVE[0].length = " + (pos[1] / TABLA_LLAVE[0].length));
-//                        salida += TABLA_LLAVE[0][pos[1] / TABLA_LLAVE[0].length];
-//                        salida += TABLA_LLAVE[0][pos[1] % TABLA_LLAVE[0].length];
-//                    }
-//                }
-//            } else {
-//                salida += TABLA_LLAVE[pos[0]][pos[1]];
-//            }
         }
         return salida;
     }
 
-    private int[] juntar(int[] temp, byte[] LLAVE) {
+    private int[] juntar(int[] temp, byte[] llave) {
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
             int c = temp[i];
-            short k = LLAVE[j];
+            short k = llave[j];
             j++;
-            if(j == LLAVE.length){
+            if(j == llave.length){
                 j = 0;
             }
             temp[i] = c + k;
@@ -212,30 +135,28 @@ public class VICTOR implements Cifras{
         return temp;
     }
     
-    private int[] disjuntar(int[] datos, byte[] LLAVE) {
+    private int[] disjuntar(int[] datos, byte[] llave) {
         int j = 0;
         int t = 0;
         int[] temp = new int[datos.length];
         for(int a = 0; a < temp.length; a++){
             temp[a] = -1;
         }
+        this.imprimir_arreglo("Datos:  ", datos);
+        this.imprimir_arreglo("Llave:  ", llave);
         for (int i = 0; i < datos.length; i++) {
             int c = datos[i];
-            short k = LLAVE[j];
+            short k = llave[j];
             j++;
-            if(j == LLAVE.length){
+            if(j == llave.length){
                 j = 0;
             }
-//            System.out.println("c = " + c + " k = " + k + " c - k = " + (k - c));
             if(c < k){
                 i++;
                 c *= 10;
                 c += datos[i];
             }
             temp[t] = c - k;
-//            if(temp[i] < 0){
-//                temp[i] *= -1;
-//            }
             t++;
         }
         int[] salida = new int[t];
@@ -343,5 +264,21 @@ public class VICTOR implements Cifras{
             salida[j] = temp[j];
         }
         return salida;
+    }
+
+    private void imprimir_arreglo(String titulo, byte[] datos) {
+        System.out.print(titulo);
+        for(byte d : datos){
+            System.out.print(" " + d);
+        }
+        System.out.println();
+    }
+    
+    private void imprimir_arreglo(String titulo, int[] datos) {
+        System.out.print(titulo);
+        for(int d : datos){
+            System.out.print(" " + d);
+        }
+        System.out.println();
     }
 }
