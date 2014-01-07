@@ -7,7 +7,25 @@
 package data_en_crypto.cifras;
 
 /**
- *
+ * La cifra VIC, tambien conocido como la cifra VICTOR (por el criptonimo del 
+ * agente de espianaje de la Union Sovetica que deserto su pais y mostro a la
+ * NSA como funciona) es un metodo bien seguro. En las años de que la NSA sabia 
+ * de su existencia en 1953 hasta la defectacion de agente VICTOR en 1957, la 
+ * NSA no pudo crackear mensajes protegidos con este metodo y por lo tanto, no
+ * importa que es bastante simple que se puede hacerlo con lapiz y papel, hasta 
+ * ahora es considerado ser muy seguro. El primer paso es codificar los datos 
+ * como un serie de digitos. Durrante este proceso, las letras, los que el 
+ * usuario elije con la primera fila de su tabla (que normalmente son la letras 
+ * mas communes de un idioma, por ejemplo en ingles, se puede recordarlos con la
+ * frase: "A SIN TO ERR") son comprimidas en la forma de un solo digito. Las 
+ * demas caracteres se codifican con un digito de fila (que no puede tener un 
+ * caracter en su columna en la primera fila) y un digito de columna. Este 
+ * primer paso es muy importante porque, en comprimir algunas letras, se hace el
+ * criptoanalisis de todo el mensaje mucho mas dificil porque no hay como ver 
+ * cuales digitos se pertenecen a cada letra (como algunas letras son de un 
+ * digito y otros de dos digitos). El segundo paso suma una llave a todos estes 
+ * digitos para esconder su contenido y despues en el terecer paso, se convirte 
+ * este conjunto de digitos en texto de cifra.
  * @author nyx
  */
 public class VICTOR implements Cifras{
