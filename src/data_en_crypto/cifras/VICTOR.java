@@ -55,6 +55,15 @@ public class VICTOR implements Cifras{
      */
     private final int[] CHAR_NULOS;
 
+    /**
+     * Constructor de la clase Victor. Toma una tabla de caracteres que enseña
+     * al programa como debe codificar texto como un conjunto de digitos y visa
+     * versa. La llave es para codificacion de un conjunto de digitos.
+     * @param tabla_llave una tabla de caracteres que muestra los indices de 
+     * caracteres importantes al objeto VICTOR
+     * @param llave un conjunto/arreglo de numeros para codificar y descodificar
+     * los conjuntos de numeros que esta clase misma se crea y usa.
+     */
     public VICTOR(char[][] tabla_llave, byte[] llave) {
         this.TABLA_LLAVE = tabla_llave;
         this.LLAVE = limpiar(llave);
