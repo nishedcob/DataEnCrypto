@@ -7,45 +7,111 @@
 package data_en_crypto.cifras;
 
 /**
- *
+ * La cifra VIC, tambien conocido como la cifra VICTOR (por el criptonimo del 
+ * agente de espianaje de la Union Sovetica que deserto su pais y mostro a la
+ * NSA como funciona) es un metodo bien seguro. En las años de que la NSA sabia 
+ * de su existencia en 1953 hasta la defectacion de agente VICTOR en 1957, la 
+ * NSA no pudo crackear mensajes protegidos con este metodo y por lo tanto, no
+ * importa que es bastante simple que se puede hacerlo con lapiz y papel, hasta 
+ * ahora es considerado ser muy seguro. El primer paso es codificar los datos 
+ * como un serie de digitos. Durrante este proceso, las letras, los que el 
+ * usuario elije con la primera fila de su tabla (que normalmente son la letras 
+ * mas communes de un idioma, por ejemplo en ingles, se puede recordarlos con la
+ * frase: "A SIN TO ERR") son comprimidas en la forma de un solo digito. Las 
+ * demas caracteres se codifican con un digito de fila (que no puede tener un 
+ * caracter en su columna en la primera fila) y un digito de columna. Este 
+ * primer paso es muy importante porque, en comprimir algunas letras, se hace el
+ * criptoanalisis de todo el mensaje mucho mas dificil porque no hay como ver 
+ * cuales digitos se pertenecen a cada letra (como algunas letras son de un 
+ * digito y otros de dos digitos). El segundo paso suma una llave a todos estes 
+ * digitos para esconder su contenido y despues en el terecer paso, se convirte 
+ * este conjunto de digitos en texto de cifra.
  * @author nyx
  */
 public class VICTOR implements Cifras{
+    /**
+     * La tabla llave es la tabla que nos permite convertir entre caracteres y
+     * digitos y de la misma forma, comprimir caracteres que existen con 
+     * frequencia, dando mejor defensa contra criptoanalisis.
+     */
     private final char[][] TABLA_LLAVE;
+    /**
+     * La llave es para el segundo paso de la cifra VICTOR en donde convertimos
+     * nuestros digitos de letras comprimidas en otras letras, la base para el
+     * texto de salida.
+     */
     private final byte[] LLAVE;
+    /**
+     * este constante es para el indice del caracter especial de nuestra tabla.
+     * Como no hay espacio en una tabla para todos los caracteres possibles,
+     * hay que tener un caracter especial que se va en lugar de estos otros 
+     * caracteres.
+     */
     private final int[] CHAR_ESPECIAL;
+    /**
+     * este constante muestra donde se encuentra los caracteres nulos en la 
+     * primera fila. Esta es importante para entender como estan codificadas las
+     * demas filas.
+     */
     private final int[] CHAR_NULOS;
 
+    /**
+     * Constructor de la clase Victor. Toma una tabla de caracteres que enseña
+     * al programa como debe codificar texto como un conjunto de digitos y visa
+     * versa. La llave es para codificacion de un conjunto de digitos.
+     * @param tabla_llave una tabla de caracteres que muestra los indices de 
+     * caracteres importantes al objeto VICTOR
+     * @param llave un conjunto/arreglo de numeros para codificar y descodificar
+     * los conjuntos de numeros que esta clase misma se crea y usa.
+     */
     public VICTOR(char[][] tabla_llave, byte[] llave) {
         this.TABLA_LLAVE = tabla_llave;
         this.LLAVE = limpiar(llave);
-        this.imprimir_arreglo("LLAVE:  ", LLAVE);
+//        this.imprimir_arreglo("LLAVE:  ", LLAVE);
         this.CHAR_ESPECIAL = this.encontrar_en_tabla('.');
         this.CHAR_NULOS = this.encontrar_nulos();
     }
 
+    /**
+     * Usando el metodo de VICTOR:
+     * <br>Toma texto y con este texto, lo encripta
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma encriptada.
+     */
     @Override
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
-        this.imprimir_arreglo("Datos:  ", temp);
+//        this.imprimir_arreglo("Datos:  ", temp);
         temp = this.juntar(temp, LLAVE);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         temp = this.limpiar(temp);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
+    /**
+     * Usando el metodo de VICTOR:
+     * <br>Toma texto y con este texto, lo decifra
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma decifrada.
+     */
     @Override
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
         int[] temp = this.texto_a_numeros(texto);
         temp = this.disjuntar(temp, LLAVE);
         temp = this.limpiar(temp);
-        this.imprimir_arreglo("Numeros:", temp);
+//        this.imprimir_arreglo("Numeros:", temp);
         return this.numeros_a_texto(temp);
     }
 
+    /**
+     * Toma texto y devuelve su representacion de digitos.
+     * @param texto texto de entrada
+     * @return un conjunto de numeros que representa el texto de entrada de
+     * acuerdo con la tabla en uso.
+     */
     private int[] texto_a_numeros(String texto) {
         int[] temp = new int[texto.length() * 2];
         for (int i = 0; i < temp.length; i++) {
@@ -96,6 +162,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * Toma numeros y devuelve su representacion en letras.
+     * @param temp conjunto de numeros como entrada
+     * @return texto que representa los numeros de entrada de acuerdo con la
+     * tabla en uso.
+     */
     private String numeros_a_texto(int[] temp) {
         String salida = "";
         for (int i = 0; i < temp.length; i++) {
@@ -121,6 +193,14 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * Juntar un conjunto de numeros, que representan texto con una llave que 
+     * les protegera de un criptoanalisis que sea facil
+     * @param temp el conjunto de numeros tomado como una entrada
+     * @param llave la llave numerica para juntar con los numeros, tambien dado 
+     * como una entrada
+     * @return Devuelve el conjunto numerico modificado por la llave
+     */
     private int[] juntar(int[] temp, byte[] llave) {
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
@@ -135,6 +215,14 @@ public class VICTOR implements Cifras{
         return temp;
     }
     
+    /**
+     * Disjuntar un conjunto de numeros, que representan texto de una llave que 
+     * les protegio de un criptoanalisis que sea facil
+     * @param temp el conjunto de numeros tomado como una entrada
+     * @param llave la llave numerica para juntar con los numeros, tambien dado 
+     * como una entrada
+     * @return Devuelve el conjunto numerico modificado por la llave
+     */
     private int[] disjuntar(int[] datos, byte[] llave) {
         int j = 0;
         int t = 0;
@@ -142,8 +230,8 @@ public class VICTOR implements Cifras{
         for(int a = 0; a < temp.length; a++){
             temp[a] = -1;
         }
-        this.imprimir_arreglo("Datos:  ", datos);
-        this.imprimir_arreglo("Llave:  ", llave);
+//        this.imprimir_arreglo("Datos:  ", datos);
+//        this.imprimir_arreglo("Llave:  ", llave);
         for (int i = 0; i < datos.length; i++) {
             int c = datos[i];
             short k = llave[j];
@@ -166,6 +254,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * buscar un caracter querido en la tabla...
+     * @param c caracter que queremos buscar
+     * @return la indice del caracter, o si no encontro, el indice de nuestro
+     * caracter especial.
+     */
     private int[] encontrar_en_tabla(char c) {
         int[] pos = new int[2];
         for (int i = 0; i < TABLA_LLAVE.length; i++) {
@@ -180,6 +274,11 @@ public class VICTOR implements Cifras{
         return CHAR_ESPECIAL;
     }
 
+    /**
+     * Encontrar las caracteres nulos en la primera fila
+     * @return un arreglo de las indices, o sea columnas, de las caracteres 
+     * nulas en la primera fila
+     */
     private int[] encontrar_nulos() {
         byte nulos = 0;
         for(char c : TABLA_LLAVE[0]){
@@ -199,6 +298,13 @@ public class VICTOR implements Cifras{
         return char_nulos;
     }
 
+    /**
+     * prueba que si un valor existe dentro de un arreglo
+     * @param b valor buscado
+     * @param arreglo conjunto de datos en cual buscaremos
+     * @return verdad si el valor buscado existe dentro del arreglo
+     * <br> falso si el valor buscado no existe dentro del arreglo
+     */
     private boolean existe(int b, int[] arreglo) {
         for(int i : arreglo){
             if(b == i){
@@ -208,6 +314,13 @@ public class VICTOR implements Cifras{
         return false;
     }
 
+    /**
+     * Limpiar un arreglo dado para que solo tenga valores que sean de un digito.
+     * @param datos arreglo de entrada
+     * @return el mismo arreglo que fue dado al inicio, pero de una forma 
+     * 'limpia', que en cada indice solo tiene un digito, 0-9, y que es asi sin 
+     * perder ningun dato.
+     */
     private byte[] limpiar(byte[] datos) {
         byte[] temp = new byte[datos.length * 3];
         int i = 0;
@@ -237,6 +350,13 @@ public class VICTOR implements Cifras{
         return salida;
     }
     
+    /**
+     * Limpiar un arreglo dado para que solo tenga valores que sean de un digito.
+     * @param datos arreglo de entrada
+     * @return el mismo arreglo que fue dado al inicio, pero de una forma 
+     * 'limpia', que en cada indice solo tiene un digito, 0-9, y que es asi sin 
+     * perder ningun dato.
+     */
     private int[] limpiar(int[] datos) {
         int[] temp = new int[datos.length * 3];
         int i = 0;
@@ -266,6 +386,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * imprima un titulo y despues todos los datos de un arreglo dado
+     * @param titulo texto de entrada que sera imprimida como titulo
+     * @param datos un conjunto de datos para imprimir despues de imprimir el 
+     * titulo
+     */
     private void imprimir_arreglo(String titulo, byte[] datos) {
         System.out.print(titulo);
         for(byte d : datos){
@@ -274,6 +400,13 @@ public class VICTOR implements Cifras{
         System.out.println();
     }
     
+    /**
+     * imprima un titulo y despues todos los datos de un arreglo dado
+     *
+     * @param titulo texto de entrada que sera imprimida como titulo
+     * @param datos un conjunto de datos para imprimir despues de imprimir el
+     * titulo
+     */
     private void imprimir_arreglo(String titulo, int[] datos) {
         System.out.print(titulo);
         for(int d : datos){
