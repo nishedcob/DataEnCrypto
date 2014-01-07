@@ -72,6 +72,12 @@ public class VICTOR implements Cifras{
         this.CHAR_NULOS = this.encontrar_nulos();
     }
 
+    /**
+     * Usando el metodo de VICTOR:
+     * <br>Toma texto y con este texto, lo encripta
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma encriptada.
+     */
     @Override
     public String encriptar(String texto) {
         texto = texto.toUpperCase();
@@ -84,6 +90,12 @@ public class VICTOR implements Cifras{
         return this.numeros_a_texto(temp);
     }
 
+    /**
+     * Usando el metodo de VICTOR:
+     * <br>Toma texto y con este texto, lo decifra
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma decifrada.
+     */
     @Override
     public String decifrar(String texto) {
         texto = texto.toUpperCase();
@@ -94,6 +106,12 @@ public class VICTOR implements Cifras{
         return this.numeros_a_texto(temp);
     }
 
+    /**
+     * Toma texto y devuelve su representacion de digitos.
+     * @param texto texto de entrada
+     * @return un conjunto de numeros que representa el texto de entrada de
+     * acuerdo con la tabla en uso.
+     */
     private int[] texto_a_numeros(String texto) {
         int[] temp = new int[texto.length() * 2];
         for (int i = 0; i < temp.length; i++) {
@@ -144,6 +162,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * Toma numeros y devuelve su representacion en letras.
+     * @param temp conjunto de numeros como entrada
+     * @return texto que representa los numeros de entrada de acuerdo con la
+     * tabla en uso.
+     */
     private String numeros_a_texto(int[] temp) {
         String salida = "";
         for (int i = 0; i < temp.length; i++) {
