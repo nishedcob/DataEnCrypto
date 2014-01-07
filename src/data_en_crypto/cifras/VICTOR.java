@@ -29,9 +29,30 @@ package data_en_crypto.cifras;
  * @author nyx
  */
 public class VICTOR implements Cifras{
+    /**
+     * La tabla llave es la tabla que nos permite convertir entre caracteres y
+     * digitos y de la misma forma, comprimir caracteres que existen con 
+     * frequencia, dando mejor defensa contra criptoanalisis.
+     */
     private final char[][] TABLA_LLAVE;
+    /**
+     * La llave es para el segundo paso de la cifra VICTOR en donde convertimos
+     * nuestros digitos de letras comprimidas en otras letras, la base para el
+     * texto de salida.
+     */
     private final byte[] LLAVE;
+    /**
+     * este constante es para el indice del caracter especial de nuestra tabla.
+     * Como no hay espacio en una tabla para todos los caracteres possibles,
+     * hay que tener un caracter especial que se va en lugar de estos otros 
+     * caracteres.
+     */
     private final int[] CHAR_ESPECIAL;
+    /**
+     * este constante muestra donde se encuentra los caracteres nulos en la 
+     * primera fila. Esta es importante para entender como estan codificadas las
+     * demas filas.
+     */
     private final int[] CHAR_NULOS;
 
     public VICTOR(char[][] tabla_llave, byte[] llave) {
