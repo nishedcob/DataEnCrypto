@@ -314,6 +314,13 @@ public class VICTOR implements Cifras{
         return false;
     }
 
+    /**
+     * Limpiar un arreglo dado para que solo tenga valores que sean de un digito.
+     * @param datos arreglo de entrada
+     * @return el mismo arreglo que fue dado al inicio, pero de una forma 
+     * 'limpia', que en cada indice solo tiene un digito, 0-9, y que es asi sin 
+     * perder ningun dato.
+     */
     private byte[] limpiar(byte[] datos) {
         byte[] temp = new byte[datos.length * 3];
         int i = 0;
@@ -343,6 +350,13 @@ public class VICTOR implements Cifras{
         return salida;
     }
     
+    /**
+     * Limpiar un arreglo dado para que solo tenga valores que sean de un digito.
+     * @param datos arreglo de entrada
+     * @return el mismo arreglo que fue dado al inicio, pero de una forma 
+     * 'limpia', que en cada indice solo tiene un digito, 0-9, y que es asi sin 
+     * perder ningun dato.
+     */
     private int[] limpiar(int[] datos) {
         int[] temp = new int[datos.length * 3];
         int i = 0;
@@ -372,6 +386,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * imprima un titulo y despues todos los datos de un arreglo dado
+     * @param titulo texto de entrada que sera imprimida como titulo
+     * @param datos un conjunto de datos para imprimir despues de imprimir el 
+     * titulo
+     */
     private void imprimir_arreglo(String titulo, byte[] datos) {
         System.out.print(titulo);
         for(byte d : datos){
@@ -380,6 +400,13 @@ public class VICTOR implements Cifras{
         System.out.println();
     }
     
+    /**
+     * imprima un titulo y despues todos los datos de un arreglo dado
+     *
+     * @param titulo texto de entrada que sera imprimida como titulo
+     * @param datos un conjunto de datos para imprimir despues de imprimir el
+     * titulo
+     */
     private void imprimir_arreglo(String titulo, int[] datos) {
         System.out.print(titulo);
         for(int d : datos){
