@@ -193,6 +193,14 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * Juntar un conjunto de numeros, que representan texto con una llave que 
+     * les protegera de un criptoanalisis que sea facil
+     * @param temp el conjunto de numeros tomado como una entrada
+     * @param llave la llave numerica para juntar con los numeros, tambien dado 
+     * como una entrada
+     * @return Devuelve el conjunto numerico modificado por la llave
+     */
     private int[] juntar(int[] temp, byte[] llave) {
         int j = 0;
         for (int i = 0; i < temp.length; i++) {
@@ -207,6 +215,14 @@ public class VICTOR implements Cifras{
         return temp;
     }
     
+    /**
+     * Disjuntar un conjunto de numeros, que representan texto de una llave que 
+     * les protegio de un criptoanalisis que sea facil
+     * @param temp el conjunto de numeros tomado como una entrada
+     * @param llave la llave numerica para juntar con los numeros, tambien dado 
+     * como una entrada
+     * @return Devuelve el conjunto numerico modificado por la llave
+     */
     private int[] disjuntar(int[] datos, byte[] llave) {
         int j = 0;
         int t = 0;
@@ -238,6 +254,12 @@ public class VICTOR implements Cifras{
         return salida;
     }
 
+    /**
+     * buscar un caracter querido en la tabla...
+     * @param c caracter que queremos buscar
+     * @return la indice del caracter, o si no encontro, el indice de nuestro
+     * caracter especial.
+     */
     private int[] encontrar_en_tabla(char c) {
         int[] pos = new int[2];
         for (int i = 0; i < TABLA_LLAVE.length; i++) {
@@ -252,6 +274,11 @@ public class VICTOR implements Cifras{
         return CHAR_ESPECIAL;
     }
 
+    /**
+     * Encontrar las caracteres nulos en la primera fila
+     * @return un arreglo de las indices, o sea columnas, de las caracteres 
+     * nulas en la primera fila
+     */
     private int[] encontrar_nulos() {
         byte nulos = 0;
         for(char c : TABLA_LLAVE[0]){
@@ -271,6 +298,13 @@ public class VICTOR implements Cifras{
         return char_nulos;
     }
 
+    /**
+     * prueba que si un valor existe dentro de un arreglo
+     * @param b valor buscado
+     * @param arreglo conjunto de datos en cual buscaremos
+     * @return verdad si el valor buscado existe dentro del arreglo
+     * <br> falso si el valor buscado no existe dentro del arreglo
+     */
     private boolean existe(int b, int[] arreglo) {
         for(int i : arreglo){
             if(b == i){
