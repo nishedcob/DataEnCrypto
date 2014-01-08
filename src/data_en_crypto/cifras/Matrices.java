@@ -306,6 +306,7 @@ public class Matrices implements Cifras{
 //        for (int f = 0; f < inverso.length; f++) {
 //            System.out.print(" " + Arrays.toString(inverso[f]));
 //        }
+        imprimir_matriz(null, inverso, null);
         return inverso;
     }
 
@@ -321,4 +322,15 @@ public class Matrices implements Cifras{
         System.out.print(ter);
     }
     
+    private void imprimir_matriz(String ini, double[][] mensaje, String ter) {
+        System.out.print(ini);
+        for(double[] f : mensaje){
+            System.out.print("[");
+            for(double c : f){
+                System.out.print("\t" + c);
+            }
+            System.out.println("\t]");
+        }
+        System.out.print(ter);
+    }
 }
