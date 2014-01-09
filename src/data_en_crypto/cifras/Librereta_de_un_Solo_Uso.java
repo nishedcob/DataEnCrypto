@@ -17,7 +17,7 @@ package data_en_crypto.cifras;
  * <br>Pero, si estas condiciones se cumplen, esta forma de encriptacion es 
  * considerado como los professionales como lo absolutamente mas seguro. 
  * Nunca ha sido crackeado, porque es matematicamente impossible de crackear 
- * si estas dos condiciones se cumplen. Funciona en tomar cada caracter y 
+ * si estas tres condiciones se cumplen. Funciona en tomar cada caracter y 
  * sumarlo con un caracter de la llave. Ningun caracter de la llave se repita en
  * ser usado en esta operacion (si no, seria la cifra de Vigenere) y normalmente
  * se toma los datos y la llave en orden para que cuando llega a su destino, no 
