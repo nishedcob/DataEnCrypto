@@ -202,16 +202,16 @@ public class Matrices implements Cifras{
     }*/
     
     private int[][] multiplicar(int[][] llave, int[][] datos) {
-        int llFilas = llave.length;
-        int llColum = llave[0].length;
-        int daFilas = datos.length;
-        int daColum = datos[0].length;
-        if (llColum != daFilas) {
-            throw new IllegalArgumentException("Llave Filas: " + llFilas + " =/= Dato Columnas: " + daColum);
+//        int llFilas = llave.length;
+//        int llColum = llave[0].length;
+//        int daFilas = datos.length;
+//        int daColum = datos[0].length;
+        if (llave[0].length != datos.length) {
+            throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
         }
-        int numF = llFilas; //# filas
-        int numC = daColum; //# columnas
-        int numO = llColum; //# operaciones
+        int numF = llave.length;    //# filas
+        int numC = datos[0].length; //# columnas
+        int numO = datos.length;    //# operaciones
         int[][] salida = new int[numF][numC];
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
@@ -220,27 +220,27 @@ public class Matrices implements Cifras{
         }
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
-                int suma = 0;
+//                int suma = 0;
                 for (int o = 0; o < numO; o++) {
-                    suma += llave[f][o] * datos[o][c];
+                    salida[f][c] += llave[f][o] * datos[o][c];
                 }
-                salida[f][c] = suma;
+//                salida[f][c] = suma;
             }
         }
         return salida;
     }
 
     private int[][] multiplicar(double[][] llave, int[][] datos) {
-        int llFilas = llave.length;
-        int llColum = llave[0].length;
-        int daFilas = datos.length;
-        int daColum = datos[0].length;
-        if (llColum != daFilas) {
-            throw new IllegalArgumentException("Llave Filas: " + llFilas + " =/= Dato Columnas: " + daColum);
+//        int llFilas = llave.length;
+//        int llColum = llave[0].length;
+//        int daFilas = datos.length;
+//        int daColum = datos[0].length;
+        if (llave[0].length != datos.length) {
+            throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
         }
-        int numF = llFilas; //# filas
-        int numC = daColum; //# columnas
-        int numO = llColum; //# operaciones
+        int numF = llave.length;    //# filas
+        int numC = datos[0].length; //# columnas
+        int numO = datos.length;    //# operaciones
         int[][] salida = new int[numF][numC];
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
@@ -249,11 +249,11 @@ public class Matrices implements Cifras{
         }
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
-                int suma = 0;
+//                int suma = 0;
                 for (int o = 0; o < numO; o++) {
-                    suma += llave[f][o] * datos[o][c];
+                    salida[f][c] += llave[f][o] * datos[o][c];
                 }
-                salida[f][c] = suma;
+//                salida[f][c] = suma;
             }
         }
         return salida;
@@ -306,6 +306,7 @@ public class Matrices implements Cifras{
 //        for (int f = 0; f < inverso.length; f++) {
 //            System.out.print(" " + Arrays.toString(inverso[f]));
 //        }
+        imprimir_matriz(null, inverso, null);
         return inverso;
     }
 
@@ -321,4 +322,15 @@ public class Matrices implements Cifras{
         System.out.print(ter);
     }
     
+    private void imprimir_matriz(String ini, double[][] mensaje, String ter) {
+        System.out.print(ini);
+        for(double[] f : mensaje){
+            System.out.print("[");
+            for(double c : f){
+                System.out.print("\t" + c);
+            }
+            System.out.println("\t]");
+        }
+        System.out.print(ter);
+    }
 }
