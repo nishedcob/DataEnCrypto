@@ -30,6 +30,7 @@ public class Matrices implements Cifras{
         return true;
     }
     
+    //hay que verificar que funciona
     private static int calcular_determinante(int[][] llave) {
         if (llave.length == 1) {
             return llave[0][0];
@@ -201,6 +202,7 @@ public class Matrices implements Cifras{
         return salida;
     }*/
     
+    //confirmado que funciona correctamente
     private int[][] multiplicar(int[][] llave, int[][] datos) {
 //        int llFilas = llave.length;
 //        int llColum = llave[0].length;
@@ -230,6 +232,7 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    //aun no verificado
     private int[][] multiplicar(double[][] llave, int[][] datos) {
 //        int llFilas = llave.length;
 //        int llColum = llave[0].length;
@@ -259,6 +262,7 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    //verfificada que funciona
     private double[][] inverso(int[][] llave) {
 //        System.out.print("Llave:");
 //        for (int f = 0; f < llave.length; f++) {
@@ -306,7 +310,7 @@ public class Matrices implements Cifras{
 //        for (int f = 0; f < inverso.length; f++) {
 //            System.out.print(" " + Arrays.toString(inverso[f]));
 //        }
-        imprimir_matriz(null, inverso, null);
+        imprimir_matriz("", inverso, "");
         return inverso;
     }
 
