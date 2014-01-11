@@ -6,14 +6,17 @@
 
 package data_en_crypto.flujos;
 
-import data_en_crypto.Proceso;
+//import data_en_crypto.Proceso;
 
 /**
  *
  * @author nyx
  */
-public class Flujo extends Proceso{
+public class Flujo {//extends Proceso{
     protected String data;
+
+    public Flujo() {
+    }
 
     public String getData() {
         return data;

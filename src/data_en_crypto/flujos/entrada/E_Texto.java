@@ -11,5 +11,14 @@ package data_en_crypto.flujos.entrada;
  * @author nyx
  */
 public class E_Texto extends Entrada{
+
+    public E_Texto() {
+        super();
+        data = leerData();
+    }
+
+    private String leerData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

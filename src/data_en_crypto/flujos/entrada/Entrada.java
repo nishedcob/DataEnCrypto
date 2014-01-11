@@ -7,11 +7,26 @@
 package data_en_crypto.flujos.entrada;
 
 import data_en_crypto.flujos.Flujo;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  *
  * @author nyx
  */
 public class Entrada extends Flujo{
+    protected Scanner lector;
+    protected File f = null;
+
+    public Entrada(String path) throws FileNotFoundException {
+        super();
+        f = new File(path);
+        lector = new Scanner(f);
+    }
     
+    public Entrada(){
+        super();
+        lector = new Scanner(System.in);
+    }
 }
