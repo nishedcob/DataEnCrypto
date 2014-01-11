@@ -39,14 +39,25 @@ final public class Llave{
      */
     private final char[][] LLAVE_TABLA;
 
-    public Llave(byte TIPO, int LLAVE_NUMERICA) {
-        this.TIPO = TIPO;
-        this.LLAVE_NUMERICA = LLAVE_NUMERICA;
+    /**
+     * Constructor para Llave. Toma el tipo de llave y una llave numerica.
+     * @param tipo tipo de llave
+     * @param llave_numerica valor para la llave numerica
+     */
+    public Llave(byte tipo, int llave_numerica) {
+        this.TIPO = tipo;
+        this.LLAVE_NUMERICA = llave_numerica;
         this.LIBRERETA = null;
         this.LLAVE_MATRIZ = null;
         this.LLAVE_TABLA = null;
     }
 
+    /**
+     * Constructor para Llave. Toma el tipo de llave y una cadena que puede
+     * servir como clave o librereta
+     * @param TIPO tipo de llave
+     * @param LIBRERETA valor para la llave en forma de una cadena
+     */
     public Llave(byte TIPO, String LIBRERETA) {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
@@ -55,6 +66,12 @@ final public class Llave{
         this.LLAVE_TABLA = null;
     }
 
+    /**
+     * Constructor para Llave. Toma el tipo de llave y una matriz que sirve
+     * para multiplicacion de matrices.
+     * @param TIPO tipo de llave
+     * @param LLAVE_MATRIZ un matriz para almacenar en la matriz
+     */
     public Llave(byte TIPO, int[][] LLAVE_MATRIZ) {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
@@ -63,6 +80,12 @@ final public class Llave{
         this.LLAVE_TABLA = null;
     }
 
+    /**
+     * Constructor para Llave. Toma el tipo de llave y una tabla de caracteres
+     * para uso con VICTOR.
+     * @param TIPO tipo de la llave
+     * @param LLAVE_TABLA una tabla de caracteres para almacenar
+     */
     public Llave(byte TIPO, char[][] LLAVE_TABLA) {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
