@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
  * Flujo de Entrada que es un archivo.
  * @author nyx
  */
-final public class E_Archivo extends Entrada{
+public class E_Archivo extends Entrada{
     /**
      * Directorio en donde se encuentra el archivo.
      */
