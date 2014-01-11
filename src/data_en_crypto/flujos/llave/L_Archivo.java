@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
  *
  * @author nyx
  */
-final public class L_Archivo extends E_Archivo {//Llave{
+final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
     final private Llave L;
     
     public L_Archivo(String dir, String nom, String ext, boolean leerAlRAM, byte tipo) throws FileNotFoundException {

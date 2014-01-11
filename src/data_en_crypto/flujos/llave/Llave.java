@@ -12,7 +12,7 @@ package data_en_crypto.flujos.llave;
  * Un objecto llave para almacenar algun tipo de llave.
  * @author nyx
  */
-final public class Llave{
+final public class Llave implements Llave_Tipos {
     /**
      * Tipo de la llave.
      */

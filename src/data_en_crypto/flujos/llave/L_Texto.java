@@ -12,6 +12,6 @@ import data_en_crypto.flujos.entrada.E_Texto;
  *
  * @author nyx
  */
-public class L_Texto extends E_Texto{
+public class L_Texto extends E_Texto implements Llave_Tipos {
     
 }
