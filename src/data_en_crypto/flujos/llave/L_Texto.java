@@ -6,10 +6,12 @@
 
 package data_en_crypto.flujos.llave;
 
+import data_en_crypto.flujos.entrada.E_Texto;
+
 /**
  *
  * @author nyx
  */
-public class L_Texto extends Llave{
+public class L_Texto extends E_Texto implements Llave_Tipos {
     
 }
