@@ -75,7 +75,7 @@ public class E_Archivo extends Entrada{
     
     /**
      * Leer el proximo caracter del archivo.
-     * @return 
+     * @return el proximo caracter del archivo
      */
     public char leerDato() {
         char dato;
