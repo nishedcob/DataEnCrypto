@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+/**
+ * Paquete para flujos de entrada y su superclase Entrada.
+ */
 package data_en_crypto.flujos.entrada;
 
 import data_en_crypto.flujos.Flujo;
