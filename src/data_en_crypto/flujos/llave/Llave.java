@@ -38,6 +38,17 @@ final public class Llave implements Llave_Tipos {
      * (para VICTOR).
      */
     private final char[][] LLAVE_TABLA;
+    
+    /**
+     * Constructor para Llave. Toma nada y crea un tipo de llave vacia.
+     */
+    public Llave(){
+        this.TIPO = -1;
+        this.LLAVE_NUMERICA = 0;
+        this.LIBRERETA = null;
+        this.LLAVE_MATRIZ = null;
+        this.LLAVE_TABLA = null;
+    }
 
     /**
      * Constructor para Llave. Toma el tipo de llave y una llave numerica.

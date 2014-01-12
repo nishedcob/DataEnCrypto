@@ -31,7 +31,13 @@ public class E_Archivo extends Entrada{
      * Muestra si escribimos el archivo a RAM o no.
      */
     private final boolean ESTA_EN_RAM;
+    /**
+     * un contador global del clase.
+     */
     private int pos = 0;
+    /**
+     * un string para almacenar un poco del archivo en RAM.
+     */
     private String prox = "";
 
     /**
@@ -73,7 +79,7 @@ public class E_Archivo extends Entrada{
      */
     public char leerDato() {
         char dato;
-        if(ESTA_EN_RAM){
+        if(isESTA_EN_RAM()){
             if(pos < data.length()){
                 dato = data.charAt(pos);
             } else {
@@ -120,6 +126,14 @@ public class E_Archivo extends Entrada{
      */
     public String getEXT() {
         return EXT;
+    }
+
+    /**
+     * Muestra si escribimos el archivo a RAM o no.
+     * @return ESTA_EN_RAM
+     */
+    public boolean isESTA_EN_RAM() {
+        return ESTA_EN_RAM;
     }
     
 }
