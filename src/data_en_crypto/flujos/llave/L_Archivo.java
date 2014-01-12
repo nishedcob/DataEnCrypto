@@ -6,10 +6,68 @@
 
 package data_en_crypto.flujos.llave;
 
+import data_en_crypto.flujos.entrada.E_Archivo;
+import java.io.FileNotFoundException;
+
 /**
  *
  * @author nyx
  */
-public class L_Archivo extends Llave{
+final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
+    final private Llave L;
+    
+    public L_Archivo(String dir, String nom, String ext, boolean leerAlRAM, byte tipo) throws FileNotFoundException {
+        super(dir, nom, ext, leerAlRAM);
+        L = this.crearLlave(tipo);
+    }
+
+    private Llave crearLlave(byte tipo) {
+        switch(tipo){
+            case TIPO_LLAVE_CLAVE:
+                if(isESTA_EN_RAM()){
+                    return new Llave(TIPO_LLAVE_CLAVE, super.data);
+                } else {
+                    String clave = "";
+                    try {
+                        while(true){
+                            clave += super.leerDato();
+                        }
+                    } catch (IndexOutOfBoundsException ioobe) {
+                    } catch (Exception e) {
+                    } finally {
+                        return new Llave(TIPO_LLAVE_CLAVE, clave);
+                    }
+                }
+                //break;
+            case TIPO_LLAVE_LIBRERETA:
+                if(isESTA_EN_RAM()){
+                    return new Llave(TIPO_LLAVE_LIBRERETA, super.data);
+                } else {
+                    String librereta = "";
+                    try {
+                        while(true){
+                            librereta += super.leerDato();
+                        }
+                    } catch (IndexOutOfBoundsException ioobe) {
+                    } catch (Exception e) {
+                    } finally {
+                        return new Llave(TIPO_LLAVE_LIBRERETA, librereta);
+                    }
+                }
+                //break;
+            case TIPO_LLAVE_TABLA:
+                throw new UnsupportedOperationException("Not Supported yet.");
+                //break;
+            case TIPO_LLAVE_NUMERICA:
+                return new Llave(TIPO_LLAVE_NUMERICA, (int)super.leerDato());
+                //break;
+            case TIPO_LLAVE_MATRIZ:
+                throw new UnsupportedOperationException("Not Supported yet.");
+                //break;
+            default:
+                return new Llave();
+        }
+        //return new Llave();
+    }
     
 }
