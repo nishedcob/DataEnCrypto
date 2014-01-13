@@ -104,11 +104,11 @@ public class Matrices implements Cifras{
     public String encriptar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(LLAVE, mensaje);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
@@ -117,11 +117,11 @@ public class Matrices implements Cifras{
     public String decifrar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(inverso(LLAVE), mensaje);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
-        this.imprimir_matriz("\n", mensaje, "\n");
+//        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
@@ -224,7 +224,7 @@ public class Matrices implements Cifras{
             for (int c = 0; c < numC; c++) {
 //                int suma = 0;
                 for (int o = 0; o < numO; o++) {
-                    salida[f][c] += llave[f][o] * datos[o][c];
+                    salida[f][c] += llave[o][f] * datos[o][c];
                 }
 //                salida[f][c] = suma;
             }
@@ -310,7 +310,7 @@ public class Matrices implements Cifras{
 //        for (int f = 0; f < inverso.length; f++) {
 //            System.out.print(" " + Arrays.toString(inverso[f]));
 //        }
-        imprimir_matriz("", inverso, "");
+//        imprimir_matriz("", inverso, "");
         return inverso;
     }
 
