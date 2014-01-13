@@ -6,7 +6,7 @@ package data_en_crypto;
  * and open the template in the editor.
  */
 
-import data_en_crypto.*;
+//import data_en_crypto.*;
 
 /**
  * Clase principal del proyecto -- Carga el resto del programa.
@@ -15,7 +15,10 @@ import data_en_crypto.*;
 public class Cargador {
     
     //VARIABLES GLOBALES
-    final static byte[] VERSION = {0, 5, 6};
+    /**
+     * Numero de version del Programa.
+     */
+    final static byte[] VERSION = {0, 6, 1, 2, 5};
     
     /**
      * Metodo principal del cargador -- este metodo carga el resto del programa
