@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+/**
+ * Paquete para flujos de entrada de tipo llave, su objeto principal, que es
+ * Llave y una interfaz de constantes que es Llave_Tipos.
+ */
 package data_en_crypto.flujos.llave;
 
 //import data_en_crypto.flujos.Flujo;

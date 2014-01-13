@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+/**
+ * Paquete principal. Contiene el nucleo del programa y interfaces graficas.
+ */
 package data_en_crypto;
 
 /*
