@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+/**
+ * Superpaquete para todos los paquetes de flujo. Solo tiene un clase, flujo
+ * que es el superclase para todos los flujos.
+ */
 package data_en_crypto.flujos;
 
 //import data_en_crypto.Proceso;
