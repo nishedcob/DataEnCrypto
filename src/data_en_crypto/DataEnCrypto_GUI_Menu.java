@@ -35,7 +35,7 @@ public class DataEnCrypto_GUI_Menu extends javax.swing.JFrame {
 
         jLabel1.setText("DataEnCrypto        Version:");
 
-        jLabel2.setText(DataEnCrypto.getVersion());
+        jLabel2.setText(Cargador.getVersion());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

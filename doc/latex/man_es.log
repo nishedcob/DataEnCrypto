@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  10 JAN 2014 13:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  12 JAN 2014 23:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -48,6 +48,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (./man_es.toc
 Missing character: There is no Â in font cmbx10!
 Missing character: There is no ¿ in font cmbx10!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
 )
 \tf@toc=\write3
 \openout3 = `man_es.toc'.
@@ -56,14 +60,17 @@ Missing character: There is no Â in font cmbx12!
 Missing character: There is no ¿ in font cmbx12!
  [1
 
-] (./man_es.aux) ) 
+] [2]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ± in font cmr10!
+ [3] (./man_es.aux) ) 
 Here is how much of TeX's memory you used:
- 231 strings out of 495060
- 2457 string characters out of 3182052
- 47977 words of memory out of 3000000
- 3487 multiletter control sequences out of 15000+200000
- 7588 words of font info for 27 fonts, out of 3000000 for 9000
+ 236 strings out of 495060
+ 2516 string characters out of 3182052
+ 50977 words of memory out of 3000000
+ 3492 multiletter control sequences out of 15000+200000
+ 7895 words of font info for 28 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 23i,6n,17p,1156b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,6n,18p,1429b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on man_es.dvi (1 page, 2264 bytes).
+Output written on man_es.dvi (3 pages, 11296 bytes).
