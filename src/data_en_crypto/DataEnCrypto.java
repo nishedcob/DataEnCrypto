@@ -17,15 +17,15 @@ import java.util.Scanner;
 import data_en_crypto.cifras.*;
 
 /**
- *
+ * Nucleo para el programa para cuando corre sin interfaz grafica.
  * @author nyx
  */
 public class DataEnCrypto {
-    
-    //VARIABLES GLOBALES
-    final static byte[] VERSION = {0, 5, 6};
-    
     //<editor-fold defaultstate="collapsed" desc=" Nucleo del Programa ">
+    /**
+     * Nucleo de este clase. Corre todo el programa sin interfaz grafica.
+     * @param args los argumentos bajo que fue ejecutado el programa.
+     */
     public static void main(String[] args) {
         //<editor-fold defaultstate="collapsed" desc=" Para cargar una configuracion -- comentado para no correr ">
         //cargar ultimo configuracion:
@@ -164,16 +164,4 @@ public class DataEnCrypto {
     }
     //</editor-fold>
 
-    public static String getVersion() {
-        String ver = "";
-        try{
-            ver += VERSION[0];
-            for(byte c = 1; c < VERSION.length; c++){
-                ver += "." + VERSION[c];
-            }
-        } catch (NullPointerException npe) {
-            return "No existe numero de version.";
-        }
-        return ver;
-    }
 }
