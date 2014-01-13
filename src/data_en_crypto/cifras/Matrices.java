@@ -14,7 +14,6 @@ public class Matrices implements Cifras{
 
     public static boolean es_llave_valido(int[][] llave){
         if(es_cuadrado(llave)){
-//            System.out.println("Llave es cuadrado");
             int det = calcular_determinante(llave);
             return (det % 2) != 1;
         }
@@ -30,7 +29,6 @@ public class Matrices implements Cifras{
         return true;
     }
     
-    //hay que verificar que funciona
     private static int calcular_determinante(int[][] llave) {
         if (llave.length == 1) {
             return llave[0][0];
@@ -59,12 +57,9 @@ public class Matrices implements Cifras{
             }
             int spos = 0, sneg = 0;
             for (int i = 0; i < llave.length; i++) {
-//                System.out.println("pos[" + i + "] = " + pos[i]);
-//                System.out.println("neg[" + i + "] = " + neg[i]);
                 spos += pos[i];
                 sneg += neg[i];
             }
-//            System.out.println("spos - sneg: " + spos + " - " + sneg);
             return spos - sneg;
         }
     }
@@ -104,11 +99,8 @@ public class Matrices implements Cifras{
     public String encriptar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(LLAVE, mensaje);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
@@ -117,11 +109,8 @@ public class Matrices implements Cifras{
     public String decifrar(String texto) {
         String salida;
         int[][] mensaje = this.texto_a_matriz(texto);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = multiplicar(inverso(LLAVE), mensaje);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         mensaje = modulo(mensaje, 65536);
-//        this.imprimir_matriz("\n", mensaje, "\n");
         salida = this.matriz_a_texto(mensaje);
         return salida;
     }
@@ -130,12 +119,9 @@ public class Matrices implements Cifras{
         int fil = LLAVE.length;
         int col = texto.length() / fil;
         col += ((texto.length() % fil) != 0) ? 1 : 0;
-//        System.out.println("col = " + col + " fil = " + fil);
         int[][] salida = new int[fil][col];
         int c = 0, f = 0;
         for(char p : texto.toCharArray()){
-//            System.out.println("p = " + p);
-//            System.out.println("f = " + f + " c = " + c);
             salida[f][c] = p;
             c++;
             if(c == col){
@@ -156,58 +142,7 @@ public class Matrices implements Cifras{
         return salida;
     }
 
-    /*private int[][] multiplicar(int[][] llave, int[][] datos) {
-        int numF = llave.length; //# filas
-        int numC = datos[0].length; //# columnas
-        int numO; //# operaciones
-        if(llave[0].length != datos.length){
-            int[][] salida = new int[1][1];
-            salida[0][0] = -3;
-            return salida;
-        }
-        numO = datos.length;
-        int[][] salida = new int[numF][numC];
-        for (int f = 0; f < numF; f++) {
-            for (int c = 0; c < numC; c++) {
-                int suma = 0;
-                for (int o = 0; o < numO; o++) {
-                    suma += llave[f][o] * datos[o][c];
-                }
-                salida[f][c] = suma;
-            }
-        }
-        return salida;
-    }
-
-    private int[][] multiplicar(double[][] llave, int[][] datos) {
-        int numF = llave.length; //# filas
-        int numC = datos[0].length; //# columnas
-        int numO; //# operaciones
-        if(llave[0].length != datos.length){
-            int[][] salida = new int[1][1];
-            salida[0][0] = -3;
-            return salida;
-        }
-        numO = datos.length;
-        int[][] salida = new int[numF][numC];
-        for (int f = 0; f < numF; f++) {
-            for (int c = 0; c < numC; c++) {
-                int suma = 0;
-                for (int o = 0; o < numO; o++) {
-                    suma += llave[f][o] * datos[o][c];
-                }
-                salida[f][c] = suma;
-            }
-        }
-        return salida;
-    }*/
-    
-    //confirmado que funciona correctamente
     private int[][] multiplicar(int[][] llave, int[][] datos) {
-//        int llFilas = llave.length;
-//        int llColum = llave[0].length;
-//        int daFilas = datos.length;
-//        int daColum = datos[0].length;
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
         }
@@ -222,22 +157,15 @@ public class Matrices implements Cifras{
         }
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
-//                int suma = 0;
                 for (int o = 0; o < numO; o++) {
                     salida[f][c] += llave[o][f] * datos[o][c];
                 }
-//                salida[f][c] = suma;
             }
         }
         return salida;
     }
 
-    //aun no verificado
     private int[][] multiplicar(double[][] llave, int[][] datos) {
-//        int llFilas = llave.length;
-//        int llColum = llave[0].length;
-//        int daFilas = datos.length;
-//        int daColum = datos[0].length;
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
         }
@@ -252,24 +180,15 @@ public class Matrices implements Cifras{
         }
         for (int f = 0; f < numF; f++) {
             for (int c = 0; c < numC; c++) {
-//                int suma = 0;
                 for (int o = 0; o < numO; o++) {
                     salida[f][c] += llave[f][o] * datos[o][c];
                 }
-//                salida[f][c] = suma;
             }
         }
         return salida;
     }
 
-    //verfificada que funciona
     private double[][] inverso(int[][] llave) {
-//        System.out.print("Llave:");
-//        for (int f = 0; f < llave.length; f++) {
-//            System.out.print(" " + Arrays.toString(llave[f]));
-//        }
-        //int DET;
-//        System.out.println("\nDeterminante: " + determinante);
         double[][] inverso = new double[llave.length][llave[0].length];
         boolean signo = false;
         for (int f = 0; f < llave.length; f++) {
@@ -279,7 +198,6 @@ public class Matrices implements Cifras{
                 for (int f2 = 0; f2 < llave.length; f2++) {
                     for (int c2 = 0; c2 < llave[f2].length; c2++) {
                         if (f2 != f && c2 != c) {
-//                            System.out.print("\nfda = " + fda + " cda = " + cda);
                             matriz_de_adentro[fda][cda] = llave[f2][c2];
                             cda++;
                             if(cda == matriz_de_adentro[fda].length){
@@ -294,23 +212,9 @@ public class Matrices implements Cifras{
                     dda *= -1;
                 }
                 signo = !signo;
-//                System.out.println("dda = " + dda);
-//                System.out.println("det = " + DET);
-//                int[] cortos = hacerCortos(0.5, dda, determinante);
-//                int dda2 =  cortos[1];
-//                int det2 =  cortos[0];
-//                System.out.println("dda2 = " + dda2);
-//                System.out.println("det2 = " + det2);
-//                inverso[f][c] = dda2 / det2;
                 inverso[f][c] = ((double)dda) / ((double)DET);
-//                System.out.println("inverso[" + f + "][" + c + "] = " + inverso[f][c]);
             }
         }
-//        System.out.print("Inverso:");
-//        for (int f = 0; f < inverso.length; f++) {
-//            System.out.print(" " + Arrays.toString(inverso[f]));
-//        }
-//        imprimir_matriz("", inverso, "");
         return inverso;
     }
 
