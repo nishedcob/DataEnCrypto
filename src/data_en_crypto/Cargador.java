@@ -1,16 +1,25 @@
+package data_en_crypto;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import data_en_crypto.*;
+//import data_en_crypto.*;
 
 /**
  * Clase principal del proyecto -- Carga el resto del programa.
  * @author nyx
  */
 public class Cargador {
+    
+    //VARIABLES GLOBALES
+    /**
+     * Numero de version del Programa.
+     */
+    final static byte[] VERSION = {0, 6, 1, 2, 5};
+    
     /**
      * Metodo principal del cargador -- este metodo carga el resto del programa
      * @param args argumentos dado por ejecutacion por consola
@@ -39,7 +48,7 @@ public class Cargador {
                 } else if (existe("-a", args) || existe('a', args)) {
                     //el usuario quiere el interfaz avanzada
                     DataEnCrypto_GUI_Avanzada.main(args);
-                } else if (existe("-p", args) || existe('p', args)) {
+                } else if (existe("-t", args) || existe('t', args)) {
                     //el usuario quiere ver las pruebas de cada cifra
                     DataEnCrypto.main(args);
                     //por ahora, las pruebas son en el clase de arriba. Despues
@@ -98,5 +107,22 @@ public class Cargador {
             }
         }
         return false;
+    }
+    
+    /**
+     * Devuelve el numero de version del programa.
+     * @return numero de version del programa en forma de un String.
+     */
+    public static String getVersion() {
+        String ver = "";
+        try{
+            ver += VERSION[0];
+            for(byte c = 1; c < VERSION.length; c++){
+                ver += "." + VERSION[c];
+            }
+        } catch (NullPointerException npe) {
+            return "No existe numero de version.";
+        }
+        return ver;
     }
 }
