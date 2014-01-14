@@ -7,11 +7,23 @@
 package data_en_crypto.cifras;
 
 /**
- *
+ * La cifra de matrices, tambien conocido la cifra de Hill es una cifra que usa 
+ * multiplicacion entre matrices para encriptar y multiplicacion entre una 
+ * matriz que representa el mensaje encriptado y la matriz inversa de la matriz
+ * usado para encriptar. Como usa multiplicacion de matrices para sus 
+ * operaciones, esconde informacion del mensaje original para hacer su 
+ * criptoanalisis mas dificil. Pero igual, de todas formas, esta cifra no debe 
+ * ser considerado seguro ahora que computadoras tienen mucho poder. De todas 
+ * formas, esta cifra es obsoleta.
  * @author nyx
  */
 public class Matrices implements Cifras{
 
+    /**
+     * Prueba para ver si la llave dado es valido
+     * @param llave llave para probar
+     * @return si la llave es valido o no valido
+     */
     public static boolean es_llave_valido(int[][] llave){
         if(es_cuadrado(llave)){
             int det = calcular_determinante(llave);
@@ -20,6 +32,11 @@ public class Matrices implements Cifras{
         return false;
     }
     
+    /**
+     * prueba para ver si la llave dado es cuadrado
+     * @param llave llave para probar
+     * @return si la llave es cuadrado o no
+     */
     private static boolean es_cuadrado(int[][] llave) {
         for(int[] r : llave){
             if(r.length != llave.length){
@@ -29,6 +46,11 @@ public class Matrices implements Cifras{
         return true;
     }
     
+    /**
+     * Calcula el determinante de una llave
+     * @param llave la llave dado
+     * @return el determinante de la llave dado
+     */
     private static int calcular_determinante(int[][] llave) {
         if (llave.length == 1) {
             return llave[0][0];
@@ -64,9 +86,19 @@ public class Matrices implements Cifras{
         }
     }
     
+    /**
+     * La llave de este objeto
+     */
     private final int[][] LLAVE;
+    /**
+     * Determinante de la llave del objeto
+     */
     private final int DET;
 
+    /**
+     * Constructor de esta clase
+     * @param LLAVE llave para almacencar
+     */
     public Matrices(int[][] LLAVE) {
         if(es_llave_valido(LLAVE)){
             this.LLAVE = LLAVE;
@@ -78,14 +110,28 @@ public class Matrices implements Cifras{
         }
     }
 
+    /**
+     * Desvuelve la llave del objeto
+     * @return Llave
+     */
     public int[][] getLLAVE() {
         return LLAVE;
     }
 
+    /**
+     * Devuelve la determinante de la llave del objeto
+     * @return determinante
+     */
     public int getDET() {
         return DET;
     }
     
+    /**
+     * toma cada valor en mensaje y devuelve su modulo
+     * @param mensaje la matriz de entrada
+     * @param mod el numero con que tomamos el modulo
+     * @return una matriz que tenga todos los valores con el modulo calculado
+     */
     private int[][] modulo(int[][] mensaje, int mod){
         for (int i = 0; i < mensaje.length; i++) {
             for (int j = 0; j < mensaje[i].length; j++) {
@@ -95,6 +141,12 @@ public class Matrices implements Cifras{
         return mensaje;
     }
 
+    /**
+     * Usando el metodo de Matrices:
+     * <br>Toma texto y con este texto, lo encripta
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma encriptada.
+     */
     @Override
     public String encriptar(String texto) {
         String salida;
@@ -105,6 +157,12 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Usando el metodo de Matrices:
+     * <br>Toma texto y con este texto, lo decifra
+     * @param texto texto de entrada.
+     * @return el texto de entrada de una forma decifrada.
+     */
     @Override
     public String decifrar(String texto) {
         String salida;
@@ -115,6 +173,11 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Convierte un texto a una matriz
+     * @param texto el texto para convertir
+     * @return una matriz de salida que representa el texto de entrada
+     */
     private int[][] texto_a_matriz(String texto) {
         int fil = LLAVE.length;
         int col = texto.length() / fil;
@@ -132,6 +195,11 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Convierte una matriz a texto
+     * @param matriz la matriz de entrada
+     * @return texto de salida que representa el texto de entrada
+     */
     private String matriz_a_texto(int[][] matriz) {
         String salida = "";
         for(int[] f : matriz){
@@ -142,6 +210,12 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Multiplicar dos matrices de forma entera
+     * @param llave matriz que es la llave
+     * @param datos matriz que es los datos
+     * @return matriz que es los datos encriptados
+     */
     private int[][] multiplicar(int[][] llave, int[][] datos) {
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
@@ -165,6 +239,12 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Multiplicar dos matrices de cual una es de tipo double y el otro de tipo entera
+     * @param llave matriz que es la inversa de la llave (tipo double)
+     * @param datos matriz que es los datos encriptados
+     * @return matriz que es los datos descriptado
+     */
     private int[][] multiplicar(double[][] llave, int[][] datos) {
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
@@ -188,6 +268,11 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Calcular el inverso de una llave dado
+     * @param llave la llave de que queremos el inverso
+     * @return el inverso de la llave dado
+     */
     private double[][] inverso(int[][] llave) {
         double[][] inverso = new double[llave.length][llave[0].length];
         boolean signo = false;
@@ -218,6 +303,12 @@ public class Matrices implements Cifras{
         return inverso;
     }
 
+    /**
+     * Imprimir una matriz
+     * @param ini texto para imprimir antes de imprimir el matriz
+     * @param mensaje el matriz para imprimir
+     * @param ter texto para imprimir despues de imprimir el matriz
+     */
     private void imprimir_matriz(String ini, int[][] mensaje, String ter) {
         System.out.print(ini);
         for(int[] f : mensaje){
@@ -230,6 +321,12 @@ public class Matrices implements Cifras{
         System.out.print(ter);
     }
     
+    /**
+     * Imprimir una matriz
+     * @param ini texto para imprimir antes de imprimir el matriz
+     * @param mensaje el matriz para imprimir
+     * @param ter texto para imprimir despues de imprimir el matriz
+     */
     private void imprimir_matriz(String ini, double[][] mensaje, String ter) {
         System.out.print(ini);
         for(double[] f : mensaje){
