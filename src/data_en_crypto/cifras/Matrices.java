@@ -210,6 +210,12 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Multiplicar dos matrices de forma entera
+     * @param llave matriz que es la llave
+     * @param datos matriz que es los datos
+     * @return matriz que es los datos encriptados
+     */
     private int[][] multiplicar(int[][] llave, int[][] datos) {
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
@@ -233,6 +239,12 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Multiplicar dos matrices de cual una es de tipo double y el otro de tipo entera
+     * @param llave matriz que es la inversa de la llave (tipo double)
+     * @param datos matriz que es los datos encriptados
+     * @return matriz que es los datos descriptado
+     */
     private int[][] multiplicar(double[][] llave, int[][] datos) {
         if (llave[0].length != datos.length) {
             throw new IllegalArgumentException("Llave Columnas: " + llave[0].length + " =/= Dato Filas: " + datos.length);
@@ -256,6 +268,11 @@ public class Matrices implements Cifras{
         return salida;
     }
 
+    /**
+     * Calcular el inverso de una llave dado
+     * @param llave la llave de que queremos el inverso
+     * @return el inverso de la llave dado
+     */
     private double[][] inverso(int[][] llave) {
         double[][] inverso = new double[llave.length][llave[0].length];
         boolean signo = false;
@@ -286,6 +303,12 @@ public class Matrices implements Cifras{
         return inverso;
     }
 
+    /**
+     * Imprimir una matriz
+     * @param ini texto para imprimir antes de imprimir el matriz
+     * @param mensaje el matriz para imprimir
+     * @param ter texto para imprimir despues de imprimir el matriz
+     */
     private void imprimir_matriz(String ini, int[][] mensaje, String ter) {
         System.out.print(ini);
         for(int[] f : mensaje){
@@ -298,6 +321,12 @@ public class Matrices implements Cifras{
         System.out.print(ter);
     }
     
+    /**
+     * Imprimir una matriz
+     * @param ini texto para imprimir antes de imprimir el matriz
+     * @param mensaje el matriz para imprimir
+     * @param ter texto para imprimir despues de imprimir el matriz
+     */
     private void imprimir_matriz(String ini, double[][] mensaje, String ter) {
         System.out.print(ini);
         for(double[] f : mensaje){
