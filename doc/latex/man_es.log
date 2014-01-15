@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  12 JAN 2014 23:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  15 JAN 2014 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -63,7 +63,7 @@ Missing character: There is no ¿ in font cmbx12!
 ] [2]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ± in font cmr10!
- [3] (./man_es.aux) ) 
+ [3] [4] (./man_es.aux) ) 
 Here is how much of TeX's memory you used:
  236 strings out of 495060
  2516 string characters out of 3182052
@@ -73,4 +73,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  23i,6n,18p,1429b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on man_es.dvi (3 pages, 11296 bytes).
+Output written on man_es.dvi (4 pages, 12084 bytes).
