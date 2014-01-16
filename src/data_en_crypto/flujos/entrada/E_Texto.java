@@ -12,13 +12,19 @@ package data_en_crypto.flujos.entrada;
  */
 public class E_Texto extends Entrada{
 
-    public E_Texto() {
+    public E_Texto(String Val_Salida) {
         super();
-        data = leerData();
+        data = leerData("", Val_Salida);
     }
 
-    private String leerData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String leerData(String data, String Val_Salida) {
+        String tmp = lector.nextLine();
+        if(tmp == null ? Val_Salida == null : tmp.equals(Val_Salida)){
+            return data;
+        } else {
+            data += tmp;
+            return leerData(data, Val_Salida);
+        }
     }
     
 }
