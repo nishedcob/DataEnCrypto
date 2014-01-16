@@ -165,6 +165,11 @@ public class DataEnCrypto {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc=" Prueba de cada Cifra ">
+    /**
+     * Una pequeña programa en la forma de un metodo. Toma argumentos de 
+     * ejecutacion como parametro y despues muestra como es cada cifra. 
+     * @param args argumentos de ejecutacion
+     */
     public static void prueba(String[] args){
         
         System.out.println("---Estado Inicial---");
@@ -265,6 +270,11 @@ public class DataEnCrypto {
     }
     //</editor-fold>
 
+    /**
+     * Metodo para imprimir una matriz formado por numeros de tipo int.
+     * @param titulo lo que debemos imprimir antes de la matriz
+     * @param matriz la matriz para imprimir
+     */
     private static void imprimir_matriz(String titulo, int[][] matriz) {
         System.out.print(titulo);
         for(int[] fila : matriz){
@@ -276,6 +286,12 @@ public class DataEnCrypto {
         }
     }
     
+    /**
+     * Metodo para imprimir una tabla (un tipo de matriz especial -- usa
+     * caracteres en lugar de numeros de tipo int).
+     * @param titulo Lo que queremos imprimir antes de la tabla
+     * @param tabla la tabla que queremos imprimir
+     */
     private static void imprimir_matriz(String titulo, char[][] tabla) {
         System.out.print(titulo);
         for(char[] fila : tabla){
@@ -287,10 +303,15 @@ public class DataEnCrypto {
         }
     }
 
-    private static void imprimir_arreglo(String titulo, byte[] clave2) {
+    /**
+     * Un metodo para imprimir un arreglo con datos de tipo byte.
+     * @param titulo Lo que queremos imprimir antes de imprimir el arreglo.
+     * @param clave el arreglo que queremos imprimir.
+     */
+    private static void imprimir_arreglo(String titulo, byte[] clave) {
         System.out.print(titulo);
         System.out.print('[');
-        for(byte b : clave2){
+        for(byte b : clave){
             System.out.print(" " + b);
         }
         System.out.print(' ' + ']');
