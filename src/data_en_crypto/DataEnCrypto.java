@@ -116,7 +116,7 @@ public class DataEnCrypto {
         /**/
         //</editor-fold>
         
-        //<editor-fold defaultstate="collapsed" desc=" Matrices -- no funciona ">
+        //<editor-fold defaultstate="collapsed" desc=" Matrices -- funciona ">
         //*
         System.out.println("---Matrices---");
         int[][] llave2 = {
@@ -270,6 +270,7 @@ public class DataEnCrypto {
     }
     //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc=" Metodos Auxilliares ">
     /**
      * Metodo para imprimir una matriz formado por numeros de tipo int.
      * @param titulo lo que debemos imprimir antes de la matriz
@@ -316,4 +317,5 @@ public class DataEnCrypto {
         }
         System.out.print(' ' + ']');
     }
+    //</editor-fold>
 }
