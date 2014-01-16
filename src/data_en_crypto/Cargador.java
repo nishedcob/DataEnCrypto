@@ -50,7 +50,8 @@ public class Cargador {
                     DataEnCrypto_GUI_Avanzada.main(args);
                 } else if (existe("-t", args) || existe('t', args)) {
                     //el usuario quiere ver las pruebas de cada cifra
-                    DataEnCrypto.main(args);
+//                    DataEnCrypto.main(args);
+                    DataEnCrypto.prueba(args);
                     //por ahora, las pruebas son en el clase de arriba. Despues
                     //estaran en otro metodo y sera que cambiar este linea
                 } else {
