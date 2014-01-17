@@ -197,6 +197,7 @@ public class DataEnCrypto {
         imprimir_matriz("Tabla:\n", tabla_llave);
         byte[] clave2 = {'c', 'l', 'a', 'v', 'e'};
         imprimir_arreglo("Segundo Clave: ", clave2);
+        System.out.println();
         
         //<editor-fold defaultstate="collapsed" desc=" AutoTexto -- funciona ">  
         System.out.println("---AutoTexto---");
@@ -315,7 +316,7 @@ public class DataEnCrypto {
         for(byte b : clave){
             System.out.print(" " + b);
         }
-        System.out.print(' ' + ']');
+        System.out.print(" ]");
     }
     //</editor-fold>
 }
