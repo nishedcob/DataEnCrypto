@@ -80,11 +80,13 @@ public class DataEnCrypto {
         }
         */
         //</editor-fold>
-        //<editor-fold defaultstate="collapsed" desc=" Prueba de cada Cifra ">
+        //<editor-fold defaultstate="collapsed" desc=" Prueba de cada Cifra -- comentado para no correr">
+        /*
         String texto = "Hola Mundo!";
         String salida;
-        
+        */
         //<editor-fold defaultstate="collapsed" desc=" AutoTexto -- funciona ">
+        /*
         String clave = "clave";
         System.out.println("---AutoTexto---");
         AutoTexto at = new AutoTexto(clave);
@@ -92,9 +94,11 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = at.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Cesar -- funciona">
+        /*
         byte llave = 1;
         System.out.println("---Cesar---");
         Cesar ces = new Cesar(llave);
@@ -102,10 +106,11 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = ces.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Librereta de Un Solo Uso -- funciona ">
-        /**/
+        /* * /
         String librereta = "!odnuM aloH";
         System.out.println("---Librereta de un Solo Uso---");
         Librereta_de_un_Solo_Uso lib = new Librereta_de_un_Solo_Uso(librereta);
@@ -113,11 +118,12 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = lib.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
-        /**/
+        /* */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Matrices -- funciona ">
-        //*
+        //
+        /*
         System.out.println("---Matrices---");
         int[][] llave2 = {
             {4, 3, 3},
@@ -132,10 +138,11 @@ public class DataEnCrypto {
             salida = mat.decifrar(salida);
             System.out.println("Decifrado:  " + salida);
         }
-        //*/
+        // */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" VICTOR -- casi funciona -- tiene una pequeña bug ">
+        /*
         System.out.println("---VICTOR---");
         char[][] tabla_llave = {
             //0    1    2   2/3  3/4  4/5  5/6  6/7  6/8  7/9   8    9
@@ -149,18 +156,21 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = vic.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        */
         //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
+        /*
         System.out.println("---Vigenere---");
         Vigenere vig = new Vigenere(clave);
         salida = vig.encriptar(texto);
         System.out.println("Encryptado: " + salida);
         salida = vig.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        */
+        //</editor-fold>
         //</editor-fold>
         
-        //</editor-fold>
     }
     //</editor-fold>
     
