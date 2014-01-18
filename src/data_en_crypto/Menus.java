@@ -10,19 +10,35 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- *
+ * Clase que actua como interfaz de texto para nuestro programa cuando corre por consola.
  * @author nyx
  */
 class Menus {
 
     //Constantes Globales (estaticas)
+    /**
+     * El numero de menus differentes que tiene.
+     */
     final static byte NUM_MENUS = 6;
-    final static Scanner lector = new Scanner(System.in);
+    /**
+     * Un Scanner para leer respuestas ingresados por el teclado.
+     */
+    final static Scanner LECTOR = new Scanner(System.in);
     
     //Variables de un Objeto Menu
+    /**
+     * El menu en que estamos ahora.
+     */
     private byte pos = 0;
+    /**
+     * Un valor que nos dice si existen mas menus para presentar o no.
+     */
     private boolean tiene_mas = true;
     
+    /**
+     * Un metodo para mostrar el proximo menu.
+     * @return las opciones possibles en este menu.
+     */
     public char[] mostrar() {
         char[] opciones;
         if (tieneMas()) {
@@ -59,6 +75,10 @@ class Menus {
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Menus ">
+    /**
+     * Un Menu que es una lista de todos los algoritmos que el programa conoce.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] algoritmos() {
         System.out.println("Elegir un algoritmo:");
         System.out.println("[1] -- Auto[T]exto");
@@ -74,6 +94,10 @@ class Menus {
         return op;
     }
 
+    /**
+     * Un Menu que nos da una opcion entre dos modos de operacion.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] modo() {
         System.out.println("Elegir un modo de operacion:");
         System.out.println("[1] -- [E]ncriptar");
@@ -86,6 +110,10 @@ class Menus {
         return op;
     }
     
+    /**
+     * Un submenu que es la opcion entre dos possibles flujos.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] flujos(){
         System.out.println("[1] -- [C]onsola");
         System.out.println("[2] -- a[R]chivo");
@@ -97,21 +125,37 @@ class Menus {
         return op;
     }
     
+    /**
+     * Un menu que es la opcion entre dos possibles flujos.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] tipoEntrada() {
         System.out.println("Tipo de Entrada:");
         return flujos();
     }
     
+    /**
+     * Un menu que es la opcion entre dos possibles flujos.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] tipoLlave() {
         System.out.println("Tipo de Llave:");
         return flujos();
     }
     
+    /**
+     * Un menu que es la opcion entre dos possibles flujos.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] tipoSalida() {
         System.out.println("Tipo de Salida:");
         return flujos();
     }
     
+    /**
+     * Un Menu que es una lista de todas las maneras possibles que el programa conoce para leer una llave.
+     * @return un arreglo que representa todos las opciones possibles con este menu.
+     */
     private char[] lecturaLlave(){
         System.out.println("Como se debe leer el llave?");
         System.out.println("[1] -- [C]lave");
@@ -130,10 +174,18 @@ class Menus {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Metodos de Control ">
+    /**
+     * Pedir el Usuario para una opcion en uno de los menus.
+     * @param prompt la linea con que pedimos el usuario para una opcion
+     * @param posib las possibilidades. si el usuario no responde con uno
+     * de esas, sabemos que es una respuesta invalida y que hay que pedir
+     * de nuevo
+     * @return una respuesta valida
+     */
     public char obtenerRespuesta(String prompt, char[] posib) {
         System.out.print(prompt);
         try {
-            String res = lector.nextLine();
+            String res = LECTOR.nextLine();
             char c = res.toUpperCase().charAt(0);
             if(existe(c, posib)){
                 return c;
@@ -147,16 +199,26 @@ class Menus {
         }
     }
     
+    /**
+     * Pedir el usuario para una linea. Si nos da nada, sabemos que es invalido
+     * y pedimos de nuevo.
+     * @param prompt la linea con que pedimos el usuario para una linea
+     * @return la linea del usuario
+     */
     public String obtenerRespuesta(String prompt) {
         System.out.print(prompt);
         try {
-            return lector.nextLine();
+            return LECTOR.nextLine();
         } catch (NoSuchElementException nsee) {
             System.out.println("Hay que ingresar algo!");
             return obtenerRespuesta(prompt);
         }
     }
     
+    /**
+     * Volver a algun menu anterior
+     * @param menus el numero de menus atras que queremos ir
+     */
     public void irAtras(byte menus){
         if(pos > 0) pos--;
         if(!tiene_mas) tiene_mas = true;
@@ -166,6 +228,10 @@ class Menus {
         }
     }
     
+    /**
+     * Preguntar el usuario si quiere salir
+     * @return las opciones possibles
+     */
     public char[] salir_pregunta(){
         System.out.println("Ud. esta seguro que quiere salir?");
         System.out.println("[0] -- [N]o");
@@ -190,6 +256,12 @@ class Menus {
         return tiene_mas;
     }
 
+    /**
+     * Prueba de existencia
+     * @param c valor que queremos ver si existe
+     * @param posib el lugar donde estamos buscando
+     * @return verdadero si existe, si no falso
+     */
     private boolean existe(char c, char[] posib) {
         for(char t :  posib){
             if(t == c){
