@@ -15,11 +15,13 @@ import java.util.Scanner;
  */
 class Menus {
 
-    final static byte NUM_MENUS = 2;
+    //Constantes Globales
+    final static byte NUM_MENUS = 4;
+    final static Scanner lector = new Scanner(System.in);
+    
+    //Variables de un Objeto Menu
     private byte pos = 0;
     private boolean tiene_mas = true;
-    private E_Texto teclado;
-    private Scanner lector;
     
     public char[] mostrar() {
         char[] opciones;
@@ -30,6 +32,12 @@ class Menus {
                     break;
                 case 1:
                     opciones = modo();
+                    break;
+                case 2:
+                    opciones = tipoEntrada();
+                    break;
+                case 3:
+                    opciones = tipoSalida();
                     break;
                 default:
                     opciones = null;
@@ -70,6 +78,27 @@ class Menus {
         char[] op = {'1', '2', '3', '0',
                     'E', 'D', 'A', 'S'};
         return op;
+    }
+    
+    private char[] flujos(){
+        System.out.println("[1] -- [C]onsola");
+        System.out.println("[2] -- a[R]chivo");
+        System.out.println();
+        System.out.println("[3] -- [A]tras");
+        System.out.println("[0] -- [S]alir");
+        char[] op = {'1', '2', '3', '0',
+                    'C', 'R', 'A', 'S'};
+        return op;
+    }
+    
+    private char[] tipoEntrada() {
+        System.out.println("Tipo de Entrada:");
+        return flujos();
+    }
+    
+    private char[] tipoSalida() {
+        System.out.println("Tipo de Salida:");
+        return flujos();
     }
     //</editor-fold>
 
