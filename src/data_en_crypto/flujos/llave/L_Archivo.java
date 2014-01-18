@@ -61,6 +61,8 @@ final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
             case TIPO_LLAVE_NUMERICA:
                 return new Llave(TIPO_LLAVE_NUMERICA, (int)super.leerDato());
                 //break;
+            case TIPO_LLAVE_ARREGLO:
+                throw new UnsupportedOperationException("Not Supported yet.");
             case TIPO_LLAVE_MATRIZ:
                 throw new UnsupportedOperationException("Not Supported yet.");
                 //break;
