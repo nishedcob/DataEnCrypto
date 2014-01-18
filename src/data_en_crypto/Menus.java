@@ -5,7 +5,7 @@
  */
 package data_en_crypto;
 
-import data_en_crypto.flujos.entrada.E_Texto;
+//import data_en_crypto.flujos.entrada.E_Texto;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -15,11 +15,13 @@ import java.util.Scanner;
  */
 class Menus {
 
-    final static byte NUM_MENUS = 2;
+    //Constantes Globales (estaticas)
+    final static byte NUM_MENUS = 6;
+    final static Scanner lector = new Scanner(System.in);
+    
+    //Variables de un Objeto Menu
     private byte pos = 0;
     private boolean tiene_mas = true;
-    private E_Texto teclado;
-    private Scanner lector;
     
     public char[] mostrar() {
         char[] opciones;
@@ -30,6 +32,18 @@ class Menus {
                     break;
                 case 1:
                     opciones = modo();
+                    break;
+                case 2:
+                    opciones = tipoEntrada();
+                    break;
+                case 3:
+                    opciones = tipoLlave();
+                    break;
+                case 4:
+                    opciones = tipoSalida();
+                    break;
+                case 5:
+                    opciones = lecturaLlave();
                     break;
                 default:
                     opciones = null;
@@ -47,7 +61,7 @@ class Menus {
     //<editor-fold defaultstate="collapsed" desc=" Menus ">
     private char[] algoritmos() {
         System.out.println("Elegir un algoritmo:");
-        System.out.println("[1] -- [A]utoTexto");
+        System.out.println("[1] -- Auto[T]exto");
         System.out.println("[2] -- [C]esar");
         System.out.println("[3] -- [L]ibrereta de Un Solo Uso");
         System.out.println("[4] -- [M]atrices");
@@ -56,7 +70,7 @@ class Menus {
         System.out.println();
         System.out.println("[0] -- [S]alir");
         char[] op = {'1', '2', '3', '4', '5', '6', '0', 
-                    'A', 'C', 'L', 'M', 'I', 'V', 'S'};
+                    'T', 'C', 'L', 'M', 'I', 'V', 'S'};
         return op;
     }
 
@@ -65,14 +79,57 @@ class Menus {
         System.out.println("[1] -- [E]ncriptar");
         System.out.println("[2] -- [D]ecifrar");
         System.out.println();
-        System.out.println("[3] -- [A]tras");
+        System.out.println("[9] -- [A]tras");
         System.out.println("[0] -- [S]alir");
-        char[] op = {'1', '2', '3', '0',
+        char[] op = {'1', '2', '9', '0',
                     'E', 'D', 'A', 'S'};
+        return op;
+    }
+    
+    private char[] flujos(){
+        System.out.println("[1] -- [C]onsola");
+        System.out.println("[2] -- a[R]chivo");
+        System.out.println();
+        System.out.println("[9] -- [A]tras");
+        System.out.println("[0] -- [S]alir");
+        char[] op = {'1', '2', '9', '0',
+                    'C', 'R', 'A', 'S'};
+        return op;
+    }
+    
+    private char[] tipoEntrada() {
+        System.out.println("Tipo de Entrada:");
+        return flujos();
+    }
+    
+    private char[] tipoLlave() {
+        System.out.println("Tipo de Llave:");
+        return flujos();
+    }
+    
+    private char[] tipoSalida() {
+        System.out.println("Tipo de Salida:");
+        return flujos();
+    }
+    
+    private char[] lecturaLlave(){
+        System.out.println("Como se debe leer el llave?");
+        System.out.println("[1] -- [C]lave");
+        System.out.println("[2] -- [L]ibrereta");
+        System.out.println("[3] -- [T]abla de Caracteres");
+        System.out.println("[4] -- A[R]reglo Numerica");
+        System.out.println("[5] -- [N]umero");
+        System.out.println("[6] -- [M]atriz");
+        System.out.println();
+        System.out.println("[9] -- [A]tras");
+        System.out.println("[0] -- [S]alir");
+        char[] op = {'1', '2', '3', '4', '5', '6', '9', '0',
+                     'C', 'L', 'T', 'R', 'N', 'M', 'A', 'S'};
         return op;
     }
     //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc=" Metodos de Control ">
     public char obtenerRespuesta(String prompt, char[] posib) {
         System.out.print(prompt);
         try {
@@ -89,6 +146,34 @@ class Menus {
             return obtenerRespuesta(prompt, posib);
         }
     }
+    
+    public String obtenerRespuesta(String prompt) {
+        System.out.print(prompt);
+        try {
+            return lector.nextLine();
+        } catch (NoSuchElementException nsee) {
+            System.out.println("Hay que ingresar algo!");
+            return obtenerRespuesta(prompt);
+        }
+    }
+    
+    public void irAtras(byte menus){
+        if(pos > 0) pos--;
+        if(!tiene_mas) tiene_mas = true;
+        if(menus > 1){
+            menus--;
+            irAtras(menus);
+        }
+    }
+    
+    public char[] salir_pregunta(){
+        System.out.println("Ud. esta seguro que quiere salir?");
+        System.out.println("[0] -- [N]o");
+        System.out.println("[1] -- [S]i");
+        char[] sal_preg = {'S', 'N', '1', '0'};
+        return sal_preg;
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Metodos Auxiliares ">
     /**
