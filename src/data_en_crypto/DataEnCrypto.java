@@ -84,9 +84,29 @@ public class DataEnCrypto {
         if(args.length == 0){
             Menus menu =  new Menus();
             char[] op = new char[Menus.NUM_MENUS];
+            boolean salir = false;
             while(menu.tieneMas()){
                 char[] posib = menu.mostrar();
-                op[menu.getPos()] = menu.obtenerRespuesta("Opcion: ", posib);
+                op[menu.getPos() - 1] = menu.obtenerRespuesta("Opcion: ", posib);
+                if(op[menu.getPos() - 1] == 'A' || op[menu.getPos() - 1] == '9'){
+                    menu.irAtras(2);
+                } else if (op[menu.getPos() - 1] == 'S' || op[menu.getPos() - 1] == '0') {
+                    char[] sal_posib = menu.salir_pregunta();
+                    char res = menu.obtenerRespuesta("Opcion: ", sal_posib);
+                    salir = ((res != '0' && res != 'N') && (res == '1' || res == 'S'));
+                    if(salir){
+                        System.out.println("Ahora el programa va a salir!");
+                        break;
+                    } else {
+                        if (res != '0' && res != 'N') {
+                            System.out.println("Opcion \'" + res + "\' no existe!");
+                        }
+                        menu.irAtras(1);
+                    }
+                }
+            }
+            if(!salir){
+                
             }
         } else {
             
