@@ -16,7 +16,7 @@ import java.util.Scanner;
 class Menus {
 
     //Constantes Globales (estaticas)
-    final static byte NUM_MENUS = 4;
+    final static byte NUM_MENUS = 6;
     final static Scanner lector = new Scanner(System.in);
     
     //Variables de un Objeto Menu
@@ -37,7 +37,13 @@ class Menus {
                     opciones = tipoEntrada();
                     break;
                 case 3:
+                    opciones = tipoLlave();
+                    break;
+                case 4:
                     opciones = tipoSalida();
+                    break;
+                case 5:
+                    opciones = lecturaLlave();
                     break;
                 default:
                     opciones = null;
@@ -96,9 +102,29 @@ class Menus {
         return flujos();
     }
     
+    private char[] tipoLlave() {
+        System.out.println("Tipo de Llave:");
+        return flujos();
+    }
+    
     private char[] tipoSalida() {
         System.out.println("Tipo de Salida:");
         return flujos();
+    }
+    
+    private char[] lecturaLlave(){
+        System.out.println("Como se debe leer el llave?");
+        System.out.println("[1] -- [C]lave o [L]ibrereta");
+        System.out.println("[2] -- [T]abla de Caracteres");
+        System.out.println("[3] -- Ta[B]la Numerica");
+        System.out.println("[4] -- [N]umero");
+        System.out.println("[5] -- [M]atriz");
+        System.out.println();
+        System.out.println("[9] -- [A]tras");
+        System.out.println("[0] -- [S]alir");
+        char[] op = {'1', '2', '3', '4', '5', '9', '0',
+                'C', 'L', 'T', 'B', 'N', 'M', 'A', 'S'};
+        return op;
     }
     //</editor-fold>
 
@@ -120,7 +146,17 @@ class Menus {
         }
     }
     
-    public void irAtras(int menus){
+    public String obtenerRespuesta(String prompt) {
+        System.out.print(prompt);
+        try {
+            return lector.nextLine();
+        } catch (NoSuchElementException nsee) {
+            System.out.println("Hay que ingresar algo!");
+            return obtenerRespuesta(prompt);
+        }
+    }
+    
+    public void irAtras(byte menus){
         if(pos > 0) pos--;
         if(!tiene_mas) tiene_mas = true;
         if(menus > 1){
