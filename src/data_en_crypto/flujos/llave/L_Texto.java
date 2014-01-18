@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package data_en_crypto.flujos.llave;
 
 import data_en_crypto.flujos.entrada.E_Texto;
@@ -40,12 +39,13 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
                     return new Llave(tipo, num);
                 }
 //                break;
-            case TIPO_LLAVE_MATRIZ:
+            case TIPO_LLAVE_ARREGLO:
                 n = data.split("\t").length;
                 t = !(n == 0 || n == 1);
                 n = data.split(" ").length;
                 s = !(n == 0 || n == 1);
                 String[] numeros;
+                int[] arreglo;
                 if (!(t || s)) {
                     throw new InputMismatchException("Valores debe ser seperadas por espacios: \' \' o tabulaciones: \'\t\'!");
                 } else {
@@ -56,17 +56,48 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
                     } else {
                         throw new InputMismatchException("Hay que elegir un seperador, no se puede usar los dos.");
                     }
-                    int dim = encontrarCuadrado(numeros.length);
+                    int dim = numeros.length;
+                    arreglo = new int[dim];
+                    int p = 0;
+                    for (int i = 0; i < arreglo.length; i++) {
+                        n = 0;
+                        try {
+                            n = (int) (Double.parseDouble(numeros[p]));
+                        } catch (NumberFormatException nfe) {
+                            n = crear_numero(numeros[p]);
+                        }
+                        arreglo[i] = n;
+                        p++;
+                    }
+                }
+                return new Llave(tipo, arreglo);
+            case TIPO_LLAVE_MATRIZ:
+                n = data.split("\t").length;
+                t = !(n == 0 || n == 1);
+                n = data.split(" ").length;
+                s = !(n == 0 || n == 1);
+                String[] nums;
+                if (!(t || s)) {
+                    throw new InputMismatchException("Valores debe ser seperadas por espacios: \' \' o tabulaciones: \'\t\'!");
+                } else {
+                    if (t && !s) {
+                        nums = data.split("\t");
+                    } else if (s && !t) {
+                        nums = data.split(" ");
+                    } else {
+                        throw new InputMismatchException("Hay que elegir un seperador, no se puede usar los dos.");
+                    }
+                    int dim = encontrarCuadrado(nums.length);
                     int[][] matriz = new int[dim][dim];
                     int p = 0;
                     for (int i = 0; i < matriz.length; i++) {
                         for (int j = 0; j < matriz.length; j++) {
                             n = 0;
-                            if (p < numeros.length) {
+                            if (p < nums.length) {
                                 try {
-                                    n = (int) (Double.parseDouble(numeros[p]));
+                                    n = (int) (Double.parseDouble(nums[p]));
                                 } catch (NumberFormatException nfe) {
-                                    n = crear_numero(numeros[p]);
+                                    n = crear_numero(nums[p]);
                                 }
                             }
                             matriz[i][j] = n;

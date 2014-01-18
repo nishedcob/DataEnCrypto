@@ -22,5 +22,7 @@ public interface Llave_Tipos {
     public final byte TIPO_LLAVE_NUMERICA = 5;
     /** Codigo para una llave de tipo matriz. */
     public final byte TIPO_LLAVE_MATRIZ = 55;
+    /** Codigo para una llave de tipo arreglo. */
+    public final byte TIPO_LLAVE_ARREGLO = 50;
     
 }
