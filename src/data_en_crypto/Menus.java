@@ -114,16 +114,17 @@ class Menus {
     
     private char[] lecturaLlave(){
         System.out.println("Como se debe leer el llave?");
-        System.out.println("[1] -- [C]lave o [L]ibrereta");
-        System.out.println("[2] -- [T]abla de Caracteres");
-        System.out.println("[3] -- Ta[B]la Numerica");
-        System.out.println("[4] -- [N]umero");
-        System.out.println("[5] -- [M]atriz");
+        System.out.println("[1] -- [C]lave");
+        System.out.println("[2] -- [L]ibrereta");
+        System.out.println("[3] -- [T]abla de Caracteres");
+        System.out.println("[4] -- Ta[B]la Numerica");
+        System.out.println("[5] -- [N]umero");
+        System.out.println("[6] -- [M]atriz");
         System.out.println();
         System.out.println("[9] -- [A]tras");
         System.out.println("[0] -- [S]alir");
-        char[] op = {'1', '2', '3', '4', '5', '9', '0',
-                'C', 'L', 'T', 'B', 'N', 'M', 'A', 'S'};
+        char[] op = {'1', '2', '3', '4', '5', '6', '9', '0',
+                     'C', 'L', 'T', 'B', 'N', 'M', 'A', 'S'};
         return op;
     }
     //</editor-fold>
