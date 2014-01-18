@@ -14,24 +14,23 @@ package data_en_crypto;
  import java.util.Scanner;
  */
 import data_en_crypto.cifras.*;
-import data_en_crypto.flujos.entrada.E_Archivo;
-import data_en_crypto.flujos.entrada.E_Texto;
-import data_en_crypto.flujos.entrada.Entrada;
-import data_en_crypto.flujos.llave.L_Archivo;
-import data_en_crypto.flujos.llave.L_Texto;
-import data_en_crypto.flujos.llave.Llave_Tipos;
+import data_en_crypto.flujos.entrada.*;
+import data_en_crypto.flujos.llave.*;
+import data_en_crypto.flujos.salida.*;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Nucleo para el programa para cuando corre sin interfaz grafica.
- *
  * @author nyx
  */
 public class DataEnCrypto {
     //<editor-fold defaultstate="collapsed" desc=" Nucleo del Programa ">
     /**
      * Nucleo de este clase. Corre todo el programa sin interfaz grafica.
-     *
      * @param args los argumentos bajo que fue ejecutado el programa.
      */
     public static void main(String[] args) {
@@ -116,6 +115,8 @@ public class DataEnCrypto {
             if (!salir) {
                 boolean error = false;
                 if (!error) {
+                    
+                    //<editor-fold defaultstate="collapsed" desc=" Configuracion de Entrada ">
                     System.out.println("---Configuracion de Entrada---");
                     Entrada entrd = null;
                     if (!error && (op[2] == '1' || op[2] == 'C')) {
@@ -142,7 +143,7 @@ public class DataEnCrypto {
                         String dir = menu.obtenerRespuesta("Directorio: ");
                         System.out.println("Ahora el nombre de su archivo (sin la extencion)");
                         String nom = menu.obtenerRespuesta("Nombre: ");
-                        System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\'");
+                        System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\')");
                         String ext = menu.obtenerRespuesta("Extension: ");
                         System.out.println("Si Ud. tiene bastante RAM para cargar todo el archivo, es recommendable que "
                                 + "haga eso para que el programa puede correr mas rapido.");
@@ -173,6 +174,9 @@ public class DataEnCrypto {
                         System.out.println("ERROR EXTRAÑO. SALIENDO.");
                         error = true;
                     }
+                    //</editor-fold>
+                    
+                    //<editor-fold defaultstate="collapsed" desc=" Configuracion de Llave ">
                     System.out.println("---Configuracion de Llave---");
                     Entrada llave;
                     byte modo = -1;
@@ -232,7 +236,7 @@ public class DataEnCrypto {
                         String dir = menu.obtenerRespuesta("Directorio: ");
                         System.out.println("Ahora el nombre de su archivo (sin la extencion)");
                         String nom = menu.obtenerRespuesta("Nombre: ");
-                        System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\'");
+                        System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\')");
                         String ext = menu.obtenerRespuesta("Extension: ");
                         /*
                          System.out.println("Si Ud. tiene bastante RAM para cargar todo el archivo, es recommendable que "
@@ -278,7 +282,68 @@ public class DataEnCrypto {
                         System.out.println("ERROR EXTRAÑO. SALIENDO.");
                         error = true;
                     }
+                    //</editor-fold>
+                    
+                    //<editor-fold defaultstate="collapsed" desc=" Configuracion de Salida ">
                     System.out.println("---Configuracion de Salida---");
+                    Salida sald = null;
+                    if (!error && (op[2] == '1' || op[2] == 'C')) {
+                        sald = new S_Texto();
+                        /*
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(sald.getData());
+                         */
+                    } else if (!error && (op[2] == '2' || op[2] == 'R')) {
+                        System.out.println("\tUd. tener los datos salir por medio de un archivo:");
+                        System.out.println("Directorio debe ser una dirrecion absoluta.");
+                        System.out.println("En otras palabras empieza con la carpeta raiz (Unix/Linux) \'/\'");
+                        System.out.println("O empieza con la letra de uno de sus depositivos (Windows) \'C:\\\' \'D:\\\' ... etc");
+                        System.out.println("Y termina con la carpeta en donde se encuentra tu archivo seguido por un slash");
+                        System.out.println("\'/\' (UNIX/LINUX) o \'\\\' (Windows)");
+                        String dir = menu.obtenerRespuesta("Directorio: ");
+                        System.out.println("Ahora el nombre de su archivo (sin la extencion)");
+                        String nom = menu.obtenerRespuesta("Nombre: ");
+                        System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\')");
+                        String ext = menu.obtenerRespuesta("Extension: ");
+                        boolean agregar;
+                        if (new File(dir + nom + ext).exists()) {
+                            System.out.println("Un archivo en " + dir + nom + ext + " ya existe.");
+                            char[] opciones = {'1', '0', 'E', 'S'};
+                            System.out.println("Quieres escribir al final de ello o sobre escribirlo?");
+                            System.out.println("[0] -- [E]scribir al final (agregar mas contenido)");
+                            System.out.println("[1] -- [S]obre Escribir");
+                            char res = menu.obtenerRespuesta("Opcion: ", opciones);
+                            agregar = (res == '0' || res == 'E');
+                        } else {
+                            agregar = false;
+                        }
+                        try {
+                            sald = new S_Archivo(dir + nom + ext, agregar);
+                        } catch (FileNotFoundException fnfe) {
+                            System.out.println("ERROR! No se encontro el archivo: " + dir + nom + ext);
+                            error = true;
+                        } catch (IOException ioe) {
+                            System.out.println("ERROR! No se puede escribir al archivo!");
+                        }
+                        /*
+                         if(sald != null) {
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(sald.getData());
+                         }
+                         */
+                    } else if (error) {
+                        System.out.println("Hay un error! Saliendo!");
+                    } else {
+                        //nunca se debe llegar a este bloque.
+                        System.out.println("ERROR EXTRAÑO. SALIENDO.");
+                        error = true;
+                    }
+                    //</editor-fold>
+                    
                 }
             }
         } else {
