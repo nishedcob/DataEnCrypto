@@ -127,11 +127,11 @@ public class DataEnCrypto {
                         System.out.println("Entrar los datos abajo. Tecle su valor de salida en su propio linea cuando termina.");
                         entrd = new E_Texto(val_sal);
                         /*
-                        //prueba para ver:
-                        System.out.println();
-                        System.out.println("Prueba:");
-                        System.out.print(entrd.getData());
-                        */
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(entrd.getData());
+                         */
                     } else if (!error && (op[2] == '2' || op[2] == 'R')) {
                         System.out.println("\tUd. elegio ingresar los datos de entrada por medio de un archivo:");
                         System.out.println("Directorio debe ser una dirrecion absoluta.");
@@ -159,13 +159,13 @@ public class DataEnCrypto {
                             error = true;
                         }
                         /*
-                        if(entrd != null) {
-                            //prueba para ver:
-                            System.out.println();
-                            System.out.println("Prueba:");
-                            System.out.print(entrd.getData());
-                        }
-                        */
+                         if(entrd != null) {
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(entrd.getData());
+                         }
+                         */
                     } else if (error) {
                         System.out.println("Hay un error! Saliendo!");
                     } else {
@@ -175,40 +175,40 @@ public class DataEnCrypto {
                     }
                     System.out.println("---Configuracion de Llave---");
                     Entrada llave;
+                    byte modo = -1;
+                    switch (op[5]) {
+                        case '1':
+                        case 'C':
+                            modo = Llave_Tipos.TIPO_LLAVE_CLAVE;
+                            System.out.println("Ud. eligio una llave de tipo Clave.");
+                            break;
+                        case '2':
+                        case 'L':
+                            modo = Llave_Tipos.TIPO_LLAVE_LIBRERETA;
+                            System.out.println("Ud. eligio una llave de tipo Librereta.");
+                            break;
+                        case '3':
+                        case 'T':
+                            modo = Llave_Tipos.TIPO_LLAVE_TABLA;
+                            System.out.println("Ud. eligio una llave de tipo Tabla (de caracteres).");
+                            break;
+                        case '4':
+                        case 'R':
+                            modo = Llave_Tipos.TIPO_LLAVE_ARREGLO;
+                            System.out.println("Ud. eligio una llave de tipo Arreglo Numerica.");
+                            break;
+                        case '5':
+                        case 'N':
+                            modo = Llave_Tipos.TIPO_LLAVE_NUMERICA;
+                            System.out.println("Ud. eligio una llave de tipo Numerica.");
+                            break;
+                        case '6':
+                        case 'M':
+                            modo = Llave_Tipos.TIPO_LLAVE_MATRIZ;
+                            System.out.println("Ud. eligio una llave de tipo Matriz.");
+                            break;
+                    }
                     if (!error && (op[3] == '1' || op[3] == 'C')) {
-                        byte modo = -1;
-                        switch(op[5]){
-                            case '1':
-                            case 'C':
-                                modo = Llave_Tipos.TIPO_LLAVE_CLAVE;
-                                System.out.println("Ud. eligio una llave de tipo Clave.");
-                                break;
-                            case '2':
-                            case 'L':
-                                modo = Llave_Tipos.TIPO_LLAVE_LIBRERETA;
-                                System.out.println("Ud. eligio una llave de tipo Librereta.");
-                                break;
-                            case '3':
-                            case 'T':
-                                modo = Llave_Tipos.TIPO_LLAVE_TABLA;
-                                System.out.println("Ud. eligio una llave de tipo Tabla (de caracteres).");
-                                break;
-                            case '4':
-                            case 'R':
-                                modo = Llave_Tipos.TIPO_LLAVE_ARREGLO;
-                                System.out.println("Ud. eligio una llave de tipo Arreglo Numerica.");
-                                break;
-                            case '5':
-                            case 'N':
-                                modo = Llave_Tipos.TIPO_LLAVE_NUMERICA;
-                                System.out.println("Ud. eligio una llave de tipo Numerica.");
-                                break;
-                            case '6':
-                            case 'M':
-                                modo = Llave_Tipos.TIPO_LLAVE_MATRIZ;
-                                System.out.println("Ud. eligio una llave de tipo Matriz.");
-                                break;
-                        }
                         System.out.println("\tUd. elegio ingresar su llave por consola:");
                         System.out.println("El valor de salida es el ultima linea que uno ingrese para mostrar que ha terminado de ingresar.");
                         System.out.println("Ojo! Este ultima linea no vamos a poner al final de su llave.");
@@ -216,47 +216,14 @@ public class DataEnCrypto {
                         String val_sal = menu.obtenerRespuesta("Valor de Salida: ");
                         System.out.println("Entrar los datos abajo. Tecle su valor de salida en su propio linea cuando termina.");
                         llave = new L_Texto(val_sal, modo);
-                        //*
-                        //prueba para ver:
-                        System.out.println();
-                        System.out.println("Prueba:");
-                        System.out.print(llave.getData());
-                        //*/
+                        /*
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(llave.getData());
+                         //*/
                     } else if (!error && (op[3] == '2' || op[3] == 'R')) {
-                        byte modo = -1;
-                        switch(op[5]){
-                            case '1':
-                            case 'C':
-                                modo = Llave_Tipos.TIPO_LLAVE_CLAVE;
-                                System.out.println("Ud. eligio una llave de tipo Clave.");
-                                break;
-                            case '2':
-                            case 'L':
-                                modo = Llave_Tipos.TIPO_LLAVE_LIBRERETA;
-                                System.out.println("Ud. eligio una llave de tipo Librereta.");
-                                break;
-                            case '3':
-                            case 'T':
-                                modo = Llave_Tipos.TIPO_LLAVE_TABLA;
-                                System.out.println("Ud. eligio una llave de tipo Tabla (de caracteres).");
-                                break;
-                            case '4':
-                            case 'R':
-                                modo = Llave_Tipos.TIPO_LLAVE_ARREGLO;
-                                System.out.println("Ud. eligio una llave de tipo Arreglo Numerica.");
-                                break;
-                            case '5':
-                            case 'N':
-                                modo = Llave_Tipos.TIPO_LLAVE_NUMERICA;
-                                System.out.println("Ud. eligio una llave de tipo Numerica.");
-                                break;
-                            case '6':
-                            case 'M':
-                                modo = Llave_Tipos.TIPO_LLAVE_MATRIZ;
-                                System.out.println("Ud. eligio una llave de tipo Matriz.");
-                                break;
-                        }
-                        System.out.println("\tUd. elegio ingresar los datos de entrada por medio de un archivo:");
+                        System.out.println("\tUd. elegio ingresar su llave por medio de un archivo:");
                         System.out.println("Directorio debe ser una dirrecion absoluta.");
                         System.out.println("En otras palabras empieza con la carpeta raiz (Unix/Linux) \'/\'");
                         System.out.println("O empieza con la letra de uno de sus depositivos (Windows) \'C:\\\' \'D:\\\' ... etc");
@@ -267,28 +234,43 @@ public class DataEnCrypto {
                         String nom = menu.obtenerRespuesta("Nombre: ");
                         System.out.println("Ahora la extension de su archivo (por ejemplo \'.txt\' o \'.doc\'");
                         String ext = menu.obtenerRespuesta("Extension: ");
-                        System.out.println("Si Ud. tiene bastante RAM para cargar todo el archivo, es recommendable que "
-                                + "haga eso para que el programa puede correr mas rapido.");
-                        char[] opciones = {'1', '0', 'S', 'N'};
-                        System.out.println("Su archivo es demaciado grande para cargar al RAM?");
-                        System.out.println("[1] -- [S]i");
-                        System.out.println("[0] -- [N]o");
-                        char res = menu.obtenerRespuesta("Opcion: ", opciones);
-                        boolean cargarEnRAM = (res == '1' || res == 'S');
+                        /*
+                         System.out.println("Si Ud. tiene bastante RAM para cargar todo el archivo, es recommendable que "
+                         + "haga eso para que el programa puede correr mas rapido.");
+                         char[] opciones = {'1', '0', 'S', 'N'};
+                         System.out.println("Su archivo es demaciado grande para cargar al RAM?");
+                         System.out.println("[1] -- [S]i");
+                         System.out.println("[0] -- [N]o");
+                         char res = menu.obtenerRespuesta("Opcion: ", opciones);
+                         boolean cargarEnRAM = (res == '1' || res == 'S');
+                         //*/
+                        boolean cargarEnRAM;
+                        if (modo == Llave_Tipos.TIPO_LLAVE_LIBRERETA) {
+                            System.out.println("Si Ud. tiene bastante RAM para cargar todo el archivo, es recommendable que "
+                                    + "haga eso para que el programa puede correr mas rapido.");
+                            char[] opciones = {'1', '0', 'S', 'N'};
+                            System.out.println("Su archivo es demaciado grande para cargar al RAM?");
+                            System.out.println("[1] -- [S]i");
+                            System.out.println("[0] -- [N]o");
+                            char res = menu.obtenerRespuesta("Opcion: ", opciones);
+                            cargarEnRAM = (res == '1' || res == 'S');
+                        } else {
+                            cargarEnRAM = true;
+                        }
                         try {
-                            entrd = new L_Archivo(dir, nom, ext, cargarEnRAM, modo);
+                            llave = new L_Archivo(dir, nom, ext, cargarEnRAM, modo);
                         } catch (FileNotFoundException fnfe) {
                             System.out.println("ERROR! No se encontro el archivo: " + dir + nom + ext);
                             error = true;
                         }
                         /*
-                        if(llave != null) {
-                            //prueba para ver:
-                            System.out.println();
-                            System.out.println("Prueba:");
-                            System.out.print(llave.getData());
-                        }
-                        */
+                         if(llave != null) {
+                         //prueba para ver:
+                         System.out.println();
+                         System.out.println("Prueba:");
+                         System.out.print(llave.getData());
+                         }
+                         //*/
                     } else if (error) {
                         System.out.println("Hay un error! Saliendo!");
                     } else {
