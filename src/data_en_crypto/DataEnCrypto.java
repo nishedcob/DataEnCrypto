@@ -81,7 +81,16 @@ public class DataEnCrypto {
         */
         //</editor-fold>
         
-        
+        if(args.length == 0){
+            Menus menu =  new Menus();
+            char[] op = new char[Menus.NUM_MENUS];
+            while(menu.tieneMas()){
+                char[] posib = menu.mostrar();
+                op[menu.getPos()] = menu.obtenerRespuesta("Opcion: ", posib);
+            }
+        } else {
+            
+        }
     }
     //</editor-fold>
     
