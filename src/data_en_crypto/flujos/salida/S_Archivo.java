@@ -23,18 +23,25 @@ public class S_Archivo extends Salida{
         this.fw = new FileWriter(super.f, append);
     }
     
+    @Override
     public void imprimir(String s) throws IOException{
         fw.write(s);
         fw.flush();
     }
     
+    @Override
     public void imprimirln(String s) throws IOException{
         fw.write(s + "\n");
         fw.flush();
     }
-    
-    public void imprimirtodo() throws IOException{
+
+    @Override
+    public void imprimirtodo() throws IOException {
         fw.write(data);
+        fw.flush();
+    }
+    
+    public void guardar() throws IOException {
         fw.flush();
     }
     

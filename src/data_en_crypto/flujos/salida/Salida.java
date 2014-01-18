@@ -11,12 +11,13 @@ package data_en_crypto.flujos.salida;
 
 import data_en_crypto.flujos.Flujo;
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
  * @author nyx
  */
-public class Salida extends Flujo{
+abstract public class Salida extends Flujo{
     
     protected File f = null;
 
@@ -27,4 +28,7 @@ public class Salida extends Flujo{
         this.f = f;
     }
     
+    public abstract void imprimir(String s) throws IOException;
+    public abstract void imprimirln(String s) throws IOException;
+    public abstract void imprimirtodo() throws IOException;
 }

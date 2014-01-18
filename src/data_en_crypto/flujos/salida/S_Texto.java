@@ -6,6 +6,8 @@
 
 package data_en_crypto.flujos.salida;
 
+import java.io.IOException;
+
 /**
  *
  * @author nyx
@@ -20,6 +22,7 @@ public class S_Texto extends Salida{
         System.out.print(o);
     }
     
+    @Override
     public void imprimir(String s){
         System.out.print(s);
     }
@@ -28,10 +31,12 @@ public class S_Texto extends Salida{
         System.out.println(o);
     }
     
+    @Override
     public void imprimirln(String s){
         System.out.println(s);
     }
     
+    @Override
     public void imprimirtodo(){
         System.out.println(data);
     }
