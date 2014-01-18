@@ -32,4 +32,8 @@ public class S_Texto extends Salida{
         System.out.println(s);
     }
     
+    public void imprimirtodo(){
+        System.out.println(data);
+    }
+    
 }
