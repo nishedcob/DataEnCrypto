@@ -76,6 +76,7 @@ public class Cargador {
         }
     //}
 
+    //<editor-fold defaultstate="collapsed" desc=" Metodos Auxiliares ">
     /**
      * Prueba para ver si una cierta argumento, val (valor), existe de forma sola en args (argumentos)
      * @param val valor para probar
@@ -127,4 +128,5 @@ public class Cargador {
         }
         return ver;
     }
+    //</editor-fold>
 }
