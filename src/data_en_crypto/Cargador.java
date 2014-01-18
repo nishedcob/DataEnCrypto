@@ -71,8 +71,8 @@ public class Cargador {
             //*/
             //</editor-fold>
             //aqui va el metodo principal del clase que queremos cargar:
-            //DataEnCrypto.main(args);
-            DataEnCrypto.prueba(args);
+            DataEnCrypto.main(args);
+            //DataEnCrypto.prueba(args);
         }
     //}
 

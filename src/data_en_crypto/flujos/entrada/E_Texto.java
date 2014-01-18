@@ -22,7 +22,7 @@ public class E_Texto extends Entrada{
         if(tmp == null ? Val_Salida == null : tmp.equals(Val_Salida)){
             return data;
         } else {
-            data += tmp;
+            data += tmp + "\n";
             return leerData(data, Val_Salida);
         }
     }

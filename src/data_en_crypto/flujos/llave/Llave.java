@@ -33,6 +33,11 @@ final public class Llave implements Llave_Tipos {
      */
     private final String LIBRERETA;
     /**
+     * Una llave que es un arreglo de numeros 
+     * (para VICTOR).
+     */
+    private final int[] LLAVE_ARREGLO;
+    /**
      * Una llave que es un matriz de numeros (para 
      * Multiplicacion de Matrices).
      */
@@ -50,6 +55,7 @@ final public class Llave implements Llave_Tipos {
         this.TIPO = -1;
         this.LLAVE_NUMERICA = 0;
         this.LIBRERETA = null;
+        this.LLAVE_ARREGLO = null;
         this.LLAVE_MATRIZ = null;
         this.LLAVE_TABLA = null;
     }
@@ -63,6 +69,7 @@ final public class Llave implements Llave_Tipos {
         this.TIPO = tipo;
         this.LLAVE_NUMERICA = llave_numerica;
         this.LIBRERETA = null;
+        this.LLAVE_ARREGLO = null;
         this.LLAVE_MATRIZ = null;
         this.LLAVE_TABLA = null;
     }
@@ -77,10 +84,26 @@ final public class Llave implements Llave_Tipos {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
         this.LIBRERETA = LIBRERETA;
+        this.LLAVE_ARREGLO = null;
         this.LLAVE_MATRIZ = null;
         this.LLAVE_TABLA = null;
     }
 
+    /**
+     * Constructor para Llave. Toma el tipo de llave y una matriz que sirve
+     * para multiplicacion de matrices.
+     * @param TIPO tipo de llave
+     * @param LLAVE_ARREGLO un arreglo para almacenar en el arreglo
+     */
+    public Llave(byte TIPO, int[] LLAVE_ARREGLO) {
+        this.TIPO = TIPO;
+        this.LLAVE_NUMERICA = 0;
+        this.LIBRERETA = null;
+        this.LLAVE_ARREGLO = LLAVE_ARREGLO;
+        this.LLAVE_MATRIZ = null;
+        this.LLAVE_TABLA = null;
+    }
+    
     /**
      * Constructor para Llave. Toma el tipo de llave y una matriz que sirve
      * para multiplicacion de matrices.
@@ -91,6 +114,7 @@ final public class Llave implements Llave_Tipos {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
         this.LIBRERETA = null;
+        this.LLAVE_ARREGLO = null;
         this.LLAVE_MATRIZ = LLAVE_MATRIZ;
         this.LLAVE_TABLA = null;
     }
@@ -105,6 +129,7 @@ final public class Llave implements Llave_Tipos {
         this.TIPO = TIPO;
         this.LLAVE_NUMERICA = 0;
         this.LIBRERETA = null;
+        this.LLAVE_ARREGLO = null;
         this.LLAVE_MATRIZ = null;
         this.LLAVE_TABLA = LLAVE_TABLA;
     }
