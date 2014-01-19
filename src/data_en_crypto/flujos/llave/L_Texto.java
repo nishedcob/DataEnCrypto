@@ -9,18 +9,31 @@ import data_en_crypto.flujos.entrada.E_Texto;
 import java.util.InputMismatchException;
 
 /**
- *
+ * Flujo de Llave por medio de un campo de texto (por ejemplo la consola)
  * @author nyx
  */
 public class L_Texto extends E_Texto implements Llave_Tipos {
 
+    /**
+     * La llave encapsulada por este objeto.
+     */
     final private Llave L;
 
+    /**
+     * Constructor para L_Texto
+     * @param Val_Salida la ultima linea que el usuario va a ingresar
+     * @param tipo el tipo de llave
+     */
     public L_Texto(String Val_Salida, byte tipo) {
         super(Val_Salida);
         L = this.crearLlave(tipo);
     }
 
+    /**
+     * Metodo que crea un tipo de llave especifica
+     * @param tipo el tipo de llave que queremos crear
+     * @return la llave creada
+     */
     private Llave crearLlave(byte tipo) {
         int n;
         boolean t, s;
@@ -166,6 +179,11 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
         }
     }
 
+    /**
+     * Crea un numero de un String (para valores invalidas)
+     * @param data el string que vamos a convertir
+     * @return el numero que representa el string
+     */
     private int crear_numero(String data) {
         char[] conjunto_data = data.toCharArray();
         boolean par = false;
@@ -186,6 +204,11 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
         return i;
     }
 
+    /**
+     * Toma un numero y encuentra como poner este numero adentro de un cuadrado.
+     * @param longitud el numero de entrada
+     * @return la longitud de uno de los dos lados del cuadrado.
+     */
     private int encontrarCuadrado(int longitud) {
         int dim = 0;
         while ((dim * dim) < longitud) {
@@ -194,7 +217,12 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
         return dim;
     }
 
-    private char crear_char(String string) {
+    /**
+     * Crea un caracter de un String (para valores invalidas)
+     * @param data el string que vamos a convertir
+     * @return el caracter que representa el string
+     */
+    private char crear_char(String data) {
         char[] conjunto_data = data.toCharArray();
         boolean par = false;
         short s = 0;
