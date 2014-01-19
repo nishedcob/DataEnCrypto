@@ -20,8 +20,8 @@ import data_en_crypto.flujos.salida.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  * Nucleo para el programa para cuando corre sin interfaz grafica.
