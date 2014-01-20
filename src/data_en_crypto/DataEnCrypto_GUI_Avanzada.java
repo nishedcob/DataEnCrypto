@@ -1,14 +1,9 @@
+package data_en_crypto;
 
-import java.awt.Color;
-import java.awt.HeadlessException;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,55 +12,111 @@ import javax.swing.JTextArea;
  */
 
 /**
- *
+ * Interfaz Grafica para Usuarios Avanzadas
  * @author nyx
  */
 public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener {
 
+    /**
+     * Configuracion de Entrada
+     * @param e evento (click) que llamo a este metodo
+     */
     private static void configEntrada(ActionEvent e) {
         JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
                 "Configuracion de Entrada", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Configuracion de Llave
+     * @param e evento (click) que llamo a este metodo
+     */
     private static void configLlave(ActionEvent e) {
         JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
                 "Configuracion de Llave", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Configuracion de Salida
+     * @param e evento (click) que llamo a este metodo
+     */
     private static void configSalida(ActionEvent e) {
         JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
                 "Configuracion de Salida", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Configuraciones Addicionales
+     * @param e evento (click) que llamo a este metodo
+     */
     private static void configAddicional(ActionEvent e) {
         JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
                 "Configuracion Addicional", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Procesar los datos con la configuracion de ahora
+     * @param e evento (click) que llamo a este metodo
+     */
     private static void procesar(ActionEvent e) {
         JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
                 "Proceso", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * El panel que contiene todo
+     */
     JPanel jpLayout;
-    
+
+    // los butones
+    /**
+     * Buton para configurar la entrada
+     */
     JButton jbConfigEntrada;
+    /**
+     * Buton para configurar la llave
+     */
     JButton jbConfigLlave;
+    /**
+     * Buton para configurar la salida
+     */
     JButton jbConfigSalida;
+    /**
+     * Buton para ir al menu principal
+     */
     JButton jbAtras;
+    /**
+     * Buton para salir/cerrar el programa
+     */
     JButton jbSalir;
+    /**
+     * Buton para configuraciones extras
+     */
     JButton jbConfigAddicional;
+    /**
+     * Buton para iniciar el proceso
+     */
     JButton jbProcesar;
-    
+
+    /**
+     * Label para la consola
+     */
     JLabel jlConsola;
-    
+
+    /**
+     * Salida de la consola
+     */
     JTextArea jtaConsola;
 
+    /**
+     * Constuctor para Este Interfaz Grafica (pone todos los objetos en sus propios
+     * lugares y despues dibuja la ventana)
+     * @throws HeadlessException
+     */
     public DataEnCrypto_GUI_Avanzada() throws HeadlessException {
         super("DataEnCrypto (GUI Avanzada)");
         //this.setLocationRelativeTo(null);
         this.setSize(600, 200);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         jpLayout = new JPanel();
         jpLayout.setLayout(null);
@@ -144,22 +195,30 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         //this.add(jpLayout);
         this.setVisible(true);
     }
-    
+
+    /**
+     * Metodo principal de este clase
+     * @param args argumentos bajo que el programa se ejecuto en la consola
+     */
     public static void main(String[] args) {
         new DataEnCrypto_GUI_Avanzada();
     }
 
+    /**
+     * Un metodo para trapar clicks en nuestra interfaz
+     * @param e evento (click) que llamo a este metodo
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(jbAtras)){
-            this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             this.dispose();
             JOptionPane.showMessageDialog(null, "Normalmente se lanzaria "
                     + "el menu principal en este momento, pero como no esta "
                     + "implimentado, sale este mensaje su lugar.", "Atras",
                     JOptionPane.WARNING_MESSAGE);
         } else if(e.getSource().equals(jbSalir)) {
-            this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             this.dispose();
         }
     }
