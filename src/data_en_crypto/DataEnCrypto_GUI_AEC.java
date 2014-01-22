@@ -11,29 +11,66 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- *
+ * Interfaz grafica para configurar el flujo de entrada.
  * Created by nyx on 1/20/14 at 11:04 AM.
  */
 public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, ActionListener {
 
+    /**
+     * El fondo de toda la pantalla.
+     */
     JPanel jpLayout;
 
+    /**
+     * Buton para mostrar el contenido de un archivo selecionado.
+     */
     JButton jbMostrar;
+    /**
+     * Buton para abrir un archivo.
+     */
     JButton jbAbrir;
+    /**
+     * Buton para cancelar (volver a la ultima pantalla sin guardar esta configuracion)
+     */
     JButton jbCancelar;
+    /**
+     * Buton para guardar (guardar este configuracion y vuelve a la patalla anterior)
+     */
     JButton jbGuardar;
 
+    /**
+     * Una label para ayudar el usuario entender el combo box
+     */
     JLabel jlTipo;
+    /**
+     * Un combo box para pedir el usario que tipo de flujo de entrada quiere
+     */
     JComboBox<String> jcbTipo;
 
+    /**
+     * Una pantalla para dejar el usuario teclar algo o para mostrar el contenido de un archivo.
+     */
     JTextArea jtaTexto;
 
+    /**
+     * Un objeto para hacer la pantalla de texto mas navegable
+     */
     JScrollPane jspTexto;
 
+    /**
+     * Un lugar para guardar y mostrar la dirrecion absoluta y completa del ultimo archivo selecionado
+     */
     JTextField jtfArchivo;
 
+    /**
+     * el ultimo indice selecionado del combo box
+     */
     int indice = 0;
 
+    /**
+     * Constructor de este clase. Aqui es donde se dibuja todos los
+     * elementos encontrado en la pantalla.
+     */
     public DataEnCrypto_GUI_AEC() {
         super("DataEnCrypto (GUI de Configuracion Avanzada de Entrada)");
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -120,14 +157,18 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         this.setVisible(true);
     }
 
+    /**
+     * Metodo principal de esta clase, solo se debe usar para probar este clase
+     * @param args argumentos con que se ejecuta la clase
+     */
     public static void main(String[] args) {
         new DataEnCrypto_GUI_AEC();
     }
 
     /**
-     * Invoked when an item has been selected or deselected by the user.
-     * The code written for this method performs the operations
-     * that need to occur when an item is selected (or deselected).
+     * Lanzado cuando un elemento ha sido selecionado o deselecionado
+     * por el usario. El codigo en este metodo es lo que ejecuta cuando
+     * un usuario seleciona o deseleciona un elemento.
      *
      * @param e Evento que lanza la accion
      */
@@ -176,7 +217,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
     }
 
     /**
-     * Invoked when an action occurs.
+     * Lanzada cuando una accion ocure (por ejemplo cuando hagan click en un buton)
      *
      * @param e Evento que lanza la accion
      */
