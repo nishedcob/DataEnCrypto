@@ -62,6 +62,8 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     JTextField jtfArchivo;
 
+    JPanel jpInner;
+
     /**
      * el ultimo indice selecionado del combo box
      */
@@ -99,7 +101,8 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jbCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                dispose();
             }
         });
         jpLayout.add(jbCancelar);
@@ -138,13 +141,21 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
 
         jspTexto = new JScrollPane();
         jspTexto.setBounds(170, 10, 420, 80);
+        jspTexto.setPreferredSize(new Dimension(420, 80));
         jspTexto.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         jspTexto.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jspTexto.setEnabled(true);
         //jspTexto.setViewportView(jtaTexto);
         //jspTexto.setBounds(0, 0, 420, 80);
 
         //jtaTexto.add(jspTexto);
+
+
         jspTexto.add(jtaTexto);
+
+//        jpInner = new JPanel(new ScrollPaneLayout());
+//        jpInner.setBounds(170, 10, 420, 80);
+//        jpInner.add(jtaTexto);
 
         jpLayout.add(jspTexto);
 
@@ -155,6 +166,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jpLayout.add(jtfArchivo);
 
         this.setVisible(true);
+        //pack();
     }
 
     /**
