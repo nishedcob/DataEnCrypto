@@ -73,6 +73,9 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     int indice = 0;
 
+    /**
+     * Archivo para guardar la configuracion de entrada
+     */
     File e_cfg;
 
     /**
