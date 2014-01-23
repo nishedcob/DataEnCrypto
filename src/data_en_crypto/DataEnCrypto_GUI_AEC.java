@@ -139,23 +139,12 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jtaTexto.setEditable(false);
         //jtaTexto.setBackground(Color.LIGHT_GRAY);
 
-        jspTexto = new JScrollPane();
+        jspTexto = new JScrollPane(jtaTexto);
         jspTexto.setBounds(170, 10, 420, 80);
         jspTexto.setPreferredSize(new Dimension(420, 80));
         jspTexto.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         jspTexto.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         jspTexto.setEnabled(true);
-        //jspTexto.setViewportView(jtaTexto);
-        //jspTexto.setBounds(0, 0, 420, 80);
-
-        //jtaTexto.add(jspTexto);
-
-
-        jspTexto.add(jtaTexto);
-
-//        jpInner = new JPanel(new ScrollPaneLayout());
-//        jpInner.setBounds(170, 10, 420, 80);
-//        jpInner.add(jtaTexto);
 
         jpLayout.add(jspTexto);
 
