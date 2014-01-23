@@ -75,7 +75,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     public DataEnCrypto_GUI_AEC() {
         super("DataEnCrypto (GUI de Configuracion Avanzada de Entrada)");
-        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setSize(600, 200);
 
         jpLayout = new JPanel();
