@@ -18,12 +18,16 @@ import java.awt.event.ActionListener;
 public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener {
 
     /**
+     * Un objeto para guardar la configuracion de la entrada y dar una interfaz grafica
+     */
+    static DataEnCrypto_GUI_AEC entrada_config;
+
+    /**
      * Configuracion de Entrada
      * @param e evento (click) que llamo a este metodo
      */
     private static void configEntrada(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
-                "Configuracion de Entrada", JOptionPane.WARNING_MESSAGE);
+        entrada_config = new DataEnCrypto_GUI_AEC();
     }
 
     /**
