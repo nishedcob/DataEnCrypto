@@ -99,6 +99,17 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                 jcbTipo.setSelectedIndex(0);
                 jtaTexto.setText("");
                 jtfArchivo.setText("");
+                e_cfg = new File("e_cfg.tmp");
+                try {
+                    PrintWriter escri = new PrintWriter(e_cfg);
+                    escri.printf("%d,%s,%s", jcbTipo.getSelectedIndex(),
+                            (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
+                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()));
+                    escri.flush();
+                    escri.close();
+                } catch (FileNotFoundException fnfe) {
+                    fnfe.printStackTrace();
+                }
             }
         });
         jpLayout.add(jbEliminar);
