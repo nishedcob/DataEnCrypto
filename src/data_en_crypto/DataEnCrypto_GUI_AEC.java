@@ -8,6 +8,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -20,6 +21,11 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      * El fondo de toda la pantalla.
      */
     JPanel jpLayout;
+
+    /**
+     * Buton para eliminar configuracion
+     */
+    JButton jbEliminar;
 
     /**
      * Buton para mostrar el contenido de un archivo selecionado.
@@ -62,12 +68,12 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     JTextField jtfArchivo;
 
-    JPanel jpInner;
-
     /**
      * el ultimo indice selecionado del combo box
      */
     int indice = 0;
+
+    File e_cfg;
 
     /**
      * Constructor de este clase. Aqui es donde se dibuja todos los
@@ -75,12 +81,24 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     public DataEnCrypto_GUI_AEC() {
         super("DataEnCrypto (GUI de Configuracion Avanzada de Entrada)");
-        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setSize(600, 200);
 
         jpLayout = new JPanel();
         jpLayout.setLayout(null);
         this.setContentPane(jpLayout);
+
+        jbEliminar = new JButton("Eliminar Configuracion");
+        jbEliminar.setBounds(10, 40, 150, 20);
+        jbEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jcbTipo.setSelectedIndex(0);
+                jtaTexto.setText("");
+                jtfArchivo.setText("");
+            }
+        });
+        jpLayout.add(jbEliminar);
 
         jbMostrar = new JButton("Mostrar Archivo");
         jbMostrar.setBounds(10, 70, 150, 20);
@@ -103,6 +121,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
             public void actionPerformed(ActionEvent e) {
                 setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                 dispose();
+                DataEnCrypto_GUI_Avanzada.entrada_config = null;
             }
         });
         jpLayout.add(jbCancelar);
@@ -114,7 +133,19 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jbGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                e_cfg = new File("e_cfg.tmp");
+                try {
+                    PrintWriter escri = new PrintWriter(e_cfg);
+                    escri.printf("%d,%s,%s", jcbTipo.getSelectedIndex(),
+                            (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
+                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()));
+                    escri.flush();
+                    escri.close();
+                } catch (FileNotFoundException fnfe) {
+                    fnfe.printStackTrace();
+                }
+                setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                dispose();
             }
         });
         jpLayout.add(jbGuardar);
@@ -154,8 +185,42 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jtfArchivo.setBackground(Color.LIGHT_GRAY);
         jpLayout.add(jtfArchivo);
 
+        if(new File("e_cfg.tmp").exists()){
+            e_cfg = new File("e_cfg.tmp");
+            try {
+                Scanner lec = new Scanner(e_cfg);
+                if(lec.hasNextLine()){
+                    String datos = "";
+                    while(lec.hasNextLine()){
+                        datos += lec.nextLine();
+                        if(lec.hasNextLine()){
+                            datos += '\n';
+                        }
+                    }
+                    String[] valores = datos.split(",");
+                    if(valores.length == 3){
+                        int tipo;
+                        try {
+                            tipo = Integer.parseInt(valores[0]);
+                            if(tipo >= 0 && tipo <= 2){
+                                jcbTipo.setSelectedIndex(tipo);
+                                if(tipo == 1){
+                                    jtaTexto.setText(valores[1]);
+                                } else if (tipo == 2) {
+                                    jtfArchivo.setText(valores[2]);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            //el archivo no es escrito de una forma correcta
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                //error impossible
+            }
+        }
+
         this.setVisible(true);
-        //pack();
     }
 
     /**
