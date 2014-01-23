@@ -62,8 +62,6 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     JTextField jtfArchivo;
 
-    JPanel jpInner;
-
     /**
      * el ultimo indice selecionado del combo box
      */
@@ -155,7 +153,6 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jpLayout.add(jtfArchivo);
 
         this.setVisible(true);
-        //pack();
     }
 
     /**

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -71,8 +70,10 @@
       <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.044226043" vertical-offset="36" max-vertical-offset="4644">
-              <folding />
+            <state line="62" column="26" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.044226043" vertical-offset="1098" max-vertical-offset="4590">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,8 +116,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
-        <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
       </list>
     </option>
   </component>
@@ -567,7 +568,11 @@
       <created>1390450499461</created>
       <updated>1390450499461</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC">
+      <created>1390487979690</created>
+      <updated>1390487979690</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -623,7 +628,8 @@
     <MESSAGE value="actualizar workspace.xml" />
     <MESSAGE value="Arreglar Bugs de GUI_AEC (Final)&#10;" />
     <MESSAGE value="Limpiar GUI_AEC&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limpiar GUI_AEC&#10;" />
+    <MESSAGE value="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -636,7 +642,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="31" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="4698">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -657,7 +665,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="46" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="4896">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -678,7 +688,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="164" column="45" selection-start="4926" selection-end="4926" vertical-scroll-proportion="0.0" vertical-offset="2491" max-vertical-offset="4896">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -699,7 +711,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="188" column="26" selection-start="6271" selection-end="6271" vertical-scroll-proportion="0.0" vertical-offset="3384" max-vertical-offset="3942">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -720,7 +734,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="111" column="31" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0" vertical-offset="1627" max-vertical-offset="3942">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -741,7 +757,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="35" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3870">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -762,7 +780,9 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,8 +817,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.044226043" vertical-offset="36" max-vertical-offset="4644">
-          <folding />
+        <state line="62" column="26" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.044226043" vertical-offset="1098" max-vertical-offset="4590">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
