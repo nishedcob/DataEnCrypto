@@ -23,6 +23,11 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
     JPanel jpLayout;
 
     /**
+     * Buton para eliminar configuracion
+     */
+    JButton jbEliminar;
+
+    /**
      * Buton para mostrar el contenido de un archivo selecionado.
      */
     JButton jbMostrar;
@@ -82,6 +87,18 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jpLayout = new JPanel();
         jpLayout.setLayout(null);
         this.setContentPane(jpLayout);
+
+        jbEliminar = new JButton("Eliminar Configuracion");
+        jbEliminar.setBounds(10, 40, 150, 20);
+        jbEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jcbTipo.setSelectedIndex(0);
+                jtaTexto.setText("");
+                jtfArchivo.setText("");
+            }
+        });
+        jpLayout.add(jbEliminar);
 
         jbMostrar = new JButton("Mostrar Archivo");
         jbMostrar.setBounds(10, 70, 150, 20);

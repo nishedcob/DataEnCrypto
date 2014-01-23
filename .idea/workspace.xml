@@ -70,11 +70,13 @@
       <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="17" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.044226043" vertical-offset="2988" max-vertical-offset="5508">
+            <state line="88" column="33" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.26535627" vertical-offset="1476" max-vertical-offset="5814">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3363#4169#0" expanded="true" />
-                <element signature="e#4158#4159#0" expanded="true" />
+                <element signature="e#2425#2673#0" expanded="true" />
+                <element signature="e#2662#2663#0" expanded="true" />
+                <element signature="e#3875#4681#0" expanded="true" />
+                <element signature="e#4670#4671#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,7 +94,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Avanzada.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="39" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="3762">
+            <state line="14" column="43" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="3762">
               <folding />
             </state>
           </provider>
@@ -578,7 +580,11 @@
       <created>1390488139512</created>
       <updated>1390488139512</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implimentacion de un archivo de configuracion para DataEnCrypto_GUI_AEC&#10;">
+      <created>1390491575222</created>
+      <updated>1390491575222</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -636,7 +642,8 @@
     <MESSAGE value="Limpiar GUI_AEC&#10;" />
     <MESSAGE value="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC" />
     <MESSAGE value="Limpieza (# 2) de DataEnCrypto_GUI_AEC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limpieza (# 2) de DataEnCrypto_GUI_AEC" />
+    <MESSAGE value="Implimentacion de un archivo de configuracion para DataEnCrypto_GUI_AEC&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de un archivo de configuracion para DataEnCrypto_GUI_AEC&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -651,8 +658,10 @@
         <state line="19" column="31" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="4698">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,8 +685,10 @@
         <state line="156" column="46" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="4896">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,8 +712,10 @@
         <state line="164" column="45" selection-start="4926" selection-end="4926" vertical-scroll-proportion="0.0" vertical-offset="2491" max-vertical-offset="4896">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,8 +739,10 @@
         <state line="188" column="26" selection-start="6271" selection-end="6271" vertical-scroll-proportion="0.0" vertical-offset="3384" max-vertical-offset="3942">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -751,8 +766,10 @@
         <state line="111" column="31" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0" vertical-offset="1627" max-vertical-offset="3942">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,8 +793,10 @@
         <state line="95" column="35" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3870">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -801,8 +820,10 @@
         <state line="7" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -831,18 +852,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="39" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="3762">
+        <state line="14" column="43" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="3762">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="17" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.044226043" vertical-offset="2988" max-vertical-offset="5508">
+        <state line="88" column="33" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.26535627" vertical-offset="1476" max-vertical-offset="5814">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3363#4169#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#2425#2673#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#3875#4681#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
           </folding>
         </state>
       </provider>
