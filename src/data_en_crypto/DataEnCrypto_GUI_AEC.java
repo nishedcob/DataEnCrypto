@@ -8,6 +8,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -67,6 +68,8 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     int indice = 0;
 
+    File e_cfg;
+
     /**
      * Constructor de este clase. Aqui es donde se dibuja todos los
      * elementos encontrado en la pantalla.
@@ -101,6 +104,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
             public void actionPerformed(ActionEvent e) {
                 setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                 dispose();
+                DataEnCrypto_GUI_Avanzada.entrada_config = null;
             }
         });
         jpLayout.add(jbCancelar);
@@ -112,7 +116,19 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jbGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                e_cfg = new File("e_cfg.tmp");
+                try {
+                    PrintWriter escri = new PrintWriter(e_cfg);
+                    escri.printf("%d,%s,%s", jcbTipo.getSelectedIndex(),
+                            (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
+                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()));
+                    escri.flush();
+                    escri.close();
+                } catch (FileNotFoundException fnfe) {
+                    fnfe.printStackTrace();
+                }
+                setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                dispose();
             }
         });
         jpLayout.add(jbGuardar);
@@ -151,6 +167,41 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jtfArchivo.setEnabled(false);
         jtfArchivo.setBackground(Color.LIGHT_GRAY);
         jpLayout.add(jtfArchivo);
+
+        if(new File("e_cfg.tmp").exists()){
+            e_cfg = new File("e_cfg.tmp");
+            try {
+                Scanner lec = new Scanner(e_cfg);
+                if(lec.hasNextLine()){
+                    String datos = "";
+                    while(lec.hasNextLine()){
+                        datos += lec.nextLine();
+                        if(lec.hasNextLine()){
+                            datos += '\n';
+                        }
+                    }
+                    String[] valores = datos.split(",");
+                    if(valores.length == 3){
+                        int tipo;
+                        try {
+                            tipo = Integer.parseInt(valores[0]);
+                            if(tipo >= 0 && tipo <= 2){
+                                jcbTipo.setSelectedIndex(tipo);
+                                if(tipo == 1){
+                                    jtaTexto.setText(valores[1]);
+                                } else if (tipo == 2) {
+                                    jtfArchivo.setText(valores[2]);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            //el archivo no es escrito de una forma correcta
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                //error impossible
+            }
+        }
 
         this.setVisible(true);
     }
