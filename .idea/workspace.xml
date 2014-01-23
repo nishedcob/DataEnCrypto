@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Arreglar Bugs de GUI_AEC">
+    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -70,11 +70,9 @@
       <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="44" selection-start="4515" selection-end="4515" vertical-scroll-proportion="0.42506143" vertical-offset="2491" max-vertical-offset="4896">
+            <state line="20" column="7" selection-start="545" selection-end="545" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="4644">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2806#3018#0" expanded="true" />
-                <element signature="e#3007#3008#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,9 +122,26 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="29" />
-    <option name="width" value="1366" />
-    <option name="height" value="739" />
+    <option name="width" value="1368" />
+    <option name="height" value="742" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -269,6 +284,10 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Confirmation" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Application.DataEnCrypto_GUI_AEC">
     <configuration default="false" name="Cargador" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -498,14 +517,25 @@
       <created>1390364545679</created>
       <updated>1390364545679</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Arreglar Bugs de GUI_AEC">
+      <created>1390366520343</created>
+      <updated>1390366520344</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Arreglar Bugs de GUI_AEC (Final)&#10;">
+      <created>1390450210448</created>
+      <updated>1390450210448</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Arreglar Bugs de GUI_AEC (Final)&#10;">
+      <created>1390450298786</created>
+      <updated>1390450298786</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="29" width="1366" height="739" extended-state="6" />
+    <frame x="-1" y="29" width="1368" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -516,19 +546,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -548,10 +579,13 @@
     <MESSAGE value="Documentacion de Nueva Interfaz (La Avanzada)" />
     <MESSAGE value="Anadir Codigo" />
     <MESSAGE value="Anadir Codigo (GUI para Configuracion de Entrada Avanzada [AEC])" />
-    <MESSAGE value="Arreglar Bugs de GUI_AEC" />
     <MESSAGE value="Actualizar workspace.xml" />
     <MESSAGE value="Documentacion de DataEnCrypto_GUI_AEC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentacion de DataEnCrypto_GUI_AEC" />
+    <MESSAGE value="Arreglar Bugs de GUI_AEC" />
+    <MESSAGE value="actualizar workspace.xml" />
+    <MESSAGE value="Arreglar Bugs de GUI_AEC (Final)&#10;" />
+    <MESSAGE value="Limpiar GUI_AEC&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limpiar GUI_AEC&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -563,11 +597,55 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="46" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="4896">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="7" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="32" selection-start="3297" selection-end="3297" vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="4158">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="45" selection-start="4926" selection-end="4926" vertical-scroll-proportion="0.0" vertical-offset="2491" max-vertical-offset="4896">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="7" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="32" selection-start="3297" selection-end="3297" vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="4158">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="188" column="26" selection-start="6271" selection-end="6271" vertical-scroll-proportion="0.0" vertical-offset="3384" max-vertical-offset="3942">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2806#3018#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,8 +669,6 @@
         <state line="111" column="31" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.0" vertical-offset="1627" max-vertical-offset="3942">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2806#3018#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,8 +692,6 @@
         <state line="95" column="35" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3870">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2806#3018#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -641,8 +715,6 @@
         <state line="7" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2806#3018#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -678,11 +750,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="44" selection-start="4515" selection-end="4515" vertical-scroll-proportion="0.42506143" vertical-offset="2491" max-vertical-offset="4896">
+        <state line="20" column="7" selection-start="545" selection-end="545" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="4644">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2806#3018#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
           </folding>
         </state>
       </provider>
