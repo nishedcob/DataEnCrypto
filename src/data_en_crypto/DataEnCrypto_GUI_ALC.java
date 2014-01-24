@@ -324,12 +324,23 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                         int tipo;
                         try {
                             tipo = Integer.parseInt(valores[0]);
-                            if(tipo >= 0 && tipo <= 2){
+                            if(tipo >= 0 && tipo <= 4){
                                 jcbTipo.setSelectedIndex(tipo);
                                 if(tipo == 1){
                                     jtaTexto.setText(valores[1]);
                                 } else if (tipo == 2) {
                                     jtfArchivo.setText(valores[2]);
+                                } else if (tipo == 3) {
+                                    jpfClave.setText(valores[3]);
+                                } else if (tipo == 4) {
+                                    byte num_f = 4, num_c = 4;
+                                    String[] filas = valores[4].split("\n");
+                                    for (int f = 0; f < filas.length; f++) {
+                                        String[] colum = filas[f].split(";");
+                                        for (int c = 0; c < colum.length; c++) {
+                                            if(f < num_f && c < num_c) jtMatriz.setValueAt(colum[c], f, c);
+                                        }
+                                    }
                                 }
                             }
                         } catch (NumberFormatException e) {
@@ -395,8 +406,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 //jtaTexto.setEnabled(false);
                 jtaTexto.setEditable(false);
                 //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(false);
-                jbGuardar.setForeground(Color.DARK_GRAY);
+                jbGuardar.setEnabled(true);
+                jbGuardar.setForeground(Color.BLACK);
                 jbAbrir.setEnabled(false);
                 jbAbrir.setForeground(Color.DARK_GRAY);
                 jbMostrar.setEnabled(false);
@@ -409,8 +420,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 //jtaTexto.setEnabled(false);
                 jtaTexto.setEditable(false);
                 //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(false);
-                jbGuardar.setForeground(Color.DARK_GRAY);
+                jbGuardar.setEnabled(true);
+                jbGuardar.setForeground(Color.BLACK);
                 jbAbrir.setEnabled(false);
                 jbAbrir.setForeground(Color.DARK_GRAY);
                 jbMostrar.setEnabled(false);
