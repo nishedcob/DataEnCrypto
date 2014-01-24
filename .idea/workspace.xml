@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/javadoc/data_en_crypto/cifras/VICTOR.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/javadoc/data_en_crypto/cifras/class-use/VICTOR.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/cifras/VICTOR.java" afterPath="" />
+    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Eliminar la Cifra VICTOR y sus dependencias.&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -92,7 +89,7 @@
       <file leaf-file-name="Cargador.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="7" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2484">
+            <state line="26" column="44" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1674">
               <folding />
             </state>
           </provider>
@@ -107,19 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataEnCrypto.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DataEnCrypto.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="381" column="24" selection-start="20517" selection-end="20517" vertical-scroll-proportion="0.0" vertical-offset="6570" max-vertical-offset="7938">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Llave.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="35" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.548495" vertical-offset="2408" max-vertical-offset="3078">
+            <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="3276">
               <folding />
             </state>
           </provider>
@@ -144,12 +132,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
-        <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
       </list>
     </option>
   </component>
@@ -295,6 +283,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_en_crypto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -640,12 +646,16 @@
       <created>1390586708333</created>
       <updated>1390586708334</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Eliminar la Cifra VICTOR y sus dependencias.">
+      <created>1390606140306</created>
+      <updated>1390606140306</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1366" height="739" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -658,17 +668,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -705,7 +715,8 @@
     <MESSAGE value="Cambios a DataEnCrypto_GUI_AEC&#10;" />
     <MESSAGE value="Implimentacion para Guardar un archivo de configuracion de DataEnCrypto_GUI_ALC&#10;" />
     <MESSAGE value="Implimentacion para cargar el archivo de configuracion de DataEnCrypto_GUI_ALC&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion para cargar el archivo de configuracion de DataEnCrypto_GUI_ALC&#10;" />
+    <MESSAGE value="Eliminar la Cifra VICTOR y sus dependencias." />
+    <option name="LAST_COMMIT_MESSAGE" value="Eliminar la Cifra VICTOR y sus dependencias." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1038,9 +1049,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="7" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1692">
+        <state line="184" column="0" selection-start="5064" selection-end="5064" vertical-scroll-proportion="0.9397993" vertical-offset="2408" max-vertical-offset="3078">
           <folding />
         </state>
       </provider>
@@ -1052,16 +1063,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="381" column="24" selection-start="20517" selection-end="20517" vertical-scroll-proportion="0.0" vertical-offset="6570" max-vertical-offset="7938">
+        <state line="26" column="44" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1674">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="35" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.548495" vertical-offset="2408" max-vertical-offset="3078">
+        <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="3276">
           <folding />
         </state>
       </provider>
