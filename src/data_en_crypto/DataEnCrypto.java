@@ -381,17 +381,6 @@ public class DataEnCrypto {
         //*/
         //</editor-fold>
 
-        //<editor-fold defaultstate="collapsed" desc=" VICTOR -- casi funciona -- tiene una pequeña bug ">
-        System.out.println("---VICTOR---");
-        System.out.println("Usando Tabla!");
-        System.out.println("Usando Segundo Clave!");
-        VICTOR vic = new VICTOR(tabla_llave, clave2);
-        salida = vic.encriptar(texto);
-        System.out.println("Encryptado: " + salida);
-        salida = vic.decifrar(salida);
-        System.out.println("Decifrado:  " + salida);
-        //</editor-fold>
-
         //<editor-fold defaultstate="collapsed" desc=" Vigenere -- funciona ">
         System.out.println("---Vigenere---");
         System.out.println("Usando clave!");

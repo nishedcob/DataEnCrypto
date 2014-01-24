@@ -33,6 +33,7 @@ final public class Llave implements Llave_Tipos {
      */
     private final String LIBRERETA;
     /**
+     * @deprecated
      * Una llave que es un arreglo de numeros 
      * (para VICTOR).
      */
@@ -43,6 +44,7 @@ final public class Llave implements Llave_Tipos {
      */
     private final int[][] LLAVE_MATRIZ;
     /**
+     * @deprecated
      * Una llave que es un matriz/tabla de caracteres
      * (para VICTOR).
      */
@@ -120,6 +122,7 @@ final public class Llave implements Llave_Tipos {
     }
 
     /**
+     * @deprecated
      * Constructor para Llave. Toma el tipo de llave y una tabla de caracteres
      * para uso con VICTOR.
      * @param TIPO tipo de la llave

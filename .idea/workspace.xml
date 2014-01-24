@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data_en_crypto.config" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/javadoc/data_en_crypto/cifras/VICTOR.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/javadoc/data_en_crypto/cifras/class-use/VICTOR.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/cifras/VICTOR.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -80,10 +83,8 @@
       <file leaf-file-name="DataEnCrypto_GUI_ALC.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="357" column="0" selection-start="13047" selection-end="13047" vertical-scroll-proportion="0.0" vertical-offset="6012" max-vertical-offset="8694">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="357" column="0" selection-start="13047" selection-end="13047" vertical-scroll-proportion="0.0" vertical-offset="6426" max-vertical-offset="8856">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,16 +101,25 @@
       <file leaf-file-name="DataEnCrypto_GUI_Avanzada.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="48" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.0" vertical-offset="1277" max-vertical-offset="3780">
+            <state line="130" column="48" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="4248">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataEnCrypto.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DataEnCrypto.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="44" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.08896211" vertical-offset="342" max-vertical-offset="8136">
+            <state line="381" column="24" selection-start="20517" selection-end="20517" vertical-scroll-proportion="0.0" vertical-offset="6570" max-vertical-offset="7938">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Llave.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="167" column="35" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.548495" vertical-offset="2408" max-vertical-offset="3078">
               <folding />
             </state>
           </provider>
@@ -139,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
       </list>
     </option>
   </component>
@@ -207,6 +218,7 @@
           </PATH>
         </subPane>
         <subPane subId="Problems" />
+        <subPane subId="Tests" />
         <subPane subId="Production">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -215,7 +227,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-        <subPane subId="Tests" />
         <subPane subId="Project Files">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -284,24 +295,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DataEnCrypto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataEnCrypto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataEnCrypto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data_en_crypto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,19 +423,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -468,6 +448,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -676,8 +669,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -722,19 +715,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="34" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="6120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="334" column="55" selection-start="12070" selection-end="12070" vertical-scroll-proportion="0.0" vertical-offset="6012" max-vertical-offset="8856">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -762,9 +746,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="307" column="33" selection-start="10837" selection-end="10837" vertical-scroll-proportion="0.0" vertical-offset="5526" max-vertical-offset="8856">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -792,9 +774,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="308" column="0" selection-start="10838" selection-end="10838" vertical-scroll-proportion="0.0" vertical-offset="5526" max-vertical-offset="8658">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -822,9 +802,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="23" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="6084">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -852,9 +830,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="37" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="6084">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -882,9 +858,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="15" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="5886">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,9 +1034,7 @@
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="357" column="0" selection-start="13047" selection-end="13047" vertical-scroll-proportion="0.0" vertical-offset="6012" max-vertical-offset="8694">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +1054,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="44" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.08896211" vertical-offset="342" max-vertical-offset="8136">
+        <state line="381" column="24" selection-start="20517" selection-end="20517" vertical-scroll-proportion="0.0" vertical-offset="6570" max-vertical-offset="7938">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="35" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.548495" vertical-offset="2408" max-vertical-offset="3078">
           <folding />
         </state>
       </provider>
