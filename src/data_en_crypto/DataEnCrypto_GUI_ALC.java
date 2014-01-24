@@ -1,6 +1,9 @@
 package data_en_crypto;
 
 import javax.swing.*;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,11 +15,9 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * Interfaz grafica para configurar el flujo de entrada.
- * Created by nyx on 1/20/14 at 11:04 AM.
+ * Created by nyx on 1/23/14 at 11:43 AM.
  */
-public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, ActionListener {
-
+public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, ActionListener{
     /**
      * El fondo de toda la pantalla.
      */
@@ -68,6 +69,16 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      */
     JTextField jtfArchivo;
 
+    JLabel jlMatriz;
+
+    JScrollPane jspMatriz;
+
+    JTable jtMatriz;
+
+    JLabel jlClave;
+
+    JPasswordField jpfClave;
+
     /**
      * el ultimo indice selecionado del combo box
      */
@@ -76,16 +87,16 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
     /**
      * Archivo para guardar la configuracion de entrada
      */
-    File e_cfg;
+    File l_cfg;
 
     /**
      * Constructor de este clase. Aqui es donde se dibuja todos los
      * elementos encontrado en la pantalla.
      */
-    public DataEnCrypto_GUI_AEC() {
-        super("DataEnCrypto (GUI de Configuracion Avanzada de Entrada)");
+    public DataEnCrypto_GUI_ALC() {
+        super("DataEnCrypto (GUI de Configuracion Avanzada de Llave)");
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.setSize(600, 200);
+        this.setSize(600, 400);
 
         jpLayout = new JPanel();
         jpLayout.setLayout(null);
@@ -99,12 +110,40 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                 jcbTipo.setSelectedIndex(0);
                 jtaTexto.setText("");
                 jtfArchivo.setText("");
-                e_cfg = new File("e_cfg.tmp");
+                jpfClave.setText("");
+                l_cfg = new File("l_cfg.tmp");
                 try {
-                    PrintWriter escri = new PrintWriter(e_cfg);
-                    escri.printf("%d,%s,%s", jcbTipo.getSelectedIndex(),
+                    PrintWriter escri = new PrintWriter(l_cfg);
+                    String clave = "";
+                    if(jpfClave.getPassword() != null || jpfClave.getPassword().length != 0){
+                        for(char c : jpfClave.getPassword()){
+                            clave += c;
+                        }
+                    } else {
+                        clave = "\u0000";
+                    }
+                    DefaultTableModel dtmMatriz = (DefaultTableModel) jtMatriz.getModel();
+                    int fil = dtmMatriz.getRowCount();
+                    int col = dtmMatriz.getColumnCount();
+                    Object[][] datos = new String[fil][col];
+                    String sMatriz = "";
+                    for (int f = 0; f < fil; f++) {
+                        for (int c = 0; c < col; c++) {
+                            datos[f][c] = dtmMatriz.getValueAt(f, c);
+                            sMatriz += dtmMatriz.getValueAt(f, c);
+                            if(c != col-1){
+                                sMatriz += ";";
+                            } else {
+                                if(f != fil-1){
+                                    sMatriz += ";\n";
+                                }
+                            }
+                        }
+                    }
+                    escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
-                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()));
+                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
+                            clave,sMatriz);
                     escri.flush();
                     escri.close();
                 } catch (FileNotFoundException fnfe) {
@@ -128,8 +167,50 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jbAbrir.addActionListener(this);
         jpLayout.add(jbAbrir);
 
+        jlClave = new JLabel("Clave:");
+        jlClave.setBounds(10, 130, 50, 20);
+        jpLayout.add(jlClave);
+
+        jpfClave = new JPasswordField();
+        jpfClave.setBounds(70, 130, 90, 20);
+        jpfClave.setEnabled(false);
+        jpLayout.add(jpfClave);
+
+        DefaultTableModel dtmMatriz = new DefaultTableModel();
+        byte num_fila = 4;
+        byte num_colum = 4;
+        for(byte c = 0; c < num_colum; c++){
+            if(c == 0) {
+                dtmMatriz.addColumn("");
+            } else {
+                dtmMatriz.addColumn(c);
+            }
+        }
+        for(byte f = 1; f < num_fila; f++){
+            String[] fila = new String[num_colum];
+            for(byte c = 0; c < num_colum; c++){
+                if(c == 0){
+                    fila[c] = Byte.toString(f);
+                } else {
+                    fila[c] = "";
+                }
+            }
+            dtmMatriz.addRow(fila);
+        }
+
+        jtMatriz = new JTable(dtmMatriz);
+        jtMatriz.setBounds(0, 0, 210, 140);
+        jtMatriz.setEnabled(false);
+
+        jspMatriz = new JScrollPane(jtMatriz);
+        jspMatriz.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setBounds(170, 130, 400, 160);
+
+        jpLayout.add(jspMatriz);
+
         jbCancelar = new JButton("Cancelar");
-        jbCancelar.setBounds(10, 130, 100, 20);
+        jbCancelar.setBounds(10, 330, 100, 20);
         jbCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -141,18 +222,45 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jpLayout.add(jbCancelar);
 
         jbGuardar = new JButton("Guardar");
-        jbGuardar.setBounds(490, 130, 100, 20);
+        jbGuardar.setBounds(490, 330, 100, 20);
         jbGuardar.setEnabled(false);
         jbGuardar.setForeground(Color.DARK_GRAY);
         jbGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                e_cfg = new File("e_cfg.tmp");
+                l_cfg = new File("l_cfg.tmp");
                 try {
-                    PrintWriter escri = new PrintWriter(e_cfg);
-                    escri.printf("%d,%s,%s", jcbTipo.getSelectedIndex(),
+                    PrintWriter escri = new PrintWriter(l_cfg);
+                    String clave = "";
+                    if(jpfClave.getPassword() != null || jpfClave.getPassword().length != 0){
+                        for(char c : jpfClave.getPassword()){
+                            clave += c;
+                        }
+                    } else {
+                        clave = "\u0000";
+                    }
+                    DefaultTableModel dtmMatriz = (DefaultTableModel) jtMatriz.getModel();
+                    int fil = dtmMatriz.getRowCount();
+                    int col = dtmMatriz.getColumnCount();
+                    Object[][] datos = new String[fil][col];
+                    String sMatriz = "";
+                    for (int f = 0; f < fil; f++) {
+                        for (int c = 0; c < col; c++) {
+                            datos[f][c] = dtmMatriz.getValueAt(f, c);
+                            sMatriz += dtmMatriz.getValueAt(f, c);
+                            if(c != col-1){
+                                sMatriz += ";";
+                            } else {
+                                if(f != fil-1){
+                                    sMatriz += ";\n";
+                                }
+                            }
+                        }
+                    }
+                    escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
-                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()));
+                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
+                            clave,sMatriz);
                     escri.flush();
                     escri.close();
                 } catch (FileNotFoundException fnfe) {
@@ -168,7 +276,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jlTipo.setBounds(10, 10, 50, 20);
         jpLayout.add(jlTipo);
 
-        String[] cosas = {"", "Texto", "Archivo"};
+        String[] cosas = {"", "Texto", "Archivo", "Clave", "Matriz"};
         jcbTipo = new JComboBox<String>();
         for(String s : cosas){
             jcbTipo.addItem(s);
@@ -199,10 +307,10 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
         jtfArchivo.setBackground(Color.LIGHT_GRAY);
         jpLayout.add(jtfArchivo);
 
-        if(new File("e_cfg.tmp").exists()){
-            e_cfg = new File("e_cfg.tmp");
+        if(new File("l_cfg.tmp").exists()){
+            l_cfg = new File("l_cfg.tmp");
             try {
-                Scanner lec = new Scanner(e_cfg);
+                Scanner lec = new Scanner(l_cfg);
                 if(lec.hasNextLine()){
                     String datos = "";
                     while(lec.hasNextLine()){
@@ -242,7 +350,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      * @param args argumentos con que se ejecuta la clase
      */
     public static void main(String[] args) {
-        new DataEnCrypto_GUI_AEC();
+        new DataEnCrypto_GUI_ALC();
     }
 
     /**
@@ -268,6 +376,8 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                 jbMostrar.setForeground(Color.DARK_GRAY);
                 jtfArchivo.setEnabled(false);
                 jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                jpfClave.setEnabled(false);
+                jtMatriz.setEnabled(false);
             } else if (indice == 2) {
                 //jtaTexto.setEnabled(false);
                 jtaTexto.setEditable(false);
@@ -280,6 +390,35 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                 jbMostrar.setForeground(Color.BLACK);
                 jtfArchivo.setEnabled(true);
                 jtfArchivo.setBackground(Color.WHITE);
+                jtMatriz.setEnabled(false);
+            } else if (indice == 3) {
+                //jtaTexto.setEnabled(false);
+                jtaTexto.setEditable(false);
+                //jtaTexto.setBackground(Color.LIGHT_GRAY);
+                jbGuardar.setEnabled(false);
+                jbGuardar.setForeground(Color.DARK_GRAY);
+                jbAbrir.setEnabled(false);
+                jbAbrir.setForeground(Color.DARK_GRAY);
+                jbMostrar.setEnabled(false);
+                jbMostrar.setForeground(Color.DARK_GRAY);
+                jtfArchivo.setEnabled(false);
+                jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                jpfClave.setEnabled(true);
+                jtMatriz.setEnabled(false);
+            } else if (indice == 4) {
+                //jtaTexto.setEnabled(false);
+                jtaTexto.setEditable(false);
+                //jtaTexto.setBackground(Color.LIGHT_GRAY);
+                jbGuardar.setEnabled(false);
+                jbGuardar.setForeground(Color.DARK_GRAY);
+                jbAbrir.setEnabled(false);
+                jbAbrir.setForeground(Color.DARK_GRAY);
+                jbMostrar.setEnabled(false);
+                jbMostrar.setForeground(Color.DARK_GRAY);
+                jtfArchivo.setEnabled(false);
+                jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                jpfClave.setEnabled(false);
+                jtMatriz.setEnabled(true);
             } else if (indice == 0) {
                 //jtaTexto.setEnabled(false);
                 jtaTexto.setEditable(false);
@@ -292,6 +431,8 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                 jbMostrar.setForeground(Color.DARK_GRAY);
                 jtfArchivo.setEnabled(false);
                 jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                jpfClave.setEnabled(false);
+                jtMatriz.setEnabled(false);
             }
         }
     }
