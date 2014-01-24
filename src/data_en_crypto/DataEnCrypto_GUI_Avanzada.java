@@ -30,13 +30,14 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         entrada_config = new DataEnCrypto_GUI_AEC();
     }
 
+    static DataEnCrypto_GUI_ALC llave_config;
+
     /**
      * Configuracion de Llave
      * @param e evento (click) que llamo a este metodo
      */
     private static void configLlave(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
-                "Configuracion de Llave", JOptionPane.WARNING_MESSAGE);
+        llave_config = new DataEnCrypto_GUI_ALC();
     }
 
     /**
