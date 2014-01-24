@@ -34,60 +34,6 @@ public class DataEnCrypto {
      * @param args los argumentos bajo que fue ejecutado el programa.
      */
     public static void main(String[] args) {
-        //<editor-fold defaultstate="collapsed" desc=" Para cargar una configuracion -- comentado para no correr ">
-        //cargar ultimo configuracion:
-        /*
-         File cf = null;
-         Scanner config_file = null;
-         final String PATH = new File("data_en_crypto.config").getAbsolutePath();
-         //        System.out.println(PATH);
-         //        String absolutePath = new DataEnCrypto().getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
-         //        absolutePath = absolutePath.substring(0, absolutePath.lastIndexOf("/"));
-         //        System.out.println(absolutePath);
-         //System.out.println(PATH + "\bdata_en_crypto.config");
-         String[][] configs = null;
-         try {
-         cf = new File(PATH);
-         config_file = new Scanner(cf);
-         int num_of_lines = 0;
-         while(config_file.hasNextLine()){
-         config_file.nextLine();
-         num_of_lines++;
-         }
-         System.out.println("Number of Lines: " + num_of_lines);
-         configs = new String[num_of_lines][2];
-         try {
-         config_file.close();
-         config_file = new Scanner(cf);
-         int c = 0;
-         while(config_file.hasNextLine()){
-         String line = config_file.nextLine();
-         String[] line_temp = line.split(" = ");
-         configs[c][0] = line_temp[0];
-         configs[c][1] = line_temp[1];
-         c++;
-         }
-         for(String[] l : configs){
-         System.out.println(l[0] + ":" + l[1]);
-         }
-         } catch (FileNotFoundException fnfe2) {
-         System.out.println("ERROR EXTRAÑO, Archivo no encontrado para leer.");
-         }
-         } catch (FileNotFoundException fnfe) {
-         System.out.println("File not found!");
-         } finally {
-         if(cf != null && config_file != null){
-         config_file.close();
-         }
-         }
-         if(configs != null){
-         //process configuration
-         } else {
-         //set default configuration
-         }
-         */
-        //</editor-fold>
-
         if (args.length == 0) {
             Menus menu = new Menus();
             char[] op = new char[Menus.NUM_MENUS];
