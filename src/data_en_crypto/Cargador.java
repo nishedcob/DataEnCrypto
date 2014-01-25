@@ -25,13 +25,26 @@ public class Cargador {
      * @param args argumentos dado por ejecutacion por consola
      */
     public static void main(String[] args) {
+        if(existe("h", args) || existe('h', args)){
+            //ayuda
+            System.out.println("DataEnCrypto Version: " + getVersion());
+            System.out.println("Ayuda:");
+            System.out.println("\t-h\tAyuda");
+            System.out.println("\t-p\tPrueba de Cifras");
+            System.out.println("\t-v\tInformacion de Version");
+            System.out.println("Sin argumentos - El interfaz grafica.");
+        } else if (existe("p", args) || existe('p', args)) {
+            DataEnCrypto.prueba(args);
+        } else if (existe("v", args) || existe('v', args)){
+            System.out.println("DataEnCrypto Version: " + getVersion());
+        } else {
             DataEnCrypto_GUI_Menu menu = new DataEnCrypto_GUI_Menu();
-            //DataEnCrypto.prueba(args);
         }
+    }
 
     //<editor-fold defaultstate="collapsed" desc=" Metodos Auxiliares ">
     /**
-     * @deprecated
+     *
      * Prueba para ver si una cierta argumento, val (valor), existe de forma sola en args (argumentos)
      * @param val valor para probar
      * @param args conjunto de argumentos de cual estamos probando
@@ -47,7 +60,7 @@ public class Cargador {
     }
     
     /**
-     * @deprecated
+     *
      * Prueba para ver si una cierta argumento, val (valor), existe de forma conjunta (con otros argumentos) en args (argumentos)
      * @param val valor para probar
      * @param args conjunto de argumentos de cual estamos probando

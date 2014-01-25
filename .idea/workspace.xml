@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Eliminar la Cifra VICTOR y sus dependencias.&#10;">
+    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Eliminar Argumentos por Consola y Version Consola&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -71,7 +70,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="34" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="6120">
+            <state line="141" column="0" selection-start="4309" selection-end="4309" vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="5796">
               <folding />
             </state>
           </provider>
@@ -86,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cargador.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Cargador.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="44" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1674">
+            <state line="28" column="19" selection-start="766" selection-end="766" vertical-scroll-proportion="0.5930807" vertical-offset="144" max-vertical-offset="1908">
               <folding />
             </state>
           </provider>
@@ -98,16 +97,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Avanzada.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="48" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="4248">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataEnCrypto.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="3276">
+            <state line="138" column="8" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.0" vertical-offset="2196" max-vertical-offset="3780">
               <folding />
             </state>
           </provider>
@@ -136,8 +126,8 @@
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
-        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
       </list>
     </option>
   </component>
@@ -650,12 +640,16 @@
       <created>1390606140306</created>
       <updated>1390606140306</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Eliminar Argumentos por Consola y Version Consola">
+      <created>1390606716843</created>
+      <updated>1390606716843</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1366" height="739" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -675,7 +669,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -716,7 +710,8 @@
     <MESSAGE value="Implimentacion para Guardar un archivo de configuracion de DataEnCrypto_GUI_ALC&#10;" />
     <MESSAGE value="Implimentacion para cargar el archivo de configuracion de DataEnCrypto_GUI_ALC&#10;" />
     <MESSAGE value="Eliminar la Cifra VICTOR y sus dependencias." />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminar la Cifra VICTOR y sus dependencias." />
+    <MESSAGE value="Eliminar Argumentos por Consola y Version Consola" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eliminar Argumentos por Consola y Version Consola" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1035,13 +1030,6 @@
         <state line="12" column="13" selection-start="250" selection-end="250" vertical-scroll-proportion="0.021416804" vertical-offset="131" max-vertical-offset="1818" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="34" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="5850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="357" column="0" selection-start="13047" selection-end="13047" vertical-scroll-proportion="0.0" vertical-offset="6012" max-vertical-offset="8694">
@@ -1056,23 +1044,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="19" selection-start="805" selection-end="805" vertical-scroll-proportion="0.7076167" vertical-offset="0" max-vertical-offset="3276">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="48" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.0" vertical-offset="1861" max-vertical-offset="3780">
+        <state line="138" column="8" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.0" vertical-offset="2196" max-vertical-offset="3780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="0" selection-start="4309" selection-end="4309" vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="5796">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="44" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1674">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.4864865" vertical-offset="0" max-vertical-offset="3276">
+        <state line="28" column="19" selection-start="766" selection-end="766" vertical-scroll-proportion="0.5930807" vertical-offset="144" max-vertical-offset="1908">
           <folding />
         </state>
       </provider>
