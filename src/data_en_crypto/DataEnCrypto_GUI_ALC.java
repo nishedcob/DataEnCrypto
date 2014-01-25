@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.text.StringContent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -111,6 +112,24 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 jtaTexto.setText("");
                 jtfArchivo.setText("");
                 jpfClave.setText("");
+                DefaultTableModel dtmMatriz2 = (DefaultTableModel)jtMatriz.getModel();
+                int num_filas = 0;
+                while (dtmMatriz2.getRowCount() != 0){
+                    dtmMatriz2.removeRow(0);
+                    num_filas++;
+                }
+                for (int f = 0; f < num_filas; f++) {
+                    Object[] columnas = new Object[dtmMatriz2.getColumnCount()];
+                    for (int c = 0; c < columnas.length; c++) {
+                        if (c == 0){
+                            columnas[c] = Integer.toString(f + 1);
+                        } else {
+                            columnas[c] = "";
+                        }
+                    }
+                    dtmMatriz2.addRow(columnas);
+                }
+                jtMatriz = new JTable(dtmMatriz2);
                 l_cfg = new File("l_cfg.tmp");
                 try {
                     PrintWriter escri = new PrintWriter(l_cfg);
@@ -128,17 +147,36 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                     Object[][] datos = new String[fil][col];
                     String sMatriz = "";
                     for (int f = 0; f < fil; f++) {
-                        for (int c = 0; c < col; c++) {
+                        for (int c = 1; c < col; c++) {
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
+
+                            //debugging [start]
+                            System.out.println("f = " + f + " c = " + c);
+                            //debugging [end]
+
                             sMatriz += dtmMatriz.getValueAt(f, c);
+                            if (f == fil - 1 && c == col - 1){
+                                Object[] nueva = new Object[col];
+                                dtmMatriz.addRow(nueva);
+                                sMatriz += dtmMatriz.getValueAt(f, c);
+                                dtmMatriz.removeRow(fil);
+                            }
+
+                            //debugging [start]
+                            System.out.println(sMatriz);
+                            //debugging [end]
+
                             if(c != col-1){
                                 sMatriz += ";";
                             } else {
                                 if(f != fil-1){
-                                    sMatriz += ";\n";
+                                    sMatriz += "><";
                                 }
                             }
                         }
+                    }
+                    if(sMatriz.charAt(sMatriz.length() - 1) == ';'){
+                        sMatriz += dtmMatriz.getValueAt(fil-1, col-1);
                     }
                     escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
@@ -176,7 +214,12 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
         jpfClave.setEnabled(false);
         jpLayout.add(jpfClave);
 
-        DefaultTableModel dtmMatriz = new DefaultTableModel();
+        DefaultTableModel dtmMatriz = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
         byte num_fila = 4;
         byte num_colum = 4;
         for(byte c = 0; c < num_colum; c++){
@@ -186,28 +229,23 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 dtmMatriz.addColumn(c);
             }
         }
-        for(byte f = 1; f < num_fila; f++){
-            String[] fila = new String[num_colum];
-            for(byte c = 0; c < num_colum; c++){
-                if(c == 0){
-                    fila[c] = Byte.toString(f);
-                } else {
-                    fila[c] = "";
+//        if(!(new File("l_cfg.tmp").exists())){
+            for(byte f = 1; f < num_fila; f++){
+                String[] fila = new String[num_colum];
+                for(byte c = 0; c < num_colum; c++){
+                    if(c == 0){
+                        fila[c] = Byte.toString(f);
+                    } else {
+                        fila[c] = "";
+                    }
                 }
+                dtmMatriz.addRow(fila);
             }
-            dtmMatriz.addRow(fila);
-        }
+//        }
 
         jtMatriz = new JTable(dtmMatriz);
         jtMatriz.setBounds(0, 0, 210, 140);
         jtMatriz.setEnabled(false);
-
-        jspMatriz = new JScrollPane(jtMatriz);
-        jspMatriz.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jspMatriz.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jspMatriz.setBounds(170, 130, 400, 160);
-
-        jpLayout.add(jspMatriz);
 
         jbCancelar = new JButton("Cancelar");
         jbCancelar.setBounds(10, 330, 100, 20);
@@ -245,17 +283,28 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                     Object[][] datos = new String[fil][col];
                     String sMatriz = "";
                     for (int f = 0; f < fil; f++) {
-                        for (int c = 0; c < col; c++) {
+                        for (int c = 1; c < col; c++) {
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
+                            System.out.println("f = " + f + " c = " + c);
                             sMatriz += dtmMatriz.getValueAt(f, c);
+                            if (f == fil - 1 && c == col - 1){
+                                Object[] nueva = new Object[col];
+                                dtmMatriz.addRow(nueva);
+                                sMatriz += dtmMatriz.getValueAt(f, c);
+                                dtmMatriz.removeRow(fil);
+                            }
+                            System.out.println(sMatriz);
                             if(c != col-1){
                                 sMatriz += ";";
                             } else {
                                 if(f != fil-1){
-                                    sMatriz += ";\n";
+                                    sMatriz += "><";
                                 }
                             }
                         }
+                    }
+                    if(sMatriz.charAt(sMatriz.length() - 1) == ';'){
+                        sMatriz += dtmMatriz.getValueAt(fil-1, col-1);
                     }
                     escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
@@ -307,6 +356,10 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
         jtfArchivo.setBackground(Color.LIGHT_GRAY);
         jpLayout.add(jtfArchivo);
 
+        jlMatriz = new JLabel("Matriz:");
+        jlMatriz.setBounds(170, 130, 60, 20);
+        jpLayout.add(jlMatriz);
+
         if(new File("l_cfg.tmp").exists()){
             l_cfg = new File("l_cfg.tmp");
             try {
@@ -320,7 +373,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                         }
                     }
                     String[] valores = datos.split(",");
-                    if(valores.length == 3){
+                    if(valores.length == 5){
                         int tipo;
                         try {
                             tipo = Integer.parseInt(valores[0]);
@@ -333,13 +386,49 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                                 } else if (tipo == 3) {
                                     jpfClave.setText(valores[3]);
                                 } else if (tipo == 4) {
-                                    byte num_f = 4, num_c = 4;
-                                    String[] filas = valores[4].split("\n");
+                                    byte /*num_f = 4,*/ num_c = 4;
+
+                                    //debugging [start]
+                                    System.out.println("Tipo = 4");
+                                    //debugging [end]
+
+                                    String[] filas = valores[4].split("><");
+
+                                    //debugging [start]
+                                    System.out.println("Filas:");
+                                    for(String fil : filas){
+                                        System.out.println(fil);
+                                    }
+                                    //debugging [end]
+
                                     for (int f = 0; f < filas.length; f++) {
-                                        String[] colum = filas[f].split(";");
-                                        for (int c = 0; c < colum.length; c++) {
-                                            if(f < num_f && c < num_c) jtMatriz.setValueAt(colum[c], f, c);
+                                        String[] fila = filas[f].split(";");
+
+                                        //debugging [start]
+                                        System.out.println("Fila " + f + ":");
+                                        for(String s : fila){
+                                            System.out.print(s + " ");
                                         }
+                                        System.out.println();
+                                        //debugging [end]
+
+                                        String[] fpa = new String[num_c];
+                                        fpa[0] = Integer.toString(f + 1);
+                                        int c = 1;
+                                        for(String col : fila){
+                                            fpa[c] = col;
+                                            c++;
+                                        }
+
+                                        //debugging [start]
+                                        System.out.println("Fila Final:");
+                                        for(String cpa : fpa){
+                                            System.out.print(cpa + " ");
+                                        }
+                                        //debugging [end]
+
+                                        dtmMatriz.removeRow(0);
+                                        dtmMatriz.addRow(fpa);
                                     }
                                 }
                             }
@@ -352,6 +441,17 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 //error impossible
             }
         }
+
+        jtMatriz = new JTable(dtmMatriz);
+        jtMatriz.setBounds(0, 0, 210, 140);
+        jtMatriz.setEnabled(false);
+
+        jspMatriz = new JScrollPane(jtMatriz);
+        jspMatriz.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setBounds(170, 150, 400, 160);
+
+        jpLayout.add(jspMatriz);
 
         this.setVisible(true);
     }
