@@ -3,6 +3,9 @@ package data_en_crypto;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * Created by nyx on 1/25/14 at 5:36 PM.
@@ -10,8 +13,6 @@ import java.awt.event.ActionListener;
 public class DataEnCrypto_GUI_Menu extends JFrame {
 
     JPanel jpLayout;
-
-    ImageIcon iiIcono;
 
     JLabel jlIcono;
 
@@ -29,6 +30,11 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
 
     public DataEnCrypto_GUI_Menu(){
         super("DataEnCrypto");
+        try {
+            this.setIconImage(ImageIO.read(new File("/data_en_crypto/imgs/Icon_64x64.png")));
+        } catch (IOException e) {
+//            e.printStackTrace();
+        }
         this.setSize(225, 280);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -40,25 +46,15 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
 //        iiIcono = new ImageIcon("data_en_crypto/imgs/Icon_Medium.png");
         jlIcono = new JLabel();
         jlIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data_en_crypto/imgs/Icon_Small.png")));
-        jlIcono.setBounds(50, 10, 73, 73);
+        jlIcono.setBounds(70, 10, 73, 73);
         jpLayout.add(jlIcono);
 
         jlTitulo = new JLabel("Menu Principal");
         jlTitulo.setBounds(50, 83, 107, 20);
         jpLayout.add(jlTitulo);
 
-        jbInterfazBasica = new JButton("Interfaz Basica");
-        jbInterfazBasica.setBounds(17, 123, 180, 20);
-        jbInterfazBasica.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dec_gui_b = new DataEnCrypto_GUI_Basico();
-            }
-        });
-        jpLayout.add(jbInterfazBasica);
-
         jbInterfazAvanzada = new JButton("Interfaz Avanzada");
-        jbInterfazAvanzada.setBounds(17, 163, 180, 20);
+        jbInterfazAvanzada.setBounds(22, 123, 170, 20);
         jbInterfazAvanzada.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,8 +63,18 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
         });
         jpLayout.add(jbInterfazAvanzada);
 
+        jbInterfazBasica = new JButton("Interfaz Basica");
+        jbInterfazBasica.setBounds(37, 163, 140, 20);
+        jbInterfazBasica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dec_gui_b = new DataEnCrypto_GUI_Basico();
+            }
+        });
+        jpLayout.add(jbInterfazBasica);
+
         jbSalir = new JButton("Salir");
-        jbSalir.setBounds(17, 203, 180, 20);
+        jbSalir.setBounds(67, 203, 80, 20);
         jbSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
