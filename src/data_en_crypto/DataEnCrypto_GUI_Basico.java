@@ -44,6 +44,18 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
     JButton jbSalidaGuardar;
 
+    JPasswordField jpfClave;
+
+    JTextField jtfLlave;
+
+    JButton jbLlaveAbrir;
+
+    JComboBox<Object> jcbAlgoritmo;
+
+    JComboBox jcbModo;
+
+    JButton jbProcesar;
+
     public DataEnCrypto_GUI_Basico() {
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setSize(605, 500);
@@ -126,6 +138,36 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         jbSalidaGuardar = new JButton("Guardar");
         jbSalidaGuardar.setBounds(485, 300, 110, 20);
         jpDiseno.add(jbSalidaGuardar);
+
+        jlLlave = new JLabel("Llave");
+        jlLlave.setBounds(235, 350, 60, 20);
+        jpDiseno.add(jlLlave);
+
+        jpfClave = new JPasswordField();
+        jpfClave.setBounds(10, 350, 215, 20);
+        jpDiseno.add(jpfClave);
+
+        jtfLlave = new JTextField();
+        jtfLlave.setBounds(10, 380, 185, 20);
+        jpDiseno.add(jtfLlave);
+
+        jbLlaveAbrir = new JButton("Abrir");
+        jbLlaveAbrir.setBounds(205, 380, 90, 20);
+        jpDiseno.add(jbLlaveAbrir);
+
+        Object[] algoritmos = {"", "AutoTexto", "Cesar", "Librereta de un Solo Uso", "Vigenere"};
+        jcbAlgoritmo = new JComboBox<Object>(algoritmos);
+        jcbAlgoritmo.setBounds(310, 350, 280, 20);
+        jpDiseno.add(jcbAlgoritmo);
+
+        Object[] modos = {"", "Encriptar", "Desencriptar"};
+        jcbModo = new JComboBox<Object>(modos);
+        jcbModo.setBounds(310, 380, 150, 20);
+        jpDiseno.add(jcbModo);
+
+        jbProcesar = new JButton("Procesar");
+        jbProcesar.setBounds(470, 380, 120, 20);
+        jpDiseno.add(jbProcesar);
 
         this.setVisible(true);
     }

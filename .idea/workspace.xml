@@ -106,7 +106,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Basico.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="31" selection-start="3722" selection-end="3722" vertical-scroll-proportion="0.9064935" vertical-offset="1937" max-vertical-offset="2484">
+            <state line="157" column="82" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.2987013" vertical-offset="2711" max-vertical-offset="3240">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -226,6 +226,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data_en_crypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_en_crypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cifras" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -706,12 +728,16 @@
       <created>1390762657835</created>
       <updated>1390762657835</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )">
+      <created>1390852321332</created>
+      <updated>1390852321332</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1366" height="739" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -754,7 +780,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Anadir Codigo" />
     <MESSAGE value="Anadir Codigo (GUI para Configuracion de Entrada Avanzada [AEC])" />
     <MESSAGE value="Actualizar workspace.xml" />
     <MESSAGE value="Documentacion de DataEnCrypto_GUI_AEC" />
@@ -779,7 +804,8 @@
     <MESSAGE value="Arreglar Buton de Salida en DataEnCrypto_GUI_ALC (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion Final de Menu Principal de DataEnCrypto [DataEnCrypto_GUI_Menu] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion Inicial de Interfaz Basico de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion Inicial de Interfaz Basico de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
+    <MESSAGE value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1083,7 +1109,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="31" selection-start="3722" selection-end="3722" vertical-scroll-proportion="0.9064935" vertical-offset="1937" max-vertical-offset="2484">
+        <state line="157" column="82" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.2987013" vertical-offset="2711" max-vertical-offset="3240">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
