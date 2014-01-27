@@ -223,8 +223,9 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
                     + "implimentado, sale este mensaje su lugar.", "Atras",
                     JOptionPane.WARNING_MESSAGE);
         } else if(e.getSource().equals(jbSalir)) {
-            this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            this.dispose();
+//            this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//            this.dispose();
+            System.exit(0);
         }
     }
 }
