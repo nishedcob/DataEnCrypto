@@ -56,6 +56,10 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
     JButton jbProcesar;
 
+    JButton jbAtras;
+
+    JButton jbSalir;
+
     public DataEnCrypto_GUI_Basico() {
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setSize(605, 500);
@@ -99,7 +103,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         jspSalida.setEnabled(true);
         jpDiseno.add(jspSalida);
 
-        jbEntradaEliminar = new JButton("Eliminar");
+        jbEntradaEliminar = new JButton("Acectar");
         jbEntradaEliminar.setBounds(10, 270, 90, 20);
         jpDiseno.add(jbEntradaEliminar);
 
@@ -111,7 +115,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         jbEntradaMostrar.setBounds(205, 270, 90, 20);
         jpDiseno.add(jbEntradaMostrar);
 
-        jbSalidaEliminar = new JButton("Eliminar");
+        jbSalidaEliminar = new JButton("Acectar");
         jbSalidaEliminar.setBounds(310, 270, 90, 20);
         jpDiseno.add(jbSalidaEliminar);
 
@@ -168,6 +172,14 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         jbProcesar = new JButton("Procesar");
         jbProcesar.setBounds(470, 380, 120, 20);
         jpDiseno.add(jbProcesar);
+
+        jbAtras = new JButton("Atras");
+        jbAtras.setBounds(100, 420, 100, 20);
+        jpDiseno.add(jbAtras);
+
+        jbSalir = new JButton("Salir");
+        jbSalir.setBounds(400, 420, 100, 20);
+        jpDiseno.add(jbSalir);
 
         this.setVisible(true);
     }

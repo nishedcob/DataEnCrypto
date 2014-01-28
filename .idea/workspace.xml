@@ -97,7 +97,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Menu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="42" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1746">
+            <state line="48" column="42" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1746">
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Basico.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="82" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.2987013" vertical-offset="2711" max-vertical-offset="3240">
+            <state line="186" column="0" selection-start="5261" selection-end="5261" vertical-scroll-proportion="0.9064935" vertical-offset="2999" max-vertical-offset="3456">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -732,7 +732,11 @@
       <created>1390852321332</created>
       <updated>1390852321332</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Implimentacion de Interfaz Basico (Parte 3) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;">
+      <created>1390853930117</created>
+      <updated>1390853930117</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -780,7 +784,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Anadir Codigo (GUI para Configuracion de Entrada Avanzada [AEC])" />
     <MESSAGE value="Actualizar workspace.xml" />
     <MESSAGE value="Documentacion de DataEnCrypto_GUI_AEC" />
     <MESSAGE value="Arreglar Bugs de GUI_AEC" />
@@ -805,7 +808,8 @@
     <MESSAGE value="Implimentacion Final de Menu Principal de DataEnCrypto [DataEnCrypto_GUI_Menu] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion Inicial de Interfaz Basico de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
+    <MESSAGE value="Implimentacion de Interfaz Basico (Parte 3) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 3) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1109,7 +1113,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="82" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.2987013" vertical-offset="2711" max-vertical-offset="3240">
+        <state line="186" column="0" selection-start="5261" selection-end="5261" vertical-scroll-proportion="0.9064935" vertical-offset="2999" max-vertical-offset="3456">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
