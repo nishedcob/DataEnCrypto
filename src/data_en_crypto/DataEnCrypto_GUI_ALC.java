@@ -95,7 +95,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
      * elementos encontrado en la pantalla.
      */
     public DataEnCrypto_GUI_ALC() {
-        super("DataEnCrypto (GUI de Configuracion Avanzada de Llave)");
+        super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA (GUI de Configuracion Avanzada de Llave)");
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setSize(600, 400);
 

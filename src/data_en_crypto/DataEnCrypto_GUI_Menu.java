@@ -29,7 +29,7 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
     DataEnCrypto_GUI_Avanzada dec_gui_a;
 
     public DataEnCrypto_GUI_Menu(){
-        super("DataEnCrypto");
+        super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA");
         try {
             this.setIconImage(ImageIO.read(new File("/data_en_crypto/imgs/Icon_64x64.png")));
         } catch (IOException e) {
