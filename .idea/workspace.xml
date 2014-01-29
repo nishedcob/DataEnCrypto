@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -89,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cargador.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Cargador.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="25" selection-end="25" vertical-scroll-proportion="0.09677419" vertical-offset="0" max-vertical-offset="1908">
+            <state line="15" column="4" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
               <folding />
             </state>
           </provider>
@@ -140,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DataEnCrypto_GUI_AEC.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="0" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="5796">
+            <state line="223" column="41" selection-start="7616" selection-end="7616" vertical-scroll-proportion="0.6025974" vertical-offset="3422" max-vertical-offset="5904">
               <folding />
             </state>
           </provider>
@@ -791,7 +787,11 @@
       <created>1391022498080</created>
       <updated>1391022498080</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Implimentar Muestra de Numero de Version en el Programa.">
+      <created>1391023338512</created>
+      <updated>1391023338512</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -839,7 +839,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Limpiar GUI_AEC&#10;" />
     <MESSAGE value="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC" />
     <MESSAGE value="Limpieza (# 2) de DataEnCrypto_GUI_AEC" />
     <MESSAGE value="Implimentacion de un archivo de configuracion para DataEnCrypto_GUI_AEC&#10;" />
@@ -864,7 +863,8 @@
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 6) de DataEnCrypto (con Jose Luis - @joseDG ) -- Borrar Archivos Obseletas&#10;" />
     <MESSAGE value="Borrar Archivos Obseletas&#10;" />
     <MESSAGE value="Actualizar Numero de Version a 0.7.5 Alpha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizar Numero de Version a 0.7.5 Alpha" />
+    <MESSAGE value="Implimentar Muestra de Numero de Version en el Programa." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimentar Muestra de Numero de Version en el Programa." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1177,16 +1177,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="0" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="5796">
+        <state line="15" column="4" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="25" selection-end="25" vertical-scroll-proportion="0.09677419" vertical-offset="0" max-vertical-offset="1908">
+        <state line="223" column="41" selection-start="7616" selection-end="7616" vertical-scroll-proportion="0.6025974" vertical-offset="3422" max-vertical-offset="5904">
           <folding />
         </state>
       </provider>
