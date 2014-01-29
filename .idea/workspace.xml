@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/Interfaz1.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/Interfaz1.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/Interfaz2.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/Interfaz2.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -70,7 +73,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_ALC.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="391" column="36" selection-start="14610" selection-end="14610" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10170">
+            <state line="391" column="36" selection-start="14610" selection-end="14610" vertical-scroll-proportion="0.0" vertical-offset="7038" max-vertical-offset="10656">
               <folding />
             </state>
           </provider>
@@ -88,7 +91,7 @@
       <file leaf-file-name="Cargador.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="37" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1908">
+            <state line="37" column="37" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="1908">
               <folding />
             </state>
           </provider>
@@ -97,7 +100,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Menu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="58" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="1422">
+            <state line="65" column="58" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1746">
               <folding />
             </state>
           </provider>
@@ -106,7 +109,7 @@
       <file leaf-file-name="DataEnCrypto_GUI_Basico.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="279" column="0" selection-start="9340" selection-end="9340" vertical-scroll-proportion="1.1272727" vertical-offset="4588" max-vertical-offset="5526">
+            <state line="288" column="39" selection-start="9676" selection-end="9676" vertical-scroll-proportion="0.46488294" vertical-offset="4906" max-vertical-offset="5526">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2863#3068#0" expanded="true" />
@@ -215,6 +218,76 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -281,76 +354,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="DataEnCrypto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Problems" />
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Tests" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -762,7 +765,11 @@
       <created>1390869094707</created>
       <updated>1390869094707</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Implimentacion de Interfaz Basico (Parte 5) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;">
+      <created>1390933786255</created>
+      <updated>1390933786255</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -779,25 +786,25 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
     </option>
   </component>
@@ -810,7 +817,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Documentacion de DataEnCrypto_GUI_AEC" />
     <MESSAGE value="Arreglar Bugs de GUI_AEC" />
     <MESSAGE value="actualizar workspace.xml" />
     <MESSAGE value="Arreglar Bugs de GUI_AEC (Final)&#10;" />
@@ -835,7 +841,8 @@
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 3) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 4) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 4) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
+    <MESSAGE value="Implimentacion de Interfaz Basico (Parte 5) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 5) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1099,16 +1106,6 @@
         <state line="141" column="0" selection-start="4309" selection-end="4309" vertical-scroll-proportion="0.58064514" vertical-offset="1908" max-vertical-offset="5796" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Interfaz1.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Interfaz1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="0" selection-start="9506" selection-end="9506" vertical-scroll-proportion="0.9086294" vertical-offset="2864" max-vertical-offset="3330" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="179" column="44" selection-start="5289" selection-end="5289" vertical-scroll-proportion="0.0" vertical-offset="3204" max-vertical-offset="4266">
@@ -1139,7 +1136,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="279" column="0" selection-start="9340" selection-end="9340" vertical-scroll-proportion="1.1272727" vertical-offset="4588" max-vertical-offset="5526">
+        <state line="288" column="39" selection-start="9676" selection-end="9676" vertical-scroll-proportion="0.46488294" vertical-offset="4906" max-vertical-offset="5526">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2863#3068#0" expanded="true" />
