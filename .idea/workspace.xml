@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data_en_crypto/data_en_crypto.config" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -86,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cargador.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Cargador.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="37" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="1908">
+            <state line="20" column="40" selection-start="475" selection-end="475" vertical-scroll-proportion="0.61538464" vertical-offset="0" max-vertical-offset="1908">
               <folding />
             </state>
           </provider>
@@ -104,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataEnCrypto_GUI_Basico.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DataEnCrypto_GUI_Basico.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="294" column="13" selection-start="9904" selection-end="9904" vertical-scroll-proportion="0.6454849" vertical-offset="4906" max-vertical-offset="5526">
+            <state line="294" column="13" selection-start="9904" selection-end="9904" vertical-scroll-proportion="0.0" vertical-offset="4906" max-vertical-offset="5526">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2863#3068#0" expanded="true" />
@@ -158,13 +157,13 @@
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto.java" />
-        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/Interfaz1.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/Menu_Prinicpal.form" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/Cargador.java" />
       </list>
     </option>
   </component>
@@ -770,7 +769,11 @@
       <created>1391022194320</created>
       <updated>1391022194320</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Borrar Archivos Obseletas&#10;">
+      <created>1391022314705</created>
+      <updated>1391022314705</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -818,7 +821,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="actualizar workspace.xml" />
     <MESSAGE value="Arreglar Bugs de GUI_AEC (Final)&#10;" />
     <MESSAGE value="Limpiar GUI_AEC&#10;" />
     <MESSAGE value="Establecer enlace entre DataEnCrypto_GUI_Avanzada y DataEnCrypto_GUI_AEC" />
@@ -843,7 +845,8 @@
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 4) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 5) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 6) de DataEnCrypto (con Jose Luis - @joseDG ) -- Borrar Archivos Obseletas&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion de Interfaz Basico (Parte 6) de DataEnCrypto (con Jose Luis - @joseDG ) -- Borrar Archivos Obseletas&#10;" />
+    <MESSAGE value="Borrar Archivos Obseletas&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Borrar Archivos Obseletas&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1114,13 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="37" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1908">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="391" column="36" selection-start="14610" selection-end="14610" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10170">
@@ -1137,7 +1133,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Basico.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="294" column="13" selection-start="9904" selection-end="9904" vertical-scroll-proportion="0.6454849" vertical-offset="4906" max-vertical-offset="5526">
+        <state line="294" column="13" selection-start="9904" selection-end="9904" vertical-scroll-proportion="0.0" vertical-offset="4906" max-vertical-offset="5526">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2863#3068#0" expanded="true" />
@@ -1162,6 +1158,13 @@
             <element signature="e#9591#9592#0" expanded="true" />
             <element signature="e#9757#9914#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/Cargador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="40" selection-start="475" selection-end="475" vertical-scroll-proportion="0.61538464" vertical-offset="0" max-vertical-offset="1908">
+          <folding />
         </state>
       </provider>
     </entry>
