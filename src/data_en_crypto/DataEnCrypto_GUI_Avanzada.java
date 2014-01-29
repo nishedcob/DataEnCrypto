@@ -118,7 +118,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
      * @throws HeadlessException
      */
     public DataEnCrypto_GUI_Avanzada() throws HeadlessException {
-        super("DataEnCrypto (GUI Avanzada)");
+        super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA (GUI Avanzada)");
         //this.setLocationRelativeTo(null);
         this.setSize(600, 200);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

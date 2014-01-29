@@ -1,5 +1,7 @@
 package data_en_crypto;
 
+import sun.print.resources.serviceui_zh_TW;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -83,7 +85,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
      * elementos encontrado en la pantalla.
      */
     public DataEnCrypto_GUI_AEC() {
-        super("DataEnCrypto (GUI de Configuracion Avanzada de Entrada)");
+        super("DataEnCrypto v" + Cargador.getVersion() + " (GUI de Configuracion Avanzada de Entrada)");
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setSize(600, 200);
 
@@ -212,16 +214,22 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
                         }
                     }
                     String[] valores = datos.split(",");
-                    if(valores.length == 3){
+                    if(valores.length > 0 && valores.length <= 3){
                         int tipo;
                         try {
                             tipo = Integer.parseInt(valores[0]);
                             if(tipo >= 0 && tipo <= 2){
                                 jcbTipo.setSelectedIndex(tipo);
                                 if(tipo == 1){
-                                    jtaTexto.setText(valores[1]);
+                                    try {
+                                        jtaTexto.setText(valores[1]);
+                                    } catch (Exception e) {
+                                    }
                                 } else if (tipo == 2) {
-                                    jtfArchivo.setText(valores[2]);
+                                    try {
+                                        jtfArchivo.setText(valores[2]);
+                                    } catch (Exception e) {
+                                    }
                                 }
                             }
                         } catch (NumberFormatException e) {
