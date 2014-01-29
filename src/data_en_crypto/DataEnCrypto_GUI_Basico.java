@@ -3,6 +3,11 @@ package data_en_crypto;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  *
@@ -61,6 +66,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
     JButton jbSalir;
 
     public DataEnCrypto_GUI_Basico() {
+
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setSize(605, 500);
 
@@ -105,26 +111,92 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbEntradaEliminar = new JButton("Acectar");
         jbEntradaEliminar.setBounds(10, 270, 90, 20);
+        jbEntradaEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaEntrada.setText("");
+                jtfEntrada.setText("");
+            }
+        });
         jpDiseno.add(jbEntradaEliminar);
 
         jbEntradaBorrar = new JButton("Borrar");
         jbEntradaBorrar.setBounds(110, 270, 85, 20);
+        jbEntradaBorrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaEntrada.setText("");
+            }
+        });
         jpDiseno.add(jbEntradaBorrar);
 
         jbEntradaMostrar = new JButton("Mostrar");
         jbEntradaMostrar.setBounds(205, 270, 90, 20);
+        jbEntradaMostrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File arch = new File(jtfEntrada.getText());
+                jtaEntrada.setText("");
+                if(arch.exists()){
+                    try {
+                        Scanner lect = new Scanner(arch);
+                        while (lect.hasNextLine()){
+                            jtaEntrada.setText(jtaEntrada.getText() + lect.nextLine());
+                            if (lect.hasNextLine()){
+                                jtaEntrada.setText(jtaEntrada.getText() + "\n");
+                            }
+                        }
+                    } catch (FileNotFoundException fnfe) {
+                        jtaEntrada.setText("No se encontro el archivo!");
+                    }
+                }
+            }
+        });
         jpDiseno.add(jbEntradaMostrar);
 
         jbSalidaEliminar = new JButton("Acectar");
         jbSalidaEliminar.setBounds(310, 270, 90, 20);
+        jbSalidaEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaSalida.setText("");
+                jtfSalida.setText("");
+            }
+        });
         jpDiseno.add(jbSalidaEliminar);
 
         jbSalidaBorrar = new JButton("Borrar");
         jbSalidaBorrar.setBounds(410, 270, 85, 20);
+        jbSalidaBorrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaSalida.setText("");
+            }
+        });
         jpDiseno.add(jbSalidaBorrar);
 
         jbSalidaMostrar = new JButton("Mostrar");
         jbSalidaMostrar.setBounds(505, 270, 90, 20);
+        jbSalidaMostrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File arch = new File(jtfSalida.getText());
+                jtaSalida.setText("");
+                if(arch.exists()){
+                    try {
+                        Scanner lect = new Scanner(arch);
+                        while (lect.hasNextLine()){
+                            jtaSalida.setText(jtaSalida.getText() + lect.nextLine());
+                            if (lect.hasNextLine()){
+                                jtaSalida.setText(jtaSalida.getText() + "\n");
+                            }
+                        }
+                    } catch (FileNotFoundException fnfe) {
+                        jtaSalida.setText("No se encontro el archivo!");
+                    }
+                }
+            }
+        });
         jpDiseno.add(jbSalidaMostrar);
 
         jtfEntrada = new JTextField();
@@ -133,6 +205,16 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbEntradaAbrir = new JButton("Abrir");
         jbEntradaAbrir.setBounds(205, 300, 90, 20);
+        jbEntradaAbrir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfcSelector = new JFileChooser(jtfEntrada.getText());
+                int op = jfcSelector.showOpenDialog(null);
+                if(op == JFileChooser.APPROVE_OPTION){
+                    jtfEntrada.setText(jfcSelector.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         jpDiseno.add(jbEntradaAbrir);
 
         jtfSalida = new JTextField();
@@ -141,6 +223,16 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbSalidaGuardar = new JButton("Guardar");
         jbSalidaGuardar.setBounds(485, 300, 110, 20);
+        jbSalidaGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfcSelector = new JFileChooser(jtfSalida.getText());
+                int op = jfcSelector.showSaveDialog(null);
+                if(op == JFileChooser.APPROVE_OPTION){
+                    jtfSalida.setText(jfcSelector.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         jpDiseno.add(jbSalidaGuardar);
 
         jlLlave = new JLabel("Llave");
@@ -157,6 +249,16 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbLlaveAbrir = new JButton("Abrir");
         jbLlaveAbrir.setBounds(205, 380, 90, 20);
+        jbLlaveAbrir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfcSelector = new JFileChooser(jtfLlave.getText());
+                int op = jfcSelector.showOpenDialog(null);
+                if(op == JFileChooser.APPROVE_OPTION){
+                    jtfLlave.setText(jfcSelector.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         jpDiseno.add(jbLlaveAbrir);
 
         Object[] algoritmos = {"", "AutoTexto", "Cesar", "Librereta de un Solo Uso", "Vigenere"};
@@ -175,10 +277,23 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbAtras = new JButton("Atras");
         jbAtras.setBounds(100, 420, 100, 20);
+        jbAtras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                dispose();
+            }
+        });
         jpDiseno.add(jbAtras);
 
         jbSalir = new JButton("Salir");
         jbSalir.setBounds(400, 420, 100, 20);
+        jbSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         jpDiseno.add(jbSalir);
 
         this.setVisible(true);
