@@ -66,14 +66,14 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
     JButton jbSalir;
 
     public DataEnCrypto_GUI_Basico() {
-
+        super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA (GUI Basico)");
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setSize(605, 500);
 
         jpDiseno = new JPanel(null);
         this.setContentPane(jpDiseno);
 
-        jlTitulo = new JLabel("Bienvenidos a DataEnCrypto");
+        jlTitulo = new JLabel("Bienvenidos a DataEnCrypto v" + Cargador.getVersion() + " ALPHA");
         jlTitulo.setBounds(190, 10, 230, 20);
         jpDiseno.add(jlTitulo);
 

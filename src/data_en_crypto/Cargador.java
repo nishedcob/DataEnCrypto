@@ -18,7 +18,7 @@ public class Cargador {
     /**
      * Numero de version del Programa.
      */
-    final static byte[] VERSION = {0, 6, 1, 2, 5};
+    final static byte[] VERSION = {0, 7, 5};
     
     /**
      * Metodo principal del cargador -- este metodo carga el resto del programa
