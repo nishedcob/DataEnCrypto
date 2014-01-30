@@ -76,5 +76,9 @@ final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
         }
         //return new Llave();
     }
-    
+
+    public Llave getL(){
+        return L;
+    }
+
 }
