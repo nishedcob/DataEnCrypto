@@ -31,6 +31,14 @@ public class Flujo {//extends Proceso{
     }
 
     /**
+     * Crea un nuevo flujo con datos ya leidos.
+     * @param data datos para almacenar en este objeto
+     */
+    public Flujo(String data) {
+        this.data = data;
+    }
+
+    /**
      * Un metodo para leer los datos contenido aqui.
      * @return datos del flujo
      */

@@ -61,6 +61,20 @@ public class E_Archivo extends Entrada{
         }
     }
 
+    public E_Archivo(String path, boolean leerAlRAM) throws FileNotFoundException {
+        super(path);
+        String sep = System.getProperty("file.separator");
+        this.DIR = path.substring(0, path.lastIndexOf(sep) + 1);
+        this.NOM = path.substring(path.lastIndexOf(sep) + 1, path.lastIndexOf("."));
+        this.EXT = path.substring(path.lastIndexOf(".") + 1);
+        if(leerAlRAM){
+            data = this.leerData();
+            ESTA_EN_RAM = true;
+        } else {
+            ESTA_EN_RAM = false;
+        }
+    }
+
     /**
      * Leer todos los datos en un archivo y los devuelve en forma de un String
      * @return todo el contenido del archivo
@@ -68,7 +82,10 @@ public class E_Archivo extends Entrada{
     private String leerData() {
         String leer = "";
         while(lector.hasNextLine()){
-            leer += lector.nextLine() + '\n';
+            leer += lector.nextLine();
+            if(lector.hasNextLine()){
+                leer += "\n";
+            }
         }
         return leer;
     }
