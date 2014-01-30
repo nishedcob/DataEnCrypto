@@ -1,19 +1,30 @@
 
 package data_en_crypto;
 
+import data_en_crypto.cifras.AutoTexto;
+import data_en_crypto.cifras.Cesar;
+import data_en_crypto.cifras.Librereta_de_un_Solo_Uso;
+import data_en_crypto.cifras.Vigenere;
+import data_en_crypto.flujos.entrada.E_Archivo;
+import data_en_crypto.flujos.llave.L_Archivo;
+import data_en_crypto.flujos.llave.L_Texto;
+import data_en_crypto.flujos.llave.Llave_Tipos;
+import data_en_crypto.flujos.salida.S_Archivo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  *
  * @author nyx
  */
-public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
+public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave_Tipos {
 
     JPanel jpDiseno;
 
@@ -109,7 +120,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         jspSalida.setEnabled(true);
         jpDiseno.add(jspSalida);
 
-        jbEntradaEliminar = new JButton("Acectar");
+        /*jbEntradaEliminar = new JButton("Acectar");
         jbEntradaEliminar.setBounds(10, 270, 90, 20);
         jbEntradaEliminar.addActionListener(new ActionListener() {
             @Override
@@ -118,9 +129,9 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
                 jtfEntrada.setText("");
             }
         });
-        jpDiseno.add(jbEntradaEliminar);
+        jpDiseno.add(jbEntradaEliminar);*/
 
-        jbEntradaBorrar = new JButton("Borrar");
+        /*jbEntradaBorrar = new JButton("Borrar");
         jbEntradaBorrar.setBounds(110, 270, 85, 20);
         jbEntradaBorrar.addActionListener(new ActionListener() {
             @Override
@@ -128,10 +139,11 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
                 jtaEntrada.setText("");
             }
         });
-        jpDiseno.add(jbEntradaBorrar);
+        jpDiseno.add(jbEntradaBorrar);*/
 
         jbEntradaMostrar = new JButton("Mostrar");
-        jbEntradaMostrar.setBounds(205, 270, 90, 20);
+        //jbEntradaMostrar.setBounds(205, 270, 90, 20);
+        jbEntradaMostrar.setBounds(10, 270, 285, 20);
         jbEntradaMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -154,7 +166,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         });
         jpDiseno.add(jbEntradaMostrar);
 
-        jbSalidaEliminar = new JButton("Acectar");
+        /*jbSalidaEliminar = new JButton("Acectar");
         jbSalidaEliminar.setBounds(310, 270, 90, 20);
         jbSalidaEliminar.addActionListener(new ActionListener() {
             @Override
@@ -163,9 +175,9 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
                 jtfSalida.setText("");
             }
         });
-        jpDiseno.add(jbSalidaEliminar);
+        jpDiseno.add(jbSalidaEliminar);*/
 
-        jbSalidaBorrar = new JButton("Borrar");
+        /*jbSalidaBorrar = new JButton("Borrar");
         jbSalidaBorrar.setBounds(410, 270, 85, 20);
         jbSalidaBorrar.addActionListener(new ActionListener() {
             @Override
@@ -173,10 +185,11 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
                 jtaSalida.setText("");
             }
         });
-        jpDiseno.add(jbSalidaBorrar);
+        jpDiseno.add(jbSalidaBorrar);*/
 
         jbSalidaMostrar = new JButton("Mostrar");
-        jbSalidaMostrar.setBounds(505, 270, 90, 20);
+        //jbSalidaMostrar.setBounds(505, 270, 90, 20);
+        jbSalidaMostrar.setBounds(310, 270, 285, 20);
         jbSalidaMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -235,20 +248,20 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
         });
         jpDiseno.add(jbSalidaGuardar);
 
-        jlLlave = new JLabel("Llave");
-        jlLlave.setBounds(235, 350, 60, 20);
+        jlLlave = new JLabel("Ingresa Contraseña");
+        jlLlave.setBounds(125, 350, 170, 20);
         jpDiseno.add(jlLlave);
 
         jpfClave = new JPasswordField();
-        jpfClave.setBounds(10, 350, 215, 20);
+        jpfClave.setBounds(10, 380, 285, 20);
         jpDiseno.add(jpfClave);
 
-        jtfLlave = new JTextField();
+        /*jtfLlave = new JTextField();
         jtfLlave.setBounds(10, 380, 185, 20);
-        jpDiseno.add(jtfLlave);
+        jpDiseno.add(jtfLlave);*/
 
-        jbLlaveAbrir = new JButton("Abrir");
-        jbLlaveAbrir.setBounds(205, 380, 90, 20);
+        /*jbLlaveAbrir = new JButton("Abrir");
+        jbLlaveAbrir.setBounds(285, 380, 90, 20);
         jbLlaveAbrir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -259,7 +272,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
                 }
             }
         });
-        jpDiseno.add(jbLlaveAbrir);
+        jpDiseno.add(jbLlaveAbrir);*/
 
         Object[] algoritmos = {"", "AutoTexto", "Cesar", "Librereta de un Solo Uso", "Vigenere"};
         jcbAlgoritmo = new JComboBox<Object>(algoritmos);
@@ -273,6 +286,84 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame {
 
         jbProcesar = new JButton("Procesar");
         jbProcesar.setBounds(470, 380, 120, 20);
+        jbProcesar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jcbModo.getSelectedIndex() != 0 && jcbAlgoritmo.getSelectedIndex() != 0){
+                    boolean encriptar = jcbModo.getSelectedIndex() == 1;
+                    byte algo = (byte) jcbAlgoritmo.getSelectedIndex();
+                    jtaEntrada.setText("");
+                    E_Archivo e_archivo = null;
+                    try {
+                        e_archivo = new E_Archivo(jtfEntrada.getText(), true);
+                    } catch (FileNotFoundException fnfe) {
+                        jtaEntrada.setText("No hay accesso a: " + jtfEntrada.getText());
+                    }
+                    byte tipo = 0;
+                    switch(algo){
+                        case 1:
+                        case 4:
+                            tipo = TIPO_LLAVE_CLAVE;
+                            break;
+                        case 2:
+                            tipo = TIPO_LLAVE_NUMERICA;
+                            break;
+                        case 3:
+                            tipo = TIPO_LLAVE_LIBRERETA;
+                            break;
+                    }
+                    String clave = "";
+                    for(char c : jpfClave.getPassword()){
+                        clave += c;
+                    }
+                    L_Texto l_texto = new L_Texto(clave, tipo);
+                    S_Archivo s_archivo = null;
+                    try {
+                        s_archivo = new S_Archivo(jtfSalida.getText(), false);
+                        String datos = "";
+                        switch(algo){
+                            case 1:
+                                AutoTexto at = new AutoTexto(l_archivo.getL().getLIBRERETA());
+                                if(encriptar){
+                                    datos = at.encriptar(e_archivo.getData());
+                                } else {
+                                    datos = at.decifrar(e_archivo.getData());
+                                }
+                                break;
+                            case 2:
+                                Cesar cesar = new Cesar(l_archivo.getL().getLLAVE_NUMERICA());
+                                if(encriptar){
+                                    datos = cesar.encriptar(e_archivo.getData());
+                                } else {
+                                    datos = cesar.decifrar(e_archivo.getData());
+                                }
+                                break;
+                            case 3:
+                                Librereta_de_un_Solo_Uso ldusu = new Librereta_de_un_Solo_Uso(l_archivo.getL().getLIBRERETA());
+                                if (encriptar){
+                                    datos = ldusu.encriptar(e_archivo.getData());
+                                } else {
+                                    datos = ldusu.decifrar(e_archivo.getData());
+                                }
+                                break;
+                            case 4:
+                                Vigenere vig = new Vigenere(l_archivo.getL().getLIBRERETA());
+                                if(encriptar) {
+                                    datos = vig.encriptar(e_archivo.getData());
+                                } else {
+                                    datos = vig.decifrar(e_archivo.getData());
+                                }
+                                break;
+                        }
+                        s_archivo.setData(datos);
+                        s_archivo.imprimirtodo();
+                        s_archivo.cerrar();
+                    } catch (IOException e1) {
+                        jtaSalida.setText("No hay accesso a: " + jtfSalida.getText());
+                    }
+                }
+            }
+        });
         jpDiseno.add(jbProcesar);
 
         jbAtras = new JButton("Atras");
