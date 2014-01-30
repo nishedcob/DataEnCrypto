@@ -4,49 +4,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.io.File;
 
 /**
  * Interfaz Grafica para Usuarios Avanzadas
  * @author nyx
  */
-public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener {
+public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListener {
 
     /**
      * Un objeto para guardar la configuracion de la entrada y dar una interfaz grafica
      */
-    static DataEnCrypto_GUI_AEC entrada_config;
+    DataEnCrypto_GUI_AEC entrada_config;
 
     /**
      * Configuracion de Entrada
      * @param e evento (click) que llamo a este metodo
      */
-    private static void configEntrada(ActionEvent e) {
+    private void configEntrada(ActionEvent e) {
         entrada_config = new DataEnCrypto_GUI_AEC();
     }
 
-    static DataEnCrypto_GUI_ALC llave_config;
+    DataEnCrypto_GUI_ALC llave_config;
 
     /**
      * Configuracion de Llave
      * @param e evento (click) que llamo a este metodo
      */
-    private static void configLlave(ActionEvent e) {
+    private void configLlave(ActionEvent e) {
         llave_config = new DataEnCrypto_GUI_ALC();
     }
+
+    DataEnCrypto_GUI_ASC salida_config;
 
     /**
      * Configuracion de Salida
      * @param e evento (click) que llamo a este metodo
      */
-    private static void configSalida(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
-                "Configuracion de Salida", JOptionPane.WARNING_MESSAGE);
+    private void configSalida(ActionEvent e) {
+        salida_config = new DataEnCrypto_GUI_ASC();
     }
 
     /**
@@ -54,7 +50,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
      * @param e evento (click) que llamo a este metodo
      */
     private static void configAddicional(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
+        JOptionPane.showMessageDialog(null, "Aun no implimentado! En una futura version existara esta posibilidad.",
                 "Configuracion Addicional", JOptionPane.WARNING_MESSAGE);
     }
 
@@ -63,7 +59,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
      * @param e evento (click) que llamo a este metodo
      */
     private static void procesar(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!", 
+        JOptionPane.showMessageDialog(null, "Aun no implimentado!",
                 "Proceso", JOptionPane.WARNING_MESSAGE);
     }
 
@@ -72,7 +68,6 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
      */
     JPanel jpLayout;
 
-    // los butones
     /**
      * Buton para configurar la entrada
      */
@@ -132,7 +127,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         jbConfigEntrada.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.configEntrada(e);
+                configEntrada(e);
             }
         });
         jpLayout.add(jbConfigEntrada);
@@ -142,7 +137,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         jbConfigLlave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.configLlave(e);
+                configLlave(e);
             }
         });
         jpLayout.add(jbConfigLlave);
@@ -152,7 +147,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         jbConfigSalida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.configSalida(e);
+                configSalida(e);
             }
         });
         jpLayout.add(jbConfigSalida);
@@ -169,20 +164,44 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
         
         jbAtras = new JButton("Atras");
         jbAtras.setBounds(10, 135, 100, 20);
-        jbAtras.addActionListener(this);
+        jbAtras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                dispose();
+            }
+        });
         jpLayout.add(jbAtras);
         
         jbSalir = new JButton("Salir");
         jbSalir.setBounds(120, 135, 100, 20);
-        jbSalir.addActionListener(this);
+        jbSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         jpLayout.add(jbSalir);
         
-        jbConfigAddicional = new JButton("Configuracion Addicional");
+        jbConfigAddicional = new JButton("Eliminar Configuraciones");
         jbConfigAddicional.setBounds(230, 135, 210, 20);
         jbConfigAddicional.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.configAddicional(e);
+                //DataEnCrypto_GUI_Avanzada.configAddicional(e);
+                File f;
+                try {
+                    f = new File("e_cfg.tmp");
+                    if(f.exists()) f.delete();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "No se borro e_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR e_cfg.tmp", JOptionPane.ERROR_MESSAGE);
+                }
+                try {
+                    f = new File("l_cfg.tmp");
+                    if(f.exists()) f.delete();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "No se borro l_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR l_cfg.tmp", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         jpLayout.add(jbConfigAddicional);
@@ -196,8 +215,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
             }
         });
         jpLayout.add(jbProcesar);
-        
-        //this.add(jpLayout);
+
         this.setVisible(true);
     }
 
@@ -207,25 +225,5 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements ActionListener 
      */
     public static void main(String[] args) {
         new DataEnCrypto_GUI_Avanzada();
-    }
-
-    /**
-     * Un metodo para trapar clicks en nuestra interfaz
-     * @param e evento (click) que llamo a este metodo
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource().equals(jbAtras)){
-            this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            this.dispose();
-            JOptionPane.showMessageDialog(null, "Normalmente se lanzaria "
-                    + "el menu principal en este momento, pero como no esta "
-                    + "implimentado, sale este mensaje su lugar.", "Atras",
-                    JOptionPane.WARNING_MESSAGE);
-        } else if(e.getSource().equals(jbSalir)) {
-//            this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//            this.dispose();
-            System.exit(0);
-        }
     }
 }
