@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 /**
  * Created by nyx on 1/29/14 at 7:54 PM.
@@ -50,6 +53,12 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
 
         jbMostrar = new JButton("Mostrar");
         jbMostrar.setBounds(10, 10, 150, 20);
+        jbMostrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //escribir al jtaMuestra aqui
+            }
+        });
         jpLayout.add(jbMostrar);
 
         jtfArchivo = new JTextField();
@@ -58,6 +67,19 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
 
         jbGuardarComo = new JButton("Guardar Como");
         jbGuardarComo.setBounds(440, 100, 150, 20);
+        jbGuardarComo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfcSelector = new JFileChooser(jtfArchivo.getText());
+                jtfArchivo.setText("");
+                jfcSelector.setDialogTitle("Guardar");
+                jfcSelector.setApproveButtonText("Guardar");
+                int op = jfcSelector.showSaveDialog(null);
+                if (op == JFileChooser.APPROVE_OPTION){
+                    jtfArchivo.setText(jfcSelector.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         jpLayout.add(jbGuardarComo);
 
         jbCancelar = new JButton("Cancelar");
@@ -73,6 +95,20 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
 
         jbGuardar = new JButton("Guardar");
         jbGuardar.setBounds(490, 130, 100, 20);
+        jbGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (new File(jtfArchivo.getText()).exists()){
+                    File arch = new File(jtfArchivo.getText());
+                    try {
+                        PrintWriter ae = new PrintWriter(arch);
+                        //escribir al archivo aqui
+                    } catch (FileNotFoundException e1) {
+
+                    }
+                }
+            }
+        });
         jpLayout.add(jbGuardar);
 
         this.setVisible(true);
