@@ -137,7 +137,6 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
             public void actionPerformed(ActionEvent e) {
                 setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                 dispose();
-                DataEnCrypto_GUI_Avanzada.entrada_config = null;
             }
         });
         jpLayout.add(jbCancelar);
