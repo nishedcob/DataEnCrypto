@@ -21,6 +21,11 @@ final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
         L = this.crearLlave(tipo);
     }
 
+    public L_Archivo(String path, boolean leerAlRAM, byte tipo) throws FileNotFoundException {
+        super(path, leerAlRAM);
+        L = this.crearLlave(tipo);
+    }
+
     private Llave crearLlave(byte tipo) {
         switch(tipo){
             case TIPO_LLAVE_CLAVE:
