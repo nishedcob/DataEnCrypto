@@ -1,10 +1,7 @@
 package data_en_crypto;
 
 import javax.swing.*;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.text.StringContent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +15,7 @@ import java.util.Scanner;
 /**
  * Created by nyx on 1/23/14 at 11:43 AM.
  */
-public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, ActionListener{
+public class DataEnCrypto_GUI_ALC extends JFrame {
     /**
      * El fondo de toda la pantalla.
      */
@@ -51,7 +48,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
      */
     JLabel jlTipo;
     /**
-     * Un combo box para pedir el usario que tipo de flujo de entrada quiere
+     * Un combo box para pedir el usario que tipo de flujo de llave quiere
      */
     JComboBox<String> jcbTipo;
 
@@ -150,10 +147,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                         for (int c = 1; c < col; c++) {
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
 
-                            //debugging [start]
-                            System.out.println("f = " + f + " c = " + c);
-                            //debugging [end]
-
                             sMatriz += dtmMatriz.getValueAt(f, c);
                             if (f == fil - 1 && c == col - 1){
                                 Object[] nueva = new Object[col];
@@ -161,10 +154,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                                 sMatriz += dtmMatriz.getValueAt(f, c);
                                 dtmMatriz.removeRow(fil);
                             }
-
-                            //debugging [start]
-                            System.out.println(sMatriz);
-                            //debugging [end]
 
                             if(c != col-1){
                                 sMatriz += ";";
@@ -195,14 +184,45 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
         jbMostrar.setBounds(10, 70, 150, 20);
         jbMostrar.setEnabled(false);
         jbMostrar.setForeground(Color.DARK_GRAY);
-        jbMostrar.addActionListener(this);
+        jbMostrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File f = new File(jtfArchivo.getText());
+                Scanner sc = null;
+                try {
+                    sc = new Scanner(f);
+                    jtaTexto.setEnabled(false);
+                    jtaTexto.setText("");
+                    while (sc.hasNextLine()){
+                        jtaTexto.setText(jtaTexto.getText() + sc.nextLine() + "\n");
+                    }
+                } catch (FileNotFoundException fnfe) {
+                    System.out.println("No se encontro el archivo!");
+                } finally {
+                    if(sc != null){
+                        sc.close();
+                    }
+                }
+            }
+        });
         jpLayout.add(jbMostrar);
 
         jbAbrir = new JButton("Abrir");
         jbAbrir.setBounds(510, 100, 80, 20);
         jbAbrir.setEnabled(false);
         jbAbrir.setForeground(Color.DARK_GRAY);
-        jbAbrir.addActionListener(this);
+        jbAbrir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfcAbrir = new JFileChooser(jtfArchivo.getText());
+                jfcAbrir.setDialogTitle("Abrir");
+                jfcAbrir.setApproveButtonText("Ok");
+                int op = jfcAbrir.showOpenDialog(null);
+                if (op == JFileChooser.APPROVE_OPTION){
+                    jtfArchivo.setText(jfcAbrir.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         jpLayout.add(jbAbrir);
 
         jlClave = new JLabel("Clave:");
@@ -229,19 +249,17 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                 dtmMatriz.addColumn(c);
             }
         }
-//        if(!(new File("l_cfg.tmp").exists())){
-            for(byte f = 1; f < num_fila; f++){
-                String[] fila = new String[num_colum];
-                for(byte c = 0; c < num_colum; c++){
-                    if(c == 0){
-                        fila[c] = Byte.toString(f);
-                    } else {
-                        fila[c] = "";
-                    }
+        for(byte f = 1; f < num_fila; f++){
+            String[] fila = new String[num_colum];
+            for(byte c = 0; c < num_colum; c++){
+                if(c == 0){
+                    fila[c] = Byte.toString(f);
+                } else {
+                    fila[c] = "";
                 }
-                dtmMatriz.addRow(fila);
             }
-//        }
+            dtmMatriz.addRow(fila);
+        }
 
         jtMatriz = new JTable(dtmMatriz);
         jtMatriz.setBounds(0, 0, 210, 140);
@@ -286,12 +304,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
                             System.out.println("f = " + f + " c = " + c);
                             sMatriz += dtmMatriz.getValueAt(f, c);
-                            if (f == fil - 1 && c == col - 1){
-                                Object[] nueva = new Object[col];
-                                dtmMatriz.addRow(nueva);
-                                sMatriz += dtmMatriz.getValueAt(f, c);
-                                dtmMatriz.removeRow(fil);
-                            }
                             System.out.println(sMatriz);
                             if(c != col-1){
                                 sMatriz += ";";
@@ -301,9 +313,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                                 }
                             }
                         }
-                    }
-                    if(sMatriz.charAt(sMatriz.length() - 1) == ';'){
-                        sMatriz += dtmMatriz.getValueAt(fil-1, col-1);
                     }
                     escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
@@ -331,14 +340,85 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
         }
         jcbTipo.setSelectedIndex(indice);
         jcbTipo.setBounds(70, 10, 90, 20);
-        jcbTipo.addItemListener(this);
+        jcbTipo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (jcbTipo.getSelectedIndex() != indice){
+                    indice = jcbTipo.getSelectedIndex();
+                    //El Usuario Seleciono:
+                    if (indice == 1){
+                        //Texto
+                        jtaTexto.setEditable(true);
+                        jbGuardar.setEnabled(true);
+                        jbGuardar.setForeground(Color.BLACK);
+                        jbAbrir.setEnabled(false);
+                        jbAbrir.setForeground(Color.DARK_GRAY);
+                        jbMostrar.setEnabled(false);
+                        jbMostrar.setForeground(Color.DARK_GRAY);
+                        jtfArchivo.setEnabled(false);
+                        jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                        jpfClave.setEnabled(false);
+                        jtMatriz.setEnabled(false);
+                    } else if (indice == 2) {
+                        //Archivo
+                        jtaTexto.setEditable(false);
+                        jbGuardar.setEnabled(true);
+                        jbGuardar.setForeground(Color.BLACK);
+                        jbAbrir.setEnabled(true);
+                        jbAbrir.setForeground(Color.BLACK);
+                        jbMostrar.setEnabled(true);
+                        jbMostrar.setForeground(Color.BLACK);
+                        jtfArchivo.setEnabled(true);
+                        jtfArchivo.setBackground(Color.WHITE);
+                        jtMatriz.setEnabled(false);
+                    } else if (indice == 3) {
+                        //Clave
+                        jtaTexto.setEditable(false);
+                        jbGuardar.setEnabled(true);
+                        jbGuardar.setForeground(Color.BLACK);
+                        jbAbrir.setEnabled(false);
+                        jbAbrir.setForeground(Color.DARK_GRAY);
+                        jbMostrar.setEnabled(false);
+                        jbMostrar.setForeground(Color.DARK_GRAY);
+                        jtfArchivo.setEnabled(false);
+                        jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                        jpfClave.setEnabled(true);
+                        jtMatriz.setEnabled(false);
+                    } else if (indice == 4) {
+                        //Matriz
+                        jtaTexto.setEditable(false);
+                        jbGuardar.setEnabled(true);
+                        jbGuardar.setForeground(Color.BLACK);
+                        jbAbrir.setEnabled(false);
+                        jbAbrir.setForeground(Color.DARK_GRAY);
+                        jbMostrar.setEnabled(false);
+                        jbMostrar.setForeground(Color.DARK_GRAY);
+                        jtfArchivo.setEnabled(false);
+                        jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                        jpfClave.setEnabled(false);
+                        jtMatriz.setEnabled(true);
+                    } else if (indice == 0) {
+                        //Ninguna Opcion
+                        jtaTexto.setEditable(false);
+                        jbGuardar.setEnabled(false);
+                        jbGuardar.setForeground(Color.DARK_GRAY);
+                        jbAbrir.setEnabled(false);
+                        jbAbrir.setForeground(Color.DARK_GRAY);
+                        jbMostrar.setEnabled(false);
+                        jbMostrar.setForeground(Color.DARK_GRAY);
+                        jtfArchivo.setEnabled(false);
+                        jtfArchivo.setBackground(Color.LIGHT_GRAY);
+                        jpfClave.setEnabled(false);
+                        jtMatriz.setEnabled(false);
+                    }
+                }
+            }
+        });
         jpLayout.add(jcbTipo);
 
         jtaTexto = new JTextArea();
         jtaTexto.setBounds(0, 0, 400, 60);
-        //jtaTexto.setEnabled(false);
         jtaTexto.setEditable(false);
-        //jtaTexto.setBackground(Color.LIGHT_GRAY);
 
         jspTexto = new JScrollPane(jtaTexto);
         jspTexto.setBounds(170, 10, 420, 80);
@@ -385,31 +465,12 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                                 } else if (tipo == 3) {
                                     jpfClave.setText(valores[3]);
                                 } else if (tipo == 4) {
-                                    byte /*num_f = 4,*/ num_c = 4;
-
-                                    //debugging [start]
-                                    System.out.println("Tipo = 4");
-                                    //debugging [end]
+                                    byte num_c = 4;
 
                                     String[] filas = valores[4].split("><");
 
-                                    //debugging [start]
-                                    System.out.println("Filas:");
-                                    for(String fil : filas){
-                                        System.out.println(fil);
-                                    }
-                                    //debugging [end]
-
                                     for (int f = 0; f < filas.length; f++) {
                                         String[] fila = filas[f].split(";");
-
-                                        //debugging [start]
-                                        System.out.println("Fila " + f + ":");
-                                        for(String s : fila){
-                                            System.out.print(s + " ");
-                                        }
-                                        System.out.println();
-                                        //debugging [end]
 
                                         String[] fpa = new String[num_c];
                                         fpa[0] = Integer.toString(f + 1);
@@ -418,13 +479,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
                                             fpa[c] = col;
                                             c++;
                                         }
-
-                                        //debugging [start]
-                                        System.out.println("Fila Final:");
-                                        for(String cpa : fpa){
-                                            System.out.print(cpa + " ");
-                                        }
-                                        //debugging [end]
 
                                         dtmMatriz.removeRow(0);
                                         dtmMatriz.addRow(fpa);
@@ -463,123 +517,4 @@ public class DataEnCrypto_GUI_ALC extends JFrame implements ItemListener, Action
         new DataEnCrypto_GUI_ALC();
     }
 
-    /**
-     * Lanzado cuando un elemento ha sido selecionado o deselecionado
-     * por el usario. El codigo en este metodo es lo que ejecuta cuando
-     * un usuario seleciona o deseleciona un elemento.
-     *
-     * @param e Evento que lanza la accion
-     */
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        if (this.jcbTipo.getSelectedIndex() != indice){
-            this.indice = jcbTipo.getSelectedIndex();
-            if (indice == 1){
-                //jtaTexto.setEnabled(true);
-                jtaTexto.setEditable(true);
-                //jtaTexto.setBackground(Color.WHITE);
-                jbGuardar.setEnabled(true);
-                jbGuardar.setForeground(Color.BLACK);
-                jbAbrir.setEnabled(false);
-                jbAbrir.setForeground(Color.DARK_GRAY);
-                jbMostrar.setEnabled(false);
-                jbMostrar.setForeground(Color.DARK_GRAY);
-                jtfArchivo.setEnabled(false);
-                jtfArchivo.setBackground(Color.LIGHT_GRAY);
-                jpfClave.setEnabled(false);
-                jtMatriz.setEnabled(false);
-            } else if (indice == 2) {
-                //jtaTexto.setEnabled(false);
-                jtaTexto.setEditable(false);
-                //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(true);
-                jbGuardar.setForeground(Color.BLACK);
-                jbAbrir.setEnabled(true);
-                jbAbrir.setForeground(Color.BLACK);
-                jbMostrar.setEnabled(true);
-                jbMostrar.setForeground(Color.BLACK);
-                jtfArchivo.setEnabled(true);
-                jtfArchivo.setBackground(Color.WHITE);
-                jtMatriz.setEnabled(false);
-            } else if (indice == 3) {
-                //jtaTexto.setEnabled(false);
-                jtaTexto.setEditable(false);
-                //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(true);
-                jbGuardar.setForeground(Color.BLACK);
-                jbAbrir.setEnabled(false);
-                jbAbrir.setForeground(Color.DARK_GRAY);
-                jbMostrar.setEnabled(false);
-                jbMostrar.setForeground(Color.DARK_GRAY);
-                jtfArchivo.setEnabled(false);
-                jtfArchivo.setBackground(Color.LIGHT_GRAY);
-                jpfClave.setEnabled(true);
-                jtMatriz.setEnabled(false);
-            } else if (indice == 4) {
-                //jtaTexto.setEnabled(false);
-                jtaTexto.setEditable(false);
-                //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(true);
-                jbGuardar.setForeground(Color.BLACK);
-                jbAbrir.setEnabled(false);
-                jbAbrir.setForeground(Color.DARK_GRAY);
-                jbMostrar.setEnabled(false);
-                jbMostrar.setForeground(Color.DARK_GRAY);
-                jtfArchivo.setEnabled(false);
-                jtfArchivo.setBackground(Color.LIGHT_GRAY);
-                jpfClave.setEnabled(false);
-                jtMatriz.setEnabled(true);
-            } else if (indice == 0) {
-                //jtaTexto.setEnabled(false);
-                jtaTexto.setEditable(false);
-                //jtaTexto.setBackground(Color.LIGHT_GRAY);
-                jbGuardar.setEnabled(false);
-                jbGuardar.setForeground(Color.DARK_GRAY);
-                jbAbrir.setEnabled(false);
-                jbAbrir.setForeground(Color.DARK_GRAY);
-                jbMostrar.setEnabled(false);
-                jbMostrar.setForeground(Color.DARK_GRAY);
-                jtfArchivo.setEnabled(false);
-                jtfArchivo.setBackground(Color.LIGHT_GRAY);
-                jpfClave.setEnabled(false);
-                jtMatriz.setEnabled(false);
-            }
-        }
-    }
-
-    /**
-     * Lanzada cuando una accion ocure (por ejemplo cuando hagan click en un buton)
-     *
-     * @param e Evento que lanza la accion
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource().equals(jbAbrir)){
-            JFileChooser jfcAbrir = new JFileChooser(jtfArchivo.getText());
-            jfcAbrir.setDialogTitle("Abrir");
-            jfcAbrir.setApproveButtonText("Ok");
-            int op = jfcAbrir.showOpenDialog(null);
-            if (op == JFileChooser.APPROVE_OPTION){
-                jtfArchivo.setText(jfcAbrir.getSelectedFile().getAbsolutePath());
-            }
-        } else if (e.getSource().equals(jbMostrar)) {
-            File f = new File(this.jtfArchivo.getText());
-            Scanner sc = null;
-            try {
-                sc = new Scanner(f);
-                jtaTexto.setEnabled(false);
-                jtaTexto.setText("");
-                while (sc.hasNextLine()){
-                    jtaTexto.setText(jtaTexto.getText() + sc.nextLine() + "\n");
-                }
-            } catch (FileNotFoundException fnfe) {
-                System.out.println("No se encontro el archivo!");
-            } finally {
-                if(sc != null){
-                    sc.close();
-                }
-            }
-
-        }
-    }
 }
