@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  * Interfaz Grafica para Usuarios Avanzadas
@@ -182,12 +183,25 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
         });
         jpLayout.add(jbSalir);
         
-        jbConfigAddicional = new JButton("Configuracion Addicional");
+        jbConfigAddicional = new JButton("Eliminar Configuraciones");
         jbConfigAddicional.setBounds(230, 135, 210, 20);
         jbConfigAddicional.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.configAddicional(e);
+                //DataEnCrypto_GUI_Avanzada.configAddicional(e);
+                File f;
+                try {
+                    f = new File("e_cfg.tmp");
+                    if(f.exists()) f.delete();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "No se borro e_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR e_cfg.tmp", JOptionPane.ERROR_MESSAGE);
+                }
+                try {
+                    f = new File("l_cfg.tmp");
+                    if(f.exists()) f.delete();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "No se borro l_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR l_cfg.tmp", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         jpLayout.add(jbConfigAddicional);
