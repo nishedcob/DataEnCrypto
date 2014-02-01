@@ -323,7 +323,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                         String datos = "";
                         switch(algo){
                             case 1:
-                                AutoTexto at = new AutoTexto(l_archivo.getL().getLIBRERETA());
+                                AutoTexto at = new AutoTexto(l_texto.getL().getLIBRERETA());
                                 if(encriptar){
                                     datos = at.encriptar(e_archivo.getData());
                                 } else {
@@ -331,7 +331,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 }
                                 break;
                             case 2:
-                                Cesar cesar = new Cesar(l_archivo.getL().getLLAVE_NUMERICA());
+                                Cesar cesar = new Cesar(l_texto.getL().getLLAVE_NUMERICA());
                                 if(encriptar){
                                     datos = cesar.encriptar(e_archivo.getData());
                                 } else {
@@ -339,7 +339,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 }
                                 break;
                             case 3:
-                                Librereta_de_un_Solo_Uso ldusu = new Librereta_de_un_Solo_Uso(l_archivo.getL().getLIBRERETA());
+                                Librereta_de_un_Solo_Uso ldusu = new Librereta_de_un_Solo_Uso(l_texto.getL().getLIBRERETA());
                                 if (encriptar){
                                     datos = ldusu.encriptar(e_archivo.getData());
                                 } else {
@@ -347,7 +347,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 }
                                 break;
                             case 4:
-                                Vigenere vig = new Vigenere(l_archivo.getL().getLIBRERETA());
+                                Vigenere vig = new Vigenere(l_texto.getL().getLIBRERETA());
                                 if(encriptar) {
                                     datos = vig.encriptar(e_archivo.getData());
                                 } else {

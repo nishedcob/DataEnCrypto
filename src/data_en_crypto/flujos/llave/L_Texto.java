@@ -241,4 +241,8 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
         return c;
     }
 
+    public Llave getL() {
+        return L;
+    }
+
 }
