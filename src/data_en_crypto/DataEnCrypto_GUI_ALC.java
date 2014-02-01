@@ -197,7 +197,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtaTexto.setText(jtaTexto.getText() + sc.nextLine() + "\n");
                     }
                 } catch (FileNotFoundException fnfe) {
-                    System.out.println("No se encontro el archivo!");
+                    //System.out.println("No se encontro el archivo!");
                 } finally {
                     if(sc != null){
                         sc.close();
@@ -302,9 +302,9 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                     for (int f = 0; f < fil; f++) {
                         for (int c = 1; c < col; c++) {
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
-                            System.out.println("f = " + f + " c = " + c);
+                            //System.out.println("f = " + f + " c = " + c);
                             sMatriz += dtmMatriz.getValueAt(f, c);
-                            System.out.println(sMatriz);
+                            //System.out.println(sMatriz);
                             if(c != col-1){
                                 sMatriz += ";";
                             } else {
