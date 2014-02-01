@@ -1,10 +1,13 @@
 package data_en_crypto;
 
+import data_en_crypto.flujos.entrada.E_Archivo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Interfaz Grafica para Usuarios Avanzadas
@@ -58,9 +61,50 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
      * Procesar los datos con la configuracion de ahora
      * @param e evento (click) que llamo a este metodo
      */
-    private static void procesar(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Aun no implimentado!",
-                "Proceso", JOptionPane.WARNING_MESSAGE);
+    private void procesar(ActionEvent e) {
+        jtaConsola.setText("Processando:\n");
+        if(new File("e_cfg.tmp").exists()){
+            jtaConsola.setText(jtaConsola.getText() + "Configuracion de Entrada Existe.\n");
+            if(new File("l_cfg.tmp").exists()) {
+                jtaConsola.setText(jtaConsola.getText() + "Configuracion de Llave Existe.\n");
+                jtaConsola.setText(jtaConsola.getText() + "Tratando de cargar Configuracion de Entrada al RAM.\n");
+                try {
+                    E_Archivo config_e = new E_Archivo("e_cfg.tmp", true);
+                    jtaConsola.setText(jtaConsola.getText() + "Cargo Configuracion de Entrada con exito.\n");
+                    jtaConsola.setText(jtaConsola.getText() + "Tratando de cargar Configuracion de Llave al RAM.\n");
+                    try {
+                        E_Archivo config_l = new E_Archivo("l_cfg.tmp", true);
+                        jtaConsola.setText(jtaConsola.getText() + "Cargo Configuracion de Entrada con exito.\n");
+                        String[] e_cfg = config_e.getData().split(",");
+                        String[] l_cfg = config_l.getData().split(",");
+                        config_e = null;
+                        config_l = null;
+                        System.gc();
+
+                    } catch (IOException ioe) {
+                        jtaConsola.setText(jtaConsola.getText() + "No pudo cargar la configuracion de Llave (" + new File("l_cfg.tmp").getAbsolutePath() + ") en RAM.\n"
+                                + "Salio con 1 error:\n"
+                                + "\tNo pudo cargar la configuracion de Llave.");
+                    }
+                } catch (IOException ioe) {
+                    jtaConsola.setText(jtaConsola.getText() + "No pudo cargar la configuracion de Entrada (" + new File("e_cfg.tmp").getAbsolutePath() + ") en RAM.\n"
+                            + "Salio con 1 error:\n"
+                            + "\tNo pudo cargar la configuracion de Entrada.");
+                }
+            } else {
+                jtaConsola.setText(jtaConsola.getText() + "Configuacion de Llave no existe. Por favor configura la llave.\n"
+                        + "Salio con 1 error:\n"
+                        + "\tFalta de Configuracion de Llave.");
+                JOptionPane.showMessageDialog(null, "No existe una configuracion de Llave", "Error: Configuracion de Llave no Encontrado", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            jtaConsola.setText(jtaConsola.getText() + "Configuacion de Entrada no existe. Por favor configura la entrada.\n"
+                + "Salio con 1 error:\n"
+                + "\tFalta de Configuracion de Entrada.");
+            JOptionPane.showMessageDialog(null, "No existe una configuracion de Entrada", "Error: Configuracion de Entrada no Encontrado", JOptionPane.ERROR_MESSAGE);
+        }
+        /*JOptionPane.showMessageDialog(null, "Aun no implimentado!",
+                "Proceso", JOptionPane.WARNING_MESSAGE);*/
     }
 
     /**
@@ -101,6 +145,8 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
      * Label para la consola
      */
     JLabel jlConsola;
+
+    JScrollPane jspConsola;
 
     /**
      * Salida de la consola
@@ -155,12 +201,19 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
         jlConsola = new JLabel("Consola:");
         jlConsola.setBounds(200, 10, 100, 20);
         jpLayout.add(jlConsola);
-        
+
         jtaConsola = new JTextArea();
-        jtaConsola.setBounds(200, 35, 385, 90);
+        jtaConsola.setBounds(0, 0, 365, 70);
         jtaConsola.setBackground(Color.BLACK);
         jtaConsola.setForeground(Color.WHITE);
-        jpLayout.add(jtaConsola);
+
+        jspConsola = new JScrollPane(jtaConsola);
+        jspConsola.setBounds(200, 35, 385, 90);
+        jspConsola.setPreferredSize(new Dimension(385, 90));
+        jspConsola.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jspConsola.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jpLayout.add(jspConsola);
         
         jbAtras = new JButton("Atras");
         jbAtras.setBounds(10, 135, 100, 20);
@@ -189,18 +242,35 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
             @Override
             public void actionPerformed(ActionEvent e) {
                 //DataEnCrypto_GUI_Avanzada.configAddicional(e);
+                boolean ent = false, lla = false, dos;
                 File f;
                 try {
                     f = new File("e_cfg.tmp");
-                    if(f.exists()) f.delete();
+                    if(f.exists()){
+                        f.delete();
+                        ent = true;
+                    }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "No se borro e_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR e_cfg.tmp", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     f = new File("l_cfg.tmp");
-                    if(f.exists()) f.delete();
+                    if(f.exists()){
+                        f.delete();
+                        lla = true;
+                    }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "No se borro l_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR l_cfg.tmp", JOptionPane.ERROR_MESSAGE);
+                }
+                dos = ent && lla;
+                if(dos){
+                    jtaConsola.setText("Los dos configuraciones se eliminaron correctamente.");
+                } else if (ent) {
+                    jtaConsola.setText("Se elimino configuracion de Entrada correctamente.");
+                } else if (lla) {
+                    jtaConsola.setText("Se elimino configuracion de Llave correctamente.");
+                } else {
+                    jtaConsola.setText("Ningun configuracion fue eliminado.");
                 }
             }
         });
@@ -211,7 +281,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
         jbProcesar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DataEnCrypto_GUI_Avanzada.procesar(e);
+                procesar(e);
             }
         });
         jpLayout.add(jbProcesar);
