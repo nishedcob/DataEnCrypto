@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  16 JAN 2014 14:01
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.17)  31 JAN 2014 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -68,17 +68,18 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
 
-[2]
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ± in font cmr10!
- [3] [4] (./man_es.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+[2] [3] (./man_es.aux) ) 
 Here is how much of TeX's memory you used:
- 253 strings out of 495060
- 2808 string characters out of 3182052
+ 251 strings out of 495060
+ 2792 string characters out of 3182052
  50977 words of memory out of 3000000
- 3506 multiletter control sequences out of 15000+200000
+ 3504 multiletter control sequences out of 15000+200000
  7895 words of font info for 28 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 23i,6n,19p,1429b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,6n,19p,1156b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on man_es.dvi (4 pages, 13440 bytes).
+Output written on man_es.dvi (3 pages, 10576 bytes).
