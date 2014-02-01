@@ -1,6 +1,6 @@
 \documentclass{article}
 \author{Nishedcob et al.}
-\title{Una Guia de como usar DataEnCrypto v0.6.1.2.5}
+\title{Una Guia de como usar DataEnCrypto v0.7.5}
 \begin{document}
 	\maketitle
 	\tableofcontents
@@ -12,21 +12,12 @@
 		DataEnCrypto tiene dos formas de ejecutacion, por el interfaz de usuario de su sistema o por la consola. En el siguiente seccion, para los usuarios normales, vamos a ver como usar el interfaz de usuario. Para los usuarios mas avanzados que quieren ejecutar DataEnCrypto desde su consola, en la seccion de uso avanzado, vamos a ver las opciones para ejecutacion desde consola. \\
 		Usuarios Normales pueden ir directamente a seccion 2.2, "Para el Usuario Normal".
 		\subsection{Argumentos por Consola}
-			$-c$ Ejecutacion por Consola (Exclusiva con $-g\ -m\ -a\ -b$) %\\
+			Ejecutacion por Consola
 			\begin{itemize}
-				\item $-h$ Ayuda (implica $-c$) %\\
-				\item $-t$ Prueba de cada cifra implica $-c$) %\\
+				\item $-h$ Ayuda
+				\item $-p$ Prueba de cada cifra
 			\end{itemize}
-			$-g$ Ejecutacion por Interfaz Grafica (Exclusiva con $-c\ -h\ -t$) %\\
-			\begin{itemize}
-				\item $-m$ Abre el interfaz grafica abierto al Menu Principal (implica $-g$) %\\
-				\item $-a$ Abre el interfaz grafica abierto al Interfaz Avanzada (implica $-g$) %\\
-				\item $-b$ Abre el interfaz grafica abierto al Interfaz Basica (implica $-g$) %\\
-			\end{itemize}
-			%\\
-			Otros casos: \\
 			$sin\ argumentos$ Se ejecta la interfaz grafica abriendo el Menu Principal. \\
-			$con\ solo\ argumentos\ disconocidos$ Se ejecuta ayuda por consola.
 		\subsection{Para el Usuario Normal}
 		\subsection{Para el Usuario Avanzado}
 	\section{Algoritmos de Encriptacion}
@@ -45,8 +36,6 @@
 			Pero, si estas condiciones se cumplen, esta forma de encriptacion es considerado como los professionales como lo absolutamente mas seguro. Nunca ha sido crackeado, porque es matematicamente impossible de crackear si estas tres condiciones se cumplen. Funciona en tomar cada caracter y sumarlo con un caracter de la llave. Ningun caracter de la llave se repita en ser usado en esta operacion (si no, seria la cifra de Vigenere) y normalmente se toma los datos y la llave en orden para que cuando llega a su destino, no hay que decirles un protocol del orden en que tengan que tomar el llave.
 		\subsection{Matrices (Hill)}
 			La cifra de matrices, tambien conocido la cifra de Hill es una cifra que usa multiplicacion entre matrices para encriptar y multiplicacion entre una matriz que representa el mensaje encriptado y la matriz inversa de la matriz usado para encriptar. Como usa multiplicacion de matrices para sus operaciones, esconde informacion del mensaje original para hacer su criptoanalisis mas dificil. Pero igual, de todas formas, esta cifra no debe ser considerado seguro ahora que computadoras tienen mucho poder. De todas formas, esta cifra es obsoleta.
-		\subsection{VICTOR (VIC)}
-			La cifra VIC, tambien conocido como la cifra VICTOR (por el criptonimo del agente de espianaje de la Union Sovetica que deserto su pais y mostro a la NSA como funciona) es un metodo bien seguro. En las años de que la NSA sabia de su existencia en 1953 hasta la defectacion de agente VICTOR en 1957, la NSA no pudo crackear mensajes protegidos con este metodo y por lo tanto, no importa que es bastante simple que se puede hacerlo con lapiz y papel, hasta ahora es considerado ser muy seguro. El primer paso es codificar los datos como un serie de digitos. Durrante este proceso, las letras, los que el usuario elije con la primera fila de su tabla (que normalmente son la letras mas communes de un idioma, por ejemplo en ingles, se puede recordarlos con la frase: \"A SIN TO ERR\") son comprimidas en la forma de un solo digito. Las demas caracteres se codifican con un digito de fila (que no puede tener un caracter en su columna en la primera fila) y un digito de columna. Este primer paso es muy importante porque, en comprimir algunas letras, se hace el criptoanalisis de todo el mensaje mucho mas dificil porque no hay como ver cuales digitos se pertenecen a cada letra (como algunas letras son de un digito y otros de dos digitos). El segundo paso suma una llave a todos estes digitos para esconder su contenido y despues en el terecer paso, se convirte este conjunto de digitos en texto de cifra.
 		\subsection{Vigenre}
 			La cifra vigenere es una implimentacion del cesar que lo hace mas dificil de crackear. En lugar de tener una solo constante o valor (llave) como el cesar, tiene un conjunto de llaves (valores, constantes, etc). Con cada nueva caracter en los datos, usa otro constante o llave en el conjunto de llaves hasta que no hay mas llaves y vuelve al inicio. De esta forma, con el mismo clave hasta la longtitud de la clave, el texto encifrado por AutoTexto sera igual que texto encifrado por este metodo. Desde alli es donde se usan metodos diferentes... El autotexto empieza a usar los datos, y este metodo, el vigenere solo repita la clave. Mientras que es mas dificil de crackear que el cesar, esto tambien no es una cifra recomendado para datos importantes.
 \end{document}
