@@ -3,6 +3,7 @@ package data_en_crypto;
 import data_en_crypto.flujos.entrada.E_Archivo;
 import data_en_crypto.flujos.entrada.Entrada_Invalido_Exception;
 import data_en_crypto.flujos.llave.Llave_Invalido_Exception;
+import data_en_crypto.flujos.llave.Llave_Tipos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,7 @@ import java.io.IOException;
  * Interfaz Grafica para Usuarios Avanzadas
  * @author nyx
  */
-public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListener {
+public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
 
     /**
      * Un objeto para guardar la configuracion de la entrada y dar una interfaz grafica
@@ -82,10 +83,37 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
                         config_e.cerrar();
                         config_l.cerrar();
                         System.gc();
-                        String e_data;
                         if(e_cfg[0].equals("0")) throw new Entrada_Invalido_Exception("Error! Configuracion de Entrada no especifica su tipo.");
                         if(l_cfg[0].equals("0")) throw new Llave_Invalido_Exception("Error! Configuracion de Llave no especifica su tipo.");
-                        //TODO
+                        String e_data = (e_cfg[0].equals("1") ? e_cfg[1] :
+                                (e_cfg[0].equals("2") ? e_cfg[2] : ""));
+                        if (e_data.equals("")) throw new Entrada_Invalido_Exception();
+                        byte l_tipo;
+                        try {
+                            l_tipo = Byte.parseByte(l_cfg[0]);
+                            switch (l_tipo){
+                                case 1:
+                                    l_tipo = TIPO_LLAVE_LIBRERETA;
+                                    break;
+                                case 2:
+                                    l_tipo = -1;
+                                    break;
+                                case 3:
+                                    l_tipo = TIPO_LLAVE_CLAVE;
+                                    break;
+                                case 4:
+                                    l_tipo = TIPO_LLAVE_MATRIZ;
+                                    break;
+                                default:
+                                    throw new Llave_Invalido_Exception();
+                            }
+                            if (l_tipo == -1) {
+                                //TODO
+                            }
+                            //TODO
+                        } catch (NumberFormatException nfe) {
+                            throw new Llave_Invalido_Exception("Tipo en Configuracion de Llave es Invalido", nfe);
+                        }
                     } catch (IOException ioe) {
                         jtaConsola.setText(jtaConsola.getText() + "No pudo cargar la configuracion de Llave (" + new File("l_cfg.tmp").getAbsolutePath() + ") en RAM.\n"
                                 + "Salio con 1 error:\n"
