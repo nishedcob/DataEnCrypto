@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos.">
+    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Merge remote-tracking branch 'origin/nishedcob-nyx' into nishedcob-nyx&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -88,7 +88,25 @@
       <file leaf-file-name="DataEnCrypto_GUI_Avanzada.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="30" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.66211605" vertical-offset="1016" max-vertical-offset="5004">
+            <state line="110" column="38" selection-start="4699" selection-end="4699" vertical-scroll-proportion="0.74380165" vertical-offset="1530" max-vertical-offset="5490">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Llave_Tipos.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Tipos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="17" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataEnCrypto_GUI_ALC.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="337" column="30" selection-start="12272" selection-end="12272" vertical-scroll-proportion="0.0" vertical-offset="5184" max-vertical-offset="8874">
               <folding />
             </state>
           </provider>
@@ -97,7 +115,7 @@
       <file leaf-file-name="Llave_Invalido_Exception.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Invalido_Exception.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+            <state line="63" column="0" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
               <folding />
             </state>
           </provider>
@@ -106,7 +124,7 @@
       <file leaf-file-name="Entrada_Invalido_Exception.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/entrada/Entrada_Invalido_Exception.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="41" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+            <state line="11" column="41" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="576">
               <folding />
             </state>
           </provider>
@@ -115,7 +133,7 @@
       <file leaf-file-name="S_Archivo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/salida/S_Archivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="7" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1512">
+            <state line="70" column="7" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1620">
               <folding />
             </state>
           </provider>
@@ -124,7 +142,7 @@
       <file leaf-file-name="E_Archivo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/entrada/E_Archivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="26" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.0" vertical-offset="1417" max-vertical-offset="2772">
+            <state line="149" column="26" selection-start="4075" selection-end="4075" vertical-scroll-proportion="0.0" vertical-offset="2682" max-vertical-offset="2988">
               <folding />
             </state>
           </provider>
@@ -173,8 +191,9 @@
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/L_Texto.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/entrada/Entrada_Invalido_Exception.java" />
-        <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Invalido_Exception.java" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/entrada/E_Archivo.java" />
+        <option value="$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Invalido_Exception.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
       </list>
     </option>
@@ -227,6 +246,86 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Problems" />
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -407,84 +506,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="DataEnCrypto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataEnCrypto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Problems" />
-        <subPane subId="Tests" />
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="DataEnCrypto">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -635,19 +668,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -673,6 +693,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -974,7 +1007,19 @@
       <created>1391365988702</created>
       <updated>1391365988702</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Implimentacion del Proceso en DataEnCrypto_GUI_Avanzada (parte 2)">
+      <created>1391366184627</created>
+      <updated>1391366184628</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Merge remote-tracking branch 'origin/nishedcob-nyx' into nishedcob-nyx&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;">
+      <created>1391367862725</created>
+      <updated>1391367862725</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Anadir contructores a Llave_Invalido_Exception">
+      <created>1391367941523</created>
+      <updated>1391367941524</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -997,15 +1042,15 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3101852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3101852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1022,9 +1067,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Arreglar Buton de Salida en DataEnCrypto_GUI_ALC (con Jose Luis - @joseDG )" />
-    <MESSAGE value="Implimentacion Final de Menu Principal de DataEnCrypto [DataEnCrypto_GUI_Menu] (con Jose Luis - @joseDG )&#10;" />
-    <MESSAGE value="Implimentacion Inicial de Interfaz Basico de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 3) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 4) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
@@ -1047,7 +1089,10 @@
     <MESSAGE value="Nuevo Metodo para Cerrar Un Archivo cuando se termina de necesitar leer de ello." />
     <MESSAGE value="Nuevo Tipo de Exception para Configuraciones de Entrada que no son validos." />
     <MESSAGE value="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos." />
+    <MESSAGE value="Implimentacion del Proceso en DataEnCrypto_GUI_Avanzada (parte 2)" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/nishedcob-nyx' into nishedcob-nyx&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
+    <MESSAGE value="Anadir contructores a Llave_Invalido_Exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="Anadir contructores a Llave_Invalido_Exception" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1057,11 +1102,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_AEC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="34" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6120" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="23" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="6084">
@@ -1241,11 +1281,6 @@
         <state line="15" column="3" selection-start="379" selection-end="379" vertical-scroll-proportion="0.14516129" vertical-offset="0" max-vertical-offset="1134" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="60" selection-start="299" selection-end="299" vertical-scroll-proportion="0.11861614" vertical-offset="0" max-vertical-offset="8856" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="184" column="0" selection-start="5064" selection-end="5064" vertical-scroll-proportion="0.9397993" vertical-offset="2408" max-vertical-offset="3078" />
@@ -1300,13 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="40" selection-start="590" selection-end="590" vertical-scroll-proportion="-1.4055415" vertical-offset="810" max-vertical-offset="8874">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="62" selection-start="1586" selection-end="1586" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1422">
@@ -1356,16 +1384,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="47" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.334471" vertical-offset="2" max-vertical-offset="27270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Tipos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="17" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/flujos/llave/Llave_Invalido_Exception.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+        <state line="63" column="0" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_ALC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="337" column="30" selection-start="12272" selection-end="12272" vertical-scroll-proportion="0.0" vertical-offset="5184" max-vertical-offset="8874">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="30" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.66211605" vertical-offset="1016" max-vertical-offset="5004">
+        <state line="110" column="38" selection-start="4699" selection-end="4699" vertical-scroll-proportion="0.74380165" vertical-offset="1530" max-vertical-offset="5490">
           <folding />
         </state>
       </provider>
