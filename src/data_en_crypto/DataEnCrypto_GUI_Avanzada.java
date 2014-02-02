@@ -288,8 +288,8 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                 try {
                     f = new File("e_cfg.tmp");
                     if(f.exists()){
-                        f.delete();
-                        ent = true;
+                        ent = f.delete();
+                        if(!ent) JOptionPane.showMessageDialog(null, "No se borro e_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR e_cfg.tmp", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "No se borro e_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR e_cfg.tmp", JOptionPane.ERROR_MESSAGE);
@@ -297,8 +297,8 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                 try {
                     f = new File("l_cfg.tmp");
                     if(f.exists()){
-                        f.delete();
-                        lla = true;
+                        lla = f.delete();
+                        if(!lla) JOptionPane.showMessageDialog(null, "No se borro l_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR l_cfg.tmp", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "No se borro l_cfg.tmp. Ud. debe borrarlo manualmente.", "ERROR EN BORRAR l_cfg.tmp", JOptionPane.ERROR_MESSAGE);
