@@ -1,6 +1,8 @@
 package data_en_crypto;
 
 import data_en_crypto.flujos.entrada.E_Archivo;
+import data_en_crypto.flujos.entrada.Entrada_Invalido_Exception;
+import data_en_crypto.flujos.llave.Llave_Invalido_Exception;
 
 import javax.swing.*;
 import java.awt.*;
@@ -77,14 +79,25 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame{// implements ActionListen
                         jtaConsola.setText(jtaConsola.getText() + "Cargo Configuracion de Entrada con exito.\n");
                         String[] e_cfg = config_e.getData().split(",");
                         String[] l_cfg = config_l.getData().split(",");
-                        config_e = null;
-                        config_l = null;
+                        config_e.cerrar();
+                        config_l.cerrar();
                         System.gc();
-
+                        String e_data;
+                        if(e_cfg[0].equals("0")) throw new Entrada_Invalido_Exception("Error! Configuracion de Entrada no especifica su tipo.");
+                        if(l_cfg[0].equals("0")) throw new Llave_Invalido_Exception("Error! Configuracion de Llave no especifica su tipo.");
+                        //TODO
                     } catch (IOException ioe) {
                         jtaConsola.setText(jtaConsola.getText() + "No pudo cargar la configuracion de Llave (" + new File("l_cfg.tmp").getAbsolutePath() + ") en RAM.\n"
                                 + "Salio con 1 error:\n"
                                 + "\tNo pudo cargar la configuracion de Llave.");
+                    } catch (Entrada_Invalido_Exception eie) {
+                        jtaConsola.setText(jtaConsola.getText()
+                                + "Salio con 1 error:\n"
+                                + eie.getMessage());
+                    } catch (Llave_Invalido_Exception lie) {
+                        jtaConsola.setText(jtaConsola.getText()
+                                + "Salio con 1 error:\n"
+                                + lie.getMessage());
                     }
                 } catch (IOException ioe) {
                     jtaConsola.setText(jtaConsola.getText() + "No pudo cargar la configuracion de Entrada (" + new File("e_cfg.tmp").getAbsolutePath() + ") en RAM.\n"
