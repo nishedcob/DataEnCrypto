@@ -152,5 +152,9 @@ public class E_Archivo extends Entrada{
     public boolean isESTA_EN_RAM() {
         return ESTA_EN_RAM;
     }
+
+    public void cerrar() {
+        super.lector.close();
+    }
     
 }
