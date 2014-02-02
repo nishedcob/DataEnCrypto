@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="">
+    <list default="true" id="61b97ec6-8f08-4af1-bfbb-0dcb77246d07" name="Default" comment="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" afterPath="$PROJECT_DIR$/src/data_en_crypto/DataEnCrypto_GUI_Avanzada.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataEnCrypto.iws" />
@@ -973,16 +974,12 @@
       <created>1391365988702</created>
       <updated>1391365988702</updated>
     </task>
-    <task id="LOCAL-00050" summary="Implimentacion del Proceso en DataEnCrypto_GUI_Avanzada (parte 2)">
-      <created>1391366184627</created>
-      <updated>1391366184628</updated>
-    </task>
-    <option name="localTasksCounter" value="51" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="30" width="1368" height="742" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1000,7 +997,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3101852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="99" y="129" width="1168" height="542" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1025,6 +1022,7 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Arreglar Buton de Salida en DataEnCrypto_GUI_ALC (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion Final de Menu Principal de DataEnCrypto [DataEnCrypto_GUI_Menu] (con Jose Luis - @joseDG )&#10;" />
     <MESSAGE value="Implimentacion Inicial de Interfaz Basico de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
     <MESSAGE value="Implimentacion de Interfaz Basico (Parte 2) de DataEnCrypto [DataEnCrypto_GUI_Basico] (con Jose Luis - @joseDG )" />
@@ -1049,8 +1047,7 @@
     <MESSAGE value="Nuevo Metodo para Cerrar Un Archivo cuando se termina de necesitar leer de ello." />
     <MESSAGE value="Nuevo Tipo de Exception para Configuraciones de Entrada que no son validos." />
     <MESSAGE value="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos." />
-    <MESSAGE value="Implimentacion del Proceso en DataEnCrypto_GUI_Avanzada (parte 2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implimentacion del Proceso en DataEnCrypto_GUI_Avanzada (parte 2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nuevo Tipo de Exception para Configuraciones de Llave que no son validos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
