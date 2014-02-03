@@ -77,10 +77,19 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
 
     JPasswordField jpfClave;
 
+    JLabel jlAlgoritmo;
+
+    JComboBox<String> jcbAlgoritmo;
+
     /**
-     * el ultimo indice selecionado del combo box
+     * el ultimo indice (de algoritmo) selecionado del combo box
      */
-    int indice = 0;
+    int algo_indice = 0;
+
+    /**
+     * el ultimo indice (de tipo de llave) selecionado del combo box
+     */
+    int tipo_indice = 0;
 
     /**
      * Archivo para guardar la configuracion de llave
@@ -338,15 +347,15 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         for(String s : cosas){
             jcbTipo.addItem(s);
         }
-        jcbTipo.setSelectedIndex(indice);
+        jcbTipo.setSelectedIndex(tipo_indice);
         jcbTipo.setBounds(70, 10, 90, 20);
         jcbTipo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (jcbTipo.getSelectedIndex() != indice){
-                    indice = jcbTipo.getSelectedIndex();
+                if (jcbTipo.getSelectedIndex() != tipo_indice){
+                    tipo_indice = jcbTipo.getSelectedIndex();
                     //El Usuario Seleciono:
-                    if (indice == 1){
+                    if (tipo_indice == 1){
                         //Texto
                         jtaTexto.setEditable(true);
                         jbGuardar.setEnabled(true);
@@ -359,7 +368,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(false);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 2) {
+                    } else if (tipo_indice == 2) {
                         //Archivo
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -371,7 +380,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setEnabled(true);
                         jtfArchivo.setBackground(Color.WHITE);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 3) {
+                    } else if (tipo_indice == 3) {
                         //Clave
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -384,7 +393,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(true);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 4) {
+                    } else if (tipo_indice == 4) {
                         //Matriz
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -397,7 +406,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(false);
                         jtMatriz.setEnabled(true);
-                    } else if (indice == 0) {
+                    } else if (tipo_indice == 0) {
                         //Ninguna Opcion
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(false);
@@ -505,6 +514,57 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         jspMatriz.setBounds(170, 150, 400, 160);
 
         jpLayout.add(jspMatriz);
+
+        jlAlgoritmo = new JLabel("Algoritmo:");
+        jlAlgoritmo.setBounds(10, 160, 150, 20);
+        jpLayout.add(jlAlgoritmo);
+
+        String[] algos = {"", "AutoTexto", "Cesar", "Librereta un Solo Uso", "Matrices", "Vigenere"};
+        jcbAlgoritmo = new JComboBox<String>();
+        for (String a : algos){
+            jcbAlgoritmo.addItem(a);
+        }
+        jcbAlgoritmo.setBounds(10, 180, 150, 20);
+        jcbAlgoritmo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (jcbAlgoritmo.getSelectedIndex() != algo_indice){
+                    int temp = algo_indice;
+                    algo_indice = jcbAlgoritmo.getSelectedIndex();
+                    //si el usuario no esta usando un archivo como llave, tenemos que verificar que es una llave compatible.
+                    if (tipo_indice != 2){
+                        //El Usuario Seleciono:
+                        if (algo_indice == 1){
+                            //AutoTexto
+                            if (tipo_indice != 1 && tipo_indice != 3){
+                                JOptionPane.showMessageDialog(null, "Para AutoTexto es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: AutoTexto falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 2) {
+                            //Cesar
+                        } else if (algo_indice == 3) {
+                            //Librereta de un Solo Uso
+                            if (tipo_indice != 1 && tipo_indice != 3){
+                                JOptionPane.showMessageDialog(null, "Para La Librereta de Un Solo Uso es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: Libereta de Un Solo Uso falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 4) {
+                            //Matrices
+                        } else if (algo_indice == 5) {
+                            //Vigenere
+                            if (tipo_indice != 1 && tipo_indice != 3){
+                                JOptionPane.showMessageDialog(null, "Para Vigenere es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: Vigenre falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 0) {
+                            //Ninguna Opcion
+                        }
+                    }
+                    //caso contrario leeremos el archivo para el metodo indicada
+                }
+            }
+        });
+        jpLayout.add(jcbAlgoritmo);
 
         this.setVisible(true);
     }
