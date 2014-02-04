@@ -77,10 +77,19 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
 
     JPasswordField jpfClave;
 
+    JLabel jlAlgoritmo;
+
+    JComboBox<String> jcbAlgoritmo;
+
     /**
-     * el ultimo indice selecionado del combo box
+     * el ultimo indice (de algoritmo) selecionado del combo box
      */
-    int indice = 0;
+    int algo_indice = 0;
+
+    /**
+     * el ultimo indice (de tipo de llave) selecionado del combo box
+     */
+    int tipo_indice = 0;
 
     /**
      * Archivo para guardar la configuracion de llave
@@ -109,16 +118,16 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                 jtaTexto.setText("");
                 jtfArchivo.setText("");
                 jpfClave.setText("");
-                DefaultTableModel dtmMatriz2 = (DefaultTableModel)jtMatriz.getModel();
+                DefaultTableModel dtmMatriz2 = (DefaultTableModel) jtMatriz.getModel();
                 int num_filas = 0;
-                while (dtmMatriz2.getRowCount() != 0){
+                while (dtmMatriz2.getRowCount() != 0) {
                     dtmMatriz2.removeRow(0);
                     num_filas++;
                 }
                 for (int f = 0; f < num_filas; f++) {
                     Object[] columnas = new Object[dtmMatriz2.getColumnCount()];
                     for (int c = 0; c < columnas.length; c++) {
-                        if (c == 0){
+                        if (c == 0) {
                             columnas[c] = Integer.toString(f + 1);
                         } else {
                             columnas[c] = "";
@@ -131,8 +140,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                 try {
                     PrintWriter escri = new PrintWriter(l_cfg);
                     String clave = "";
-                    if(jpfClave.getPassword() != null || jpfClave.getPassword().length != 0){
-                        for(char c : jpfClave.getPassword()){
+                    if (jpfClave.getPassword() != null || jpfClave.getPassword().length != 0) {
+                        for (char c : jpfClave.getPassword()) {
                             clave += c;
                         }
                     } else {
@@ -148,29 +157,29 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                             datos[f][c] = dtmMatriz.getValueAt(f, c);
 
                             sMatriz += dtmMatriz.getValueAt(f, c);
-                            if (f == fil - 1 && c == col - 1){
+                            if (f == fil - 1 && c == col - 1) {
                                 Object[] nueva = new Object[col];
                                 dtmMatriz.addRow(nueva);
                                 sMatriz += dtmMatriz.getValueAt(f, c);
                                 dtmMatriz.removeRow(fil);
                             }
 
-                            if(c != col-1){
+                            if (c != col - 1) {
                                 sMatriz += ";";
                             } else {
-                                if(f != fil-1){
+                                if (f != fil - 1) {
                                     sMatriz += "><";
                                 }
                             }
                         }
                     }
-                    if(sMatriz.charAt(sMatriz.length() - 1) == ';'){
-                        sMatriz += dtmMatriz.getValueAt(fil-1, col-1);
+                    if (sMatriz.charAt(sMatriz.length() - 1) == ';') {
+                        sMatriz += dtmMatriz.getValueAt(fil - 1, col - 1);
                     }
                     escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
                             (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
-                            clave,sMatriz);
+                            clave, sMatriz);
                     escri.flush();
                     escri.close();
                 } catch (FileNotFoundException fnfe) {
@@ -193,13 +202,13 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                     sc = new Scanner(f);
                     jtaTexto.setEnabled(false);
                     jtaTexto.setText("");
-                    while (sc.hasNextLine()){
+                    while (sc.hasNextLine()) {
                         jtaTexto.setText(jtaTexto.getText() + sc.nextLine() + "\n");
                     }
                 } catch (FileNotFoundException fnfe) {
                     //System.out.println("No se encontro el archivo!");
                 } finally {
-                    if(sc != null){
+                    if (sc != null) {
                         sc.close();
                     }
                 }
@@ -218,7 +227,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                 jfcAbrir.setDialogTitle("Abrir");
                 jfcAbrir.setApproveButtonText("Ok");
                 int op = jfcAbrir.showOpenDialog(null);
-                if (op == JFileChooser.APPROVE_OPTION){
+                if (op == JFileChooser.APPROVE_OPTION) {
                     jtfArchivo.setText(jfcAbrir.getSelectedFile().getAbsolutePath());
                 }
             }
@@ -234,7 +243,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         jpfClave.setEnabled(false);
         jpLayout.add(jpfClave);
 
-        DefaultTableModel dtmMatriz = new DefaultTableModel(){
+        DefaultTableModel dtmMatriz = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return column != 0;
@@ -242,17 +251,17 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         };
         byte num_fila = 4;
         byte num_colum = 4;
-        for(byte c = 0; c < num_colum; c++){
-            if(c == 0) {
+        for (byte c = 0; c < num_colum; c++) {
+            if (c == 0) {
                 dtmMatriz.addColumn("");
             } else {
                 dtmMatriz.addColumn(c);
             }
         }
-        for(byte f = 1; f < num_fila; f++){
+        for (byte f = 1; f < num_fila; f++) {
             String[] fila = new String[num_colum];
-            for(byte c = 0; c < num_colum; c++){
-                if(c == 0){
+            for (byte c = 0; c < num_colum; c++) {
+                if (c == 0) {
                     fila[c] = Byte.toString(f);
                 } else {
                     fila[c] = "";
@@ -283,48 +292,57 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         jbGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                l_cfg = new File("l_cfg.tmp");
-                try {
-                    PrintWriter escri = new PrintWriter(l_cfg);
-                    String clave = "";
-                    if(jpfClave.getPassword() != null || jpfClave.getPassword().length != 0){
-                        for(char c : jpfClave.getPassword()){
-                            clave += c;
+                int tipo = jcbTipo.getSelectedIndex();
+                int algo = jcbAlgoritmo.getSelectedIndex();
+                if ((tipo != 0 && algo != 0)
+                        && ((tipo == 2)
+                        || ((tipo == 1 || tipo == 3)
+                        && ((tipo <= 3 && tipo >= 1)
+                        || algo == 5))
+                        || (tipo == 4 && tipo == 4))) {
+                    l_cfg = new File("l_cfg.tmp");
+                    try {
+                        PrintWriter escri = new PrintWriter(l_cfg);
+                        String clave = "";
+                        if (jpfClave.getPassword() != null || jpfClave.getPassword().length != 0) {
+                            for (char c : jpfClave.getPassword()) {
+                                clave += c;
+                            }
+                        } else {
+                            clave = "\u0000";
                         }
-                    } else {
-                        clave = "\u0000";
-                    }
-                    DefaultTableModel dtmMatriz = (DefaultTableModel) jtMatriz.getModel();
-                    int fil = dtmMatriz.getRowCount();
-                    int col = dtmMatriz.getColumnCount();
-                    Object[][] datos = new String[fil][col];
-                    String sMatriz = "";
-                    for (int f = 0; f < fil; f++) {
-                        for (int c = 1; c < col; c++) {
-                            datos[f][c] = dtmMatriz.getValueAt(f, c);
-                            //System.out.println("f = " + f + " c = " + c);
-                            sMatriz += dtmMatriz.getValueAt(f, c);
-                            //System.out.println(sMatriz);
-                            if(c != col-1){
-                                sMatriz += ";";
-                            } else {
-                                if(f != fil-1){
-                                    sMatriz += "><";
+                        DefaultTableModel dtmMatriz = (DefaultTableModel) jtMatriz.getModel();
+                        int fil = dtmMatriz.getRowCount();
+                        int col = dtmMatriz.getColumnCount();
+                        Object[][] datos = new String[fil][col];
+                        String sMatriz = "";
+                        for (int f = 0; f < fil; f++) {
+                            for (int c = 1; c < col; c++) {
+                                datos[f][c] = dtmMatriz.getValueAt(f, c);
+                                //System.out.println("f = " + f + " c = " + c);
+                                sMatriz += dtmMatriz.getValueAt(f, c);
+                                //System.out.println(sMatriz);
+                                if (c != col - 1) {
+                                    sMatriz += ";";
+                                } else {
+                                    if (f != fil - 1) {
+                                        sMatriz += "><";
+                                    }
                                 }
                             }
                         }
+                        escri.printf("%d,%s,%s,%s,%s,%d", jcbTipo.getSelectedIndex(),
+                                (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
+                                (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
+                                clave, sMatriz, jcbAlgoritmo.getSelectedIndex());
+                        escri.flush();
+                        escri.close();
+                    } catch (FileNotFoundException fnfe) {
+                        fnfe.printStackTrace();
                     }
-                    escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
-                            (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
-                            (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
-                            clave,sMatriz);
-                    escri.flush();
-                    escri.close();
-                } catch (FileNotFoundException fnfe) {
-                    fnfe.printStackTrace();
+                    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    dispose();
                 }
-                setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                dispose();
             }
         });
         jpLayout.add(jbGuardar);
@@ -335,18 +353,18 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
 
         String[] cosas = {"", "Texto", "Archivo", "Clave", "Matriz"};
         jcbTipo = new JComboBox<String>();
-        for(String s : cosas){
+        for (String s : cosas) {
             jcbTipo.addItem(s);
         }
-        jcbTipo.setSelectedIndex(indice);
+        jcbTipo.setSelectedIndex(tipo_indice);
         jcbTipo.setBounds(70, 10, 90, 20);
         jcbTipo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (jcbTipo.getSelectedIndex() != indice){
-                    indice = jcbTipo.getSelectedIndex();
+                if (jcbTipo.getSelectedIndex() != tipo_indice) {
+                    tipo_indice = jcbTipo.getSelectedIndex();
                     //El Usuario Seleciono:
-                    if (indice == 1){
+                    if (tipo_indice == 1) {
                         //Texto
                         jtaTexto.setEditable(true);
                         jbGuardar.setEnabled(true);
@@ -359,7 +377,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(false);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 2) {
+                    } else if (tipo_indice == 2) {
                         //Archivo
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -371,7 +389,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setEnabled(true);
                         jtfArchivo.setBackground(Color.WHITE);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 3) {
+                    } else if (tipo_indice == 3) {
                         //Clave
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -384,7 +402,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(true);
                         jtMatriz.setEnabled(false);
-                    } else if (indice == 4) {
+                    } else if (tipo_indice == 4) {
                         //Matriz
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(true);
@@ -397,7 +415,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtfArchivo.setBackground(Color.LIGHT_GRAY);
                         jpfClave.setEnabled(false);
                         jtMatriz.setEnabled(true);
-                    } else if (indice == 0) {
+                    } else if (tipo_indice == 0) {
                         //Ninguna Opcion
                         jtaTexto.setEditable(false);
                         jbGuardar.setEnabled(false);
@@ -439,26 +457,26 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         jlMatriz.setBounds(170, 130, 60, 20);
         jpLayout.add(jlMatriz);
 
-        if(new File("l_cfg.tmp").exists()){
+        if (new File("l_cfg.tmp").exists()) {
             l_cfg = new File("l_cfg.tmp");
             try {
                 Scanner lec = new Scanner(l_cfg);
-                if(lec.hasNextLine()){
+                if (lec.hasNextLine()) {
                     String datos = "";
-                    while(lec.hasNextLine()){
+                    while (lec.hasNextLine()) {
                         datos += lec.nextLine();
-                        if(lec.hasNextLine()){
+                        if (lec.hasNextLine()) {
                             datos += '\n';
                         }
                     }
                     String[] valores = datos.split(",");
-                    if(valores.length == 5){
+                    if (valores.length == 5) {
                         int tipo;
                         try {
                             tipo = Integer.parseInt(valores[0]);
-                            if(tipo >= 0 && tipo <= 4){
+                            if (tipo >= 0 && tipo <= 4) {
                                 jcbTipo.setSelectedIndex(tipo);
-                                if(tipo == 1){
+                                if (tipo == 1) {
                                     jtaTexto.setText(valores[1]);
                                 } else if (tipo == 2) {
                                     jtfArchivo.setText(valores[2]);
@@ -475,7 +493,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                                         String[] fpa = new String[num_c];
                                         fpa[0] = Integer.toString(f + 1);
                                         int c = 1;
-                                        for(String col : fila){
+                                        for (String col : fila) {
                                             fpa[c] = col;
                                             c++;
                                         }
@@ -506,11 +524,71 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
 
         jpLayout.add(jspMatriz);
 
+        jlAlgoritmo = new JLabel("Algoritmo:");
+        jlAlgoritmo.setBounds(10, 160, 150, 20);
+        jpLayout.add(jlAlgoritmo);
+
+        String[] algos = {"", "AutoTexto", "Cesar", "Librereta un Solo Uso", "Matrices", "Vigenere"};
+        jcbAlgoritmo = new JComboBox<String>();
+        for (String a : algos) {
+            jcbAlgoritmo.addItem(a);
+        }
+        jcbAlgoritmo.setBounds(10, 180, 150, 20);
+        jcbAlgoritmo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (jcbAlgoritmo.getSelectedIndex() != algo_indice) {
+                    int temp = algo_indice;
+                    algo_indice = jcbAlgoritmo.getSelectedIndex();
+                    //si el usuario no esta usando un archivo como llave, tenemos que verificar que es una llave compatible.
+                    if (tipo_indice != 2) {
+                        //El Usuario Seleciono:
+                        if (algo_indice == 1) {
+                            //AutoTexto
+                            if (tipo_indice != 1 && tipo_indice != 3) {
+                                JOptionPane.showMessageDialog(null, "Para AutoTexto es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: AutoTexto falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 2) {
+                            //Cesar
+                            if (tipo_indice != 1 && tipo_indice != 3) {
+                                JOptionPane.showMessageDialog(null, "Para Cesar es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: Cesar falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 3) {
+                            //Librereta de un Solo Uso
+                            if (tipo_indice != 1 && tipo_indice != 3) {
+                                JOptionPane.showMessageDialog(null, "Para La Librereta de Un Solo Uso es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: Libereta de Un Solo Uso falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 4) {
+                            //Matrices
+                            if (tipo_indice != 4) {
+                                JOptionPane.showMessageDialog(null, "Para Matrices es necessario ingresar numeros en la tabla.", "Alerta: Matrices falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 5) {
+                            //Vigenere
+                            if (tipo_indice != 1 && tipo_indice != 3) {
+                                JOptionPane.showMessageDialog(null, "Para Vigenere es necessario ingresar texto en la caja de texto o campo de clave.", "Alerta: Vigenre falta una llave valida.", JOptionPane.WARNING_MESSAGE);
+                                jcbAlgoritmo.setSelectedIndex(temp);
+                            }
+                        } else if (algo_indice == 0) {
+                            //Ninguna Opcion
+                        }
+                    }
+                    //caso contrario leeremos el archivo para el metodo indicada
+                }
+            }
+        });
+        jpLayout.add(jcbAlgoritmo);
+
         this.setVisible(true);
     }
 
     /**
      * Metodo principal de esta clase, solo se debe usar para probar este clase
+     *
      * @param args argumentos con que se ejecuta la clase
      */
     public static void main(String[] args) {
