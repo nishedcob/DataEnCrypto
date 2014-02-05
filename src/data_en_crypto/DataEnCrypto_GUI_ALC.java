@@ -556,7 +556,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
             jcbModo.addItem(m);
         }
         jcbModo.setBounds(10, 230, 150, 20);
-
+        jpLayout.add(jcbModo);
 
         if (new File("l_cfg.tmp").exists()) {
             l_cfg = new File("l_cfg.tmp");
