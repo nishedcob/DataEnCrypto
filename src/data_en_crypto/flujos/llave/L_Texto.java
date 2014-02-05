@@ -36,9 +36,9 @@ final public class L_Texto extends E_Texto implements Llave_Tipos {
      * @param data   datos para almacenar en este objeto
      * @param lector el scanner que este entrada debe usar para leer
      */
-    public L_Texto(String data, Scanner lector, byte tipo) {
+    public L_Texto(String data, Scanner lector, byte tipo) throws Llave_Invalido_Exception {
         super(data, lector);
-        L = this.crearLlave(tipo);
+        L = this.crearLlave2(tipo);
     }
 
     /**
@@ -188,6 +188,151 @@ final public class L_Texto extends E_Texto implements Llave_Tipos {
             default:
                 return new Llave();
 //                break;
+        }
+    }
+
+    /**
+     * Metodo que crea un tipo de llave especifica de datos leidos del configuracion de llave
+     * @param tipo el tipo de llave que queremos crear
+     * @return la llave creada
+     */
+    private Llave crearLlave2(byte tipo) throws Llave_Invalido_Exception {
+        int n;
+        boolean t, s;
+        switch (tipo) {
+            case TIPO_LLAVE_CLAVE:
+            case TIPO_LLAVE_LIBRERETA:
+                return new Llave(tipo, data);
+            case TIPO_LLAVE_NUMERICA:
+                int num = 0;
+                try {
+                    num = (int) (Double.parseDouble(data));
+                } catch (NumberFormatException nfe) {
+                    num = crear_numero(data);
+                } finally {
+                    return new Llave(tipo, num);
+                }
+            case TIPO_LLAVE_ARREGLO:
+                n = data.split("\t").length;
+                t = !(n == 0 || n == 1);
+                n = data.split(" ").length;
+                s = !(n == 0 || n == 1);
+                String[] numeros;
+                int[] arreglo;
+                if (!(t || s)) {
+                    throw new InputMismatchException("Valores debe ser seperadas por espacios: \' \' o tabulaciones: \'\t\'!");
+                } else {
+                    if (t && !s) {
+                        numeros = data.split("\t");
+                    } else if (s && !t) {
+                        numeros = data.split(" ");
+                    } else {
+                        throw new InputMismatchException("Hay que elegir un seperador, no se puede usar los dos.");
+                    }
+                    int dim = numeros.length;
+                    arreglo = new int[dim];
+                    int p = 0;
+                    for (int i = 0; i < arreglo.length; i++) {
+                        n = 0;
+                        try {
+                            n = (int) (Double.parseDouble(numeros[p]));
+                        } catch (NumberFormatException nfe) {
+                            n = crear_numero(numeros[p]);
+                        }
+                        arreglo[i] = n;
+                        p++;
+                    }
+                }
+                return new Llave(tipo, arreglo);
+            case TIPO_LLAVE_MATRIZ:
+                String col[] = data.split(";");
+                int num_fil = data.split("><").length;
+                int num_col = col.length / num_fil;
+                boolean pc = (col.length != 0 && num_col >= 2);
+                boolean ln = (num_fil != 0 && num_fil >= 2);
+                boolean cuad = (pc && ln) && (num_col == num_fil);
+                String[][] nums = new String[num_col][num_fil];
+                if (!cuad) {
+                    throw new Llave_Invalido_Exception();
+                } else {
+                    int f = 0, c = 0;
+                    for (String v : col){
+                        if (v.charAt(0) == '>') v = v.substring(1);
+                        if (v.charAt(0) == '<') v = v.substring(1);
+                        nums[c][f] = v;
+                        c++;
+                        if (c == num_col) {
+                            c = 0;
+                            f++;
+                        }
+                    }
+                    int[][] matriz = new int[num_col][num_fil];
+                    for (int i = 0; i < num_col; i++) {
+                        for (int j = 0; j < num_fil; j++) {
+                            try {
+                                n = (int) (Double.parseDouble(nums[i][j]));
+                            } catch (NumberFormatException nfe) {
+                                n = crear_numero(nums[i][j]);
+                            }
+                            matriz[i][j] = n;
+                        }
+                    }
+                    return new Llave(tipo, matriz);
+                }
+            case TIPO_LLAVE_TABLA:
+                n = data.split("\t").length;
+                t = !(n == 0 || n == 1);
+                n = data.split(" ").length;
+                s = !(n == 0 || n == 1);
+                String[] data_puntos = null;
+                char[] caracteres = null;
+                boolean dp = false,
+                        ch = false;
+                if (!(t || s)) {
+
+                } else {
+                    if (t && !s) {
+                        data_puntos = data.split("\t");
+                        dp = true;
+                    } else if (s && !t) {
+                        data_puntos = data.split(" ");
+                        dp = true;
+                    } else {
+                        caracteres = data.toCharArray();
+                        ch = true;
+                    }
+                    int dim = 0;
+                    if (dp) {
+                        dim = encontrarCuadrado(data_puntos.length);
+                    } else if (ch) {
+                        dim = encontrarCuadrado(caracteres.length);
+                    }
+                    char[][] tabla = new char[dim][dim];
+                    int p = 0;
+                    for (int i = 0; i < tabla.length; i++) {
+                        for (int j = 0; j < tabla.length; j++) {
+                            char c = 0;
+                            if (dp) {
+                                if (p < data_puntos.length) {
+                                    if (data_puntos[p].length() != 1) {
+                                        c = crear_char(data_puntos[p]);
+                                    } else {
+                                        c = data_puntos[p].charAt(0);
+                                    }
+                                }
+                            } else {
+                                if (p < caracteres.length) {
+                                    c = caracteres[p];
+                                }
+                            }
+                            tabla[i][j] = c;
+                            p++;
+                        }
+                    }
+                    return new Llave(tipo, tabla);
+                }
+            default:
+                return new Llave();
         }
     }
 
