@@ -8,6 +8,9 @@ Uno se puede leer mas, y informacion mas actualizada en nuestro wiki: https://gi
 Licencia, Terminos y Condiciones de Uso
 =======================================
 Como usuario, Ud. tiene permiso de usar DataEnCrypto para cualquier uso que quiere. Los autores no toman responsabilidad por los acciones de los usuarios del software.
+
 Como usuario, Ud. tiene permiso de leer el codigo fuente, estudiarlo y modificarlo como quiere.
+
 Como usuario, Ud. tiene permiso de distribuir copias del codigo original si y solo si Ud. da credito al autores originales para su trabajo ("Codigo Original por Nishedcob et al." es sufficiente) y tambien se distriuba el codigo sin ningun costo al usuario final.
+
 Como usuario, Ud. tiene permiso de distribuir copias de su codigo modificado si y solo si Ud. da credito al autores originales para su trabajo ("Codigo Original por Nishedcob et al." es sufficiente) y tambien se distriuba el codigo sin ningun costo al usuario final.
