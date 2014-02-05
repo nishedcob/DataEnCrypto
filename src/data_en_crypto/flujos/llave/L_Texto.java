@@ -7,12 +7,13 @@ package data_en_crypto.flujos.llave;
 
 import data_en_crypto.flujos.entrada.E_Texto;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * Flujo de Llave por medio de un campo de texto (por ejemplo la consola)
  * @author nyx
  */
-public class L_Texto extends E_Texto implements Llave_Tipos {
+final public class L_Texto extends E_Texto implements Llave_Tipos {
 
     /**
      * La llave encapsulada por este objeto.
@@ -26,6 +27,17 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
      */
     public L_Texto(String Val_Salida, byte tipo) {
         super(Val_Salida);
+        L = this.crearLlave(tipo);
+    }
+
+    /**
+     * Crea un nuevo flujo de entrada de llave de texto con datos ya leidos.
+     *
+     * @param data   datos para almacenar en este objeto
+     * @param lector el scanner que este entrada debe usar para leer
+     */
+    public L_Texto(String data, Scanner lector, byte tipo) {
+        super(data, lector);
         L = this.crearLlave(tipo);
     }
 
@@ -241,6 +253,10 @@ public class L_Texto extends E_Texto implements Llave_Tipos {
         return c;
     }
 
+    /**
+     * Devuelve la llave encapsulado por este objeto
+     * @return la llave de este flujo
+     */
     public Llave getL() {
         return L;
     }
