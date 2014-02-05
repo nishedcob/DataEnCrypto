@@ -1,7 +1,5 @@
 package data_en_crypto;
 
-import sun.print.resources.serviceui_zh_TW;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -181,9 +179,7 @@ public class DataEnCrypto_GUI_AEC extends JFrame implements ItemListener, Action
 
         jtaTexto = new JTextArea();
         jtaTexto.setBounds(0, 0, 400, 60);
-        //jtaTexto.setEnabled(false);
         jtaTexto.setEditable(false);
-        //jtaTexto.setBackground(Color.LIGHT_GRAY);
 
         jspTexto = new JScrollPane(jtaTexto);
         jspTexto.setBounds(170, 10, 420, 80);

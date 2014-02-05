@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
+ * Configuracion de Flujo de Salida
  * Created by nyx on 1/29/14 at 7:54 PM.
  */
 public class DataEnCrypto_GUI_ASC extends JFrame {

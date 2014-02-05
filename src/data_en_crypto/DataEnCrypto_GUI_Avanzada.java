@@ -1,14 +1,8 @@
 package data_en_crypto;
 
 import data_en_crypto.cifras.*;
-import data_en_crypto.flujos.entrada.E_Archivo;
-import data_en_crypto.flujos.entrada.E_Texto;
-import data_en_crypto.flujos.entrada.Entrada;
-import data_en_crypto.flujos.entrada.Entrada_Invalido_Exception;
-import data_en_crypto.flujos.llave.L_Archivo;
-import data_en_crypto.flujos.llave.L_Texto;
-import data_en_crypto.flujos.llave.Llave_Invalido_Exception;
-import data_en_crypto.flujos.llave.Llave_Tipos;
+import data_en_crypto.flujos.entrada.*;
+import data_en_crypto.flujos.llave.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -210,8 +204,6 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                 + "\tFalta de Configuracion de Entrada.");
             JOptionPane.showMessageDialog(null, "No existe una configuracion de Entrada", "Error: Configuracion de Entrada no Encontrado", JOptionPane.ERROR_MESSAGE);
         }
-        /*JOptionPane.showMessageDialog(null, "Aun no implimentado!",
-                "Proceso", JOptionPane.WARNING_MESSAGE);*/
     }
 
     /**
@@ -253,6 +245,9 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
      */
     JLabel jlConsola;
 
+    /**
+     * Objeto para facilitar lectura de la consola
+     */
     JScrollPane jspConsola;
 
     /**

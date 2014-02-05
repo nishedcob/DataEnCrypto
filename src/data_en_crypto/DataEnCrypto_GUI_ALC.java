@@ -104,8 +104,14 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
      */
     JComboBox<String> jcbAlgoritmo;
 
+    /**
+     * Un Label para indentificar para el usuario donde debe elegir el modo de operacion del programa
+     */
     JLabel jlModo;
 
+    /**
+     * el combo box para elegir el modo de operacion
+     */
     JComboBox<String> jcbModo;
 
     /**

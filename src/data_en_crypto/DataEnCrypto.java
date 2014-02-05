@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * Paquete principal. Contiene el nucleo del programa y interfaces graficas.
  */
 package data_en_crypto;
 
-/*
- import java.io.File;
- import java.io.FileNotFoundException;
- import java.util.Scanner;
- */
 import data_en_crypto.cifras.*;
 import data_en_crypto.flujos.entrada.*;
 import data_en_crypto.flujos.llave.*;
@@ -20,8 +10,6 @@ import data_en_crypto.flujos.salida.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 
 /**
  * Nucleo para el programa para cuando corre sin interfaz grafica.

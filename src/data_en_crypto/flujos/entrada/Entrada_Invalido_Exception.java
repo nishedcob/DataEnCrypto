@@ -1,6 +1,7 @@
 package data_en_crypto.flujos.entrada;
 
 /**
+ * Exception para cuando un entrada no es valido
  * Created by nyx at 1:09 PM on 02 February 2014.
  */
 public class Entrada_Invalido_Exception extends Exception {

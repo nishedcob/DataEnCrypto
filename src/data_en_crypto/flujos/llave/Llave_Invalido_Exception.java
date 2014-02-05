@@ -1,6 +1,7 @@
 package data_en_crypto.flujos.llave;
 
 /**
+ * Una excepcion para cuando una llave es invalida
  * Created by nyx at 1:18 PM on 02 February 2014.
  */
 public class Llave_Invalido_Exception extends Exception{
