@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package data_en_crypto.flujos.entrada;
 
-//import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-//import java.util.Scanner;
 
 /**
  * Flujo de Entrada que es un archivo.
@@ -66,7 +59,7 @@ public class E_Archivo extends Entrada{
      * Crea un flujo de archivo de entrada con todo el path completo
      * @param path todo el path completo
      * @param leerAlRAM si debemos leer al RAM o no
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException si el archivo no fue encontrado
      */
     public E_Archivo(String path, boolean leerAlRAM) throws FileNotFoundException {
         super(path);
