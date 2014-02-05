@@ -8,32 +8,59 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
+ * Interfaz Grafica para Menu Principal
  * Created by nyx on 1/25/14 at 5:36 PM.
  */
 public class DataEnCrypto_GUI_Menu extends JFrame {
 
+    /**
+     * Panel de contenido del interfaz
+     */
     JPanel jpLayout;
 
+    /**
+     * Objeto par mostrar imagen
+     */
     JLabel jlIcono;
 
+    /**
+     * Objeto para mostrar el titulo
+     */
     JLabel jlTitulo;
 
+    /**
+     * Buton para lanzar el interfaz basica
+     */
     JButton jbInterfazBasica;
 
+    /**
+     * Buton para lanzar el interfaz avanzada
+     */
     JButton jbInterfazAvanzada;
 
+    /**
+     * Buton para salir
+     */
     JButton jbSalir;
 
+    /**
+     * Objeto que guarda el interfaz basica
+     */
     DataEnCrypto_GUI_Basico dec_gui_b;
 
+    /**
+     * Objeto que guarda el interfaz avanzada
+     */
     DataEnCrypto_GUI_Avanzada dec_gui_a;
 
+    /**
+     * Constructor del clase (dibuja todo en la pantalla)
+     */
     public DataEnCrypto_GUI_Menu(){
         super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA");
         try {
             this.setIconImage(ImageIO.read(new File("/data_en_crypto/imgs/Icon_64x64.png")));
         } catch (IOException e) {
-//            e.printStackTrace();
         }
         this.setSize(225, 280);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -41,9 +68,6 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
         jpLayout = new JPanel(null);
         this.setContentPane(jpLayout);
 
-//        setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon_Small.png")));
-//
-//        iiIcono = new ImageIcon("data_en_crypto/imgs/Icon_Medium.png");
         jlIcono = new JLabel();
         jlIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data_en_crypto/imgs/Icon_Small.png")));
         jlIcono.setBounds(70, 10, 73, 73);
@@ -78,8 +102,6 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
         jbSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//                dispose();
                 System.exit(0);
             }
         });
