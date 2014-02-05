@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
+ * Interfaz Grafica para Configuracion Avanzada de La Llave
  * Created by nyx on 1/23/14 at 11:43 AM.
  */
 public class DataEnCrypto_GUI_ALC extends JFrame {
@@ -44,7 +45,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
     JButton jbGuardar;
 
     /**
-     * Una label para ayudar el usuario entender el combo box
+     * Una label para ayudar el usuario entender el combo box para tipo de llave
      */
     JLabel jlTipo;
     /**
@@ -67,18 +68,40 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
      */
     JTextField jtfArchivo;
 
+    /**
+     * Un label para indentificar el tabla donde el usuario debe ingresar una matriz
+     */
     JLabel jlMatriz;
 
+    /**
+     * Un objeto para facilitar la navegacion de la matriz en caso de que la matriz
+     * llega a ser mas grande que su lugar
+     */
     JScrollPane jspMatriz;
 
+    /**
+     * Una tabla en cual se amacena la matriz y tambien permita el usuario ingresar su matriz
+     */
     JTable jtMatriz;
 
+    /**
+     * Un label para indentificar para el usuario donde puede ingresar una clave
+     */
     JLabel jlClave;
 
+    /**
+     * Campo de Contasena
+     */
     JPasswordField jpfClave;
 
+    /**
+     * Un Label para indentificar para el usuario donde debe elegir el algoritmo que quiere que el programa use
+     */
     JLabel jlAlgoritmo;
 
+    /**
+     * El combo box para elegir un algoritmo
+     */
     JComboBox<String> jcbAlgoritmo;
 
     /**
@@ -206,7 +229,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         jtaTexto.setText(jtaTexto.getText() + sc.nextLine() + "\n");
                     }
                 } catch (FileNotFoundException fnfe) {
-                    //System.out.println("No se encontro el archivo!");
+                    jtaTexto.setText("No se encontro el archivo: " + f.getAbsolutePath());
                 } finally {
                     if (sc != null) {
                         sc.close();
@@ -294,12 +317,12 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int tipo = jcbTipo.getSelectedIndex();
                 int algo = jcbAlgoritmo.getSelectedIndex();
-                if ((tipo != 0 && algo != 0)
-                        && ((tipo == 2)
-                        || ((tipo == 1 || tipo == 3)
-                        && ((tipo <= 3 && tipo >= 1)
-                        || algo == 5))
-                        || (tipo == 4 && tipo == 4))) {
+                if ((tipo != 0 && algo != 0) //si tipo y algo tienen un valor y uno de los sigiuente condiciones se cumple
+                        && ((tipo == 2) // [1] si tipo de de tipo archivo
+                        || ((tipo == 1 || tipo == 3) // OR [2] si tipo es texto OR clave
+                        && ((algo <= 3 && algo >= 1) // (2 seguida) AND el algoritmo es AutoTexto, Cesar, Librereta de Un Solo Uso
+                        || algo == 5))               // (2 seguida) OR Vigenre
+                        || (tipo == 4 && algo == 4))) { // OR [3] tipo AND algoritmo son de Matri(z/ces)
                     l_cfg = new File("l_cfg.tmp");
                     try {
                         PrintWriter escri = new PrintWriter(l_cfg);
@@ -319,9 +342,7 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         for (int f = 0; f < fil; f++) {
                             for (int c = 1; c < col; c++) {
                                 datos[f][c] = dtmMatriz.getValueAt(f, c);
-                                //System.out.println("f = " + f + " c = " + c);
                                 sMatriz += dtmMatriz.getValueAt(f, c);
-                                //System.out.println(sMatriz);
                                 if (c != col - 1) {
                                     sMatriz += ";";
                                 } else {
@@ -342,6 +363,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                     }
                     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
                     dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El tipo de la llave no es compatible con el algoritmo eligido", "Alerta: Llave Tipo, Algoritmo de Proceso son incompatibles.", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
@@ -457,73 +480,6 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         jlMatriz.setBounds(170, 130, 60, 20);
         jpLayout.add(jlMatriz);
 
-        if (new File("l_cfg.tmp").exists()) {
-            l_cfg = new File("l_cfg.tmp");
-            try {
-                Scanner lec = new Scanner(l_cfg);
-                if (lec.hasNextLine()) {
-                    String datos = "";
-                    while (lec.hasNextLine()) {
-                        datos += lec.nextLine();
-                        if (lec.hasNextLine()) {
-                            datos += '\n';
-                        }
-                    }
-                    String[] valores = datos.split(",");
-                    if (valores.length == 5) {
-                        int tipo;
-                        try {
-                            tipo = Integer.parseInt(valores[0]);
-                            if (tipo >= 0 && tipo <= 4) {
-                                jcbTipo.setSelectedIndex(tipo);
-                                if (tipo == 1) {
-                                    jtaTexto.setText(valores[1]);
-                                } else if (tipo == 2) {
-                                    jtfArchivo.setText(valores[2]);
-                                } else if (tipo == 3) {
-                                    jpfClave.setText(valores[3]);
-                                } else if (tipo == 4) {
-                                    byte num_c = 4;
-
-                                    String[] filas = valores[4].split("><");
-
-                                    for (int f = 0; f < filas.length; f++) {
-                                        String[] fila = filas[f].split(";");
-
-                                        String[] fpa = new String[num_c];
-                                        fpa[0] = Integer.toString(f + 1);
-                                        int c = 1;
-                                        for (String col : fila) {
-                                            fpa[c] = col;
-                                            c++;
-                                        }
-
-                                        dtmMatriz.removeRow(0);
-                                        dtmMatriz.addRow(fpa);
-                                    }
-                                }
-                            }
-                        } catch (NumberFormatException e) {
-                            //el archivo no es escrito de una forma correcta
-                        }
-                    }
-                }
-            } catch (FileNotFoundException e) {
-                //error impossible
-            }
-        }
-
-        jtMatriz = new JTable(dtmMatriz);
-        jtMatriz.setBounds(0, 0, 210, 140);
-        jtMatriz.setEnabled(false);
-
-        jspMatriz = new JScrollPane(jtMatriz);
-        jspMatriz.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jspMatriz.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jspMatriz.setBounds(170, 150, 400, 160);
-
-        jpLayout.add(jspMatriz);
-
         jlAlgoritmo = new JLabel("Algoritmo:");
         jlAlgoritmo.setBounds(10, 160, 150, 20);
         jpLayout.add(jlAlgoritmo);
@@ -582,6 +538,77 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
             }
         });
         jpLayout.add(jcbAlgoritmo);
+
+        if (new File("l_cfg.tmp").exists()) {
+            l_cfg = new File("l_cfg.tmp");
+            try {
+                Scanner lec = new Scanner(l_cfg);
+                if (lec.hasNextLine()) {
+                    String datos = "";
+                    while (lec.hasNextLine()) {
+                        datos += lec.nextLine();
+                        if (lec.hasNextLine()) {
+                            datos += '\n';
+                        }
+                    }
+                    String[] valores = datos.split(",");
+                    if (valores.length == 6) {
+                        int tipo;
+                        int algo;
+                        try {
+                            tipo = Integer.parseInt(valores[0]);
+                            if (tipo >= 0 && tipo <= 4) {
+                                jcbTipo.setSelectedIndex(tipo);
+                                if (tipo == 1) {
+                                    jtaTexto.setText(valores[1]);
+                                } else if (tipo == 2) {
+                                    jtfArchivo.setText(valores[2]);
+                                } else if (tipo == 3) {
+                                    jpfClave.setText(valores[3]);
+                                } else if (tipo == 4) {
+                                    byte num_c = 4;
+
+                                    String[] filas = valores[4].split("><");
+
+                                    for (int f = 0; f < filas.length; f++) {
+                                        String[] fila = filas[f].split(";");
+
+                                        String[] fpa = new String[num_c];
+                                        fpa[0] = Integer.toString(f + 1);
+                                        int c = 1;
+                                        for (String col : fila) {
+                                            fpa[c] = col;
+                                            c++;
+                                        }
+
+                                        dtmMatriz.removeRow(0);
+                                        dtmMatriz.addRow(fpa);
+                                    }
+                                }
+                                algo = Integer.parseInt(valores[5]);
+                                if (algo < 0 || algo > 5) algo = 0;
+                                jcbAlgoritmo.setSelectedIndex(algo);
+                            }
+                        } catch (NumberFormatException e) {
+                            //el archivo no es escrito de una forma correcta y por lo tanto no hace sentido seguir leyendolo
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                //error impossible
+            }
+        }
+
+        jtMatriz = new JTable(dtmMatriz);
+        jtMatriz.setBounds(0, 0, 210, 140);
+        jtMatriz.setEnabled(false);
+
+        jspMatriz = new JScrollPane(jtMatriz);
+        jspMatriz.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jspMatriz.setBounds(170, 150, 400, 160);
+
+        jpLayout.add(jspMatriz);
 
         this.setVisible(true);
     }
