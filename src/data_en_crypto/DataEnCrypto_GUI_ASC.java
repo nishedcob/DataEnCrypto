@@ -13,24 +13,58 @@ import java.io.PrintWriter;
  */
 public class DataEnCrypto_GUI_ASC extends JFrame {
 
+    /**
+     * El Panel de contenido de este interfaz grafica
+     */
     JPanel jpLayout;
 
+    /**
+     * El caja de texto que nos permite ver la salida del programa
+     */
     JTextArea jtaMuestra;
 
+    /**
+     * El objeto que nos facilita navegacion de la caja de texto arriba
+     */
     JScrollPane jspMuestra;
 
+    /**
+     * El buton para mostrar la salida
+     */
     JButton jbMostrar;
 
+    /**
+     * Un campo que nos dice donde va a guardar el archivo
+     */
     JTextField jtfArchivo;
 
+    /**
+     * Un buton para seleccionar el lugar donde queremos guardar el archivo
+     */
     JButton jbGuardarComo;
 
+    /**
+     * Un buton para cancelar
+     */
     JButton jbCancelar;
 
+    /**
+     * Un buton para guardar en el lugar y archivo seleccionado
+     */
     JButton jbGuardar;
 
-    public DataEnCrypto_GUI_ASC() {
+    /**
+     * El variable que guarda los datos para guardar o mostrar despues
+     */
+    private final String DATA;
+
+    /**
+     * El constructor de esta clase
+     * @param data los datos de salida
+     */
+    public DataEnCrypto_GUI_ASC(String data) {
         super("DataEnCrypto v" + Cargador.getVersion() + " (GUI de Configuracion Avanzada de Salida)");
+        this.DATA = data;
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setSize(600, 200);
 
@@ -56,7 +90,7 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
         jbMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //escribir al jtaMuestra aqui
+                jtaMuestra.setText(DATA);
             }
         });
         jpLayout.add(jbMostrar);
@@ -102,9 +136,11 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
                     File arch = new File(jtfArchivo.getText());
                     try {
                         PrintWriter ae = new PrintWriter(arch);
-                        //escribir al archivo aqui
-                    } catch (FileNotFoundException e1) {
-
+                        ae.print(DATA);
+                        ae.flush();
+                        ae.close();
+                    } catch (FileNotFoundException fnfe) {
+                        jtaMuestra.setText("Archivo " + arch.getAbsolutePath() + " no fue encontrado.");
                     }
                 }
             }
