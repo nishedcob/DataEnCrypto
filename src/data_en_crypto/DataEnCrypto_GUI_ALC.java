@@ -104,6 +104,10 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
      */
     JComboBox<String> jcbAlgoritmo;
 
+    JLabel jlModo;
+
+    JComboBox<String> jcbModo;
+
     /**
      * el ultimo indice (de algoritmo) selecionado del combo box
      */
@@ -141,6 +145,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                 jtaTexto.setText("");
                 jtfArchivo.setText("");
                 jpfClave.setText("");
+                jcbAlgoritmo.setSelectedIndex(0);
+                jcbModo.setSelectedIndex(0);
                 DefaultTableModel dtmMatriz2 = (DefaultTableModel) jtMatriz.getModel();
                 int num_filas = 0;
                 while (dtmMatriz2.getRowCount() != 0) {
@@ -199,10 +205,10 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                     if (sMatriz.charAt(sMatriz.length() - 1) == ';') {
                         sMatriz += dtmMatriz.getValueAt(fil - 1, col - 1);
                     }
-                    escri.printf("%d,%s,%s,%s,%s", jcbTipo.getSelectedIndex(),
+                    escri.printf("%d,%s,%s,%s,%s,%d,%d", jcbTipo.getSelectedIndex(),
                             (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
                             (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
-                            clave, sMatriz);
+                            clave, sMatriz,jcbAlgoritmo.getSelectedIndex(), jcbModo.getSelectedIndex());
                     escri.flush();
                     escri.close();
                 } catch (FileNotFoundException fnfe) {
@@ -317,7 +323,8 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int tipo = jcbTipo.getSelectedIndex();
                 int algo = jcbAlgoritmo.getSelectedIndex();
-                if ((tipo != 0 && algo != 0) //si tipo y algo tienen un valor y uno de los sigiuente condiciones se cumple
+                int modo = jcbModo.getSelectedIndex();
+                if ((tipo != 0 && algo != 0 && modo != 0) //si tipo, algo y modo tienen un valor y uno de los sigiuente condiciones se cumple
                         && ((tipo == 2) // [1] si tipo de de tipo archivo
                         || ((tipo == 1 || tipo == 3) // OR [2] si tipo es texto OR clave
                         && ((algo <= 3 && algo >= 1) // (2 seguida) AND el algoritmo es AutoTexto, Cesar, Librereta de Un Solo Uso
@@ -352,10 +359,10 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                                 }
                             }
                         }
-                        escri.printf("%d,%s,%s,%s,%s,%d", jcbTipo.getSelectedIndex(),
+                        escri.printf("%d,%s,%s,%s,%s,%d,%d", jcbTipo.getSelectedIndex(),
                                 (jtaTexto.getText() == null ? "\u0000" : jtaTexto.getText()),
                                 (jtfArchivo.getText() == null ? "\u0000" : jtfArchivo.getText()),
-                                clave, sMatriz, jcbAlgoritmo.getSelectedIndex());
+                                clave, sMatriz, jcbAlgoritmo.getSelectedIndex(), jcbModo.getSelectedIndex());
                         escri.flush();
                         escri.close();
                     } catch (FileNotFoundException fnfe) {
@@ -539,6 +546,18 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
         });
         jpLayout.add(jcbAlgoritmo);
 
+        jlModo = new JLabel("Modo:");
+        jlModo.setBounds(10, 210, 150, 20);
+        jpLayout.add(jlModo);
+
+        String[] modos = {"", "Encriptar", "Desencriptar"};
+        jcbModo = new JComboBox<String>();
+        for (String m : modos) {
+            jcbModo.addItem(m);
+        }
+        jcbModo.setBounds(10, 230, 150, 20);
+
+
         if (new File("l_cfg.tmp").exists()) {
             l_cfg = new File("l_cfg.tmp");
             try {
@@ -552,9 +571,10 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                         }
                     }
                     String[] valores = datos.split(",");
-                    if (valores.length == 6) {
+                    if (valores.length == 7) {
                         int tipo;
                         int algo;
+                        int modo;
                         try {
                             tipo = Integer.parseInt(valores[0]);
                             if (tipo >= 0 && tipo <= 4) {
@@ -588,6 +608,9 @@ public class DataEnCrypto_GUI_ALC extends JFrame {
                                 algo = Integer.parseInt(valores[5]);
                                 if (algo < 0 || algo > 5) algo = 0;
                                 jcbAlgoritmo.setSelectedIndex(algo);
+                                modo = Integer.parseInt(valores[6]);
+                                if (modo < 0 || modo > 2) modo = 0;
+                                jcbModo.setSelectedIndex(modo);
                             }
                         } catch (NumberFormatException e) {
                             //el archivo no es escrito de una forma correcta y por lo tanto no hace sentido seguir leyendolo
