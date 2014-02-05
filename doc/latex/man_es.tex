@@ -18,8 +18,8 @@
 				\item $-p$ Prueba de cada cifra
 			\end{itemize}
 			$sin\ argumentos$ Se ejecta la interfaz grafica abriendo el Menu Principal. \\
-		\subsection{Para el Usuario Normal}
-		\subsection{Para el Usuario Avanzado}
+		%\subsection{Para el Usuario Normal}
+		%\subsection{Para el Usuario Avanzado}
 	\section{Algoritmos de Encriptacion}
 		Cada metodo de encriptacion tiene sus adventejas y desadventejas. Si no, todos usarian el mismo metodo siempre. No... Hay que analizar el grado de proteccion que uno necesita y el tiempo y recursos que puede dar en los dos lados. Con estos dos, uno puede elegir su metodo que va a usar en el momento. Recuerda que uno debe hacer este analisis cada vez que va a encriptar algo porque su propio situacion puede cambiar a algo mejor o algo peor.
 		\subsection{AutoLlave (AutoTexto)}
@@ -38,4 +38,12 @@
 			La cifra de matrices, tambien conocido la cifra de Hill es una cifra que usa multiplicacion entre matrices para encriptar y multiplicacion entre una matriz que representa el mensaje encriptado y la matriz inversa de la matriz usado para encriptar. Como usa multiplicacion de matrices para sus operaciones, esconde informacion del mensaje original para hacer su criptoanalisis mas dificil. Pero igual, de todas formas, esta cifra no debe ser considerado seguro ahora que computadoras tienen mucho poder. De todas formas, esta cifra es obsoleta.
 		\subsection{Vigenre}
 			La cifra vigenere es una implimentacion del cesar que lo hace mas dificil de crackear. En lugar de tener una solo constante o valor (llave) como el cesar, tiene un conjunto de llaves (valores, constantes, etc). Con cada nueva caracter en los datos, usa otro constante o llave en el conjunto de llaves hasta que no hay mas llaves y vuelve al inicio. De esta forma, con el mismo clave hasta la longtitud de la clave, el texto encifrado por AutoTexto sera igual que texto encifrado por este metodo. Desde alli es donde se usan metodos diferentes... El autotexto empieza a usar los datos, y este metodo, el vigenere solo repita la clave. Mientras que es mas dificil de crackear que el cesar, esto tambien no es una cifra recomendado para datos importantes.
+	\section{Licencia, Terminos y Condiciones de Uso}
+		Como usuario, Ud. tiene permiso de usar DataEnCrypto para cualquier uso que quiere. Los autores no toman responsabilidad por los acciones de los usuarios del software.
+		\\
+		Como usuario, Ud. tiene permiso de leer el codigo fuente, estudiarlo y modificarlo como quiere.
+		\\
+		Como usuario, Ud. tiene permiso de distribuir copias del codigo original si y solo si Ud. da credito al autores originales para su trabajo ("Codigo Original por Nishedcob et al." es sufficiente) y tambien se distriuba el codigo sin ningun costo al usuario final.
+		\\
+		Como usuario, Ud. tiene permiso de distribuir copias de su codigo modificado si y solo si Ud. da credito al autores originales para su trabajo ("Codigo Original por Nishedcob et al." es sufficiente) y tambien se distriuba el codigo sin ningun costo al usuario final.
 \end{document}

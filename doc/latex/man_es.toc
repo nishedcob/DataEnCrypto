@@ -1,11 +1,10 @@
 \contentsline {section}{\numberline {1}¿Que es DataEnCrypto?}{1}
 \contentsline {section}{\numberline {2}Modos de Operacion}{2}
 \contentsline {subsection}{\numberline {2.1}Argumentos por Consola}{2}
-\contentsline {subsection}{\numberline {2.2}Para el Usuario Normal}{2}
-\contentsline {subsection}{\numberline {2.3}Para el Usuario Avanzado}{2}
 \contentsline {section}{\numberline {3}Algoritmos de Encriptacion}{2}
 \contentsline {subsection}{\numberline {3.1}AutoLlave (AutoTexto)}{2}
 \contentsline {subsection}{\numberline {3.2}Cesar}{2}
-\contentsline {subsection}{\numberline {3.3}Librereta de Un Solo Uso}{3}
+\contentsline {subsection}{\numberline {3.3}Librereta de Un Solo Uso}{2}
 \contentsline {subsection}{\numberline {3.4}Matrices (Hill)}{3}
 \contentsline {subsection}{\numberline {3.5}Vigenre}{3}
+\contentsline {section}{\numberline {4}Licencia, Terminos y Condiciones de Uso}{3}
