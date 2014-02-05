@@ -58,6 +58,11 @@ final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
         L = this.crearLlave(tipo);
     }
 
+    /**
+     * Usando el tipo de llave, lea los datos de la forma necessario para crear un nueva llave
+     * @param tipo el tipo de llave que debemos generar
+     * @return la llave nueva
+     */
     private Llave crearLlave(byte tipo) {
         switch(tipo){
             case TIPO_LLAVE_CLAVE:
@@ -109,6 +114,10 @@ final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
         //return new Llave();
     }
 
+    /**
+     * Devuelve la llave encapsulado por este objeto
+     * @return la llave de este flujo
+     */
     public Llave getL(){
         return L;
     }
