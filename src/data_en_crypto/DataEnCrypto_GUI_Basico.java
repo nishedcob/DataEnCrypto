@@ -21,61 +21,109 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *
+ * Interfaz Basica
  * @author nyx
  */
 public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave_Tipos {
 
+    /**
+     * Panel de contenido
+     */
     JPanel jpDiseno;
 
+    /**
+     * Texto del titulo
+     */
     JLabel jlTitulo;
 
+    /**
+     * Marcadores de Entrada, Salida y Llave respectivamente
+     */
     JLabel jlEntrada, jlSalida, jlLlave;
 
+    /**
+     * Para facilitar lectura del caja de texto de entrada
+     */
     JScrollPane jspEntrada;
 
+    /**
+     * Caja de texto para mostrar la entrada
+     */
     JTextArea jtaEntrada;
 
+    /**
+     * Para facilitar lectura del caja de texto de salida
+     */
     JScrollPane jspSalida;
 
+    /**
+     * Caja de texto para mostrar la salida
+     */
     JTextArea jtaSalida;
 
-    JButton jbEntradaEliminar;
-
-    JButton jbEntradaBorrar;
-
+    /**
+     * Buton para mostrar la entrada
+     */
     JButton jbEntradaMostrar;
 
-    JButton jbSalidaEliminar;
-
-    JButton jbSalidaBorrar;
-
+    /**
+     * Buton para mostrar la salida
+     */
     JButton jbSalidaMostrar;
 
+    /**
+     * Campo para la dirreccion y lugar del archivo de entrada
+     */
     JTextField jtfEntrada;
 
+    /**
+     * Buton para seleccionar el archivo que uno quiere abrir
+     */
     JButton jbEntradaAbrir;
 
+    /**
+     * Campo para la dirreccion y lugar del archivo de salida
+     */
     JTextField jtfSalida;
 
+    /**
+     * Buton para seleccionar donde y el nombre del archivo en cual uno quiere guardar
+     */
     JButton jbSalidaGuardar;
 
+    /**
+     * Lugar para ingresar su clave
+     */
     JPasswordField jpfClave;
 
-    JTextField jtfLlave;
-
-    JButton jbLlaveAbrir;
-
+    /**
+     * Menu para seleccionar su algoritmo
+     */
     JComboBox<Object> jcbAlgoritmo;
 
+    /**
+     * Menu para seleccion su modo de operacion
+     */
     JComboBox jcbModo;
 
+    /**
+     * Buton para iniciar el processo
+     */
     JButton jbProcesar;
 
+    /**
+     * Buton para volver al menu anterior
+     */
     JButton jbAtras;
 
+    /**
+     * Buton para salir
+     */
     JButton jbSalir;
 
+    /**
+     * Constructor de la clase (dibuja todo)
+     */
     public DataEnCrypto_GUI_Basico() {
         super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA (GUI Basico)");
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -120,29 +168,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         jspSalida.setEnabled(true);
         jpDiseno.add(jspSalida);
 
-        /*jbEntradaEliminar = new JButton("Acectar");
-        jbEntradaEliminar.setBounds(10, 270, 90, 20);
-        jbEntradaEliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jtaEntrada.setText("");
-                jtfEntrada.setText("");
-            }
-        });
-        jpDiseno.add(jbEntradaEliminar);*/
-
-        /*jbEntradaBorrar = new JButton("Borrar");
-        jbEntradaBorrar.setBounds(110, 270, 85, 20);
-        jbEntradaBorrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jtaEntrada.setText("");
-            }
-        });
-        jpDiseno.add(jbEntradaBorrar);*/
-
         jbEntradaMostrar = new JButton("Mostrar");
-        //jbEntradaMostrar.setBounds(205, 270, 90, 20);
         jbEntradaMostrar.setBounds(10, 270, 285, 20);
         jbEntradaMostrar.addActionListener(new ActionListener() {
             @Override
@@ -166,29 +192,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         });
         jpDiseno.add(jbEntradaMostrar);
 
-        /*jbSalidaEliminar = new JButton("Acectar");
-        jbSalidaEliminar.setBounds(310, 270, 90, 20);
-        jbSalidaEliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jtaSalida.setText("");
-                jtfSalida.setText("");
-            }
-        });
-        jpDiseno.add(jbSalidaEliminar);*/
-
-        /*jbSalidaBorrar = new JButton("Borrar");
-        jbSalidaBorrar.setBounds(410, 270, 85, 20);
-        jbSalidaBorrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jtaSalida.setText("");
-            }
-        });
-        jpDiseno.add(jbSalidaBorrar);*/
-
         jbSalidaMostrar = new JButton("Mostrar");
-        //jbSalidaMostrar.setBounds(505, 270, 90, 20);
         jbSalidaMostrar.setBounds(310, 270, 285, 20);
         jbSalidaMostrar.addActionListener(new ActionListener() {
             @Override
@@ -255,24 +259,6 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         jpfClave = new JPasswordField();
         jpfClave.setBounds(10, 380, 285, 20);
         jpDiseno.add(jpfClave);
-
-        /*jtfLlave = new JTextField();
-        jtfLlave.setBounds(10, 380, 185, 20);
-        jpDiseno.add(jtfLlave);*/
-
-        /*jbLlaveAbrir = new JButton("Abrir");
-        jbLlaveAbrir.setBounds(285, 380, 90, 20);
-        jbLlaveAbrir.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser jfcSelector = new JFileChooser(jtfLlave.getText());
-                int op = jfcSelector.showOpenDialog(null);
-                if(op == JFileChooser.APPROVE_OPTION){
-                    jtfLlave.setText(jfcSelector.getSelectedFile().getAbsolutePath());
-                }
-            }
-        });
-        jpDiseno.add(jbLlaveAbrir);*/
 
         Object[] algoritmos = {"", "AutoTexto", "Cesar", "Librereta de un Solo Uso", "Vigenere"};
         jcbAlgoritmo = new JComboBox<Object>(algoritmos);
