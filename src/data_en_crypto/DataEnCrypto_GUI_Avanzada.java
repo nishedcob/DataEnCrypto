@@ -1,7 +1,11 @@
 package data_en_crypto;
 
 import data_en_crypto.flujos.entrada.E_Archivo;
+import data_en_crypto.flujos.entrada.E_Texto;
+import data_en_crypto.flujos.entrada.Entrada;
 import data_en_crypto.flujos.entrada.Entrada_Invalido_Exception;
+import data_en_crypto.flujos.llave.L_Archivo;
+import data_en_crypto.flujos.llave.L_Texto;
 import data_en_crypto.flujos.llave.Llave_Invalido_Exception;
 import data_en_crypto.flujos.llave.Llave_Tipos;
 
@@ -88,9 +92,14 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                         String e_data = (e_cfg[0].equals("1") ? e_cfg[1] :
                                 (e_cfg[0].equals("2") ? e_cfg[2] : ""));
                         if (e_data.equals("")) throw new Entrada_Invalido_Exception();
+                        String l_data = (l_cfg[0].equals("1") ? l_cfg[1] :
+                                (l_cfg[0].equals("2") ? l_cfg[2] :
+                                (l_cfg[0].equals("3") ? l_cfg[3] :
+                                (l_cfg[0].equals("4") ? l_cfg[4] : ""))));
                         byte l_tipo;
                         try {
                             l_tipo = Byte.parseByte(l_cfg[0]);
+                            Entrada llave;
                             switch (l_tipo){
                                 case 1:
                                     l_tipo = TIPO_LLAVE_LIBRERETA;
@@ -107,8 +116,25 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                                 default:
                                     throw new Llave_Invalido_Exception();
                             }
-                            if (l_tipo == -1) {
-                                //TODO
+                            byte alg = Byte.parseByte(l_cfg[5]);
+                            if (l_tipo == -1) switch (alg) {
+                                case 1:
+                                case 5:
+                                    llave = new L_Archivo(l_data, true, Llave_Tipos.TIPO_LLAVE_CLAVE);
+                                    break;
+                                case 2:
+                                    llave = new L_Archivo(l_data, true, Llave_Tipos.TIPO_LLAVE_NUMERICA);
+                                    break;
+                                case 3:
+                                    llave = new L_Archivo(l_data, true, Llave_Tipos.TIPO_LLAVE_LIBRERETA);
+                                    break;
+                                case 4:
+                                    llave = new L_Archivo(l_data, true, L_Texto.TIPO_LLAVE_MATRIZ);
+                                    break;
+                                default:
+                                    throw new Llave_Invalido_Exception();
+                            } else {
+                                llave = new L_Texto(l_data, null, l_tipo); //TODO (fx cnstr)
                             }
                             //TODO
                         } catch (NumberFormatException nfe) {
