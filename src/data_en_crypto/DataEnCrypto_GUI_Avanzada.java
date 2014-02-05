@@ -1,5 +1,6 @@
 package data_en_crypto;
 
+import data_en_crypto.cifras.*;
 import data_en_crypto.flujos.entrada.E_Archivo;
 import data_en_crypto.flujos.entrada.E_Texto;
 import data_en_crypto.flujos.entrada.Entrada;
@@ -45,6 +46,8 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
         llave_config = new DataEnCrypto_GUI_ALC();
     }
 
+    private String data;
+
     DataEnCrypto_GUI_ASC salida_config;
 
     /**
@@ -52,7 +55,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
      * @param e evento (click) que llamo a este metodo
      */
     private void configSalida(ActionEvent e) {
-        salida_config = new DataEnCrypto_GUI_ASC();
+        salida_config = new DataEnCrypto_GUI_ASC(data);
     }
 
     /**
@@ -86,7 +89,6 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                         String[] l_cfg = config_l.getData().split(",");
                         config_e.cerrar();
                         config_l.cerrar();
-                        System.gc();
                         if(e_cfg[0].equals("0")) throw new Entrada_Invalido_Exception("Error! Configuracion de Entrada no especifica su tipo.");
                         if(l_cfg[0].equals("0")) throw new Llave_Invalido_Exception("Error! Configuracion de Llave no especifica su tipo.");
                         String e_data = (e_cfg[0].equals("1") ? e_cfg[1] :
@@ -96,6 +98,14 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                                 (l_cfg[0].equals("2") ? l_cfg[2] :
                                 (l_cfg[0].equals("3") ? l_cfg[3] :
                                 (l_cfg[0].equals("4") ? l_cfg[4] : ""))));
+                        byte l_modo;
+                        try {
+                            l_modo = Byte.parseByte(l_cfg[6]);
+                            if (l_modo > 2) l_modo = 2;
+                            if (l_modo < 1) l_modo = 1;
+                        } catch (NumberFormatException e1) {
+                            l_modo = 1;
+                        }
                         byte l_tipo;
                         try {
                             l_tipo = Byte.parseByte(l_cfg[0]);
@@ -129,14 +139,44 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                                     llave = new L_Archivo(l_data, true, Llave_Tipos.TIPO_LLAVE_LIBRERETA);
                                     break;
                                 case 4:
-                                    llave = new L_Archivo(l_data, true, L_Texto.TIPO_LLAVE_MATRIZ);
+                                    llave = new L_Archivo(l_data, true, Llave_Tipos.TIPO_LLAVE_MATRIZ);
                                     break;
                                 default:
                                     throw new Llave_Invalido_Exception();
-                            } else {
-                                llave = new L_Texto(l_data, null, l_tipo); //TODO (fx cnstr)
+                            } else llave = new L_Texto(l_data, null, l_tipo);
+                            boolean texto = llave instanceof L_Texto;
+                            switch (alg) {
+                                case 1:
+                                    AutoTexto at;
+                                    if (texto) at = new AutoTexto(((L_Texto) llave).getL().getLIBRERETA());
+                                    else at = new AutoTexto(((L_Archivo) llave).getL().getLIBRERETA());
+                                    data = (l_modo == 1 ? at.encriptar(e_data) : at.decifrar(e_data));
+                                    break;
+                                case 2:
+                                    Cesar cs;
+                                    if (texto) cs = new Cesar(((L_Texto) llave).getL().getLLAVE_NUMERICA());
+                                    else cs = new Cesar(((L_Archivo) llave).getL().getLLAVE_NUMERICA());
+                                    data = (l_modo == 1 ? cs.encriptar(e_data) : cs.decifrar(e_data));
+                                    break;
+                                case 3:
+                                    Librereta_de_un_Solo_Uso lsu;
+                                    if (texto) lsu = new Librereta_de_un_Solo_Uso(((L_Texto) llave).getL().getLIBRERETA());
+                                    else lsu = new Librereta_de_un_Solo_Uso(((L_Archivo) llave).getL().getLIBRERETA());
+                                    data = (l_modo == 1 ? lsu.encriptar(e_data) : lsu.decifrar(e_data));
+                                    break;
+                                case 4:
+                                    Matrices mtr;
+                                    if (texto) mtr = new Matrices(((L_Texto) llave).getL().getLLAVE_MATRIZ());
+                                    else mtr = new Matrices(((L_Archivo) llave).getL().getLLAVE_MATRIZ());
+                                    data = (l_modo == 1 ? mtr.encriptar(e_data) : mtr.decifrar(e_data));
+                                    break;
+                                case 5:
+                                    Vigenere vig;
+                                    if (texto) vig = new Vigenere(((L_Texto) llave).getL().getLIBRERETA());
+                                    else vig = new Vigenere(((L_Archivo) llave).getL().getLIBRERETA());
+                                    data = (l_modo == 1 ? vig.encriptar(e_data) : vig.decifrar(e_data));
+                                    break;
                             }
-                            //TODO
                         } catch (NumberFormatException nfe) {
                             throw new Llave_Invalido_Exception("Tipo en Configuracion de Llave es Invalido", nfe);
                         }
