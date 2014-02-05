@@ -47,4 +47,16 @@ public class Entrada extends Flujo{
         super();
         lector = new Scanner(System.in);
     }
+
+    /**
+     * Crea un nuevo flujo de entrada con datos ya leidos.
+     *
+     * @param data datos para almacenar en este objeto
+     * @param lector el scanner que este entrada debe usar para leer
+     *               mas datos si es necessario
+     */
+    public Entrada(String data, Scanner lector) {
+        super(data);
+        this.lector = lector;
+    }
 }
