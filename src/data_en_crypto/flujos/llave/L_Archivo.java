@@ -8,21 +8,53 @@ package data_en_crypto.flujos.llave;
 
 import data_en_crypto.flujos.entrada.E_Archivo;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
- *
+ * Un flujo de entrada de llave para archivos
  * @author nyx
  */
 final public class L_Archivo extends E_Archivo implements Llave_Tipos {//Llave{
+    /**
+     * La llave encapsulado por este clase
+     */
     final private Llave L;
-    
+
+    /**
+     * Constructor para abrir un nuevo archivo de llave
+     * @param dir Directorio en donde se encuentra el archivo.
+     * @param nom Nombre del archivo.
+     * @param ext Extension del archivo.
+     * @param leerAlRAM ¿Debemos copiar todo el contenido del archivo al RAM?
+     * @param tipo el tipo de llave que debemos generar
+     * @throws FileNotFoundException si el archivo no fue encontrado
+     */
     public L_Archivo(String dir, String nom, String ext, boolean leerAlRAM, byte tipo) throws FileNotFoundException {
         super(dir, nom, ext, leerAlRAM);
         L = this.crearLlave(tipo);
     }
 
+    /**
+     * Crea un flujo de archivo de entrada con todo el path completo
+     * @param path todo el path completo
+     * @param leerAlRAM si debemos leer al RAM o no
+     * @param tipo el tipo de llave que debemos generar
+     * @throws FileNotFoundException si el archivo no fue encontrado
+     */
     public L_Archivo(String path, boolean leerAlRAM, byte tipo) throws FileNotFoundException {
         super(path, leerAlRAM);
+        L = this.crearLlave(tipo);
+    }
+
+    /**
+     * Crea un nuevo flujo de llave con datos ya leidos.
+     *
+     * @param data   datos para almacenar en este objeto
+     * @param lector el scanner que este entrada debe usar para leer
+     *               nuevos datos despues
+     */
+    public L_Archivo(String data, Scanner lector, byte tipo) {
+        super(data, lector);
         L = this.crearLlave(tipo);
     }
 
