@@ -8,6 +8,7 @@ package data_en_crypto.flujos.entrada;
 
 //import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 //import java.util.Scanner;
 
 /**
@@ -61,6 +62,12 @@ public class E_Archivo extends Entrada{
         }
     }
 
+    /**
+     * Crea un flujo de archivo de entrada con todo el path completo
+     * @param path todo el path completo
+     * @param leerAlRAM si debemos leer al RAM o no
+     * @throws FileNotFoundException
+     */
     public E_Archivo(String path, boolean leerAlRAM) throws FileNotFoundException {
         super(path);
         String sep = System.getProperty("file.separator");
@@ -73,6 +80,21 @@ public class E_Archivo extends Entrada{
         } else {
             ESTA_EN_RAM = false;
         }
+    }
+
+    /**
+     * Crea un nuevo flujo de entrada con datos ya leidos.
+     *
+     * @param data   datos para almacenar en este objeto
+     * @param lector el scanner que este entrada debe usar para leer
+     *               mas datos si es necessario
+     */
+    public E_Archivo(String data, Scanner lector) {
+        super(data, lector);
+        this.DIR = null;
+        this.NOM = null;
+        this.EXT = null;
+        this.ESTA_EN_RAM = true;
     }
 
     /**
@@ -153,6 +175,9 @@ public class E_Archivo extends Entrada{
         return ESTA_EN_RAM;
     }
 
+    /**
+     * Cierre el escanner sobre este archivo.
+     */
     public void cerrar() {
         super.lector.close();
     }
