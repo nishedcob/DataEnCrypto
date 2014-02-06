@@ -87,12 +87,13 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
         });
         jpLayout.add(jbInterfazAvanzada);
 
-        jbInterfazBasica = new JButton("Interfaz Basica");
-        jbInterfazBasica.setBounds(37, 163, 140, 20);
+        jbInterfazBasica = new JButton("Informacion");
+        jbInterfazBasica.setBounds(22, 163, 170, 20);
         jbInterfazBasica.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dec_gui_b = new DataEnCrypto_GUI_Basico();
+                //dec_gui_b = new DataEnCrypto_GUI_Basico();
+                new DataEnCrypto_GUI_Info();
             }
         });
         jpLayout.add(jbInterfazBasica);
