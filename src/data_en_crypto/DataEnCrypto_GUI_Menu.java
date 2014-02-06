@@ -44,6 +44,7 @@ public class DataEnCrypto_GUI_Menu extends JFrame {
     JButton jbSalir;
 
     /**
+     * @deprecated
      * Objeto que guarda el interfaz basica
      */
     DataEnCrypto_GUI_Basico dec_gui_b;

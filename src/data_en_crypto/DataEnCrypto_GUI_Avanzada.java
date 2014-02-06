@@ -87,7 +87,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                     jtaConsola.setText(jtaConsola.getText() + "Tratando de cargar Configuracion de Llave al RAM.\n");
                     try {
                         E_Archivo config_l = new E_Archivo("l_cfg.tmp", true);
-                        jtaConsola.setText(jtaConsola.getText() + "Cargo Configuracion de Entrada con exito.\n");
+                        jtaConsola.setText(jtaConsola.getText() + "Cargo Configuracion de Llave con exito.\n");
                         String[] e_cfg = config_e.getData().split(",");
                         String[] l_cfg = config_l.getData().split(",");
                         config_e.cerrar();
