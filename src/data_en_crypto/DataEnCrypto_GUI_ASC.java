@@ -133,16 +133,14 @@ public class DataEnCrypto_GUI_ASC extends JFrame {
         jbGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (new File(jtfArchivo.getText()).exists()){
-                    File arch = new File(jtfArchivo.getText());
-                    try {
-                        PrintWriter ae = new PrintWriter(arch);
-                        ae.print(DATA);
-                        ae.flush();
-                        ae.close();
-                    } catch (FileNotFoundException fnfe) {
-                        jtaMuestra.setText("Archivo " + arch.getAbsolutePath() + " no fue encontrado.");
-                    }
+                File arch = new File(jtfArchivo.getText());
+                try {
+                    PrintWriter ae = new PrintWriter(arch);
+                    ae.print(DATA);
+                    ae.flush();
+                    ae.close();
+                } catch (FileNotFoundException fnfe) {
+                    jtaMuestra.setText("Archivo " + arch.getAbsolutePath() + " no fue encontrado.");
                 }
             }
         });

@@ -42,7 +42,7 @@ public class S_Texto extends Salida{
      * @param o el objeto para imprimir
      */
     public void imprimirln(Object o){
-        System.out.println(o);
+        System.out.println(o + "\n");
     }
     
     /**
@@ -51,7 +51,7 @@ public class S_Texto extends Salida{
      */
     @Override
     public void imprimirln(String s){
-        System.out.println(s);
+        System.out.println(s + "\n");
     }
     
     /**

@@ -30,6 +30,9 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
         entrada_config = new DataEnCrypto_GUI_AEC();
     }
 
+    /**
+     * Un objeto para guardar la configuracion de la entrada y dar una interfaz grafica
+     */
     DataEnCrypto_GUI_ALC llave_config;
 
     /**
@@ -40,8 +43,14 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
         llave_config = new DataEnCrypto_GUI_ALC();
     }
 
+    /**
+     * para guardar datos del proceso realizado
+     */
     private String data;
 
+    /**
+     * Un objeto para guardar la configuracion de la entrada y dar una interfaz grafica
+     */
     DataEnCrypto_GUI_ASC salida_config;
 
     /**

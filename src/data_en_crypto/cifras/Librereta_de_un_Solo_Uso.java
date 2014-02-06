@@ -76,19 +76,7 @@ public class Librereta_de_un_Solo_Uso implements Cifras{
         String salida = "";
         int p = 0;
         while(j < LIBRERETA.length() && p < texto.length()){
-//            int c  = texto.charAt(p) - LIBRERETA.charAt(j);
-//            /*while(c < 0){
-//                c += 65536;
-//            }*/
-//            System.out.println("txt val @ p: " + (int)(texto.charAt(p)));
-//            System.out.println("lib val @ j: " + (int)(LIBRERETA.charAt(j)));
-//            System.out.println("c: " + c);
-//            if(c < 0){
-//                c = LIBRERETA.charAt(j) - texto.charAt(p);
-//                System.out.println("c: " + c);
-//            }
             salida += (char)((((int)texto.charAt(p)) - ((int)LIBRERETA.charAt(j))) % 65536);
-//            salida += (char)(c % 65536);
             j++; p++;
         }
         return salida;
