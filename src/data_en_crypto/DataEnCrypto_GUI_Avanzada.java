@@ -130,6 +130,7 @@ public class DataEnCrypto_GUI_Avanzada extends JFrame implements Llave_Tipos {
                                     throw new Llave_Invalido_Exception();
                             }
                             byte alg = Byte.parseByte(l_cfg[5]);
+                            if (alg == 2) l_tipo = TIPO_LLAVE_NUMERICA;
                             if (l_tipo == -1) switch (alg) {
                                 case 1:
                                 case 5:
