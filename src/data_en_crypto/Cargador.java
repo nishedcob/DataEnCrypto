@@ -30,7 +30,7 @@ public class Cargador {
         } else if (existe("v", args) || existe('v', args)){
             System.out.println("DataEnCrypto Version: " + getVersion());
         } else {
-            DataEnCrypto_GUI_Menu menu = new DataEnCrypto_GUI_Menu();
+            DataEnCrypto_GUI_Basico decgb = new DataEnCrypto_GUI_Basico();
         }
     }
 
