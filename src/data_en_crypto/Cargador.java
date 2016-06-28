@@ -10,7 +10,7 @@ public class Cargador {
     /**
      * Numero de version del Programa.
      */
-    final static byte[] VERSION = {0, 7, 5};
+    final static String[] VERSION = {"0", "8", "0", "rc2"};
     
     /**
      * Metodo principal del cargador -- este metodo carga el resto del programa
@@ -81,7 +81,12 @@ public class Cargador {
         try{
             ver += VERSION[0];
             for(byte c = 1; c < VERSION.length; c++){
-                ver += "." + VERSION[c];
+                try {
+                    Integer.parseInt(VERSION[c]);
+                    ver += "." + VERSION[c];
+                } catch (NumberFormatException nfe) {
+                    ver += "-" + VERSION[c];
+                }
             }
         } catch (NullPointerException npe) {
             return "No existe numero de version.";

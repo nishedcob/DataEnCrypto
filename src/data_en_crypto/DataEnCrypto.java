@@ -70,6 +70,18 @@ public class DataEnCrypto {
         System.out.println("Decifrado:  " + salida);
         //</editor-fold>
 
+        System.out.println();
+
+        //<editor-fold defaultstate="collapsed" desc=" AutoTexto -- funciona ">
+        System.out.println("---AutoTexto---");
+        System.out.println("Usando clave!");
+        AutoTexto at = new AutoTexto(clave);
+        salida = at.encriptar(texto);
+        System.out.println("Encryptado: " + salida);
+        salida = at.decifrar(salida);
+        System.out.println("Decifrado:  " + salida);
+        //</editor-fold>
+
     }
     //</editor-fold>
 

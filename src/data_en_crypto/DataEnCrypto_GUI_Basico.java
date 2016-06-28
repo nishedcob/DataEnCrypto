@@ -1,6 +1,7 @@
 
 package data_en_crypto;
 
+import data_en_crypto.cifras.AutoTexto;
 import data_en_crypto.cifras.Librereta_de_un_Solo_Uso;
 import data_en_crypto.cifras.Vigenere;
 import data_en_crypto.flujos.llave.L_Texto;
@@ -13,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -25,6 +27,9 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
     private final JScrollPane jspLlave;
     private final JLabel jlCifra;
     private final JLabel jlModo;
+    private final JTextField jtfArchivoEntrada, jtfArchivoLlave, jtfArchivoSalida;
+    private final JButton jbSelecionarArchivoEntrada, jbSelecionarArchivoLlave, jbSelecionarArchivoSalida;
+    private final JButton jbCopiarArchivoEntrada, jbCopiarArchivoLlave, jbGuardarArchivoSalida;
     /**
      * Panel de contenido
      */
@@ -124,10 +129,11 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
     public DataEnCrypto_GUI_Basico() {
         super("DataEnCrypto v" + Cargador.getVersion() + " ALPHA (GUI Basico)");
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        this.setSize(1000, 500);
+        this.setSize(1300, 500);
 
         gbl = new GridBagLayout();
         gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
         int fila = 0;
         final int COL1 = 0, COL2 = 1, COL3 = 2, COL4 = 3, COL5 = 4, COL6 = 5;
 
@@ -191,13 +197,187 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         gbc.gridx = COL5;
         jpDiseno.add(jspSalida, gbc);
 
+        jtfArchivoEntrada = new JTextField(20);
         gbc.gridwidth = 1;
+        gbc.gridy = fila++;
+        gbc.gridx = COL1;
+        this.add(jtfArchivoEntrada, gbc);
+
+        jbSelecionarArchivoEntrada = new JButton("Selecionar Archivo");
+        jbSelecionarArchivoEntrada.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfc = new JFileChooser(DataEnCrypto_GUI_Basico.this.jtfArchivoEntrada.getText());
+                int abrir = jfc.showDialog(null, "Abrir");
+                if (abrir == JFileChooser.APPROVE_OPTION) {
+                    DataEnCrypto_GUI_Basico.this.jtfArchivoEntrada.setText(jfc.getSelectedFile().getAbsolutePath());
+                    Scanner sc;
+                    try {
+                        sc = new Scanner(jfc.getSelectedFile());
+                    } catch (FileNotFoundException fnfe) {
+                        JOptionPane.showMessageDialog(null, "No se pudo abrir el archivo: "
+                                + jfc.getSelectedFile().getAbsolutePath(), "No se pudo abrir archivo.",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    if (sc == null) return;
+                    else {
+                        DataEnCrypto_GUI_Basico.this.jtfArchivoEntrada.setText(jfc.getSelectedFile().getAbsolutePath());
+                        String data = "";
+                        while (sc.hasNextLine()) {
+                            data += sc.nextLine() + "\n";
+                        }
+                        DataEnCrypto_GUI_Basico.this.jtaEntrada.setText(data);
+                    }
+
+                }
+            }
+        });
+        gbc.gridx = COL2;
+        this.add(jbSelecionarArchivoEntrada, gbc);
+
+        jtfArchivoLlave = new JTextField(20);
+        gbc.gridx = COL3;
+        this.add(jtfArchivoLlave, gbc);
+
+        jbSelecionarArchivoLlave = new JButton("Selecionar Archivo");
+        jbSelecionarArchivoLlave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfc = new JFileChooser(DataEnCrypto_GUI_Basico.this.jtfArchivoLlave.getText());
+                int abrir = jfc.showDialog(null, "Abrir");
+                if (abrir == JFileChooser.APPROVE_OPTION) {
+                    DataEnCrypto_GUI_Basico.this.jtfArchivoLlave.setText(jfc.getSelectedFile().getAbsolutePath());
+                    Scanner sc;
+                    try {
+                        sc = new Scanner(jfc.getSelectedFile());
+                    } catch (FileNotFoundException fnfe) {
+                        JOptionPane.showMessageDialog(null, "No se pudo abrir el archivo: "
+                                        + jfc.getSelectedFile().getAbsolutePath(), "No se pudo abrir archivo.",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    if (sc == null) return;
+                    else {
+                        DataEnCrypto_GUI_Basico.this.jtfArchivoLlave.setText(jfc.getSelectedFile().getAbsolutePath());
+                        String data = "";
+                        while (sc.hasNextLine()) {
+                            data += sc.nextLine() + "\n";
+                        }
+                        DataEnCrypto_GUI_Basico.this.jtaLlave.setText(data);
+                    }
+
+                }
+            }
+        });
+        gbc.gridx = COL4;
+        this.add(jbSelecionarArchivoLlave, gbc);
+
+        jtfArchivoSalida = new JTextField(20);
+        gbc.gridx = COL5;
+        this.add(jtfArchivoSalida, gbc);
+
+        jbSelecionarArchivoSalida = new JButton("Selecionar Archivo");
+        jbSelecionarArchivoSalida.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfc = new JFileChooser(DataEnCrypto_GUI_Basico.this.jtfArchivoSalida.getText());
+                int guardar = jfc.showDialog(null, "Guardar");
+                if (guardar == JFileChooser.APPROVE_OPTION) {
+                    PrintWriter printWriter;
+                    try {
+                        printWriter = new PrintWriter(jfc.getSelectedFile());
+                    } catch (FileNotFoundException fnfe) {
+                        JOptionPane.showMessageDialog(null, "No se pudo guardar el archivo: "
+                                        + jfc.getSelectedFile().getAbsolutePath(), "No se pudo guardar archivo.",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    if (printWriter == null) return;
+                    DataEnCrypto_GUI_Basico.this.jtfArchivoSalida.setText(jfc.getSelectedFile().getAbsolutePath());
+                    printWriter.write(DataEnCrypto_GUI_Basico.this.jtaSalida.getText());
+                    printWriter.flush();
+                    printWriter.close();
+                }
+            }
+        });
+        gbc.gridx = COL6;
+        this.add(jbSelecionarArchivoSalida, gbc);
+
+        jbCopiarArchivoEntrada = new JButton("Copiar Entrada");
+        jbCopiarArchivoEntrada.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Scanner sc;
+                try {
+                    sc = new Scanner(new File(jtfArchivoEntrada.getText()));
+                } catch (FileNotFoundException fnfe) {
+                    JOptionPane.showMessageDialog(null, "No se pudo abrir el archivo: "
+                                    + jtfArchivoEntrada.getText(), "No se pudo abrir archivo.",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                String data = "";
+                while (sc.hasNextLine()) {
+                    data += sc.nextLine() + "\n";
+                }
+                jtaEntrada.setText(data);
+            }
+        });
+        gbc.gridx = COL1;
+        gbc.gridwidth = 2;
+        gbc.gridy = fila++;
+        this.add(jbCopiarArchivoEntrada, gbc);
+
+        jbCopiarArchivoLlave = new JButton("Copiar Llave");
+        jbCopiarArchivoLlave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Scanner sc;
+                try {
+                    sc = new Scanner(new File(jtfArchivoLlave.getText()));
+                } catch (FileNotFoundException fnfe) {
+                    JOptionPane.showMessageDialog(null, "No se pudo abrir el archivo: "
+                                    + jtfArchivoLlave.getText(), "No se pudo abrir archivo.",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                String data = "";
+                while (sc.hasNextLine()) {
+                    data += sc.nextLine() + "\n";
+                }
+                jtaLlave.setText(data);
+            }
+        });
+        gbc.gridx = COL3;
+        this.add(jbCopiarArchivoLlave, gbc);
+
+        jbGuardarArchivoSalida = new JButton("Guardar Salida");
+        jbGuardarArchivoSalida.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PrintWriter pw;
+                try {
+                    pw = new PrintWriter(jtfArchivoSalida.getText());
+                } catch (FileNotFoundException fnfe) {
+                    JOptionPane.showMessageDialog(null, "No se pudo guardar el archivo: "
+                                    + jtfArchivoLlave.getText(), "No se pudo guardar archivo.",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pw.write(jtaSalida.getText());
+                pw.flush();
+                pw.close();
+            }
+        });
+
         jlCifra = new JLabel("Cifra");
+        gbc.gridwidth = 1;
         gbc.gridx = COL1;
         gbc.gridy = fila++;
         jpDiseno.add(jlCifra, gbc);
 
-        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere"};
+        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere", "AutoTexto"};
         jcbAlgoritmo = new JComboBox(algoritmos);
         gbc.gridx = COL2;
         jpDiseno.add(jcbAlgoritmo, gbc);
@@ -236,6 +416,14 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 salida = vig.encriptar(entrada);
                             } else {
                                 salida = vig.decifrar(entrada);
+                            }
+                            break;
+                        case 3:
+                            AutoTexto at = new AutoTexto(llave);
+                            if(encriptar) {
+                                salida = at.encriptar(entrada);
+                            } else {
+                                salida = at.decifrar(entrada);
                             }
                             break;
                     }
