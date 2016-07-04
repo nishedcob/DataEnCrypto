@@ -44,6 +44,8 @@ public class DataEnCrypto {
         System.out.println("Clave: " + clave);
         String librereta = "!odnuM aloH";
         System.out.println("Librereta: " + librereta);
+        byte llave = 1;
+        System.out.println("Llave: " + llave);
         System.out.println();
 
         //<editor-fold defaultstate="collapsed" desc=" Librereta de Un Solo Uso -- funciona ">
@@ -79,6 +81,18 @@ public class DataEnCrypto {
         salida = at.encriptar(texto);
         System.out.println("Encryptado: " + salida);
         salida = at.decifrar(salida);
+        System.out.println("Decifrado:  " + salida);
+        //</editor-fold>
+
+        System.out.println();
+
+        //<editor-fold defaultstate="collapsed" desc=" Cesar -- funciona">
+        System.out.println("---Cesar---");
+        System.out.println("Usando llave!");
+        Cesar ces = new Cesar(llave);
+        salida = ces.encriptar(texto);
+        System.out.println("Encryptado: " + salida);
+        salida = ces.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
         //</editor-fold>
 

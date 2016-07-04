@@ -2,6 +2,7 @@
 package data_en_crypto;
 
 import data_en_crypto.cifras.AutoTexto;
+import data_en_crypto.cifras.Cesar;
 import data_en_crypto.cifras.Librereta_de_un_Solo_Uso;
 import data_en_crypto.cifras.Vigenere;
 import data_en_crypto.flujos.llave.L_Texto;
@@ -370,6 +371,8 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                 pw.close();
             }
         });
+        gbc.gridx = COL5;
+        this.add(jbGuardarArchivoSalida, gbc);
 
         jlCifra = new JLabel("Cifra");
         gbc.gridwidth = 1;
@@ -377,7 +380,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         gbc.gridy = fila++;
         jpDiseno.add(jlCifra, gbc);
 
-        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere", "AutoTexto"};
+        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere", "AutoTexto", "Cesar"};
         jcbAlgoritmo = new JComboBox(algoritmos);
         gbc.gridx = COL2;
         jpDiseno.add(jcbAlgoritmo, gbc);
@@ -426,11 +429,26 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 salida = at.decifrar(entrada);
                             }
                             break;
+                        case 4:
+                            char ck = xor(llave);
+                            Cesar c = new Cesar(ck);
+                            if(encriptar) {
+                                salida = c.encriptar(entrada);
+                            } else {
+                                salida = c.decifrar(entrada);
+                            }
+                            break;
                     }
                     jtaSalida.setText(salida);
                 } else {
                     JOptionPane.showMessageDialog(null, "Falta llenar un campo", "Falta llenar un campo", JOptionPane.INFORMATION_MESSAGE);
                 }
+            }
+
+            private char xor(String llave) {
+                char c = 0;
+                for (char l : llave.toCharArray()) c ^= l;
+                return c;
             }
         });
         gbc.gridx = COL5;
