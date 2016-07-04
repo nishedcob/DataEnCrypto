@@ -1,10 +1,7 @@
 
 package data_en_crypto;
 
-import data_en_crypto.cifras.AutoTexto;
-import data_en_crypto.cifras.Cesar;
-import data_en_crypto.cifras.Librereta_de_un_Solo_Uso;
-import data_en_crypto.cifras.Vigenere;
+import data_en_crypto.cifras.*;
 import data_en_crypto.flujos.llave.L_Texto;
 import data_en_crypto.flujos.llave.Llave_Tipos;
 
@@ -31,6 +28,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
     private final JTextField jtfArchivoEntrada, jtfArchivoLlave, jtfArchivoSalida;
     private final JButton jbSelecionarArchivoEntrada, jbSelecionarArchivoLlave, jbSelecionarArchivoSalida;
     private final JButton jbCopiarArchivoEntrada, jbCopiarArchivoLlave, jbGuardarArchivoSalida;
+    private final JButton jbCopiarSalidaEntrada;
     /**
      * Panel de contenido
      */
@@ -380,7 +378,7 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
         gbc.gridy = fila++;
         jpDiseno.add(jlCifra, gbc);
 
-        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere", "AutoTexto", "Cesar"};
+        String[] algoritmos = {"", "Librereta de un Solo Uso", "Vigenere", "AutoTexto", "Cesar", "Matrices"};
         jcbAlgoritmo = new JComboBox(algoritmos);
         gbc.gridx = COL2;
         jpDiseno.add(jcbAlgoritmo, gbc);
@@ -438,6 +436,14 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                                 salida = c.decifrar(entrada);
                             }
                             break;
+                        case 5:
+                            Matrices m = new Matrices(texto_a_matriz(llave));
+                            if(encriptar) {
+                                salida = m.encriptar(entrada);
+                            } else {
+                                salida = m.decifrar(entrada.substring(0, entrada.length()-1));
+                            }
+                            break;
                     }
                     jtaSalida.setText(salida);
                 } else {
@@ -449,6 +455,34 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
                 char c = 0;
                 for (char l : llave.toCharArray()) c ^= l;
                 return c;
+            }
+
+            private int[][] texto_a_matriz(String texto) {
+                String[] filas = texto.split("\n");
+                int[][] matriz = new int[filas.length][filas.length];
+                int f = 0;
+                for (String fila : filas) {
+                    int c = 0;
+                    String[] celdas = fila.split(" ");
+                    for (String celda : celdas) {
+                        if (c >= filas.length) break;
+                        try {
+                            matriz[f][c] = Integer.parseInt(celda);
+                        } catch (NumberFormatException nfe) {
+                            matriz[f][c] = 0;
+                        }
+                        c++;
+                    }
+                    if (c < filas.length) for (; c < filas.length; c++) matriz[f][c] = 0;
+                    f++;
+                }
+                return matriz;
+            }
+
+            private int proximoCuadrado(int num) {
+                int n = 0;
+                while (Math.pow(n, 2) < num) n++;
+                return n;
             }
         });
         gbc.gridx = COL5;
@@ -463,6 +497,18 @@ public class DataEnCrypto_GUI_Basico extends javax.swing.JFrame implements Llave
             }
         });
         jpDiseno.add(jbSalir, gbc);
+
+        jbCopiarSalidaEntrada = new JButton("Copiar salida a la entrada");
+        gbc.gridx = COL1;
+        gbc.gridy = fila;
+        gbc.gridwidth = 6;
+        jbCopiarSalidaEntrada.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaEntrada.setText(jtaSalida.getText());
+            }
+        });
+        jpDiseno.add(jbCopiarSalidaEntrada, gbc);
 
         this.setVisible(true);
     }

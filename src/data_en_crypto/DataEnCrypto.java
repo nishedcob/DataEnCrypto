@@ -10,6 +10,7 @@ import data_en_crypto.flujos.salida.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Nucleo para el programa para cuando corre sin interfaz grafica.
@@ -46,6 +47,19 @@ public class DataEnCrypto {
         System.out.println("Librereta: " + librereta);
         byte llave = 1;
         System.out.println("Llave: " + llave);
+        int[][] matriz = {
+                {4, 3, 3},
+                {3, 2, 1},
+                {1, 1, 3}
+        };
+        imprimir_matriz("Matriz:\n", matriz);
+        char[][] tabla_llave = {
+                //0    1    2   2/3  3/4  4/5  5/6  6/7  6/8  7/9   8    9
+                {'E', 'T', '\u0000', 'A', 'O', 'N', '\u0000', 'R', 'I', 'S'}, //0
+                {'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'}, //1 (2#)
+                {'P', 'Q', ' ', 'U', 'V', 'W', 'X', 'Y', 'Z', '.'} //2 (6#)
+        };
+        imprimir_matriz("Tabla:\n", tabla_llave);
         System.out.println();
 
         //<editor-fold defaultstate="collapsed" desc=" Librereta de Un Solo Uso -- funciona ">
@@ -94,6 +108,23 @@ public class DataEnCrypto {
         System.out.println("Encryptado: " + salida);
         salida = ces.decifrar(salida);
         System.out.println("Decifrado:  " + salida);
+        //</editor-fold>
+
+        System.out.println();
+
+        //<editor-fold defaultstate="collapsed" desc=" Matrices -- funciona ">
+        //*
+        System.out.println("---Matrices---");
+        System.out.println("Usando matriz!");
+        Matrices mat = new Matrices(matriz);
+        //System.out.println("DET: " + mat.getDET());
+        if (mat.getLLAVE() != null) {
+            salida = mat.encriptar(texto);
+            System.out.println("Encryptado: " + salida);
+            salida = mat.decifrar(salida);
+            System.out.println("Decifrado:  " + salida);
+        }
+        //*/
         //</editor-fold>
 
     }
